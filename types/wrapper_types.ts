@@ -6,7 +6,7 @@ import {
   SkillDetail,
   SkillTarget,
   SkillTrigger,
-} from "./proto/proto_master"
+} from "../proto/proto_master"
 
 export type WapCard = Card & {
   skill1: WapSkill

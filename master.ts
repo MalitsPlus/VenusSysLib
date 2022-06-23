@@ -13,7 +13,7 @@ import {
   WapSkillDetail,
   WapSkillEfficacy,
   WapSkillLevel,
-} from "./wrapper_types"
+} from "./types/wrapper_types"
 import protoCard from "./database/Card.json"
 import protoSkill from "./database/Skill.json"
 import protoSkillEfficacy from "./database/SkillEfficacy.json"
