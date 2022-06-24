@@ -14,17 +14,26 @@ import {
   WapSkillEfficacy,
   WapSkillLevel,
 } from "./types/wrapper_types"
+import {
+  QuestBase,
+} from "./types/base_types"
 import protoCard from "./database/Card.json"
 import protoSkill from "./database/Skill.json"
 import protoSkillEfficacy from "./database/SkillEfficacy.json"
 import protoSkillTarget from "./database/SkillTarget.json"
 import protoSkillTrigger from "./database/SkillTrigger.json"
+import protoQuest from "./database/Quest.json"
 
 const rawCards: Card[] = protoCard
 const rawSkills: Skill[] = protoSkill
 const rawSkillEfficacy: SkillEfficacy[] = protoSkillEfficacy
 const rawSkillTarget: SkillTarget[] = protoSkillTarget
 const rawSkillTrigger: SkillTrigger[] = protoSkillTrigger
+const rawQuest: QuestBase[] = protoQuest
+
+export const getQuests = (): QuestBase[] => {
+  return rawQuest
+}
 
 export const getCards = (): WapCard[] => {
   let wappedCards: WapCard[] = []
