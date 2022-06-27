@@ -1,43 +1,33 @@
+import * as master from "./master"
 import {
+  Accessory,
   Card,
-  Skill,
   SkillDetail,
   SkillEfficacy,
   SkillLevel,
-  SkillTarget,
-  SkillTrigger,
-} from "./proto/proto_master"
+} from "../proto/proto_master"
 import {
   WapCard,
   WapSkill,
   WapSkillDetail,
   WapSkillEfficacy,
   WapSkillLevel,
-} from "./types/wrapper_types"
+} from "../types/wrapper_types"
 import {
   QuestBase,
-} from "./types/base_types"
-import protoCard from "./database/Card.json"
-import protoSkill from "./database/Skill.json"
-import protoSkillEfficacy from "./database/SkillEfficacy.json"
-import protoSkillTarget from "./database/SkillTarget.json"
-import protoSkillTrigger from "./database/SkillTrigger.json"
-import protoQuest from "./database/Quest.json"
+} from "../types/base_types"
 
-const rawCards: Card[] = protoCard
-const rawSkills: Skill[] = protoSkill
-const rawSkillEfficacy: SkillEfficacy[] = protoSkillEfficacy
-const rawSkillTarget: SkillTarget[] = protoSkillTarget
-const rawSkillTrigger: SkillTrigger[] = protoSkillTrigger
-const rawQuest: QuestBase[] = protoQuest
-
-export const getQuests = (): QuestBase[] => {
-  return rawQuest
+const getAccessories = (): Accessory[] => {
+  return master.rawAccessory
 }
 
-export const getCards = (): WapCard[] => {
+const getQuests = (): QuestBase[] => {
+  return master.rawQuest
+}
+
+const getCards = (): WapCard[] => {
   let wappedCards: WapCard[] = []
-  rawCards.forEach(element => {
+  master.rawCards.forEach(element => {
     wappedCards.push(getWapCard(element))
   })
   return wappedCards
@@ -58,7 +48,7 @@ const getWapCard = (
 }
 
 function getSkill(id: string): WapSkill {
-  let _rawSkill = rawSkills.find(it => it.id === id)
+  let _rawSkill = master.rawSkills.find(it => it.id === id)
   let wappedLevels: WapSkillLevel[] = []
   _rawSkill.levels.forEach(element => {
     let wappedLevel = getWapSkillLevel(element)
@@ -73,7 +63,7 @@ function getSkill(id: string): WapSkill {
 const getWapSkillLevel = (
   original: SkillLevel
 ): WapSkillLevel => {
-  let _trigger = rawSkillTrigger.find(it => it.id === original.triggerId)
+  let _trigger = master.rawSkillTrigger.find(it => it.id === original.triggerId)
   let wappedSkillDetails: WapSkillDetail[] = []
   original.skillDetails.forEach(element => {
     let wappedDetail = getWapSkillDetail(element)
@@ -89,8 +79,8 @@ const getWapSkillLevel = (
 const getWapSkillDetail = (
   original: SkillDetail
 ): WapSkillDetail => {
-  let _trigger = rawSkillTrigger.find(it => it.id === original.triggerId)
-  let _rawEfficacy = rawSkillEfficacy.find(it => it.id === original.efficacyId)
+  let _trigger = master.rawSkillTrigger.find(it => it.id === original.triggerId)
+  let _rawEfficacy = master.rawSkillEfficacy.find(it => it.id === original.efficacyId)
   let _efficacy = getWapSkillEfficacy(_rawEfficacy)
   return {
     ...original,
@@ -102,9 +92,15 @@ const getWapSkillDetail = (
 const getWapSkillEfficacy = (
   original: SkillEfficacy
 ): WapSkillEfficacy => {
-  let _target = rawSkillTarget.find(it => it.id === original.skillTargetId)
+  let _target = master.rawSkillTarget.find(it => it.id === original.skillTargetId)
   return {
     ...original,
     skillTarget: _target,
   }
+}
+
+export {
+  getAccessories,
+  getQuests,
+  getCards,
 }

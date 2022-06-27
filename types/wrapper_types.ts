@@ -31,3 +31,12 @@ export type WapSkillDetail = SkillDetail & {
 export type WapSkillEfficacy = SkillEfficacy & {
   skillTarget?: SkillTarget
 }
+
+// TODO: Photo
+export type WapPhotoAbility = {
+  photoAbilityId: string
+  effectValue: string
+  missionId: string
+  grade: number
+  isAvailable: boolean
+}

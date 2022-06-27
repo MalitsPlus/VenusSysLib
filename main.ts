@@ -1,27 +1,14 @@
-import { Skill } from "./proto/proto_master"
-import rawSkill from "./database/Skill.json"
 import {
-  getCards,
-  getQuests,
-} from "./master"
+  getCard,
+} from "./data/wrapper_data"
+import { setting } from "./settings/user_settings"
 import {
   UserCard,
 } from "./types/user_types"
+import {
+  getUserCard,
+} from "./utils/card_utils"
 
-const card = getCards()[0]
-const quest = getQuests()[0]
-const userCard: UserCard = {
-  ...card,
-  level: 170,
-  rarity: 9,
-  vocal: 38000,
-  dance: 26000,
-  visual: 20000,
-  stamina: 3000,
-  mental: 100,
-  technique: 100,
-  skillLevel1: 4,
-  skillLevel2: 4,
-  skillLevel3: 2,
-}
+const card = getCard("card-ai-05-idol-00")
+const userCard: UserCard = getUserCard("card-ai-05-idol-00")
 let a = 1
