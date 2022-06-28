@@ -17,7 +17,7 @@ export type UserDeck = {
     index: number,
     userCard: UserCard,
   }[],
-  userEquipments: {
+  userEquipments?: {
     index: number,
     equipment: Equipment,
   }[],

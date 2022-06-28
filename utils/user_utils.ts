@@ -1,5 +1,7 @@
+import { v4 as uuidv4 } from "uuid"
 import {
   UserCard,
+  UserDeck,
 } from "../types/user_types"
 import {
   getCard,
@@ -9,25 +11,12 @@ import {
   calcStamina,
 } from "./calc_utils"
 import {
-  setting,
   getCardInfo,
   getMental,
   getTechnique,
 } from "../settings/user_settings"
 
-// export function getUserCard(id: string): void
-// export function getUserCard(
-//   id: string,
-//   level: number,
-//   rarity: number,
-//   mental: number,
-//   technique: number,
-//   skillLevel1: number,
-//   skillLevel2: number,
-//   skillLevel3: number
-// ): void
-
-export function getUserCard(
+export function newUserCard(
   id: string,
   level?: number,
   rarity?: number,
@@ -55,7 +44,7 @@ export function getUserCard(
     vocal: calcParam(card.cardParameterId, level, card.vocalRatioPermil, rarity),
     dance: calcParam(card.cardParameterId, level, card.danceRatioPermil, rarity),
     visual: calcParam(card.cardParameterId, level, card.visualRatioPermil, rarity),
-    stamina: calcStamina(card.cardParameterId, level, rarity),
+    stamina: calcStamina(card.cardParameterId, level, card.staminaRatioPermil, rarity),
     mental: mental,
     technique: technique,
     skillLevel1: skillLevel1,
@@ -63,4 +52,30 @@ export function getUserCard(
     skillLevel3: skillLevel3,
   }
   return userCard
+}
+
+export function newUserDeck(
+  cards: {
+    index: number,
+    cardId: string,
+  }[],
+  name?: string
+): UserDeck {
+  if (name === undefined) {
+    name = "New Deck"
+  }
+  let deckId: string = uuidv4()
+  let _userCards: { index: number, userCard: UserCard }[] = []
+  cards.forEach(({ index, cardId }) => {
+    _userCards.push({
+      index: index,
+      userCard: newUserCard(cardId),
+    })
+  })
+  let deck: UserDeck = {
+    id: deckId,
+    deckName: name,
+    userCards: _userCards
+  }
+  return deck
 }

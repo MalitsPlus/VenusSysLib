@@ -16,6 +16,15 @@ type UserSettings = {
     liveAbilityLevel?: number,
     activityAbilityLevel?: number,
   }[],
+  userDecks: {
+    id: string,
+    deckName: string,
+    positions: {
+      index: number,
+      cardId: string
+    }[],
+    equipments?: any,
+  }[],
 }
 
 export const setting: UserSettings = _setting

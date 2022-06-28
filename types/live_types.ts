@@ -60,7 +60,8 @@ export type LiveCard = UserCard & {
   deckStamina: number,
   deckMental: number,
   deckTechnique: number,
-  audienceAmount: number,
+  audienceAmount?: number,
+  arbitrary?: boolean,
 }
 
 export type LiveDeck = {
@@ -68,7 +69,7 @@ export type LiveDeck = {
     index: number,
     liveCard: LiveCard,
   }[],
-  liveEquipments: {
+  liveEquipments?: {
     index: number,
     equipment: Equipment,
   }[],
