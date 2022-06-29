@@ -1,15 +1,14 @@
 import {
   SkillEfficacyType,
   MusicChartType,
-} from "../proto/proto_enum"
+} from "./proto/proto_enum"
 import {
-  QuestBase
-} from "./base_types"
-import {
-  UserDeck,
   UserCard,
   Equipment,
 } from "./user_types"
+import {
+  WapQuest, WapSkill,
+} from "./wrapper_types"
 
 export type SkillStatus = {
   skillIndex: number,
@@ -65,6 +64,8 @@ export type LiveCard = UserCard & {
 }
 
 export type LiveDeck = {
+  id: string,
+  deckName: string,
   liveCards: {
     index: number,
     liveCard: LiveCard,
@@ -78,7 +79,7 @@ export type LiveDeck = {
 // 🚩
 export type Chart = {
   chartType: MusicChartType,
-  num: number,
+  sequence: number,
   cardStatuses: CardStatus[],
   userStatuses: UserStatus[],
   actPSkills?: ActPSkill[],
@@ -86,7 +87,8 @@ export type Chart = {
 
 export type Live = {
   charts: Chart[],
-  quest: QuestBase,
+  quest: WapQuest,
   liveDeck: LiveDeck,
+  exSkills?: WapSkill[],
   yells?: any[], // TODO: implementation
 }

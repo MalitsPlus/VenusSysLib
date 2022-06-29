@@ -1,11 +1,12 @@
 import {
   getCard,
+  getQuest,
 } from "./data/wrapper_data"
 import { setting } from "./settings/user_settings"
 import {
   UserCard,
 } from "./types/user_types"
-import { newLiveDeck } from "./utils/live_util"
+import { newLive, newLiveDeck } from "./utils/live_util"
 import {
   newUserCard,
   newUserDeck,
@@ -38,5 +39,6 @@ let deckInfo = [
 const userDeck = newUserDeck(deckInfo)
 // on simu click
 const liveDeck = newLiveDeck(userDeck)
-const live = 
+const quest = getQuest("qt-area-1-010")
+const live = newLive(quest, liveDeck)
 let a = 1

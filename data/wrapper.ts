@@ -5,7 +5,7 @@ import {
   SkillDetail,
   SkillEfficacy,
   SkillLevel,
-} from "../proto/proto_master"
+} from "../types/proto/proto_master"
 import {
   WapCard,
   WapSkill,
@@ -47,7 +47,7 @@ const getWapCard = (
   }
 }
 
-function getSkill(id: string): WapSkill {
+export function getSkill(id: string): WapSkill {
   let _rawSkill = master.rawSkills.find(it => it.id === id)
   let wappedLevels: WapSkillLevel[] = []
   _rawSkill.levels.forEach(element => {

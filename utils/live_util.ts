@@ -1,4 +1,5 @@
 import {
+  Live,
   LiveCard,
   LiveDeck,
 } from "../types/live_types"
@@ -7,6 +8,7 @@ import {
   UserDeck,
   Equipment,
 } from "../types/user_types"
+import { WapQuest } from "../types/wrapper_types";
 import {
   calcBuffedParam
 } from './calc_utils';
@@ -45,10 +47,18 @@ export function newLiveDeck(userDeck: UserDeck): LiveDeck {
     })
   })
   let liveDeck: LiveDeck = {
+    id: userDeck.id,
+    deckName: userDeck.deckName,
     liveCards: liveCards,
     ...userDeck.userEquipments,
   }
   return liveDeck
 }
 
-export function newLive()
+export function newLive(quest: WapQuest, deck: LiveDeck): Live {
+  return {
+    charts: [],
+    quest: quest,
+    liveDeck: deck,
+  }
+}

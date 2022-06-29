@@ -1,6 +1,6 @@
 import {
   Accessory,
-} from "../proto/proto_master"
+} from "./proto/proto_master"
 import {
   WapCard,
   WapSkill,

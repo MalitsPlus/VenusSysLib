@@ -1,7 +1,7 @@
 import {
   AttributeType,
   MoodType,
-} from "../proto/proto_enum"
+} from "./proto/proto_enum"
 
 export type QuestBase = {
   id: string
@@ -25,4 +25,5 @@ export type QuestBase = {
   questCharacterAdvantageId: string
   questAudienceAdvantageId: string
   moodType: MoodType
+  liveBonusGroupId: string
 }

@@ -6,7 +6,13 @@ import {
   SkillDetail,
   SkillTarget,
   SkillTrigger,
-} from "../proto/proto_master"
+  MusicChartPattern,
+  LiveAbility,
+  LiveAbilityLevel,
+} from "./proto/proto_master"
+import {
+  QuestBase,
+} from "./base_types"
 
 export type WapCard = Card & {
   skill1: WapSkill
@@ -30,6 +36,20 @@ export type WapSkillDetail = SkillDetail & {
 
 export type WapSkillEfficacy = SkillEfficacy & {
   skillTarget?: SkillTarget
+}
+
+export type WapMusicChartPattern = MusicChartPattern & {
+  sequence: number
+}
+
+export type WapLiveAbility = LiveAbilityLevel & {
+  skill: WapSkill
+}
+
+export type WapQuest = QuestBase & {
+  musicName: string
+  musicChartPatterns: WapMusicChartPattern[]
+  liveBonuses?: WapLiveAbility[]
 }
 
 // TODO: Photo

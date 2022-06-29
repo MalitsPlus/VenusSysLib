@@ -5,16 +5,18 @@ import {
 } from "../types/user_types"
 import {
   getCard,
+  getCardParameter,
+  getCardRarity,
 } from "../data/wrapper_data"
 import {
   calcParam,
-  calcStamina,
 } from "./calc_utils"
 import {
   getCardInfo,
   getMental,
   getTechnique,
 } from "../settings/user_settings"
+
 
 export function newUserCard(
   id: string,
@@ -37,14 +39,16 @@ export function newUserCard(
     skillLevel2 = cardInfo.skillLevel2
     skillLevel3 = cardInfo.skillLevel3
   } 
+  let param = getCardParameter(card.cardParameterId, level)
+  let rarityBonusPermil = getCardRarity(rarity).parameterBonusPermil
   let userCard: UserCard = {
     ...card,
     level: level,
     rarity: rarity,
-    vocal: calcParam(card.cardParameterId, level, card.vocalRatioPermil, rarity),
-    dance: calcParam(card.cardParameterId, level, card.danceRatioPermil, rarity),
-    visual: calcParam(card.cardParameterId, level, card.visualRatioPermil, rarity),
-    stamina: calcStamina(card.cardParameterId, level, card.staminaRatioPermil, rarity),
+    vocal: calcParam(+param.value, card.vocalRatioPermil, rarityBonusPermil),
+    dance: calcParam(+param.value, card.danceRatioPermil, rarityBonusPermil),
+    visual: calcParam(+param.value, card.visualRatioPermil, rarityBonusPermil),
+    stamina: calcParam(+param.staminaValue, card.staminaRatioPermil, rarityBonusPermil),
     mental: mental,
     technique: technique,
     skillLevel1: skillLevel1,
