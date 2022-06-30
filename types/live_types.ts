@@ -1,6 +1,7 @@
 import {
   SkillEfficacyType,
   MusicChartType,
+  SkillFailureType,
 } from "./proto/proto_enum"
 import {
   UserCard,
@@ -80,15 +81,22 @@ export type LiveDeck = {
 export type Chart = {
   chartType: MusicChartType,
   sequence: number,
+  position: number,
   cardStatuses: CardStatus[],
   userStatuses: UserStatus[],
   actPSkills?: ActPSkill[],
+  failureFlag?: SkillFailureType,
 }
 
 export type Live = {
   charts: Chart[],
   quest: WapQuest,
   liveDeck: LiveDeck,
+  isBattle: boolean,
   exSkills?: WapSkill[],
   yells?: any[], // TODO: implementation
+}
+
+export type Concert = {
+  
 }

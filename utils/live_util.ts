@@ -55,10 +55,11 @@ export function newLiveDeck(userDeck: UserDeck): LiveDeck {
   return liveDeck
 }
 
-export function newLive(quest: WapQuest, deck: LiveDeck): Live {
+export function newLive(quest: WapQuest, deck: LiveDeck, isBattle: boolean): Live {
   return {
     charts: [],
     quest: quest,
     liveDeck: deck,
+    isBattle: isBattle,
   }
 }

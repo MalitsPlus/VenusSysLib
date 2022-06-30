@@ -40,5 +40,6 @@ const userDeck = newUserDeck(deckInfo)
 // on simu click
 const liveDeck = newLiveDeck(userDeck)
 const quest = getQuest("qt-area-1-010")
-const live = newLive(quest, liveDeck)
+const live = newLive(quest, liveDeck, false)
+
 let a = 1
