@@ -3,7 +3,7 @@ import {
   Live,
 } from "../types/live_types";
 import { MusicChartType, SkillCategoryType } from "../types/proto/proto_enum";
-import * as acut from "./act_utils";
+import * as chut from "../utils/chart_utils";
 
 export function checkSkillExistence(
   live: Live,
@@ -21,8 +21,8 @@ function _checkSkillExistence(
   current: Chart,
   isOpponent: boolean
 ) {
-  let position = isOpponent ? current.position + 5 : current.position
-  let deckCard = acut.getDeckCardByIndex(position, live)
+  let position = isOpponent ? current.actPosition + 5 : current.actPosition
+  let deckCard = chut.getLiveCardByIndex(position, live)
   let actables = {
     index: position,
     skills: [],

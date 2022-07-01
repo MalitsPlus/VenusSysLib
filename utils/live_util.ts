@@ -9,9 +9,6 @@ import {
   Equipment,
 } from "../types/user_types"
 import { WapQuest } from "../types/wrapper_types";
-import {
-  calcBuffedParam
-} from './calc_utils';
 
 export function newLiveCard(
   userCard: UserCard,

@@ -17,7 +17,7 @@ export function perform(live: Live) {
     let current: Chart = {
       chartType: musicPtn.type,
       sequence: musicPtn.sequence,
-      position: musicPtn.position,
+      actPosition: musicPtn.position,
       cardStatuses: [],
       userStatuses: [],
     }

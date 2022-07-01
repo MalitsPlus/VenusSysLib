@@ -1,8 +1,10 @@
+import { EfficacyValue } from "./concert/eff_grades"
 import {
   getCard,
   getQuest,
 } from "./data/wrapper_data"
 import { setting } from "./settings/user_settings"
+import { SkillEfficacyType } from "./types/proto/proto_enum"
 import {
   UserCard,
 } from "./types/user_types"
@@ -41,5 +43,14 @@ const userDeck = newUserDeck(deckInfo)
 const liveDeck = newLiveDeck(userDeck)
 const quest = getQuest("qt-area-1-010")
 const live = newLive(quest, liveDeck, false)
+
+type tesType = {
+  val: number
+}
+let tes1: tesType = { val: 3 }
+let tes2: tesType = undefined
+var fi = 0
+fi += tes1?.val ?? 2 / 100
+fi += tes2?.val ?? 4 / 100
 
 let a = 1

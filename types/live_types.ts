@@ -16,11 +16,18 @@ export type SkillStatus = {
   coolTime: number,
 }
 
-export type Effect = {
+export type DetEffect = {
   efficacyType: SkillEfficacyType,
   grade: number,
-  remain: number,
   value: number,
+}
+
+export type Effect = DetEffect & {
+  remain: number,
+  // additions
+  include?: boolean,
+  id?: string,
+  sourceIndex?: number,
 }
 
 export type CardStatus = {
@@ -81,7 +88,7 @@ export type LiveDeck = {
 export type Chart = {
   chartType: MusicChartType,
   sequence: number,
-  position: number,
+  actPosition: number,
   cardStatuses: CardStatus[],
   userStatuses: UserStatus[],
   actPSkills?: ActPSkill[],
