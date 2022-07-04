@@ -44,13 +44,7 @@ const liveDeck = newLiveDeck(userDeck)
 const quest = getQuest("qt-area-1-010")
 const live = newLive(quest, liveDeck, false)
 
-type tesType = {
-  val: number
-}
-let tes1: tesType = { val: 3 }
-let tes2: tesType = undefined
-var fi = 0
-fi += tes1?.val ?? 2 / 100
-fi += tes2?.val ?? 4 / 100
+let t = 0
+let m = t ?? 999
 
 let a = 1

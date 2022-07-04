@@ -1,5 +1,6 @@
 import {
   SkillEfficacyType,
+  SkillTriggerType,
 } from "../types/proto/proto_enum"
 
 export const StaminaConsumptionAdjustment = [
@@ -12,3 +13,12 @@ export const ParamBoost = [
   SkillEfficacyType.VisualBoost,
 ]
 
+export const TriggerBefore = [
+  SkillTriggerType.Beat,
+  SkillTriggerType.BeforeActiveSkillBySomeone,
+  SkillTriggerType.BeforeSpecialSkillBySomeone,
+  SkillTriggerType.BeforeCritical,
+  SkillTriggerType.BeforeCriticalBySomeone,
+  SkillTriggerType.BeforeActiveSkill,
+  SkillTriggerType.BeforeSpecialSkill,
+]

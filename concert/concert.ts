@@ -17,6 +17,7 @@ import {
   calcStaminaConsume
 } from "../utils/calc_utils";
 import * as chut from "../utils/chart_utils";
+import { TriggerBefore } from "./efficacy_list";
 
 type Actable = {
   index: number,
@@ -28,6 +29,8 @@ type ConcertSkill = {
   skillIndex: number,
   skillLevel: number,
   wapSkillLevel: WapSkillLevel,
+  isFirstTime: boolean,
+  remainCount: number,
 }
 
 export class Concert {
@@ -45,6 +48,7 @@ export class Concert {
     this.initPSkills()
   }
 
+  /// push all P-skills to a list
   private initPSkills() {
     this.pSkills = []
     let newConcertSkill = (
@@ -74,7 +78,9 @@ export class Concert {
         deckPosition: card.index,
         skillIndex: skillIndex,
         skillLevel: level,
-        wapSkillLevel: wapSkillLevel
+        wapSkillLevel: wapSkillLevel,
+        isFirstTime: true,
+        remainCount: wapSkillLevel.limitCount ? wapSkillLevel.limitCount : 999,
       }
     }
     this.live.liveDeck.liveCards.forEach(card => {
@@ -296,10 +302,21 @@ export class Concert {
   }
 
   private passiveSkillActP1() {
-    this.pSkills.filter(skill => {
-      let skillStat = chut.getCardSkillStatusByIndex(skill.deckPosition, skill.skillIndex, this.current)
-      skillStat.coolTime === 0
+    let actPskills = this.pSkills.filter(skill => {
+      if ((skill.wapSkillLevel.trigger.type in TriggerBefore ||  // if in trigger before list
+        // or has no trigger conditions and is first time activated
+        (skill.isFirstTime && !skill.wapSkillLevel.trigger)) &&  
+        // and must has remain count
+        skill.remainCount
+      ) {
+        let skillStat = chut.getCardSkillStatusByIndex(skill.deckPosition, skill.skillIndex, this.current)
+        // ❌ cool time should be checking after every skill activated 
+        if (skillStat.coolTime <= 0) {
+          return true
+        }
+      }
+      return false
     })
-    
+
   }
 }
