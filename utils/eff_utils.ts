@@ -54,11 +54,21 @@ export function getValidGrade(
   return grade > maxGrade ? maxGrade : grade
 }
 
+export function isEffect(
+  eff: Effect,
+  efficacyType: SkillEfficacyType
+): boolean {
+  if (eff.efficacyType === efficacyType && eff.remain > 0) {
+    return true
+  }
+  return false
+}
+
 export function getEffectsByType(
   efficacyType: SkillEfficacyType,
   cardStatus: CardStatus,
 ): Effect[] | undefined {
-  let effects = cardStatus.effects?.filter(it => it.efficacyType === efficacyType)
+  let effects = cardStatus.effects?.filter(it => isEffect(it, efficacyType))
   if (!effects || effects.length === 0) {
     return undefined
   }
@@ -81,4 +91,36 @@ export function getMergedEffectByType(
     grade: grade,
     value: efg.EfficacyValue[efficacyType][grade],
   }
+}
+
+export function isSkillImpossible(
+  cardStatus: CardStatus
+): boolean {
+  cardStatus.effects?.forEach(eff => {
+    if (isEffect(eff, SkillEfficacyType.SkillImpossible)) {
+      return true
+    }
+  })
+  return false
+}
+
+export function roll(
+  probabilityPermil: number,
+): boolean {
+  if (probabilityPermil >= 1000) {
+    return true
+  }
+  if (probabilityPermil / 1000 > Math.random()) {
+    return true
+  }
+  return false
+}
+
+export function indexIsOpponentSide(
+  cardIndex: number
+): boolean {
+  if (cardIndex >= 5 && cardIndex <= 10) {
+    return true
+  }
+  return false
 }

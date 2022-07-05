@@ -11,6 +11,7 @@ import {
   WapQuest, WapSkill,
 } from "./wrapper_types"
 
+
 export type SkillStatus = {
   skillIndex: number,
   coolTime: number,
@@ -91,6 +92,7 @@ export type Chart = {
   actPosition: number,
   cardStatuses: CardStatus[],
   userStatuses: UserStatus[],
+  stageSkillStatuses?: SkillStatus[],
   actPSkills?: ActPSkill[],
   failureFlag?: SkillFailureType,
 }

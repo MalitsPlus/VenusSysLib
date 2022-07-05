@@ -44,7 +44,5 @@ const liveDeck = newLiveDeck(userDeck)
 const quest = getQuest("qt-area-1-010")
 const live = newLive(quest, liveDeck, false)
 
-let t = 0
-let m = t ?? 999
-
+let t = [1, 4, 7, 2]
 let a = 1

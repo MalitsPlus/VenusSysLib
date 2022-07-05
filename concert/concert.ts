@@ -1,23 +1,25 @@
+CardStatus,
 import {
   Chart,
   Live,
   LiveCard,
+  SkillStatus,
 } from "../types/live_types";
 import {
   MusicChartType,
   SkillCategoryType,
   SkillFailureType,
+  SkillTriggerType,
 } from "../types/proto/proto_enum";
 import {
   WapSkill,
   WapSkillLevel
 } from "../types/wrapper_types";
-import {
-  calcActSkillPrivilege,
-  calcStaminaConsume
-} from "../utils/calc_utils";
-import * as chut from "../utils/chart_utils";
-import { TriggerBefore } from "./efficacy_list";
+import * as calcUt from "../utils/calc_utils";
+import * as chartUt from "../utils/chart_utils";
+import * as effUt from "../utils/eff_utils";
+import * as effList from "./efficacy_list";
+import * as tra from "./trigger_analyze"
 
 type Actable = {
   index: number,
@@ -31,6 +33,7 @@ type ConcertSkill = {
   wapSkillLevel: WapSkillLevel,
   isFirstTime: boolean,
   remainCount: number,
+  isOpponentSide: boolean,
 }
 
 export class Concert {
@@ -40,7 +43,9 @@ export class Concert {
   private current: Chart
 
   private actables?: Actable[]
+  private pSkillLiveBonus?: ConcertSkill[]
   private pSkills: ConcertSkill[]
+  private pSkillPerformed: number[]
 
   constructor(live: Live) {
     this.live = live
@@ -50,7 +55,6 @@ export class Concert {
 
   /// push all P-skills to a list
   private initPSkills() {
-    this.pSkills = []
     let newConcertSkill = (
       card: {
         index: number,
@@ -63,15 +67,15 @@ export class Concert {
       switch (skillIndex) {
         case 1:
           level = card.liveCard.skillLevel1
-          wapSkillLevel = chut.getSkillLevel(card.liveCard.skill1, level)
+          wapSkillLevel = chartUt.getSkillLevel(card.liveCard.skill1, level)
           break;
         case 2:
           level = card.liveCard.skillLevel2
-          wapSkillLevel = chut.getSkillLevel(card.liveCard.skill2, level)
+          wapSkillLevel = chartUt.getSkillLevel(card.liveCard.skill2, level)
           break;
         case 3:
           level = card.liveCard.skillLevel3
-          wapSkillLevel = chut.getSkillLevel(card.liveCard.skill3, level)
+          wapSkillLevel = chartUt.getSkillLevel(card.liveCard.skill3, level)
           break;
       }
       return {
@@ -81,17 +85,54 @@ export class Concert {
         wapSkillLevel: wapSkillLevel,
         isFirstTime: true,
         remainCount: wapSkillLevel.limitCount ? wapSkillLevel.limitCount : 999,
+        isOpponentSide: effUt.indexIsOpponentSide(card.index),
       }
     }
+    // a list used to determine p-skills activate order 
+    let tmpPskills: { mental: number, skill: ConcertSkill }[] = []
     this.live.liveDeck.liveCards.forEach(card => {
       if (card.liveCard.skill1.categoryType === SkillCategoryType.Passive) {
-        this.pSkills.push(newConcertSkill(card, 1))
+        tmpPskills.push({ mental: card.liveCard.deckMental, skill: newConcertSkill(card, 1) })
       }
       if (card.liveCard.skill2.categoryType === SkillCategoryType.Passive) {
-        this.pSkills.push(newConcertSkill(card, 2))
+        tmpPskills.push({ mental: card.liveCard.deckMental, skill: newConcertSkill(card, 2) })
       }
       if (card.liveCard.skill3.categoryType === SkillCategoryType.Passive) {
-        this.pSkills.push(newConcertSkill(card, 3))
+        tmpPskills.push({ mental: card.liveCard.deckMental, skill: newConcertSkill(card, 3) })
+      }
+    })
+    this.pSkills = tmpPskills
+      // lower index first
+      .sort((a, b) => a.skill.deckPosition - b.skill.deckPosition)
+      // higher mental first
+      .sort((a, b) => b.mental - a.mental)
+      .map(it => it.skill)
+    
+    this.live.quest.liveBonuses?.forEach((liveAb, index) => {
+      if (!this.pSkillLiveBonus) {
+        this.pSkillLiveBonus = []
+      }
+      let skLv = chartUt.getSkillLevel(liveAb.skill, liveAb.level)
+      this.pSkillLiveBonus.push({
+        deckPosition: 999,
+        isFirstTime: true,
+        remainCount: skLv.limitCount ? skLv.limitCount : 999,
+        skillIndex: 999 - index * 2,
+        skillLevel: liveAb.level,
+        wapSkillLevel: skLv,
+        isOpponentSide: false,
+      })
+      // if is live battle
+      if (this.live.isBattle) {
+        this.pSkillLiveBonus.push({
+          deckPosition: 999,
+          isFirstTime: true,
+          remainCount: skLv.limitCount ? skLv.limitCount : 999,
+          skillIndex: 999 - index * 2 - 1,
+          skillLevel: liveAb.level,
+          wapSkillLevel: skLv,
+          isOpponentSide: true,
+        })
       }
     })
   }
@@ -101,18 +142,23 @@ export class Concert {
 
     this.live.quest.musicChartPatterns.forEach(musicPtn => {
       // init current chart
-      this.previous = this.charts[-1]
+      this.previous = this.charts[this.charts.length - 1]
+      this.pSkillPerformed = []
       this.current = {
         chartType: musicPtn.type,
         sequence: musicPtn.sequence,
         actPosition: musicPtn.position,
         cardStatuses: this.previous.cardStatuses,
         userStatuses: this.previous.userStatuses,
+        stageSkillStatuses: this.previous.stageSkillStatuses,
       }
+      
+      // 0️⃣ pre-processes
+      this.turnPreprocess()
 
       // A & SP node
       if (this.current.chartType > MusicChartType.Beat) {
-        // 1️⃣ 
+        // 1️⃣
         this.checkActSkillExistence()
         // 2️⃣
         this.checkActSkillStamina()
@@ -128,8 +174,25 @@ export class Concert {
         }
       }
 
+      // 5️⃣ passive skills performances (before-phase)
+      this.performStagePSkillsPhase1()
+      this.performCharaPSkillsPhase1()
 
+      // 6️⃣ beat
+      this.beatAct()
 
+      // 7️⃣ 
+      this.rotateCoolTime()
+
+      // 8️⃣
+      this.rotateEffTime()
+
+      // 9️⃣
+      this.stagePassiveSkillActAfter()
+      this.passiveSkillActAfter()
+
+      // 🔟
+      this.turnAftermath()
     })
   }
   private checkActSkillExistence() {
@@ -141,7 +204,7 @@ export class Concert {
   }
   private _checkActSkillExistence(isOpponent: boolean) {
     let position = isOpponent ? this.current.actPosition + 5 : this.current.actPosition
-    let deckCard = chut.getLiveCardByIndex(position, this.live)
+    let deckCard = chartUt.getLiveCardByIndex(position, this.live)
     let _actables: Actable = {
       index: position,
       skills: [],
@@ -178,13 +241,13 @@ export class Concert {
       return
     }
     let _actables: Actable[] = this.actables.map(({ index, skills }) => {
-      let card = chut.getLiveCardByIndex(index, this.live)
+      let card = chartUt.getLiveCardByIndex(index, this.live)
       let cardStatus = this.current.cardStatuses[index]
       let skillNums = skills.map(skillIndex => {
-        let skillLevel = chut.getCardSkillLevel(skillIndex, card)
+        let skillLevel = chartUt.getCardSkillLevel(skillIndex, card)
         let currentSt = cardStatus.stamina
         // calculate buffed stamina consumption
-        let consumeSt = calcStaminaConsume(skillLevel, card, cardStatus)
+        let consumeSt = calcUt.calcStaminaConsume(skillLevel, card, cardStatus)
         // if stamina is sufficient
         if (consumeSt <= currentSt) {
           return skillIndex
@@ -201,29 +264,6 @@ export class Concert {
         }
       }
     }).filter(it => it)
-    // this.actables.forEach(({ index, skills }) => {
-    //   let card = chut.getLiveCardByIndex(index, this.live)
-    //   let cardStatus = this.current.cardStatuses[index]
-    //   skills.forEach(skillIndex => {
-    //     let skillLevel = chut.getCardSkillLevel(skillIndex, card)
-    //     let currentSt = cardStatus.stamina
-    //     // calculate buffed stamina consumption
-    //     let consumeSt = calcStaminaConsume(skillLevel, card, cardStatus)
-    //     // if stamina is sufficient
-    //     if (consumeSt <= currentSt) {
-    //       // check whether _actables contains current cardIndex first
-    //       if (!_actables.some(it => it.index === index)) {
-    //         _actables.push({ index: index, skills: [] })
-    //       }
-    //       // push skillIndex to actables 
-    //       _actables.find(it => it.index === index).skills.push(skillIndex)
-    //     }
-    //   })
-    //   // if ally side no skills available 
-    //   if (_actables.length < 1 && index <= 5) {
-    //     this.current.failureFlag = SkillFailureType.StaminaShortage
-    //   }
-    // })
     this.actables = _actables
   }
 
@@ -250,25 +290,6 @@ export class Concert {
         }
       }
     }).filter(it => it)
-    // this.actables.forEach(({ index, skills }) => {
-    //   let card = chut.getLiveCardByIndex(index, this.live)
-    //   let cardStatus = this.current.cardStatuses[index]
-    //   skills.forEach(skillIndex => {
-    //     let skillStatus = cardStatus.skillStatuses.find(it => it.skillIndex === skillIndex)
-    //     if (skillStatus.coolTime === 0) {
-    //       // check whether _actables contains current cardIndex first
-    //       if (!_actables.some(it => it.index === index)) {
-    //         _actables.push({ index: index, skills: [] })
-    //       }
-    //       // push skillIndex to _actables 
-    //       _actables.find(it => it.index === index).skills.push(skillIndex)
-    //     }
-    //   })
-    //   // if ally side no skills available 
-    //   if (_actables.length < 1 && index <= 5) {
-    //     this.current.failureFlag = SkillFailureType.InCoolTime
-    //   }
-    // })
     this.actables = _actables
   }
 
@@ -277,16 +298,16 @@ export class Concert {
       return
     }
     let _actables: Actable[] = []
-    let laneType = chut.getLaneAttributeByPosition(this.live.quest, this.current.actPosition)
+    let laneType = chartUt.getLaneAttributeByPosition(this.live.quest, this.current.actPosition)
     let privileges: {
       index: number,
       power: number,
     }[] = this.actables.map(({ index }) => {
-      let card = chut.getLiveCardByIndex(index, this.live)
+      let card = chartUt.getLiveCardByIndex(index, this.live)
       let cardStatus = this.current.cardStatuses[index]
       return {
         index: index,
-        power: calcActSkillPrivilege(laneType, card, cardStatus),
+        power: calcUt.calcActSkillPrivilege(laneType, card, cardStatus),
       }
     })
     // sort privileges (higher first)
@@ -301,22 +322,103 @@ export class Concert {
     this.actables = _actables
   }
 
-  private passiveSkillActP1() {
-    let actPskills = this.pSkills.filter(skill => {
-      if ((skill.wapSkillLevel.trigger.type in TriggerBefore ||  // if in trigger before list
+  private validateThenPerformPSkill(
+    pSkills: ConcertSkill[],
+    isCharaSkill: boolean,
+  ) {
+    for (let skill of pSkills) {
+      // if in trigger-before list
+      if ((skill.wapSkillLevel.trigger.type in effList.TriggerBefore ||  
         // or has no trigger conditions and is first time activated
-        (skill.isFirstTime && !skill.wapSkillLevel.trigger)) &&  
+        (skill.isFirstTime && !skill.wapSkillLevel.trigger)) &&
         // and must has remain count
         skill.remainCount
       ) {
-        let skillStat = chut.getCardSkillStatusByIndex(skill.deckPosition, skill.skillIndex, this.current)
-        // ❌ cool time should be checking after every skill activated 
-        if (skillStat.coolTime <= 0) {
-          return true
+        if (isCharaSkill) {
+          // and the same card haven't performed p-skills in this turn
+          if (skill.deckPosition in this.pSkillPerformed) {
+            continue
+          }
+          let cardStat = chartUt.getCardStatusByIndex(skill.deckPosition, this.current)
+          // ⚠️check possibility
+          if (effUt.isSkillImpossible(cardStat)) {
+            continue
+          }
+          let skillStat = chartUt.getCardSkillStatus(cardStat, skill.skillIndex)
+          // ⚠️cool time should be checked in order after each previous skill activated in the same turn 
+          if (skillStat.coolTime > 0) {
+            continue
+          }
+          // conditions all satisfied
+          this.performPSkill(skill, skillStat, cardStat)
+        } else {
+          let skillStat = this.current.stageSkillStatuses.find(it =>
+            it.skillIndex === skill.skillIndex
+          )
+          if (skillStat.coolTime <= 0) {
+            this.performPSkill(skill, skillStat)
+          }
         }
       }
-      return false
-    })
+    }
+  }
 
+  // this 
+  private performPSkill(
+    skill: ConcertSkill,
+    skillStatus: SkillStatus,
+    cardStatus?: CardStatus
+  ) {
+    // rolling dice!
+    if (!effUt.roll(skill.wapSkillLevel.probabilityPermil)) {
+      return
+    }
+    let current = this.current
+    let live = this.live
+    for (let skillDetail of skill.wapSkillLevel.wapSkillDetails) {
+      // if skill has trigger
+      let trigger = skill.wapSkillLevel.trigger
+      if (trigger) {
+        // who triggered this
+        let triggeredList: number[] = []
+        // check if trigger conditions are met according to skill's trigger type
+        switch (skill.wapSkillLevel.trigger.type) {
+          case SkillTriggerType.Beat:
+            triggeredList.push(skill.deckPosition)
+            break
+          case SkillTriggerType.LiveStart:
+            if (current.sequence === 1) {
+              triggeredList.push(skill.deckPosition)
+            }
+            break
+          case SkillTriggerType.Combo:
+            let combo = tra.getTriggerLastNum(trigger.id)
+            let userStat = current.userStatuses[
+              skill.isOpponentSide ? 1 : 0
+            ]
+            if (userStat.combo >= combo) {
+              triggeredList.push(skill.deckPosition)
+            }
+            break
+          case SkillTriggerType.MoreThanCharacterCount:
+            throw Error("'SkillTriggerType.MoreThanCharacterCount' hasn't been implemented.")
+          case SkillTriggerType.BeforeActiveSkillBySomeone:
+            if (current.chartType === MusicChartType.ActiveSkill) {
+              let position = current.actPosition
+              if (this.actables?.some(it => it.index === position)) {
+                
+              }
+            }
+        }
+      }
+    }
+  }
+
+  private performStagePSkillsPhase1() {
+    this.validateThenPerformPSkill(this.pSkillLiveBonus, false)
+  }
+
+  private performCharaPSkillsPhase1() {
+    this.validateThenPerformPSkill(this.pSkills, true)
   }
 }

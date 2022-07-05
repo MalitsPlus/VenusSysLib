@@ -29,6 +29,15 @@ export function getCardStatusByIndex(
   return chart.cardStatuses.find(it => it.cardIndex === index)
 }
 
+export function getCardSkillStatus(
+  cardStatus: CardStatus,
+  skillIndex: number
+): SkillStatus {
+  return cardStatus.skillStatuses.find(it =>
+    it.skillIndex === skillIndex
+  )
+}
+
 export function getCardSkillStatusByIndex(
   cardIndex: number,
   skillIndex: number,
