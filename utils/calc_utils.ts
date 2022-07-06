@@ -1,11 +1,11 @@
 import {
   ParamBoost,
   StaminaConsumptionAdjustment
-} from "../concert/efficacy_list"
+} from "../concert/consts/efficacy_list"
 import {
   EfficacyValue,
   StaminaConsumptionReductionGrade
-} from "../concert/eff_grades"
+} from "../concert/consts/eff_grades"
 import {
   CardStatus,
   LiveCard
@@ -20,7 +20,7 @@ import {
 import {
   getMergedEffectByType,
   getRealtimeParamByChartType
-} from "./eff_utils"
+} from "./skill_utils"
 
 export function calcParam(
   paramValue: number,

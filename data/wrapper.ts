@@ -16,6 +16,7 @@ import {
 import {
   QuestBase,
 } from "../types/base_types"
+import { SkillCategoryType } from "../types/proto/proto_enum"
 
 const getAccessories = (): Accessory[] => {
   return master.rawAccessory
@@ -51,7 +52,7 @@ export function getSkill(id: string): WapSkill {
   let _rawSkill = master.rawSkills.find(it => it.id === id)
   let wappedLevels: WapSkillLevel[] = []
   _rawSkill.levels.forEach(element => {
-    let wappedLevel = getWapSkillLevel(element)
+    let wappedLevel = getWapSkillLevel(element, _rawSkill.categoryType)
     wappedLevels.push(wappedLevel)
   })
   return {
@@ -61,7 +62,8 @@ export function getSkill(id: string): WapSkill {
 }
 
 const getWapSkillLevel = (
-  original: SkillLevel
+  original: SkillLevel,
+  type: SkillCategoryType
 ): WapSkillLevel => {
   let _trigger = master.rawSkillTrigger.find(it => it.id === original.triggerId)
   let wappedSkillDetails: WapSkillDetail[] = []
@@ -73,6 +75,7 @@ const getWapSkillLevel = (
     ...original,
     trigger: _trigger,
     wapSkillDetails: wappedSkillDetails,
+    categoryType: type,
   }
 }
 

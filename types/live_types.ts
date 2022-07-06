@@ -1,3 +1,4 @@
+import { LiveBeat } from "./proto/proto_api"
 import {
   SkillEfficacyType,
   MusicChartType,
@@ -15,6 +16,7 @@ import {
 export type SkillStatus = {
   skillIndex: number,
   coolTime: number,
+  remainCount: number,
 }
 
 export type DetEffect = {
@@ -53,12 +55,15 @@ export type EfficacyDetail = {
   value?: number,
 }
 
-export type ActPSkill = {
+export type ActSkill = {
   cardIndex: number,
   skillIndex: number,
   order: number,
   stamina: number,
   details: EfficacyDetail[],
+  isCritical: boolean,
+  isComboBreak: boolean,
+  score?: number,
 }
 
 export type LiveCard = UserCard & {
@@ -92,8 +97,10 @@ export type Chart = {
   actPosition: number,
   cardStatuses: CardStatus[],
   userStatuses: UserStatus[],
+  beats?: LiveBeat[],
   stageSkillStatuses?: SkillStatus[],
-  actPSkills?: ActPSkill[],
+  actSkill?: ActSkill,
+  actPSkills?: ActSkill[],
   failureFlag?: SkillFailureType,
 }
 

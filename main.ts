@@ -1,4 +1,4 @@
-import { EfficacyValue } from "./concert/eff_grades"
+import { EfficacyValue } from "./concert/consts/eff_grades"
 import {
   getCard,
   getQuest,
@@ -13,6 +13,7 @@ import {
   newUserCard,
   newUserDeck,
 } from "./utils/user_utils"
+import * as fs from "fs"
 
 const userCard: UserCard = newUserCard("card-ai-05-idol-00")
 let deckInfo = [
@@ -44,5 +45,16 @@ const liveDeck = newLiveDeck(userDeck)
 const quest = getQuest("qt-area-1-010")
 const live = newLive(quest, liveDeck, false)
 
-let t = [1, 4, 7, 2]
+import sktri from "./database/SkillTrigger.json"
+const sktrigger = sktri.filter(it => it.type == 10)
+var txt = ""
+sktrigger.forEach(it => {
+  txt += it.id + "\n"
+})
+
+let un: { name: number } = { name: 0 }
+if (un && un?.name) {
+  console.log(3)
+}
+
 let a = 1

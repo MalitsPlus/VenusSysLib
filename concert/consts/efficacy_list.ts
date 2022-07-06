@@ -1,7 +1,7 @@
 import {
   SkillEfficacyType,
   SkillTriggerType,
-} from "../types/proto/proto_enum"
+} from "../../types/proto/proto_enum"
 
 export const StaminaConsumptionAdjustment = [
   SkillEfficacyType.StaminaConsumptionIncrease,

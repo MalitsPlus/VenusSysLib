@@ -13,6 +13,7 @@ import {
 import {
   QuestBase,
 } from "./base_types"
+import { SkillCategoryType } from "./proto/proto_enum"
 
 export type WapCard = Card & {
   skill1: WapSkill
@@ -27,6 +28,7 @@ export type WapSkill = Skill & {
 export type WapSkillLevel = SkillLevel & {
   trigger?: SkillTrigger
   wapSkillDetails: WapSkillDetail[]
+  categoryType: SkillCategoryType
 }
 
 export type WapSkillDetail = SkillDetail & {

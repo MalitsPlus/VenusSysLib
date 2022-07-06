@@ -99,11 +99,20 @@ export function getLaneAttributeByPosition(
   position: number
 ): AttributeType {
   switch (position) {
-    case 1: return quest.position1AttributeType
-    case 2: return quest.position2AttributeType
-    case 3: return quest.position3AttributeType
-    case 4: return quest.position4AttributeType
-    case 5: return quest.position5AttributeType
+    case 1: case 6: return quest.position1AttributeType
+    case 2: case 7: return quest.position2AttributeType
+    case 3: case 8: return quest.position3AttributeType
+    case 4: case 9: return quest.position4AttributeType
+    case 5: case 10: return quest.position5AttributeType
     default: throw TypeError(`Lane position '${position}' is invalid.`)
   }
+}
+
+export function indexIsOpponentSide(
+  cardIndex: number
+): boolean {
+  if (cardIndex >= 5 && cardIndex <= 10) {
+    return true
+  }
+  return false
 }

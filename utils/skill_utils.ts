@@ -1,6 +1,7 @@
-import * as efg from "../concert/eff_grades"
-import { CardStatus, DetEffect, Effect, LiveCard } from "../types/live_types";
+import * as efg from "../concert/consts/eff_grades"
+import { CardStatus, DetEffect, Effect, LiveCard, SkillStatus } from "../types/live_types";
 import { AttributeType, MusicChartType, SkillEfficacyType } from "../types/proto/proto_enum";
+import { WapSkill, WapSkillLevel } from "../types/wrapper_types";
 
 // export function getEffValueByGrade(
 //   type: SkillEfficacyType,
@@ -116,11 +117,12 @@ export function roll(
   return false
 }
 
-export function indexIsOpponentSide(
-  cardIndex: number
+export function skillHasRemainCount(
+  skill: WapSkillLevel,
+  skillStatus: SkillStatus
 ): boolean {
-  if (cardIndex >= 5 && cardIndex <= 10) {
-    return true
+  if (skill.limitCount > 0 && skillStatus.remainCount <= 0) {
+    return false
   }
-  return false
+  return true
 }

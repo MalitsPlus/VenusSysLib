@@ -1,6 +1,6 @@
 import {
   SkillEfficacyType,
-} from "../types/proto/proto_enum"
+} from "../../types/proto/proto_enum"
 
 export const GradableEfficacies = [
   SkillEfficacyType.StaminaConsumptionReduction,
