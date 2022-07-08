@@ -1,3 +1,4 @@
+import exp from "constants"
 import {
   SkillEfficacyType,
   SkillTriggerType,
@@ -21,4 +22,30 @@ export const TriggerBefore = [
   SkillTriggerType.BeforeCriticalBySomeone,
   SkillTriggerType.BeforeActiveSkill,
   SkillTriggerType.BeforeSpecialSkill,
+]
+
+export const SkillEfficacyTypeWeaknessDownList = [
+  SkillEfficacyType.DanceDown,
+  SkillEfficacyType.VocalDown,
+  SkillEfficacyType.VisualDown,
+]
+export const SkillEfficacyTypeWeaknessOtherList = [
+  SkillEfficacyType.SkillImpossible,
+  SkillEfficacyType.StaminaConsumptionIncrease,
+  SkillEfficacyType.StaminaConsumption,
+  SkillEfficacyType.CoolTimeIncrease,
+  SkillEfficacyType.StrengthEffectErasing,
+  SkillEfficacyType.StaminaContinuousConsumption,
+  SkillEfficacyType.StrengthEffectErasingAll,
+]
+export const SkillEfficacyTypeWeaknessList = [
+  ...SkillEfficacyTypeWeaknessDownList,
+  ...SkillEfficacyTypeWeaknessOtherList,
+]
+
+export const SkillEfficacyStaminaRecoveryList = [
+  SkillEfficacyType.StaminaContinuousRecovery,
+  SkillEfficacyType.StaminaRecovery,
+  SkillEfficacyType.FixStaminaRecovery,
+  SkillEfficacyType.TargetStaminaRecovery,
 ]

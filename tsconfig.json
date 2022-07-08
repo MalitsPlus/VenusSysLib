@@ -11,5 +11,6 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-  }
+    "strictNullChecks": true,
+  },
 }

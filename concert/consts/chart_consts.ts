@@ -1,11 +1,12 @@
 import { SkillEfficacyType } from "../../types/proto/proto_enum"
+import { SkillEfficacyTypeWeaknessList } from "./efficacy_list"
 
-export const index2Lane = {
+export const Index2Lane = {
   1: 1, 2: 2, 3: 3, 4: 4, 5: 5,
   6: 1, 7: 2, 8: 3, 9: 4, 10: 5,
 }
 
-export const str2EfficacyType: {
+export const Str2EfficacyType: {
   [key: string]: SkillEfficacyType
 } = {
   audience_amount_increase: SkillEfficacyType.AudienceAmountIncrease,
@@ -26,4 +27,10 @@ export const str2EfficacyType: {
   visual_up: SkillEfficacyType.VisualUp,
   vocal_down: SkillEfficacyType.VocalDown,
   vocal_up: SkillEfficacyType.VocalUp,
+}
+
+export const Str2EfficacyGroup: {
+  [key: string]: SkillEfficacyType[]
+} = {
+  weekness: SkillEfficacyTypeWeaknessList,
 }

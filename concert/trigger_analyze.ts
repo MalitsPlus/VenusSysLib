@@ -1,5 +1,5 @@
 import { SkillEfficacyType } from "../types/proto/proto_enum"
-import { str2EfficacyType } from "./consts/chart_consts"
+import { Str2EfficacyGroup, Str2EfficacyType } from "./consts/chart_consts"
 
 export function getTriggerLastNum(
   triggerId: string
@@ -11,7 +11,7 @@ export function getTriggerLastNum(
   return undefined
 }
 
-export function getTriggerLastStr(
+function getTriggerLastStr(
   triggerId: string
 ): string | undefined {
   let matched = triggerId.match(/\w+$/)
@@ -25,6 +25,14 @@ export function getTriggerStatusType(
   triggerId: string
 ): SkillEfficacyType | undefined {
   let flag = getTriggerLastStr(triggerId)
-  let type = str2EfficacyType[flag]
+  let type = Str2EfficacyType[flag]
   return type
+}
+
+export function getTriggerStatusGroup(
+  triggerId: string
+): SkillEfficacyType[] | undefined {
+  let flag = getTriggerLastStr(triggerId)
+  let group = Str2EfficacyGroup[flag]
+  return group
 }

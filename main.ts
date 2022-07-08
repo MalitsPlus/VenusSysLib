@@ -52,9 +52,12 @@ sktrigger.forEach(it => {
   txt += it.id + "\n"
 })
 
-let un: { name: number } = { name: 0 }
-if (un && un?.name) {
-  console.log(3)
+function funcA(some: string) {
+  if (some) {
+    console.log("yes")
+  } else {
+    console.log("no")
+  }
 }
-
+funcA("gver")
 let a = 1

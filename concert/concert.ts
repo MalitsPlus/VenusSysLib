@@ -1,3 +1,4 @@
+import { assert } from "console";
 import {
   CardStatus,
   Chart,
@@ -18,7 +19,7 @@ import {
 import * as calcUt from "../utils/calc_utils";
 import * as chartUt from "../utils/chart_utils";
 import * as skUt from "../utils/skill_utils";
-import { index2Lane } from "./consts/chart_consts";
+import { Index2Lane } from "./consts/chart_consts";
 import * as effList from "./consts/efficacy_list";
 import * as tra from "./trigger_analyze"
 import { getTriggeredIndexes } from "./trigger_proc";
@@ -166,7 +167,11 @@ export class Concert {
           // 4️⃣
           this.determineActSkillPrivilege()
         }
+        // at this point, actables's length shall be less equal than 1 
+        assert(this.actables?.length <= 1)
       }
+
+      
 
       // 5️⃣ passive skills performances (before-phase)
       this.performStagePSkillsPhase1()
@@ -197,7 +202,7 @@ export class Concert {
     }
   }
   private _checkActSkillExistence(isOpponent: boolean) {
-    let position = index2Lane[this.current.actPosition]
+    let position = Index2Lane[this.current.actPosition]
     let deckCard = chartUt.getLiveCardByIndex(position, this.live)
     let _actables: Actable = {
       index: position,
@@ -322,13 +327,13 @@ export class Concert {
   ) {
     for (let skill of pSkills) {
       // if in trigger-before list
-      if ((skill.trigger.type in effList.TriggerBefore ||  
+      if ((effList.TriggerBefore.includes(skill.trigger.type) ||  
         // or has no trigger conditions and is first time activated
         (skill.isFirstTime && !skill.trigger))
       ) {
         if (isCharaSkill) {
           // and the same card haven't performed p-skills in this turn
-          if (skill.deckPosition in this.pSkillPerformed) {
+          if (this.pSkillPerformed.includes(skill.deckPosition)) {
             continue
           }
           let cardStat = chartUt.getCardStatusByIndex(skill.deckPosition, this.current)
@@ -364,21 +369,56 @@ export class Concert {
     skillStatus: SkillStatus,
     cardStatus?: CardStatus
   ) {
-    // rolling dice!
+    // ✅rolling dice!
     if (!skUt.roll(skill.probabilityPermil)) {
       return
     }
+
+    // ✅get triggered indexes
     let triggeredIndexes = getTriggeredIndexes(
-      skill,
+      skill.trigger,
+      skill.categoryType,
       skillStatus,
       this.live,
       this.current,
       skill.deckPosition,
       skill.isOpponentSide,
-      this.actables,
-      cardStatus
+      this.actables
     )
+    if (!triggeredIndexes) {
+      // TODO: notify new triggers
+      console.error("Hasn't been implemented.")
+      return
+    }
+    if (triggeredIndexes.length === 0) {
+      // not triggered
+      return
+    }
+    for (let detail of skill.wapSkillDetails) {
+      // ✅get detail triggered indexes
+      let detailTriggeredIndexes = getTriggeredIndexes(
+        detail.trigger,
+        skill.categoryType,
+        skillStatus,
+        this.live,
+        this.current,
+        skill.deckPosition,
+        skill.isOpponentSide,
+        this.actables
+      )
+      if (!detailTriggeredIndexes) {
+        // TODO: notify new triggers
+        console.error("Hasn't been implemented.")
+        continue
+      }
+      if (detailTriggeredIndexes.length === 0) {
+        // not triggered
+        continue
+      }
 
+      // ✅get target indexes
+      
+    }
   }
 
   private performStagePSkillsPhase1() {

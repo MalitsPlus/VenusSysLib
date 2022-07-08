@@ -57,10 +57,10 @@ export function calcStaminaConsume(
   var permil = 1000
   if (cardStatus.effects) {
     cardStatus.effects.forEach(eff => {
-      if (eff.efficacyType in StaminaConsumptionAdjustment) {
+      if (StaminaConsumptionAdjustment.includes(eff.efficacyType)) {
         permil += EfficacyValue[eff.efficacyType][eff.grade]
       }
-      if (eff.efficacyType in ParamBoost) {
+      if (ParamBoost.includes(eff.efficacyType)) {
         permil += eff.grade * 10
       }
     })
