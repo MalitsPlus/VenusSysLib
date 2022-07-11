@@ -12,6 +12,7 @@ import {
   WapSkill,
   WapSkillLevel,
 } from "../types/wrapper_types"
+import { calcCriticalRate } from "./calc_utils"
 
 export function getLiveCardByIndex(
   index: number,
@@ -112,6 +113,17 @@ export function indexIsOpponentSide(
   cardIndex: number
 ): boolean {
   if (cardIndex >= 5 && cardIndex <= 10) {
+    return true
+  }
+  return false
+}
+
+export function isCritical(
+  technique: number,
+  difficulty: number
+): boolean {
+  let rate = calcCriticalRate(technique, difficulty)
+  if (Math.random() <= rate) {
     return true
   }
   return false

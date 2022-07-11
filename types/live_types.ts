@@ -87,6 +87,8 @@ export type CardStatus = {
   dance: number,
   visual: number,
   stamina: number,
+  technique: number,
+  mental: number,
   skillStatuses: SkillStatus[],
   effects?: Effect[],
 }

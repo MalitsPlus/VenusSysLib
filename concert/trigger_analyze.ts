@@ -23,16 +23,21 @@ function getTriggerLastStr(
 
 export function getTriggerStatusType(
   triggerId: string
-): SkillEfficacyType | undefined {
+): SkillEfficacyType {
   let flag = getTriggerLastStr(triggerId)
-  let type = Str2EfficacyType[flag]
-  return type
+  if (flag) {
+    let type = Str2EfficacyType[flag]
+    return type
+  }
+  return SkillEfficacyType.Unknown
 }
 
 export function getTriggerStatusGroup(
   triggerId: string
 ): SkillEfficacyType[] | undefined {
   let flag = getTriggerLastStr(triggerId)
-  let group = Str2EfficacyGroup[flag]
-  return group
+  if (flag) {
+    let group = Str2EfficacyGroup[flag]
+    return group
+  }
 }

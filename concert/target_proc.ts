@@ -4,9 +4,31 @@ import {
   SkillTarget
 } from "../types/proto/proto_master";
 
+export function getTargetIndexes(
+  target: SkillTarget | undefined,
+  skillStatus: SkillStatus,
+  live: Live,
+  current: Chart,
+  deckPosition: number,
+  isOpponentSide: boolean,
+  skillTriggerIdx?: number[],
+  detailTriggerIdx?: number[],
+): number[] | undefined {
+  return _getTargetIndexes(
+    target,
+    skillStatus,
+    live,
+    current,
+    deckPosition,
+    isOpponentSide,
+    skillTriggerIdx,
+    detailTriggerIdx
+  )
+}
+
 // returns undefined if trigger logic hasn't been implemented
-export function _getTargetIndexes(
-  target: SkillTarget,
+function _getTargetIndexes(
+  target: SkillTarget | undefined,
   skillStatus: SkillStatus,
   live: Live,
   current: Chart,
@@ -41,6 +63,7 @@ export function _getTargetIndexes(
       case SkillTargetType.DanceHigher: {
         let statuses = current.cardStatuses.slice()
         statuses.sort((a, b) => b.dance - a.dance)
+        // todo
         break
       }
 

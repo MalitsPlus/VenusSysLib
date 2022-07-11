@@ -106,3 +106,10 @@ export function calcActSkillPrivilege(
 
   return param * powerRate
 }
+
+export function calcCriticalRate(
+  technique: number,
+  difficulty: number,
+): number {
+  return 0.5
+}

@@ -2,6 +2,7 @@ import {
   CardStatus,
   Chart,
   Live,
+  LiveCard,
   SkillStatus,
 } from "../types/live_types";
 import {
@@ -27,7 +28,7 @@ import * as tra from "./trigger_analyze"
 // returns empty array if has trigger but not triggered
 // returns [0] if has no trigger
 export function getTriggeredIndexes(
-  trigger: SkillTrigger,
+  trigger: SkillTrigger | undefined,
   skillType: SkillCategoryType,
   skillStatus: SkillStatus,
   live: Live,
@@ -35,6 +36,8 @@ export function getTriggeredIndexes(
   deckPosition: number,
   isOpponentSide: boolean,
   actables?: Actable[],
+  cardStatus?: CardStatus,
+  deckCard?: LiveCard
 ): number[] | undefined {
   let result = _getTriggeredIndexes(
     trigger,
@@ -45,6 +48,8 @@ export function getTriggeredIndexes(
     deckPosition,
     isOpponentSide,
     actables,
+    cardStatus,
+    deckCard
   )
   // clear indexes those are not belong to corresponding side
   return isOpponentSide
@@ -54,7 +59,7 @@ export function getTriggeredIndexes(
 
 // ⚠️ be careful that returned list may contains opponent side indexes
 function _getTriggeredIndexes(
-  trigger: SkillTrigger,
+  trigger: SkillTrigger | undefined,
   skillType: SkillCategoryType,
   skillStatus: SkillStatus,
   live: Live,
@@ -62,12 +67,11 @@ function _getTriggeredIndexes(
   deckPosition: number,
   isOpponentSide: boolean,
   actables?: Actable[],
-  // cardStatus?: CardStatus
+  cardStatus?: CardStatus,
+  deckCard?: LiveCard
 ): number[] | undefined {
   // if skill has trigger
   if (trigger) {
-    let cardStatus = getCardStatusByIndex(deckPosition, current)
-    let deckCard = getLiveCardByIndex(deckPosition, live)
     // who triggered this
     let triggeredList: number[] = []
     // check if trigger conditions are met according to skill's trigger type
@@ -92,7 +96,7 @@ function _getTriggeredIndexes(
         let userStat = current.userStatuses[
           isOpponentSide ? 1 : 0
         ]
-        if (userStat.combo >= combo) {
+        if (combo && userStat.combo >= combo) {
           triggeredList.push(deckPosition)
         }
         break
@@ -126,7 +130,7 @@ function _getTriggeredIndexes(
         if (skillType === SkillCategoryType.Passive) {
           // case: passive skills
           let beat = current.beats?.find(it => it.cardIndex === deckPosition)
-          if (beat.isCritical) {
+          if (beat?.isCritical) {
             triggeredList.push(beat.cardIndex)
           }
         } else {
@@ -160,7 +164,7 @@ function _getTriggeredIndexes(
 
       case SkillTriggerType.Status: {
         let efficacyType = tra.getTriggerStatusType(trigger.id)
-        if (cardStatus.effects?.some(eff => isEffect(eff, efficacyType))) {
+        if (cardStatus?.effects?.some(eff => isEffect(eff, efficacyType))) {
           triggeredList.push(deckPosition)
         }
         break
@@ -178,7 +182,7 @@ function _getTriggeredIndexes(
 
       case SkillTriggerType.StaminaLower: {
         let threshold = tra.getTriggerLastNum(trigger.id)
-        if (threshold) {
+        if (threshold && cardStatus && deckCard) {
           let rate = cardStatus.stamina / deckCard.deckStamina
           if (rate <= threshold / 100) {
             triggeredList.push(deckPosition)
@@ -189,7 +193,7 @@ function _getTriggeredIndexes(
 
       case SkillTriggerType.StaminaHigher: {
         let threshold = tra.getTriggerLastNum(trigger.id)
-        if (threshold) {
+        if (threshold && cardStatus && deckCard) {
           let rate = cardStatus.stamina / deckCard.deckStamina
           if (rate >= threshold / 100) {
             triggeredList.push(deckPosition)
@@ -204,7 +208,7 @@ function _getTriggeredIndexes(
           live.liveDeck.liveCards.forEach(card => {
             let cardStat = current.cardStatuses.find(it => it.cardIndex === card.index)
             if (cardStat) {
-              if (cardStat.stamina / card.liveCard.deckStamina <= threshold / 100) {
+              if (cardStat.stamina / card.liveCard.deckStamina <= threshold! / 100) {
                 triggeredList.push(deckPosition)
               }
             }
@@ -241,8 +245,8 @@ function _getTriggeredIndexes(
       case SkillTriggerType.StatusGroup: {
         let group = tra.getTriggerStatusGroup(trigger.id)
         if (group) {
-          if (cardStatus.effects?.some(eff =>
-            group.includes(eff.efficacyType)
+          if (cardStatus?.effects?.some(eff =>
+            group!!.includes(eff.efficacyType)
           )) {
             triggeredList.push(deckPosition)
           }
@@ -255,7 +259,7 @@ function _getTriggeredIndexes(
         if (group) {
           current.cardStatuses.forEach(cardStat => {
             if (cardStat.effects?.some(eff =>
-              group.includes(eff.efficacyType)
+              group!.includes(eff.efficacyType)
             )) {
               triggeredList.push(cardStat.cardIndex)
             }
@@ -358,7 +362,7 @@ function _getTriggeredIndexes(
         let userStat = current.userStatuses[
           isOpponentSide ? 1 : 0
         ]
-        if (userStat.combo <= combo) {
+        if (combo && userStat.combo <= combo) {
           triggeredList.push(deckPosition)
         }
         break
