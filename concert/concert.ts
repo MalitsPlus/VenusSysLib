@@ -367,18 +367,18 @@ export class Concert {
         (skill.isFirstTime && !skill.trigger))
       ) {
         if (isCharaSkill) {
-          // 🚩is chara skill
-          // ⚠️and the same card haven't performed p-skills in this turn
+          //🚩 is chara skill
+          //⚠️ and the same card haven't performed p-skills in this turn
           if (this.pSkillPerformed.includes(skill.deckPosition)) {
             continue
           }
           let cardStat = chartUt.getCardStatusByIndex(skill.deckPosition, this.current)
-          // ⚠️check possibility
+          //⚠️ check possibility
           if (skUt.isSkillImpossible(cardStat)) {
             continue
           }
           let skillStat = chartUt.getCardSkillStatus(cardStat, skill.skillIndex)
-          // ⚠️cool time should be checked in order after each previous skill activated in the same turn 
+          //⚠️ cool time should be checked in order after each previous skill activated in the same turn 
           if (skillStat.coolTime > 0 &&
             skUt.skillHasRemainCount(skill, skillStat)) {
             continue
@@ -386,7 +386,7 @@ export class Concert {
           // conditions all satisfied
           this.performPSkill(skill, skillStat, true)
         } else {
-          // 🚩is not chara skill
+          //🚩 is not chara skill
           let skillStat = this.current.stageSkillStatuses?.find(it =>
             it.skillIndex === skill.skillIndex
           )
@@ -417,6 +417,12 @@ export class Concert {
     if (isCharaSkill) {
       cardStatus = chartUt.getCardStatusByIndex(skill.deckPosition, this.current)
       deckCard = chartUt.getLiveCardByIndex(skill.deckPosition, this.live)
+      //⚠️ check stamina
+      let stamina = calcUt.calcStaminaConsume(
+        skill, deckCard, cardStatus, this.live.quest.skillStaminaWeightPermil)
+      if (cardStatus.stamina < stamina) {
+        return
+      }
     }
 
     //🟠 get triggered indexes
@@ -560,41 +566,45 @@ export class Concert {
 
       let staminaConsumption = calcUt.calcStaminaConsume(
         skillLevel, deckCard, cardStatus, this.live.quest.skillStaminaWeightPermil)
-      let isCritical = chartUt.getCritical(
-        cardStatus.technique, this.live.quest.difficultyLevel)
+      
+      // if stamina is sufficient
+      if (staminaConsumption <= cardStatus.stamina) {
+        let isCritical = chartUt.getCritical(
+          cardStatus.technique, this.live.quest.difficultyLevel)
 
-      let actSkill: ActSkill = {
-        cardIndex: actable.index,
-        skillIndex: actable.skills[0],
-        order: this.order,
-        stamina: staminaConsumption,
-        isCritical: isCritical,
-        isComboBreak: false,
-        details: [],
-        score: 0, // TODO: implement score calculation
-      }
+        let actSkill: ActSkill = {
+          cardIndex: actable.index,
+          skillIndex: actable.skills[0],
+          order: this.order,
+          stamina: staminaConsumption,
+          isCritical: isCritical,
+          isComboBreak: false,
+          details: [],
+          score: 0, // TODO: implement score calculation
+        }
 
-      // TODO
-      this.performASPSkill(trh)
+        // TODO
+        this.performASPSkill(trh)
 
-      // set skillStatus
-      //❓ TODO: can this operation change this.xxx directly? 
-      skillStatus.coolTime = skillLevel.coolTime
-      if (skillStatus.remainCount) {
-        skillStatus.remainCount -= 1
+        // set skillStatus
+        //❓ TODO: can this operation change this.xxx directly? 
+        skillStatus.coolTime = skillLevel.coolTime
+        if (skillStatus.remainCount) {
+          skillStatus.remainCount -= 1
+        }
+        this.current.actSkill = actSkill
+        return
       }
-      this.current.actSkill = actSkill
-    } else {
-      // no skills available
-      this.current.actSkill = {
-        cardIndex: 0,
-        skillIndex: 0,
-        order: this.order,
-        stamina: 0,
-        isCritical: false,
-        isComboBreak: true,
-        details: [],
-      }
+    }
+    // no skills available
+    this.current.actSkill = {
+      cardIndex: 0,
+      skillIndex: 0,
+      order: this.order,
+      stamina: 0,
+      isCritical: false,
+      isComboBreak: true,
+      details: [],
     }
   }
   private performASPSkill() {

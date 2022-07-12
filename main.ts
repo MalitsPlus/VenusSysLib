@@ -52,12 +52,19 @@ sktrigger.forEach(it => {
   txt += it.id + "\n"
 })
 
-function funcA(some: string) {
-  if (some) {
-    console.log("yes")
-  } else {
-    console.log("no")
-  }
+const ta = {
+  val1: 1,
+  val2: "val22",
 }
-funcA("gver")
+const tb = {
+  inta: ta,
+  val3: "v3"
+}
+
+function funcA(some: { inta: { val1: number, val2: string, }, val3: string }) {
+  some.inta.val1 = 2
+  some.inta.val2 = "val11"
+  some.val3 = "vvvv"
+}
+funcA(tb)
 let a = 1
