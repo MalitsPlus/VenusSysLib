@@ -47,6 +47,7 @@ export type SkillStatus = {
   remainCount: number,
 }
 
+// a superior Effect type used for calculation
 export type DetEffect = {
   efficacyType: SkillEfficacyType,
   grade: number,

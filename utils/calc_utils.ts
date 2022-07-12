@@ -19,7 +19,8 @@ import {
 } from "../types/wrapper_types"
 import {
   getMergedEffectByType,
-  getRealtimeParamByChartType
+  getRealtimeParamByChartType,
+  isEffects
 } from "./skill_utils"
 
 export function calcParam(
@@ -49,7 +50,8 @@ export function calcBuffedParam(
 export function calcStaminaConsume(
   skillLevel: WapSkillLevel,
   card: LiveCard,
-  cardStatus: CardStatus
+  cardStatus: CardStatus,
+  staminaWeightPermil: number
 ): number {
   var expectedSt = skillLevel.staminaPermil
     ? Math.floor(card.deckStamina * skillLevel.staminaPermil / 1000)
@@ -57,15 +59,15 @@ export function calcStaminaConsume(
   var permil = 1000
   if (cardStatus.effects) {
     cardStatus.effects.forEach(eff => {
-      if (StaminaConsumptionAdjustment.includes(eff.efficacyType)) {
+      if (isEffects(eff, StaminaConsumptionAdjustment)) {
         permil += EfficacyValue[eff.efficacyType][eff.grade]
       }
-      if (ParamBoost.includes(eff.efficacyType)) {
+      if (isEffects(eff, ParamBoost)) {
         permil += eff.grade * 10
       }
     })
   }
-  return Math.floor(expectedSt * permil / 1000)
+  return Math.floor(expectedSt * permil / 1000 * staminaWeightPermil / 1000)
 }
 
 export function calcActSkillPrivilege(
@@ -111,5 +113,14 @@ export function calcCriticalRate(
   technique: number,
   difficulty: number,
 ): number {
+  if (technique === 0) {
+    return 0
+  }
+  // TODO: implement critical rate calculation
   return 0.5
+}
+
+export function calcBeatScore(
+): string {
+  return "0"
 }

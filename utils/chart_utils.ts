@@ -73,7 +73,7 @@ export function getSkillLevel(
   skill: WapSkill,
   level: number
 ): WapSkillLevel {
-  return skill.wapSkillLevels.find(it => it.level === level)
+  return skill.wapSkillLevels.find(it => it.level === level)!
 }
 
 export function getCardSkillLevel(
@@ -118,7 +118,7 @@ export function indexIsOpponentSide(
   return false
 }
 
-export function isCritical(
+export function getCritical(
   technique: number,
   difficulty: number
 ): boolean {

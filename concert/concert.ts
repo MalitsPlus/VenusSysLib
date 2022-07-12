@@ -113,7 +113,7 @@ export class Concert {
       // higher mental first
       .sort((a, b) => b.mental - a.mental)
       .map(it => it.skill)
-    
+
     this.live.quest.liveBonuses?.forEach((liveAb, index) => {
       if (!this.pSkillLiveBonus) {
         this.pSkillLiveBonus = []
@@ -145,6 +145,7 @@ export class Concert {
     this.live.quest.musicChartPatterns.forEach(musicPtn => {
       // init current chart
       this.previous = this.charts[this.charts.length - 1]
+      this.actables = undefined
       this.pSkillPerformed = []
       this.current = {
         chartType: musicPtn.type,
@@ -155,12 +156,13 @@ export class Concert {
         stageSkillStatuses: this.previous.stageSkillStatuses,
         beats: [],
       }
-      
+
       //0️⃣ pre-processes
       this.turnPreprocess()
 
       // A & SP node
       if (this.current.chartType > MusicChartType.Beat) {
+        this.actables = []
         //1️⃣
         this.checkActSkillExistence()
         //2️⃣
@@ -179,14 +181,14 @@ export class Concert {
         assert(this.actables?.length ?? 0 <= 1)
       }
 
-      
+
 
       //5️⃣ passive skills performances (before-phase)
       this.performStagePSkillsPhase1()
       this.performCharaPSkillsPhase1()
 
       //6️⃣ beat
-      this.beatAct()
+      this.nodeAct()
 
       //7️⃣ 
       this.rotateCoolTime()
@@ -195,17 +197,25 @@ export class Concert {
       this.rotateEffTime()
 
       //9️⃣
-      this.stagePassiveSkillActAfter()
-      this.passiveSkillActAfter()
+      this.performStagePSkillsPhase2()
+      this.performCharaPSkillsPhase2()
 
       //🔟
       this.turnAftermath()
     })
   }
 
+  //0️⃣ pre-processes
+  private turnPreprocess() {
+    // remove effects which have no remain count
+    this.current.cardStatuses.forEach(cardStat => {
+      cardStat.effects = cardStat.effects?.filter(eff => eff.remain !== 0)
+    })
+
+  }
+
   //1️⃣
   private checkActSkillExistence() {
-    this.actables = []
     this._checkActSkillExistence(false)
     if (this.live.isBattle) {
       this._checkActSkillExistence(true)
@@ -257,7 +267,8 @@ export class Concert {
         let skillLevel = chartUt.getCardSkillLevel(skillIndex, card)
         let currentSt = cardStatus.stamina
         // calculate buffed stamina consumption
-        let consumeSt = calcUt.calcStaminaConsume(skillLevel, card, cardStatus)
+        let consumeSt = calcUt.calcStaminaConsume(
+          skillLevel, card, cardStatus, this.live.quest.skillStaminaWeightPermil)
         // if stamina is sufficient
         if (consumeSt <= currentSt) {
           return skillIndex
@@ -337,19 +348,21 @@ export class Concert {
   //5️⃣
   private performStagePSkillsPhase1() {
     this.pSkillLiveBonus &&
-      this.validateThenPerformPSkill(this.pSkillLiveBonus, false)
+      this.validateThenPerformPSkill(this.pSkillLiveBonus, false, true)
   }
   //5️⃣
   private performCharaPSkillsPhase1() {
-    this.validateThenPerformPSkill(this.pSkills, true)
+    this.validateThenPerformPSkill(this.pSkills, true, true)
   }
   private validateThenPerformPSkill(
     pSkills: ConcertPSkillLevel[],
     isCharaSkill: boolean,
+    isBefore: boolean
   ) {
     for (let skill of pSkills) {
-      // if in trigger-before list
-      if ((effList.TriggerBefore.includes(skill.trigger?.type ?? SkillTriggerType.Unknown) ||
+      // if in trigger-before list or just is after turn
+      if (!isBefore ||
+        (effList.TriggerBefore.includes(skill.trigger?.type ?? SkillTriggerType.Unknown) ||
         // or has no trigger conditions and is first time activated
         (skill.isFirstTime && !skill.trigger))
       ) {
@@ -438,12 +451,14 @@ export class Concert {
     this.order += 1
 
     // calculate critical or not 
-    let isCritical = chartUt.isCritical(0, 0)
+    let isCritical = chartUt.getCritical(
+      cardStatus?.technique ?? 0, this.live.quest.difficultyLevel)
 
     // calculate consumption of stamina
     var stamina = 0
     if (isCharaSkill && deckCard && cardStatus) {
-      stamina = calcUt.calcStaminaConsume(skill, deckCard, cardStatus)
+      stamina = calcUt.calcStaminaConsume(
+        skill, deckCard, cardStatus, this.live.quest.skillStaminaWeightPermil)
     }
 
     //🟠 create a new ActSkill
@@ -493,7 +508,7 @@ export class Concert {
       )
 
       //🟠 perform skill
-      act.perform()
+      act.performP()
 
       // push efficacyDetail to ActSkill
       actPSkill.details.push({
@@ -507,30 +522,122 @@ export class Concert {
     //🟠 set skillStatus
     //❓ TODO: can this operation change this.xxx directly? 
     skillStatus.coolTime = skill.coolTime
-    if (skillStatus.remainCount) {
-      skillStatus.remainCount -= 1
-    }
+    skillStatus.remainCount && skillStatus.remainCount--
   }
 
   //6️⃣
+  private nodeAct() {
+    this.current.chartType === MusicChartType.Beat
+      ? this.beatAct()
+      : this.activeSkillAct()
+  }
+  // common beat 
   private beatAct() {
-    if (this.current.chartType === MusicChartType.Beat) {
-      if (!this.current.beats) {
-        this.current.beats = []
-      }
-      this.current.cardStatuses.forEach(cardStat => {
-        this.order += 1
-        this.current.beats?.push({
-          cardIndex: cardStat.cardIndex,
-          order: this.order,
-          isCritical: chartUt.isCritical(cardStat.technique, 0),
-          score: "0", // TODO: implement score calculating
-        })
+    if (!this.current.beats) {
+      this.current.beats = []
+    }
+    this.current.cardStatuses.forEach(cardStat => {
+      this.order += 1
+      this.current.beats!.push({
+        cardIndex: cardStat.cardIndex,
+        order: this.order,
+        isCritical: chartUt.getCritical(
+          cardStat.technique, this.live.quest.difficultyLevel),
+        score: calcUt.calcBeatScore(),
       })
+    })
+  }
+  // A or SP skill 
+  private activeSkillAct() {
+    this.order += 1
+    if (this.actables && this.actables.length > 0) {
+      let actable = this.actables[0]
+      let deckCard = chartUt.getLiveCardByIndex(actable.index, this.live)
+      let cardStatus = chartUt.getCardStatusByIndex(actable.index, this.current)
+      let skill = chartUt.getSkillByIndex(actable.skills[0], deckCard)
+      let skillStatus = chartUt.getCardSkillStatus(cardStatus, actable.skills[0])
+      let skillLevel = chartUt.getCardSkillLevel(actable.skills[0], deckCard)
+
+      let staminaConsumption = calcUt.calcStaminaConsume(
+        skillLevel, deckCard, cardStatus, this.live.quest.skillStaminaWeightPermil)
+      let isCritical = chartUt.getCritical(
+        cardStatus.technique, this.live.quest.difficultyLevel)
+
+      let actSkill: ActSkill = {
+        cardIndex: actable.index,
+        skillIndex: actable.skills[0],
+        order: this.order,
+        stamina: staminaConsumption,
+        isCritical: isCritical,
+        isComboBreak: false,
+        details: [],
+        score: 0, // TODO: implement score calculation
+      }
+
+      // TODO
+      this.performASPSkill(trh)
+
+      // set skillStatus
+      //❓ TODO: can this operation change this.xxx directly? 
+      skillStatus.coolTime = skillLevel.coolTime
+      if (skillStatus.remainCount) {
+        skillStatus.remainCount -= 1
+      }
+      this.current.actSkill = actSkill
     } else {
-      // A or SP skill 
-      
+      // no skills available
+      this.current.actSkill = {
+        cardIndex: 0,
+        skillIndex: 0,
+        order: this.order,
+        stamina: 0,
+        isCritical: false,
+        isComboBreak: true,
+        details: [],
+      }
     }
   }
+  private performASPSkill() {
 
+  }
+
+  //7️⃣ 
+  private rotateCoolTime() {
+    // card skill
+    this.current.cardStatuses.forEach(cardStat => {
+      cardStat.skillStatuses.forEach(skillStat => {
+        skillStat.coolTime && skillStat.coolTime--
+      })
+    })
+    // live bonus skill
+    this.current.stageSkillStatuses?.forEach(stageSkill => {
+      stageSkill.coolTime && stageSkill.coolTime--
+    })
+  }
+
+  //8️⃣
+  //⚠️ NOTE: this method will NOT remove effects have no remain count,
+  // instead, they will be removed at the beginning of each turn.
+  private rotateEffTime() {
+    this.current.cardStatuses.forEach(cardStat => {
+      cardStat.effects?.forEach(eff => {
+        eff.remain && eff.remain--
+      })
+    })
+  }
+
+  //9️⃣
+  private performStagePSkillsPhase2() {
+    this.pSkillLiveBonus &&
+      this.validateThenPerformPSkill(this.pSkillLiveBonus, false, false)
+  }
+  //9️⃣
+  private performCharaPSkillsPhase2() {
+    this.validateThenPerformPSkill(this.pSkills, true, false)
+  }
+
+  //🔟
+  private turnAftermath() {
+
+  }
 }

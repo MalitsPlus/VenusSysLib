@@ -26,4 +26,5 @@ export type QuestBase = {
   questAudienceAdvantageId: string
   moodType: MoodType
   liveBonusGroupId: string
+  difficultyLevel: number
 }

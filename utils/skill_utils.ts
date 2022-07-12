@@ -65,6 +65,15 @@ export function isEffect(
   return false
 }
 
+export function isEffects(
+  eff: Effect,
+  efficacyTypes: SkillEfficacyType[]
+): boolean {
+  return efficacyTypes.some(effType => {
+    isEffect(eff, effType)
+  })
+}
+
 export function getEffectsByType(
   efficacyType: SkillEfficacyType,
   cardStatus: CardStatus,
@@ -91,6 +100,7 @@ export function getMergedEffectByType(
     efficacyType: efficacyType,
     grade: grade,
     value: efg.EfficacyValue[efficacyType][grade],
+    isInstant: false,
   }
 }
 
