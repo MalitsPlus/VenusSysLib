@@ -1,4 +1,3 @@
-import { LiveBeat } from "./proto/proto_api"
 import {
   SkillEfficacyType,
   MusicChartType,
@@ -9,7 +8,8 @@ import {
   Equipment,
 } from "./user_types"
 import {
-  WapQuest, WapSkill,
+  WapLiveBeat,
+  WapQuest, WapSkill, WapSkillLevel,
 } from "./wrapper_types"
 
 export type UserStatus = {
@@ -101,7 +101,7 @@ export type Chart = {
   actPosition: number,
   cardStatuses: CardStatus[],
   userStatuses: UserStatus[],
-  beats?: LiveBeat[],
+  beats?: WapLiveBeat[],
   stageSkillStatuses?: SkillStatus[],
   actSkill?: ActSkill,
   actPSkills?: ActSkill[],

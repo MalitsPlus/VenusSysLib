@@ -14,6 +14,7 @@ import {
   QuestBase,
 } from "./base_types"
 import { SkillCategoryType } from "./proto/proto_enum"
+import { LiveBeat } from "./proto/proto_api"
 
 export type WapCard = Card & {
   skill1: WapSkill
@@ -61,4 +62,8 @@ export type WapPhotoAbility = {
   missionId: string
   grade: number
   isAvailable: boolean
+}
+
+export type WapLiveBeat = Omit<LiveBeat, "score"> & {
+  score: number
 }

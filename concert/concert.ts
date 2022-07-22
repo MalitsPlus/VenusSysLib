@@ -33,6 +33,20 @@ export type Actable = {
   skills: number[],
 }
 
+// export type ConcertSkill = WapSkill & {
+//   skill: WapSkillLevel
+//   deckPosition: number
+//   skillIndex: number
+//   isFirstTime: boolean
+//   isOpponentSide: boolean
+// }
+
+// export type ConcertCard = Omit<DeckCard, "skill1" | "skill2" | "skill3"> & {
+//   skill1: ConcertSkill
+//   skill2: ConcertSkill
+//   skill3: ConcertSkill
+// }
+
 export type ConcertPSkillLevel = WapSkillLevel & {
   deckPosition: number,
   skillIndex: number,
@@ -348,13 +362,13 @@ export class Concert {
   //5️⃣
   private performStagePSkillsPhase1() {
     this.pSkillLiveBonus &&
-      this.validateThenPerformPSkill(this.pSkillLiveBonus, false, true)
+      this._validateThenPerformPSkill(this.pSkillLiveBonus, false, true)
   }
   //5️⃣
   private performCharaPSkillsPhase1() {
-    this.validateThenPerformPSkill(this.pSkills, true, true)
+    this._validateThenPerformPSkill(this.pSkills, true, true)
   }
-  private validateThenPerformPSkill(
+  private _validateThenPerformPSkill(
     pSkills: ConcertPSkillLevel[],
     isCharaSkill: boolean,
     isBefore: boolean
@@ -384,7 +398,7 @@ export class Concert {
             continue
           }
           // conditions all satisfied
-          this.performPSkill(skill, skillStat, true)
+          this._performPSkill(skill, skillStat, true)
         } else {
           //🚩 is not chara skill
           let skillStat = this.current.stageSkillStatuses?.find(it =>
@@ -395,18 +409,18 @@ export class Concert {
               skUt.skillHasRemainCount(skill, skillStat)) {
               continue
             }
-            this.performPSkill(skill, skillStat, false)
+            this._performPSkill(skill, skillStat, false)
           }
         }
       }
     }
   }
-  private performPSkill(
+  private _performPSkill(
     skill: ConcertPSkillLevel,
     skillStatus: SkillStatus,
     isCharaSkill: boolean
   ) {
-    //🟠 rolling dice!
+    //🟠 roll the dice!
     if (!skUt.roll(skill.probabilityPermil)) {
       return
     }
@@ -534,11 +548,11 @@ export class Concert {
   //6️⃣
   private nodeAct() {
     this.current.chartType === MusicChartType.Beat
-      ? this.beatAct()
-      : this.activeSkillAct()
+      ? this._beatAct()
+      : this._activeSkillAct()
   }
   // common beat 
-  private beatAct() {
+  private _beatAct() {
     if (!this.current.beats) {
       this.current.beats = []
     }
@@ -554,7 +568,7 @@ export class Concert {
     })
   }
   // A or SP skill 
-  private activeSkillAct() {
+  private _activeSkillAct() {
     this.order += 1
     if (this.actables && this.actables.length > 0) {
       let actable = this.actables[0]
@@ -564,6 +578,10 @@ export class Concert {
       let skillStatus = chartUt.getCardSkillStatus(cardStatus, actable.skills[0])
       let skillLevel = chartUt.getCardSkillLevel(actable.skills[0], deckCard)
 
+      //⚠️ check stamina
+      // note despite this has been checked once in the pre-checking phase,
+      // stamina still could be insufficient if any P-skills are performed in 
+      // the P-skill Performance Phase 1 
       let staminaConsumption = calcUt.calcStaminaConsume(
         skillLevel, deckCard, cardStatus, this.live.quest.skillStaminaWeightPermil)
       
@@ -584,14 +602,17 @@ export class Concert {
         }
 
         // TODO
-        this.performASPSkill(trh)
+        this._performASPSkill(trh)
 
         // set skillStatus
         //❓ TODO: can this operation change this.xxx directly? 
         skillStatus.coolTime = skillLevel.coolTime
-        if (skillStatus.remainCount) {
-          skillStatus.remainCount -= 1
-        }
+
+        //❓ A | SP skills have no limitation (currently), so this is probably redundant
+        // if (skillStatus.remainCount) {
+        //   skillStatus.remainCount -= 1
+        // }
+
         this.current.actSkill = actSkill
         return
       }
@@ -607,8 +628,8 @@ export class Concert {
       details: [],
     }
   }
-  private performASPSkill() {
-
+  private _performASPSkill() {
+    
   }
 
   //7️⃣ 
@@ -639,11 +660,11 @@ export class Concert {
   //9️⃣
   private performStagePSkillsPhase2() {
     this.pSkillLiveBonus &&
-      this.validateThenPerformPSkill(this.pSkillLiveBonus, false, false)
+      this._validateThenPerformPSkill(this.pSkillLiveBonus, false, false)
   }
   //9️⃣
   private performCharaPSkillsPhase2() {
-    this.validateThenPerformPSkill(this.pSkills, true, false)
+    this._validateThenPerformPSkill(this.pSkills, true, false)
   }
 
   //🔟

@@ -121,6 +121,6 @@ export function calcCriticalRate(
 }
 
 export function calcBeatScore(
-): string {
-  return "0"
+): number {
+  return 0
 }
