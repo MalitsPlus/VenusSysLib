@@ -29,6 +29,7 @@ import {
   rawLiveBonusGroup,
   rawMusic,
   rawMusicChartPattern,
+  rawSettings,
 } from "../data/master"
 import {
   MusicChartType,
@@ -36,6 +37,7 @@ import {
 
 export const cards = getCards()
 export const accessories = getAccessories()
+export const gameSetting = rawSettings[0]
 // TODO: add event lives & venus battles & union lives
 export const quests = getQuests()
 

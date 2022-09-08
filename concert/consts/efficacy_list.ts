@@ -49,3 +49,40 @@ export const SkillEfficacyStaminaRecoveryList = [
   SkillEfficacyType.FixStaminaRecovery,
   SkillEfficacyType.TargetStaminaRecovery,
 ]
+
+export const EasyAttachList = [
+  SkillEfficacyType.StaminaConsumptionReduction,
+  SkillEfficacyType.ComboContinuation,
+  SkillEfficacyType.ScoreUp,
+  SkillEfficacyType.BeatScoreUp,
+  SkillEfficacyType.ActiveSkillScoreUp,
+  SkillEfficacyType.CriticalRateUp,
+  SkillEfficacyType.CriticalBonusPermilUp,
+  SkillEfficacyType.AudienceAmountIncrease,
+  SkillEfficacyType.AudienceAmountReduction,
+  SkillEfficacyType.SkillImpossible,
+  SkillEfficacyType.StaminaConsumptionIncrease,
+  SkillEfficacyType.SpecialSkillScoreUp,
+  SkillEfficacyType.SkillSuccessRateUp,
+  SkillEfficacyType.TensionUp,
+  SkillEfficacyType.WeaknessEffectPrevention,
+  SkillEfficacyType.ComboScoreUp,
+  SkillEfficacyType.PassiveSkillScoreUp,
+  SkillEfficacyType.SpecialScoreMultiplierAdd,
+  SkillEfficacyType.ActiveScoreMultiplierAdd,
+  SkillEfficacyType.PassiveScoreMultiplierAdd,
+  SkillEfficacyType.StaminaContinuousRecovery,
+  SkillEfficacyType.StaminaContinuousConsumption,
+]
+
+export const ParamChangingList = [
+  SkillEfficacyType.DanceUp,
+  SkillEfficacyType.VocalUp,
+  SkillEfficacyType.VisualUp,
+  SkillEfficacyType.DanceDown,
+  SkillEfficacyType.VocalDown,
+  SkillEfficacyType.VisualDown,
+  SkillEfficacyType.DanceBoost,
+  SkillEfficacyType.VocalBoost,
+  SkillEfficacyType.VisualBoost,
+]

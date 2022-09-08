@@ -35,7 +35,7 @@ export function getTriggeredIndexes(
   current: Chart,
   deckPosition: number,
   isOpponentSide: boolean,
-  actables?: Actable[],
+  actable?: Actable,
   cardStatus?: CardStatus,
   deckCard?: LiveCard
 ): number[] | undefined {
@@ -47,7 +47,7 @@ export function getTriggeredIndexes(
     current,
     deckPosition,
     isOpponentSide,
-    actables,
+    actable,
     cardStatus,
     deckCard
   )
@@ -66,7 +66,7 @@ function _getTriggeredIndexes(
   current: Chart,
   deckPosition: number,
   isOpponentSide: boolean,
-  actables?: Actable[],
+  actable?: Actable,
   cardStatus?: CardStatus,
   deckCard?: LiveCard
 ): number[] | undefined {
@@ -109,18 +109,14 @@ function _getTriggeredIndexes(
 
       case SkillTriggerType.BeforeActiveSkillBySomeone: {
         if (current.chartType === MusicChartType.ActiveSkill) {
-          actables?.forEach(act => {
-            triggeredList.push(act.index)
-          })
+          actable && triggeredList.push(actable.index)
         }
         break
       }
 
       case SkillTriggerType.BeforeSpecialSkillBySomeone: {
         if (current.chartType === MusicChartType.SpecialSkill) {
-          actables?.forEach(act => {
-            triggeredList.push(act.index)
-          })
+          actable && triggeredList.push(actable.index)
         }
         break
       }
@@ -388,11 +384,9 @@ function _getTriggeredIndexes(
 
       case SkillTriggerType.BeforeSpecialSkill: {
         if (current.chartType === MusicChartType.SpecialSkill) {
-          actables?.forEach(act => {
-            if (act.index === deckPosition) {
-              triggeredList.push(act.index)
-            }
-          })
+          if (actable && actable.index === deckPosition) {
+            triggeredList.push(actable.index)
+          }
         }
         break
       }

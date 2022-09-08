@@ -13,6 +13,7 @@ import {
   LiveBonusGroup,
   LiveBonus,
   LiveAbility,
+  Setting,
 } from "../types/proto/proto_master"
 
 import protoCard from "../database/Card.json"
@@ -29,6 +30,7 @@ import protoMusicChartPattern from "../database/MusicChartPattern.json"
 import protoLiveBonusGroup from "../database/LiveBonusGroup.json"
 import protoLiveBonus from "../database/LiveBonus.json"
 import protoLiveAbility from "../database/LiveAbility.json"
+import protoSetting from "../database/Setting.json"
 
 export const rawCards: Card[] = protoCard
 export const rawSkills: Skill[] = protoSkill
@@ -44,3 +46,4 @@ export const rawMusicChartPattern: MusicChartPattern[] = protoMusicChartPattern
 export const rawLiveBonusGroup: LiveBonusGroup[] = protoLiveBonusGroup
 export const rawLiveBonus: LiveBonus[] = protoLiveBonus
 export const rawLiveAbility: LiveAbility[] = protoLiveAbility
+export const rawSettings: Setting[] = protoSetting

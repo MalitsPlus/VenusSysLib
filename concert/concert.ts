@@ -448,7 +448,7 @@ export class Concert {
       this.current,
       skill.deckPosition,
       skill.isOpponentSide,
-      this.actables,
+      this.actables?.at(0),
       cardStatus,
       deckCard
     )
@@ -503,7 +503,7 @@ export class Concert {
         this.current,
         skill.deckPosition,
         skill.isOpponentSide,
-        this.actables
+        this.actables?.at(0)
       )
       if (!detailTriggeredIndexes) {
         // TODO: notify new triggers
@@ -577,6 +577,7 @@ export class Concert {
       let skill = chartUt.getSkillByIndex(actable.skills[0], deckCard)
       let skillStatus = chartUt.getCardSkillStatus(cardStatus, actable.skills[0])
       let skillLevel = chartUt.getCardSkillLevel(actable.skills[0], deckCard)
+      let isOpponent = chartUt.indexIsOpponentSide(actable.index)
 
       //⚠️ check stamina
       // note despite this has been checked once in the pre-checking phase,
@@ -602,14 +603,24 @@ export class Concert {
         }
 
         // TODO
-        this._performASPSkill(trh)
+        this._performASPSkill(
+          deckCard,
+          cardStatus,
+          skill,
+          skillStatus,
+          skillLevel,
+          actSkill,
+          actable,
+          isOpponent,
+        )
 
         // set skillStatus
         //❓ TODO: can this operation change this.xxx directly? 
         skillStatus.coolTime = skillLevel.coolTime
 
         //❓ A | SP skills have no limitation (currently), so this is probably redundant
-        // if (skillStatus.remainCount) {
+        // if (skUt.skillHasRemainCount(skillLevel, skillStatus)
+        //   && skillStatus.remainCount) {
         //   skillStatus.remainCount -= 1
         // }
 
@@ -617,7 +628,7 @@ export class Concert {
         return
       }
     }
-    // no skills available
+    // no skills available, or stamina is insufficient
     this.current.actSkill = {
       cardIndex: 0,
       skillIndex: 0,
@@ -628,8 +639,62 @@ export class Concert {
       details: [],
     }
   }
-  private _performASPSkill() {
-    
+
+  private _performASPSkill(
+    deckCard: LiveCard,
+    cardStatus: CardStatus,
+    skill: WapSkill,
+    skillStatus: SkillStatus,
+    skillLevel: WapSkillLevel,
+    actSkill: ActSkill,
+    actable: Actable,
+    isOpponent: boolean,
+  ) {
+    // iterate skill.skillDetails
+    for (let [idx, detail] of skillLevel.wapSkillDetails.entries()) {
+      // get triggered indexes
+      let triggeredIndexes = getTriggeredIndexes(
+        detail.trigger,
+        skill.categoryType,
+        skillStatus,
+        this.live,
+        this.current,
+        actable.index,
+        isOpponent,
+        this.actables?.at(0),
+        cardStatus,
+        deckCard
+      )
+      if (triggeredIndexes === undefined) {
+        // TODO
+        continue
+      } else if (!triggeredIndexes.length) {
+        // not triggered
+        continue
+      }
+      // get target indexes
+      let targetIndexes = getTargetIndexes(
+        detail.efficacy.skillTarget,
+        skillStatus,
+        this.live,
+        this.current,
+        actable.index,
+        isOpponent,
+        undefined,
+        triggeredIndexes
+      )
+
+      // perform skill
+      act.performASP()
+
+      // push efficacyDetail to ActSkill(x this has been done in act.performASP)
+      // actSkill.details.push({
+      //   efficacyIndex: idx,
+      //   efficacyType: detail.efficacy.type,
+      //   targetIndexes: targetIndexes,
+      //   value: ?,
+      // })
+    } 
   }
 
   //7️⃣ 

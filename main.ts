@@ -46,25 +46,14 @@ const quest = getQuest("qt-area-1-010")
 const live = newLive(quest, liveDeck, false)
 
 import sktri from "./database/SkillTrigger.json"
+import { getFixStaminaRecoveryValue } from "./concert/efficacy_analyze"
 const sktrigger = sktri.filter(it => it.type == 10)
-var txt = ""
-sktrigger.forEach(it => {
-  txt += it.id + "\n"
-})
 
-const ta = {
-  val1: 1,
-  val2: "val22",
-}
-const tb = {
-  inta: ta,
-  val3: "v3"
+let xxx = getFixStaminaRecoveryValue("ef-fix_stamina_recovery-10020-target-all")
+
+let aa = []
+if (aa) {
+  console.log(11111)
 }
 
-function funcA(some: { inta: { val1: number, val2: string, }, val3: string }) {
-  some.inta.val1 = 2
-  some.inta.val2 = "val11"
-  some.val3 = "vvvv"
-}
-funcA(tb)
 let a = 1
