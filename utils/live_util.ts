@@ -32,22 +32,51 @@ export function newLiveCard(
   }
 }
 
-export function newLiveDeck(userDeck: UserDeck): LiveDeck {
-  let liveCards: {
-    index: number,
-    liveCard: LiveCard,
-  }[] = []
-  userDeck.userCards.forEach(({ index, userCard }) => {
-    liveCards.push({
-      index: index,
-      liveCard: newLiveCard(userCard)
+export function newLiveDeck(userDeck: UserDeck, opponentDeck?: UserDeck): LiveDeck {
+
+  let liveCards = userDeck.userCards.map(it => ({
+    index: it.index,
+    liveCard: newLiveCard(it.userCard)
+  }))
+
+  if (opponentDeck) {
+    opponentDeck.userCards.forEach(({ index, userCard }) => {
+      liveCards.push({
+        index: index + 5, // ⚠ potential invalidation 
+        liveCard: newLiveCard(userCard)
+      })
     })
-  })
+  }
+
+  let liveEquipments: {
+    index: number,
+    equipment: Equipment,
+  }[] = []
+
+  if (userDeck.userEquipments) {
+    userDeck.userEquipments.forEach(({ index, equipment }) => {
+      liveEquipments?.push({
+        index: index, // ⚠ potential invalidation 
+        equipment: equipment
+      })
+    })
+  }
+  if (opponentDeck) {
+    opponentDeck?.userEquipments?.forEach(({ index, equipment }) => {
+      liveEquipments.push({
+        index: index + 5, // ⚠ potential invalidation 
+        equipment: equipment
+      })
+    })
+  }
+
   let liveDeck: LiveDeck = {
-    id: userDeck.id,
-    deckName: userDeck.deckName,
+    idAlly: userDeck.id,
+    deckNameAlly: userDeck.deckName,
+    idOppt: opponentDeck?.id,
+    deckNameOppt: opponentDeck?.deckName,
     liveCards: liveCards,
-    ...userDeck.userEquipments,
+    liveEquipments: liveEquipments,
   }
   return liveDeck
 }

@@ -29,8 +29,10 @@ export type LiveCard = UserCard & {
 }
 
 export type LiveDeck = {
-  id: string,
-  deckName: string,
+  idAlly: string,
+  deckNameAlly: string,
+  idOppt?: string,
+  deckNameOppt?: string,
   liveCards: {
     index: number,
     liveCard: LiveCard,
@@ -118,5 +120,5 @@ export type Live = {
 }
 
 export type Concert = {
-  
+
 }
