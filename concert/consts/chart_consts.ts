@@ -34,3 +34,23 @@ export const Str2EfficacyGroup: {
 } = {
   weekness: SkillEfficacyTypeWeaknessList,
 }
+
+export const IndexNeighbor: {
+  [key: number]: number[]
+} = {
+  1: [2, 3],
+  2: [1, 4],
+  3: [1, 5],
+  4: [2],
+  5: [3],
+  6: [7, 8],
+  7: [6, 9],
+  8: [6, 10],
+  9: [7],
+  10: [8],
+}
+
+export const SameLaneOpponent = {
+  1: 6, 2: 7, 3: 8, 4: 9, 5: 10,
+  6: 1, 7: 2, 8: 3, 9: 4, 10: 5,
+}

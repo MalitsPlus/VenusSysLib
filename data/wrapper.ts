@@ -16,7 +16,7 @@ import {
 import {
   QuestBase,
 } from "../types/base_types"
-import { SkillCategoryType } from "../types/proto/proto_enum"
+import { AttributeType, SkillCategoryType } from "../types/proto/proto_enum"
 
 const getAccessories = (): Accessory[] => {
   return master.rawAccessory
@@ -40,11 +40,34 @@ const getWapCard = (
   let _skill1 = getSkill(original.skillId1)
   let _skill2 = getSkill(original.skillId2)
   let _skill3 = getSkill(original.skillId3)
+  let getCardColor = (card: Card) => {
+    const { vocalRatioPermil, danceRatioPermil, visualRatioPermil } = card
+    if (
+      vocalRatioPermil > danceRatioPermil &&
+      vocalRatioPermil > visualRatioPermil
+    ) {
+      return AttributeType.Vocal
+    }
+    if (
+      danceRatioPermil > vocalRatioPermil &&
+      danceRatioPermil > visualRatioPermil
+    ) {
+      return AttributeType.Dance
+    }
+    if (
+      visualRatioPermil > vocalRatioPermil &&
+      visualRatioPermil > danceRatioPermil
+    ) {
+      return AttributeType.Visual
+    }
+    return AttributeType.Unknown
+  }
   return {
     ...original,
     skill1: _skill1,
     skill2: _skill2,
     skill3: _skill3,
+    attributeType: getCardColor(original),
   }
 }
 

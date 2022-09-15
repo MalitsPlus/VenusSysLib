@@ -13,13 +13,14 @@ import {
 import {
   QuestBase,
 } from "./base_types"
-import { SkillCategoryType } from "./proto/proto_enum"
+import { AttributeType, SkillCategoryType } from "./proto/proto_enum"
 import { LiveBeat } from "./proto/proto_api"
 
 export type WapCard = Card & {
   skill1: WapSkill
   skill2: WapSkill
   skill3: WapSkill
+  attributeType: AttributeType
 }
 
 export type WapSkill = Skill & {
