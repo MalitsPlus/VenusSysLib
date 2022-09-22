@@ -23,6 +23,26 @@ export type UserDeck = {
   }[],
 }
 
+export type UserCard = WapCard & {
+  level: number
+  rarity: number
+  vocal: number
+  dance: number
+  visual: number
+  stamina: number
+  mental: number
+  technique: number
+  skillLevel1: number
+  skillLevel2: number
+  skillLevel3: number
+  skills: {
+    index: number
+    skills: WapSkillLevel
+  }[]
+  liveAbilityLevel?: number
+  activityAbilityLevel?: number
+}
+
 export type Equipment = {
   wapPhotos: UserPhoto[],
   accessories: Accessory[],
@@ -37,20 +57,3 @@ export type UserPhoto = {
   focusCharacterId: string
   photoRecipeId: string
 }
-
-export type UserCard = WapCard & {
-  level: number
-  rarity: number
-  vocal: number
-  dance: number
-  visual: number
-  stamina: number
-  mental: number
-  technique: number
-  skillLevel1: number
-  skillLevel2: number
-  skillLevel3: number
-  liveAbilityLevel?: number
-  activityAbilityLevel?: number
-}
-

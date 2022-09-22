@@ -31,6 +31,8 @@ export type WapSkillLevel = SkillLevel & {
   trigger?: SkillTrigger
   wapSkillDetails: WapSkillDetail[]
   categoryType: SkillCategoryType
+  name: string
+  assetId: string
 }
 
 export type WapSkillDetail = SkillDetail & {
