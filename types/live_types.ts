@@ -7,40 +7,11 @@ import {
   UserCard,
   Equipment,
 } from "./user_types"
-import {
-  WapLiveBeat,
-  WapQuest, WapSkill, WapSkillLevel,
-} from "./wrapper_types"
+import { LiveBeat } from "./proto/proto_api"
 
 export type UserStatus = {
   userIndex: number,
   combo: number,
-}
-
-export type LiveCard = UserCard & {
-  deckVocal: number,
-  deckDance: number,
-  deckVisual: number,
-  deckStamina: number,
-  deckMental: number,
-  deckTechnique: number,
-  audienceAmount?: number,
-  arbitrary?: boolean,
-}
-
-export type LiveDeck = {
-  idAlly: string,
-  deckNameAlly: string,
-  idOppt?: string,
-  deckNameOppt?: string,
-  liveCards: {
-    index: number,
-    liveCard: LiveCard,
-  }[],
-  liveEquipments?: {
-    index: number,
-    equipment: Equipment,
-  }[],
 }
 
 export type SkillStatus = {
@@ -96,7 +67,6 @@ export type CardStatus = {
   effects?: Effect[],
 }
 
-// 🚩
 export type Chart = {
   chartType: MusicChartType,
   sequence: number,
