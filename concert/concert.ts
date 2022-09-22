@@ -351,7 +351,7 @@ export class Concert {
     privileges.sort((a, b) => {
       return b.power - a.power
     })
-    // if oppenent wins, set failure flag
+    // if opponent wins, set failure flag
     if (privileges[0].index > 5) {
       this.current.failureFlag = SkillFailureType.OpponentActivation
     }
@@ -452,7 +452,7 @@ export class Concert {
       this.current,
       skill.deckPosition,
       skill.isOpponentSide,
-      this.actables,
+      this.actables?.at(0),
       cardStatus,
       deckCard
     )
@@ -507,7 +507,7 @@ export class Concert {
         this.current,
         skill.deckPosition,
         skill.isOpponentSide,
-        this.actables
+        this.actables?.at(0)
       )
       if (!detailTriggeredIndexes) {
         // TODO: notify new triggers

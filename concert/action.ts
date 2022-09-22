@@ -17,9 +17,22 @@ function doPerform() {
 }
 
 export function performP(
-  current: Chart
+  actSkill: ActSkill,
+  current: Chart,
+  live: Live,
+  card: LiveCard,
+  cardStatus: CardStatus,
+  skill: WapSkill,
+  skillLevel: SkillLevel,
+  skillDetail: WapSkillDetail,
+  detailIndex: number,
+  skillStatus: SkillStatus,
+  casterPosition: number,
+  isOpponent: boolean,
+  triggeredIndexes: number[],
+  targetIndexes: number[],
 ) {
-
+  
 }
 
 export function performASP(
