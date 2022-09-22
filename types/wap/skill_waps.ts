@@ -1,17 +1,13 @@
+import { SkillCategoryType } from "../proto/proto_enum"
 import {
-  AttributeType,
-  SkillCategoryType
-} from "./proto/proto_enum"
-import {
-  Card,
   Skill,
   SkillLevel,
   SkillTrigger,
   SkillDetail,
   SkillEfficacy,
   SkillTarget,
-  LiveAbilityLevel,
-} from "./proto/proto_master"
+  LiveAbilityLevel
+} from "../proto/proto_master"
 
 export type WapSkill = Skill & {
   wapSkillLevels: WapSkillLevel[]

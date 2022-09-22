@@ -1,6 +1,5 @@
-import {
-  Accessory,
-} from "./proto/proto_master"
+import { Accessory } from "./proto/proto_master"
+import { WapPhotoAbility } from "./wap/misc_waps"
 
 export type Equipment = {
   wapPhotos: UserPhoto[],

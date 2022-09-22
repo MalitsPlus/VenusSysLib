@@ -1,13 +1,12 @@
 import {
   SkillEfficacyType,
   MusicChartType,
-  SkillFailureType,
+  SkillFailureType
 } from "./proto/proto_enum"
-import {
-  UserCard,
-  Equipment,
-} from "./user_types"
-import { LiveBeat } from "./proto/proto_api"
+import { LiveDeck } from "./wap/card_waps"
+import { WapLiveBeat } from "./wap/misc_waps"
+import { WapQuest } from "./wap/quest_waps"
+import { WapSkill } from "./wap/skill_waps"
 
 export type UserStatus = {
   userIndex: number,

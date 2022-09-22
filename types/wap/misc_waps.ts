@@ -1,4 +1,4 @@
-
+import { LiveBeat } from "../proto/proto_api"
 
 export type WapLiveBeat = Omit<LiveBeat, "score"> & {
   score: number

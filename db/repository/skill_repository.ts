@@ -1,4 +1,4 @@
-import { WapSkillEfficacy } from "../../types/wrapper_types"
+import { WapSkillEfficacy } from "../../types/wap/skill_waps"
 import { getWapSkillEfficacy } from "../wrapper/skill_wrapper"
 
 export const getSkillEfficacy = (
@@ -8,7 +8,7 @@ export const getSkillEfficacy = (
     const efficacy = getWapSkillEfficacy(id)
     if (efficacy) {
       wapSkillEfficacyRepo[id] = efficacy
-    } 
+    }
     return efficacy
   })()
 }

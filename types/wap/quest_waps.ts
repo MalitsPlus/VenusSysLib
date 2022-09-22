@@ -1,7 +1,6 @@
-import {
-  AttributeType,
-  MoodType,
-} from "./proto/proto_enum"
+import { AttributeType, MoodType } from "../proto/proto_enum"
+import { MusicChartPattern } from "../proto/proto_master"
+import { WapLiveAbility } from "./skill_waps"
 
 export type QuestBase = {
   id: string

@@ -1,4 +1,4 @@
-import { WapSkillEfficacy } from "../../types/wrapper_types"
+import { WapSkillEfficacy } from "../../types/wap/skill_waps"
 import { getRawSkillEfficacy, getRawSkillTarget } from "../dao/skill_dao"
 
 export const getWapSkillEfficacy = (
