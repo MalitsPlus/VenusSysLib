@@ -1,5 +1,5 @@
 import * as efg from "../concert/consts/eff_grades"
-import { CardStatus, DetEffect, Effect, LiveCard, SkillStatus } from "../types/live_types";
+import { CardStatus, DetEffect, Effect, LiveCard, SkillStatus } from "../types/concert_types";
 import { AttributeType, MusicChartType, SkillEfficacyType } from "../types/proto/proto_enum";
 import { WapSkill, WapSkillLevel } from "../types/wrapper_types";
 

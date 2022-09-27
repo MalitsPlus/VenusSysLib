@@ -6,7 +6,7 @@ import {
   CardStatus,
   Chart,
   SkillStatus,
-} from "../types/live_types"
+} from "../types/concert_types"
 import { AttributeType } from "../types/proto/proto_enum"
 import {
   WapSkill,
@@ -24,10 +24,10 @@ export function getLiveCardByIndex(
 }
 
 export function getCardStatusByIndex(
+  this: Chart,
   index: number,
-  chart: Chart
 ): CardStatus {
-  return chart.cardStatuses.find(it => it.cardIndex === index)
+  return this.cardStatuses.find(it => it.cardIndex === index)!  // TODO: potential exception
 }
 
 export function getCardSkillStatus(

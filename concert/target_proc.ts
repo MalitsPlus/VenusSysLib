@@ -1,4 +1,4 @@
-import { Chart, Live, SkillStatus } from "../types/live_types";
+import { Chart, Live, SkillStatus } from "../types/concert_types";
 import { AttributeType, CardType, SkillEfficacyType, SkillTargetType } from "../types/proto/proto_enum";
 import {
   SkillTarget

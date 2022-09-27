@@ -31,5 +31,5 @@ export type WapSkillEfficacy = SkillEfficacy & {
 }
 
 export type WapLiveAbility = LiveAbilityLevel & {
-  skill: WapSkill
+  skill: WapSkillLevel
 }

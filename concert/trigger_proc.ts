@@ -4,7 +4,7 @@ import {
   Live,
   LiveCard,
   SkillStatus,
-} from "../types/live_types";
+} from "../types/concert_types";
 import {
   AttributeType,
   MusicChartType,

@@ -9,7 +9,7 @@ import {
 import {
   CardStatus,
   LiveCard
-} from "../types/live_types"
+} from "../types/concert_types"
 import {
   AttributeType,
   MusicChartType, SkillEfficacyType

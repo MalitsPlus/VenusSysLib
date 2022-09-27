@@ -3,7 +3,7 @@ import {
   ActSkill,
   CardStatus,
   Chart, EfficacyDetail, Live, LiveCard, SkillStatus
-} from "../types/live_types";
+} from "../types/concert_types";
 import { SkillEfficacyType as ef } from "../types/proto/proto_enum";
 import { SkillLevel } from "../types/proto/proto_master";
 import { WapSkill, WapSkillDetail } from "../types/wrapper_types";

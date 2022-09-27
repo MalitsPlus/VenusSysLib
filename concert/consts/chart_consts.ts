@@ -6,6 +6,14 @@ export const Index2Lane = {
   6: 1, 7: 2, 8: 3, 9: 4, 10: 5,
 }
 
+export const Lane2Indexes = {
+  1: [1, 6],
+  2: [2, 7],
+  3: [3, 8],
+  4: [4, 9],
+  5: [5, 10],
+}
+
 export const Str2EfficacyType: {
   [key: string]: SkillEfficacyType
 } = {
