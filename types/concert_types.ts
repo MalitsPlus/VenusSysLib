@@ -42,7 +42,8 @@ export type CardStatus = {
   skillStatuses: SkillStatus[],
   effects: Effect[],
 
-  
+  getSkillStatus: (this: CardStatus, index: number) => SkillStatus,
+  getEffects: (this: CardStatus, type: SkillEfficacyType) => Effect[],
 }
 
 export type ConcertSkill = WapSkillLevel & {
@@ -100,4 +101,9 @@ export type ActSkill = {
   isCritical: boolean,
   isComboBreak: boolean,
   score?: number,
+}
+
+export type Actable = {
+  index: number,
+  skills: number[],
 }

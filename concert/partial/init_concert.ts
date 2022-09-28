@@ -1,6 +1,6 @@
 import { UserStatus, CardStatus, SkillStatus, StageSkillStatus } from "../../types/concert_types"
 import { MusicChartType, LiveAbilityType } from "../../types/proto/proto_enum"
-import { getCardStatusByIndex } from "../../utils/chart_utils"
+import { getCardSkillStatus, getCardStatusByIndex, getEffectsByType } from "../../utils/chart_utils"
 import { Concert } from "../concert"
 
 export default function init(this: Concert) {
@@ -31,7 +31,7 @@ export function initUserStatus(this: Concert): UserStatus[] {
 }
 
 export function initCardStatus(this: Concert): CardStatus[] {
-  return this.live.liveDeck.liveCards.map(card => ({
+  return this.liveDeck.liveCards.map(card => ({
     cardIndex: card.index,
     vocal: card.liveCard.deckVocal,
     dance: card.liveCard.deckDance,
@@ -41,11 +41,13 @@ export function initCardStatus(this: Concert): CardStatus[] {
     mental: card.liveCard.mental,
     skillStatuses: this.initSkillStatus(card.index),
     effects: [],
+    getSkillStatus: getCardSkillStatus,
+    getEffects: getEffectsByType,
   }))
 }
 
 export function initSkillStatus(this: Concert, index: number): SkillStatus[] {
-  return this.live.liveDeck.liveCards
+  return this.liveDeck.liveCards
     .find(x => x.index === index)!
     .liveCard.skills.map(skill => ({
       skillIndex: skill.index,

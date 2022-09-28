@@ -1,43 +1,53 @@
-import { QuestBase } from "../types/base_types"
+import { LiveCard, LiveDeck, UserCard } from "../types/card_types"
 import {
   Live,
-  LiveCard,
-  LiveDeck,
   CardStatus,
   Chart,
   SkillStatus,
+  Effect,
 } from "../types/concert_types"
-import { AttributeType } from "../types/proto/proto_enum"
-import {
-  WapSkill,
-  WapSkillLevel,
-} from "../types/wrapper_types"
+import { AttributeType, SkillEfficacyType } from "../types/proto/proto_enum"
+import { WapSkillLevel } from "../types/wap/skill_waps"
 import { calcCriticalRate } from "./calc_utils"
-
-export function getLiveCardByIndex(
-  index: number,
-  live: Live
-): LiveCard {
-  return live.liveDeck.liveCards.find(
-    it => it.index === index
-  ).liveCard
-}
 
 export function getCardStatusByIndex(
   this: Chart,
   index: number,
 ): CardStatus {
-  return this.cardStatuses.find(it => it.cardIndex === index)!  // TODO: potential exception
+  return this.cardStatuses.find(x => x.cardIndex === index)!  // FIXME: potential exception
 }
 
 export function getCardSkillStatus(
-  cardStatus: CardStatus,
-  skillIndex: number
+  this: CardStatus,
+  index: number
 ): SkillStatus {
-  return cardStatus.skillStatuses.find(it =>
-    it.skillIndex === skillIndex
-  )
+  return this.skillStatuses.find(x => x.skillIndex === index)! // FIXME: potential exception
 }
+
+export function getCardByIndex(
+  this: LiveDeck,
+  index: number,
+): LiveCard {
+  return this.liveCards.find(x => x.index === index)!.liveCard // FIXME: potential exception
+}
+
+export function getUserCardSkillByIndex(
+  this: UserCard,
+  index: number,
+): WapSkillLevel {
+  return this.skills.find(x => x.index === index)!.skill // FIXME: potential exception
+}
+
+export function getEffectsByType(
+  this: CardStatus,
+  _type: SkillEfficacyType,
+): Effect[] {
+  return this.effects.filter(x => x.efficacyType === _type)
+}
+
+
+
+
 
 export function getCardSkillStatusByIndex(
   cardIndex: number,

@@ -2,6 +2,7 @@ import { getCard, getCardParam, getCardRarity } from "../db/repository/card_repo
 import { LiveCard, UserCard } from "../types/card_types";
 import { TransCard } from "../types/trans_types";
 import { calcParam } from "../utils/calc_utils";
+import { getUserCardSkillByIndex } from "../utils/chart_utils";
 
 export function getLiveCard(transCard: TransCard): LiveCard {
   const userCard = getUserCard(transCard)
@@ -60,6 +61,7 @@ export const getUserCard = (
         index: 3,
         skill: wapCard.skill3.wapSkillLevels.find(x => x.level === transCard.skillLevel3)!
       },
-    ]
+    ],
+    getSkill: getUserCardSkillByIndex
   }
 }

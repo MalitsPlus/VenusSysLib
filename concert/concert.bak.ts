@@ -28,11 +28,6 @@ import { getTargetIndexes } from "./target_proc";
 import * as tra from "./trigger_analyze"
 import { getTriggeredIndexes } from "./trigger_proc";
 
-export type Actable = {
-  index: number,
-  skills: number[],
-}
-
 // export type ConcertSkill = WapSkill & {
 //   skill: WapSkillLevel
 //   deckPosition: number
@@ -289,7 +284,7 @@ class Concert {
         let skillLevel = chartUt.getCardSkillLevel(skillIndex, card)
         let currentSt = cardStatus.stamina
         // calculate buffed stamina consumption
-        let consumeSt = calcUt.calcStaminaConsume(
+        let consumeSt = calcUt.calcStaminaConsumption(
           skillLevel, card, cardStatus, this.live.quest.skillStaminaWeightPermil)
         // if stamina is sufficient
         if (consumeSt <= currentSt) {
@@ -444,7 +439,7 @@ class Concert {
       cardStatus = chartUt.getCardStatusByIndex(skill.deckPosition, this.current)
       deckCard = chartUt.getLiveCardByIndex(skill.deckPosition, this.live)
       //⚠️ check stamina
-      let stamina = calcUt.calcStaminaConsume(
+      let stamina = calcUt.calcStaminaConsumption(
         skill, deckCard, cardStatus, this.live.quest.skillStaminaWeightPermil)
       if (cardStatus.stamina < stamina) {
         return
@@ -489,7 +484,7 @@ class Concert {
     // calculate consumption of stamina
     var stamina = 0
     if (isCharaSkill && deckCard && cardStatus) {
-      stamina = calcUt.calcStaminaConsume(
+      stamina = calcUt.calcStaminaConsumption(
         skill, deckCard, cardStatus, this.live.quest.skillStaminaWeightPermil)
     }
 
@@ -595,7 +590,7 @@ class Concert {
       // note despite this has been checked once in the pre-checking phase,
       // stamina still could be insufficient if any P-skills are performed in 
       // the P-skill Performance Phase 1 
-      let staminaConsumption = calcUt.calcStaminaConsume(
+      let staminaConsumption = calcUt.calcStaminaConsumption(
         skillLevel, deckCard, cardStatus, this.live.quest.skillStaminaWeightPermil)
 
       // if stamina is sufficient

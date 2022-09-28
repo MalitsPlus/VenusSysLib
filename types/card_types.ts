@@ -8,6 +8,7 @@ export type LiveDeck = {
     index: number
     liveCard: LiveCard
   }[]
+  getCard: (index: number) => LiveCard
 }
 
 export type LiveCard = UserCard & {
@@ -40,4 +41,6 @@ export type UserCard = WapCard & {
   }[]
   liveAbilityLevel?: number
   activityAbilityLevel?: number
+
+  getSkill: (index: number) => WapSkillLevel
 }

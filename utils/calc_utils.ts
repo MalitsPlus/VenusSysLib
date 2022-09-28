@@ -6,17 +6,15 @@ import {
   EfficacyValue,
   StaminaConsumptionReductionGrade
 } from "../concert/consts/eff_grades"
+import { LiveCard } from "../types/card_types"
 import {
   CardStatus,
-  LiveCard
 } from "../types/concert_types"
 import {
   AttributeType,
   MusicChartType, SkillEfficacyType
 } from "../types/proto/proto_enum"
-import {
-  WapSkillLevel
-} from "../types/wrapper_types"
+import { WapSkillLevel } from "../types/wap/skill_waps"
 import {
   getMergedEffectByType,
   getRealtimeParamByChartType,
@@ -47,16 +45,24 @@ export function calcBuffedParam(
   return Math.floor(base * mul / divisor) + add
 }
 
-export function calcStaminaConsume(
+/**
+ * Calculate stamina consumption.
+ * @param skillLevel A `WapSkillLevel` to be performed.
+ * @param card A `LiveCard` which performs this skill.
+ * @param cardStatus A `CardStatus` belongs to which performs this skill.
+ * @param staminaWeightPermil Stamina consumption rate of this stage.
+ * @returns Calculated stamina amount to be consumed.
+ */
+export function calcStaminaConsumption(
   skillLevel: WapSkillLevel,
   card: LiveCard,
   cardStatus: CardStatus,
   staminaWeightPermil: number
 ): number {
-  var expectedSt = skillLevel.staminaPermil
+  const expectedSt = skillLevel.staminaPermil
     ? Math.floor(card.deckStamina * skillLevel.staminaPermil / 1000)
     : skillLevel.stamina
-  var permil = 1000
+  let permil = 1000
   if (cardStatus.effects) {
     cardStatus.effects.forEach(eff => {
       if (isEffects(eff, StaminaConsumptionAdjustment)) {

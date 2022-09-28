@@ -6,13 +6,22 @@ export default function migration(this: Concert) {
   if (this.migratedEffs.length === 0) {
     return
   }
-  this.migratedEffs.forEach(migreff => {
+  const applied: number[] = []
+  this.migratedEffs.forEach((migreff, index) => {
     if (matches(this.current.chartType, migreff.type)) {
       if (Index2Lane[migreff.index] === this.current.actPosition) {
-        this.current.getCardStatus()
+        // push migrated effects to current effects
+        this.current.getCardStatus(migreff.index).effects.push(...migreff.effs)
+        applied.push(index)
       }
     }
   })
+  // remove applied effects
+  if (applied.length > 0) {
+    this.migratedEffs = this.migratedEffs.filter((_, index) =>
+      !applied.includes(index)
+    )
+  }
 }
 
 const matches = (

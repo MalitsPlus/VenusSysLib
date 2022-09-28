@@ -74,16 +74,16 @@ export function isEffects(
   })
 }
 
-export function getEffectsByType(
-  efficacyType: SkillEfficacyType,
-  cardStatus: CardStatus,
-): Effect[] | undefined {
-  let effects = cardStatus.effects?.filter(it => isEffect(it, efficacyType))
-  if (!effects || effects.length === 0) {
-    return undefined
-  }
-  return effects
-}
+// export function getEffectsByType(
+//   efficacyType: SkillEfficacyType,
+//   cardStatus: CardStatus,
+// ): Effect[] | undefined {
+//   let effects = cardStatus.effects?.filter(it => isEffect(it, efficacyType))
+//   if (!effects || effects.length === 0) {
+//     return undefined
+//   }
+//   return effects
+// }
 
 export function getMergedEffectByType(
   efficacyType: SkillEfficacyType,
