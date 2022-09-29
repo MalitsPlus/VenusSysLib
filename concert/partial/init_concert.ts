@@ -53,6 +53,7 @@ export function initSkillStatus(this: Concert, index: number): SkillStatus[] {
       skillIndex: skill.index,
       coolTime: skill.skill.coolTime,
       remainCount: skill.skill.limitCount,
+      used: false,
     }))
 }
 
@@ -68,6 +69,7 @@ export function initStageSkillStatus(this: Concert): StageSkillStatus[] | undefi
     coolTime: ability.skill.coolTime,
     remainCount: ability.skill.limitCount,
     userIndex: 1,
+    used: false,
   }))
   if (this.live.isBattle) {
     bonuses.forEach((ability, index) => {
@@ -76,6 +78,7 @@ export function initStageSkillStatus(this: Concert): StageSkillStatus[] | undefi
         coolTime: ability.skill.coolTime,
         remainCount: ability.skill.limitCount,
         userIndex: 2,
+        used: false,
       })
     })
   }

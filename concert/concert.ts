@@ -9,6 +9,7 @@ import { LiveDeck } from "../types/card_types";
 import checkActSkillStamina from "./partial/c_check_act_skill_stamina";
 import checkActSkillCoolTime from "./partial/d_check_act_skill_cool_time";
 import determineActSkillPrivilege from "./partial/e_determine_act_skill_privilege";
+import { performASPSkill, performPSkill } from "./partial/perform_skill";
 
 
 export class Concert {
@@ -79,6 +80,14 @@ export class Concert {
       }
       this.determineActSkillPrivilege()
     }
+
+    // validate and perform P skills
+    // ...
+
+    // perform A SP skill
+    if (this.current.chartType != MusicChartType.Beat) {
+      this.performASPSkill(this.actables)
+    }
     
     // ...
   }
@@ -95,5 +104,7 @@ export class Concert {
   checkActSkillStamina = checkActSkillStamina
   checkActSkillCoolTime = checkActSkillCoolTime
   determineActSkillPrivilege = determineActSkillPrivilege
+  performASPSkill = performASPSkill
+  performPSkill = performPSkill
   //#endregion partial imports
 }

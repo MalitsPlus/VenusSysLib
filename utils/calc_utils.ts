@@ -115,6 +115,18 @@ export function calcActSkillPrivilege(
   return param * powerRate
 }
 
+export function roll(
+  probabilityPermil: number,
+): boolean {
+  if (probabilityPermil >= 1000) {
+    return true
+  }
+  if (probabilityPermil / 1000 > Math.random()) {
+    return true
+  }
+  return false
+}
+
 export function calcCriticalRate(
   technique: number,
   difficulty: number,

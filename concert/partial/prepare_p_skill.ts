@@ -1,6 +1,6 @@
 import { Concert } from "../concert";
 
-export default function preparePSkillP1(
+export default function preparePSkill(
   this: Concert
 ) {
 

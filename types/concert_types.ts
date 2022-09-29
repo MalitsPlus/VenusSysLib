@@ -62,6 +62,7 @@ export type SkillStatus = {
   skillIndex: number,
   coolTime: number,
   remainCount: number,
+  used: boolean,
 }
 
 export type StageSkillStatus = SkillStatus & {
