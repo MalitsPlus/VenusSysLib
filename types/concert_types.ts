@@ -25,10 +25,11 @@ export type Chart = {
   beats?: WapLiveBeat[],
   stageSkillStatuses?: StageSkillStatus[],
   actSkill?: ActSkill,
-  actPSkills?: ActSkill[],
+  actPSkills: ActSkill[],
   failureFlag?: SkillFailureType,
 
-  getCardStatus: (this: Chart, index: number) => CardStatus
+  getCardStatus: (this: Chart, index: number) => CardStatus,
+  getUserStatus: (this: Chart, index: number) => UserStatus,
 }
 
 export type CardStatus = {
@@ -87,6 +88,10 @@ export type Effect = DetEffect & {
 }
 
 export type EfficacyDetail = {
+  name: string,
+  description: string,
+  grade: number,
+  maxGrade: number,
   efficacyIndex: number,
   efficacyType: SkillEfficacyType,
   targetIndexes?: number[],

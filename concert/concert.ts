@@ -58,6 +58,7 @@ export class Concert {
       chartType: musicPtn.type,
       sequence: musicPtn.sequence,
       actPosition: musicPtn.position,
+      actPSkills: [],
       // FIXME: https://github.com/MalitsPlus/VenusSysLib/issues/2
       cardStatuses: this.previous.cardStatuses,
       userStatuses: this.previous.userStatuses,

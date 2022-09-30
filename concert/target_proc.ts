@@ -13,8 +13,8 @@ export function getTargetIndexes(
   current: Chart,
   deckPosition: number,
   isOpponentSide: boolean,
-  skillTriggerIdx?: number[],
-  detailTriggerIdx?: number[],
+  skillTriggerIdx: number[],
+  detailTriggerIdx: number[],
 ): number[] | undefined {
   return _getTargetIndexes(
     target,
@@ -36,8 +36,8 @@ function _getTargetIndexes(
   current: Chart,
   deckPosition: number,
   isOpponentSide: boolean,
-  skillTriggerIdx?: number[],
-  detailTriggerIdx?: number[],
+  skillTriggerIdx: number[],
+  detailTriggerIdx: number[],
 ): number[] | undefined {
   if (target) {
     // let targetList: number[] = []
@@ -130,7 +130,7 @@ function _getTargetIndexes(
 
         case SkillTargetType.Trigger: {
           targetNum = getTargetLastNum(target.id) ?? 1
-          return skillTriggerIdx ?? []
+          return skillTriggerIdx
         }
 
         case SkillTargetType.CardType: {

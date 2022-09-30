@@ -1,6 +1,6 @@
 import { UserStatus, CardStatus, SkillStatus, StageSkillStatus } from "../../types/concert_types"
 import { MusicChartType, LiveAbilityType } from "../../types/proto/proto_enum"
-import { getCardSkillStatus, getCardStatusByIndex, getEffectsByType } from "../../utils/chart_utils"
+import { getCardSkillStatus, getCardStatusByIndex, getEffectsByType, getUserStatusByIndex } from "../../utils/chart_utils"
 import { Concert } from "../concert"
 
 export default function init(this: Concert) {
@@ -9,10 +9,12 @@ export default function init(this: Concert) {
     chartType: MusicChartType.Unknown,
     sequence: 0,
     actPosition: 0,
+    actPSkills: [],
     cardStatuses: this.initCardStatus(),
     userStatuses: this.initUserStatus(),
     stageSkillStatuses: this.initStageSkillStatus(),
-    getCardStatus: getCardStatusByIndex
+    getCardStatus: getCardStatusByIndex,
+    getUserStatus: getUserStatusByIndex,
   }
 }
 

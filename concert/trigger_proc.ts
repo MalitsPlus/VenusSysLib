@@ -1,8 +1,9 @@
+import { LiveCard } from "../types/card_types";
 import {
+  Actable,
   CardStatus,
   Chart,
   Live,
-  LiveCard,
   SkillStatus,
 } from "../types/concert_types";
 import {
@@ -13,14 +14,9 @@ import {
 } from "../types/proto/proto_enum";
 import { SkillTrigger } from "../types/proto/proto_master";
 import {
-  getCardStatusByIndex,
   getLaneAttributeByPosition,
-  getLiveCardByIndex,
 } from "../utils/chart_utils";
 import { isEffect } from "../utils/skill_utils";
-import {
-  Actable,
-} from "./concert";
 import { SkillEfficacyStaminaRecoveryList } from "./consts/efficacy_list";
 import * as tra from "./trigger_analyze"
 
@@ -35,7 +31,7 @@ export function getTriggeredIndexes(
   current: Chart,
   deckPosition: number,
   isOpponentSide: boolean,
-  actable?: Actable,
+  actable: Actable[],
   cardStatus?: CardStatus,
   deckCard?: LiveCard
 ): number[] | undefined {
@@ -66,7 +62,7 @@ function _getTriggeredIndexes(
   current: Chart,
   deckPosition: number,
   isOpponentSide: boolean,
-  actable?: Actable,
+  actable: Actable[],
   cardStatus?: CardStatus,
   deckCard?: LiveCard
 ): number[] | undefined {
@@ -109,14 +105,14 @@ function _getTriggeredIndexes(
 
       case SkillTriggerType.BeforeActiveSkillBySomeone: {
         if (current.chartType === MusicChartType.ActiveSkill) {
-          actable && triggeredList.push(actable.index)
+          actable.length && triggeredList.push(actable[0].index)
         }
         break
       }
 
       case SkillTriggerType.BeforeSpecialSkillBySomeone: {
         if (current.chartType === MusicChartType.SpecialSkill) {
-          actable && triggeredList.push(actable.index)
+          actable.length && triggeredList.push(actable[0].index)
         }
         break
       }
@@ -384,8 +380,8 @@ function _getTriggeredIndexes(
 
       case SkillTriggerType.BeforeSpecialSkill: {
         if (current.chartType === MusicChartType.SpecialSkill) {
-          if (actable && actable.index === deckPosition) {
-            triggeredList.push(actable.index)
+          if (actable.length && actable[0].index === deckPosition) {
+            triggeredList.push(actable[0].index)
           }
         }
         break

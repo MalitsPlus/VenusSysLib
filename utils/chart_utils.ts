@@ -5,6 +5,7 @@ import {
   Chart,
   SkillStatus,
   Effect,
+  UserStatus,
 } from "../types/concert_types"
 import { AttributeType, SkillEfficacyType } from "../types/proto/proto_enum"
 import { WapSkillLevel } from "../types/wap/skill_waps"
@@ -15,6 +16,13 @@ export function getCardStatusByIndex(
   index: number,
 ): CardStatus {
   return this.cardStatuses.find(x => x.cardIndex === index)!  // FIXME: potential exception
+}
+
+export function getUserStatusByIndex(
+  this: Chart,
+  index: number,
+): UserStatus {
+  return this.userStatuses.find(x => x.userIndex === index)! // FIXME: potential exception
 }
 
 export function getCardSkillStatus(
