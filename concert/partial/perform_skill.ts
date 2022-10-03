@@ -22,21 +22,22 @@ export function performASPSkill(
   }
 
   const { index, skills } = actables[0]
-  // well, despite the name, it is totally can be reuse
-  return performPSkill(index, skills[0])
+  // well, despite the name, it is totally can be reuse here
+  return this.performPSkill(index, skills[0], false)
 }
 
 export function performPSkill(
   this: Concert,
   cardIndex: number,
   skillIndex: number,
+  isBeforeBeat: boolean,
 ): boolean {
   const card = this.liveDeck.getCard(cardIndex)
   const skill = card.getSkill(skillIndex)
   const cardStat = this.current.getCardStatus(cardIndex)
   const skillStat = cardStat.getSkillStatus(skillIndex)
 
-  const success = _performSkill()
+  const success = this._performSkill()
 }
 
 export function performStageSkill(
@@ -44,6 +45,7 @@ export function performStageSkill(
   liveAbility: WapLiveAbility,
   skillStat: StageSkillStatus,
   isOpponentSide: boolean,
+  isBeforeBeat: boolean,
 ): boolean {
 
 }
@@ -55,11 +57,12 @@ export function _performSkill(
   skill: WapSkillLevel,
   skillStat: SkillStatus,
   isOpponentSide: boolean,
+  isBeforeBeat: boolean,
   card?: LiveCard,
   cardStat?: CardStatus,
 ): boolean {
 
-  // skill possibilities
+  // rolling
   if (!calc.roll(skill.probabilityPermil)) {
     return false
   }
@@ -104,7 +107,7 @@ export function _performSkill(
   // SKILL ACTIVATION COMFIRMED
   this.order += 1
   // critical or not 
-  let isCritical = getCritical(
+  const isCritical = getCritical(
     cardStat?.technique ?? 0, this.live.quest.difficultyLevel
   )
   // calculate stamina consumption
@@ -164,9 +167,12 @@ export function _performSkill(
     )
 
     // implement to CardStatus
-    const { value, grade, maxGrade } = implementEfficacy(
+    const { value, grade, maxGrade } = this.implementEfficacy(
       detail.efficacy,
-      
+      targetIndexes,
+      cardIndex,
+      skillIndex,
+      isBeforeBeat,
     )
 
     actPSkill.details.push({

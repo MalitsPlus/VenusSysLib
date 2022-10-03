@@ -1,6 +1,6 @@
 import { UserStatus, CardStatus, SkillStatus, StageSkillStatus } from "../../types/concert_types"
 import { MusicChartType, LiveAbilityType } from "../../types/proto/proto_enum"
-import { getCardSkillStatus, getCardStatusByIndex, getEffectsByType, getUserStatusByIndex } from "../../utils/chart_utils"
+import { getCardSkillStatus, getCardStatusByIndex, getEffectsByType, getEffectSumGradeByType, getUserStatusByIndex } from "../../utils/chart_utils"
 import { Concert } from "../concert"
 
 export default function init(this: Concert) {
@@ -45,6 +45,7 @@ export function initCardStatus(this: Concert): CardStatus[] {
     effects: [],
     getSkillStatus: getCardSkillStatus,
     getEffects: getEffectsByType,
+    getEffectSumGrade: getEffectSumGradeByType,
   }))
 }
 

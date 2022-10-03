@@ -1,3 +1,4 @@
+import { DanceBoostGrade, DanceDownGrade, DanceUpGrade, EfficacyMaxGrade, VocalBoostGrade, VocalUpGrade } from "../concert/consts/eff_grades"
 import { LiveCard, LiveDeck, UserCard } from "../types/card_types"
 import {
   Live,
@@ -49,9 +50,49 @@ export function getUserCardSkillByIndex(
 export function getEffectsByType(
   this: CardStatus,
   _type: SkillEfficacyType,
+  needZeroRemain: boolean = false,
 ): Effect[] {
-  return this.effects.filter(x => x.efficacyType === _type)
+  return this.effects.filter(x =>
+    x.efficacyType === _type && (needZeroRemain || x.remain)
+  )
 }
+
+export function getEffectSumGradeByType(
+  this: CardStatus,
+  _type: SkillEfficacyType,
+): number {
+  return this.getEffects(_type).map(x => x.grade).reduce((c, p) => c + p)
+}
+
+export function getDance(
+  this: CardStatus,
+  deckValue: number
+): number {
+
+}
+
+function getBuffedParam(
+  cardStat: CardStatus,
+  deckValue: number,
+  _type: "dance" | "vocal" | "visual"
+): number {
+  
+  let upGrade = this.getEffectSumGrade(SkillEfficacyType.DanceUp)
+  const upMaxGrade = EfficacyMaxGrade[SkillEfficacyType.DanceUp]
+  let boostGrade = this.getEffectSumGrade(SkillEfficacyType.DanceBoost)
+  const boostMaxGrade = EfficacyMaxGrade[SkillEfficacyType.DanceBoost]
+  let downGrade = this.getEffectSumGrade(SkillEfficacyType.DanceDown)
+  const downMaxGrade = EfficacyMaxGrade[SkillEfficacyType.DanceDown]
+
+  upGrade = upGrade > upMaxGrade ? upMaxGrade : upGrade
+  boostGrade = boostGrade > boostMaxGrade ? boostGrade : boostMaxGrade
+  downGrade = downGrade > downMaxGrade ? downGrade : downMaxGrade
+
+  return DanceUpGrade[upGrade]
+    + DanceBoostGrade[boostGrade]
+    + DanceDownGrade[downGrade]
+}
+
 
 
 

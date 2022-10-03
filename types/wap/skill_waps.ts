@@ -28,6 +28,8 @@ export type WapSkillDetail = SkillDetail & {
 
 export type WapSkillEfficacy = SkillEfficacy & {
   skillTarget?: SkillTarget
+  duration: number
+  isInstant: boolean
 }
 
 export type WapLiveAbility = LiveAbilityLevel & {

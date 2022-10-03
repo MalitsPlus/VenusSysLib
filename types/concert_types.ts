@@ -44,7 +44,8 @@ export type CardStatus = {
   effects: Effect[],
 
   getSkillStatus: (this: CardStatus, index: number) => SkillStatus,
-  getEffects: (this: CardStatus, type: SkillEfficacyType) => Effect[],
+  getEffects: (this: CardStatus, type: SkillEfficacyType, needZeroRemain?: boolean) => Effect[],
+  getEffectSumGrade: (this: CardStatus, type: SkillEfficacyType) => number,
 }
 
 export type ConcertSkill = WapSkillLevel & {
@@ -81,6 +82,7 @@ export type DetEffect = {
 export type Effect = DetEffect & {
   remain: number,
   // additions
+  maxGrade: number,
   include: boolean,
   id: string,
   sourceIndex: number,

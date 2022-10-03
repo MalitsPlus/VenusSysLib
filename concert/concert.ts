@@ -25,11 +25,11 @@ export class Concert {
   charts: Chart[]
   liveDeck: LiveDeck
   protected previous: Chart
-  protected current: Chart
+  current: Chart
   protected order: number
   protected actables: Actable[]
   protected pSkillPerformed: number[]
-  protected migratedEffs: {
+  migratedEffs: {
     index: number
     type: SkillEfficacyType.StrengthEffectMigrationBeforeActiveSkill
     | SkillEfficacyType.StrengthEffectMigrationBeforeSpecialSkill
