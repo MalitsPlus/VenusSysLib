@@ -1,24 +1,20 @@
-import { DanceBoostGrade, DanceDownGrade, DanceUpGrade, EfficacyMaxGrade, VocalBoostGrade, VocalUpGrade } from "../concert/consts/eff_grades"
+import { DanceBoostGrade, DanceDownGrade, DanceUpGrade, EfficacyMaxGrade, VisualBoostGrade, VisualDownGrade, VisualUpGrade, VocalBoostGrade, VocalDownGrade, VocalUpGrade } from "../concert/consts/eff_grades"
 import { LiveCard, LiveDeck, UserCard } from "../types/card_types"
 import {
-  Live,
   CardStatus,
-  Chart,
-  SkillStatus,
-  Effect,
-  UserStatus,
+  Chart, Effect, Live, SkillStatus, UserStatus
 } from "../types/concert_types"
 import { AttributeType, SkillEfficacyType } from "../types/proto/proto_enum"
 import { WapSkillLevel } from "../types/wap/skill_waps"
-import { calcCriticalRate } from "./calc_utils"
+import { calcBuffedParam, calcCriticalRate } from "./calc_utils"
 
+// Chart
 export function getCardStatusByIndex(
   this: Chart,
   index: number,
 ): CardStatus {
   return this.cardStatuses.find(x => x.cardIndex === index)!  // FIXME: potential exception
 }
-
 export function getUserStatusByIndex(
   this: Chart,
   index: number,
@@ -26,13 +22,7 @@ export function getUserStatusByIndex(
   return this.userStatuses.find(x => x.userIndex === index)! // FIXME: potential exception
 }
 
-export function getCardSkillStatus(
-  this: CardStatus,
-  index: number
-): SkillStatus {
-  return this.skillStatuses.find(x => x.skillIndex === index)! // FIXME: potential exception
-}
-
+// LiveDeck
 export function getCardByIndex(
   this: LiveDeck,
   index: number,
@@ -40,6 +30,7 @@ export function getCardByIndex(
   return this.liveCards.find(x => x.index === index)!.liveCard // FIXME: potential exception
 }
 
+// UserCard
 export function getUserCardSkillByIndex(
   this: UserCard,
   index: number,
@@ -47,6 +38,13 @@ export function getUserCardSkillByIndex(
   return this.skills.find(x => x.index === index)!.skill // FIXME: potential exception
 }
 
+// CardStatus
+export function getCardSkillStatus(
+  this: CardStatus,
+  index: number
+): SkillStatus {
+  return this.skillStatuses.find(x => x.skillIndex === index)! // FIXME: potential exception
+}
 export function getEffectsByType(
   this: CardStatus,
   _type: SkillEfficacyType,
@@ -56,42 +54,89 @@ export function getEffectsByType(
     x.efficacyType === _type && (needZeroRemain || x.remain)
   )
 }
-
 export function getEffectSumGradeByType(
   this: CardStatus,
   _type: SkillEfficacyType,
 ): number {
   return this.getEffects(_type).map(x => x.grade).reduce((c, p) => c + p)
 }
-
-export function getDance(
+export function getBuffedPermil(
   this: CardStatus,
-  deckValue: number
-): number {
-
-}
-
-function getBuffedParam(
-  cardStat: CardStatus,
-  deckValue: number,
   _type: "dance" | "vocal" | "visual"
 ): number {
-  
-  let upGrade = this.getEffectSumGrade(SkillEfficacyType.DanceUp)
-  const upMaxGrade = EfficacyMaxGrade[SkillEfficacyType.DanceUp]
-  let boostGrade = this.getEffectSumGrade(SkillEfficacyType.DanceBoost)
-  const boostMaxGrade = EfficacyMaxGrade[SkillEfficacyType.DanceBoost]
-  let downGrade = this.getEffectSumGrade(SkillEfficacyType.DanceDown)
-  const downMaxGrade = EfficacyMaxGrade[SkillEfficacyType.DanceDown]
+  const { upType, boostType, downType, upDict, boostDict, downDict } = (() => {
+    if (_type === "dance") {
+      return {
+        upType: SkillEfficacyType.DanceUp,
+        boostType: SkillEfficacyType.DanceBoost,
+        downType: SkillEfficacyType.DanceDown,
+        upDict: DanceUpGrade,
+        boostDict: DanceBoostGrade,
+        downDict: DanceDownGrade,
+      }
+    } else if (_type === "vocal") {
+      return {
+        upType: SkillEfficacyType.VocalUp,
+        boostType: SkillEfficacyType.VocalBoost,
+        downType: SkillEfficacyType.VocalDown,
+        upDict: VocalUpGrade,
+        boostDict: VocalBoostGrade,
+        downDict: VocalDownGrade,
+      }
+    } else {
+      return {
+        upType: SkillEfficacyType.VisualUp,
+        boostType: SkillEfficacyType.VisualBoost,
+        downType: SkillEfficacyType.VisualDown,
+        upDict: VisualUpGrade,
+        boostDict: VisualBoostGrade,
+        downDict: VisualDownGrade,
+      }
+    }
+  })()
+  let upGrade = this.getEffectSumGrade(upType)
+  const upMaxGrade = EfficacyMaxGrade[upType]
+  let boostGrade = this.getEffectSumGrade(boostType)
+  const boostMaxGrade = EfficacyMaxGrade[boostType]
+  let downGrade = this.getEffectSumGrade(downType)
+  const downMaxGrade = EfficacyMaxGrade[downType]
 
   upGrade = upGrade > upMaxGrade ? upMaxGrade : upGrade
   boostGrade = boostGrade > boostMaxGrade ? boostGrade : boostMaxGrade
   downGrade = downGrade > downMaxGrade ? downGrade : downMaxGrade
 
-  return DanceUpGrade[upGrade]
-    + DanceBoostGrade[boostGrade]
-    + DanceDownGrade[downGrade]
+  return upDict[upGrade]
+    + boostDict[boostGrade]
+    + downDict[downGrade]
 }
+export function refreshParam(
+  this: CardStatus,
+  card: LiveCard,
+  type: "dance" | "vocal" | "visual"
+) {
+  const permil = this.getBuffedPermil(type)
+  switch (type) {
+    case "dance":
+      this.dance = calcBuffedParam(card.deckDance, permil)
+      break
+    case "vocal":
+      this.vocal = calcBuffedParam(card.deckVocal, permil)
+      break
+    case "visual":
+      this.visual = calcBuffedParam(card.deckVisual, permil)
+      break
+  }
+}
+
+export function skillHasRemain(
+  this: SkillStatus,
+): boolean {
+  if (!this.initCount || this.remainCount) {
+    return true
+  }
+  return false
+}
+
 
 
 

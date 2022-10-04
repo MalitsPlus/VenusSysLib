@@ -12,12 +12,12 @@ export type LiveDeck = {
 }
 
 export type LiveCard = UserCard & {
-  deckVocal: number,
-  deckDance: number,
-  deckVisual: number,
-  deckStamina: number,
-  deckMental: number,
-  deckTechnique: number,
+  readonly deckVocal: number,
+  readonly deckDance: number,
+  readonly deckVisual: number,
+  readonly deckStamina: number,
+  readonly deckMental: number,
+  readonly deckTechnique: number,
   isArbitrary: boolean,
   audienceAmount?: number,
   // TODO: implement exSkills

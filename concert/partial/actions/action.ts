@@ -2,6 +2,8 @@ import { SkillEfficacyType } from "../../../types/proto/proto_enum"
 import { WapSkillEfficacy } from "../../../types/wap/skill_waps"
 import { Concert } from "../../concert"
 import { danceUp } from "./dance_up"
+import { visualUp } from "./visual_up"
+import { vocalUp } from "./vocal_up"
 
 /**
  * Determine efficacy type and return a corresponding impl function.
@@ -12,6 +14,11 @@ export function typeOf(type: SkillEfficacyType): Action {
   switch (type) {
     case SkillEfficacyType.DanceUp: // 13
       return danceUp
+    case SkillEfficacyType.VocalUp: // 14
+      return vocalUp
+    case SkillEfficacyType.VisualUp:  // 15
+      return visualUp
+    // ...
     default:
       return defaultProc
   }

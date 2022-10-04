@@ -1,9 +1,6 @@
-import { getSetting } from "../../db/repository/setting_repository";
-import { SkillEfficacyType } from "../../types/proto/proto_enum";
 import { WapSkillEfficacy } from "../../types/wap/skill_waps";
 import { Concert } from "../concert";
 import { typeOf } from "./actions/action";
-import { danceUp } from "./actions/dance_up";
 
 export function implementEfficacy(
   this: Concert,

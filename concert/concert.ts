@@ -1,5 +1,5 @@
-import { Actable, CardStatus, Chart, Effect, Live, SkillStatus, StageSkillStatus, UserStatus } from "../types/concert_types";
-import { LiveAbilityType, MusicChartType, SkillEfficacyType } from "../types/proto/proto_enum";
+import { Actable, Chart, Effect, Live } from "../types/concert_types";
+import { MusicChartType, SkillEfficacyType } from "../types/proto/proto_enum";
 import { WapMusicChartPattern } from "../types/wap/quest_waps";
 import * as util from "../utils/chart_utils";
 import * as _init from "./partial/init_concert"
@@ -9,8 +9,8 @@ import { LiveDeck } from "../types/card_types";
 import checkActSkillStamina from "./partial/c_check_act_skill_stamina";
 import checkActSkillCoolTime from "./partial/d_check_act_skill_cool_time";
 import determineActSkillPrivilege from "./partial/e_determine_act_skill_privilege";
-import { performASPSkill, performPSkill } from "./partial/perform_skill";
-
+import { performASPSkill, performPSkill, performStageSkill, _performSkill } from "./partial/perform_skill";
+import { implementEfficacy } from "./partial/impl_efficacy";
 
 export class Concert {
 
@@ -28,6 +28,7 @@ export class Concert {
   current: Chart
   protected order: number
   protected actables: Actable[]
+  pSkills: { cardIndex: number, skillIndex: number }[]
   protected pSkillPerformed: number[]
   migratedEffs: {
     index: number
@@ -64,6 +65,7 @@ export class Concert {
       userStatuses: this.previous.userStatuses,
       stageSkillStatuses: this.previous.stageSkillStatuses,
       getCardStatus: util.getCardStatusByIndex,
+      getUserStatus: util.getUserStatusByIndex,
     }
     // remove effects which have no remain count
     this.current.cardStatuses.forEach(cardStat => {
@@ -82,15 +84,31 @@ export class Concert {
       this.determineActSkillPrivilege()
     }
 
-    // validate and perform P skills
+    // validate and perform P skills (p1)
     // ...
 
     // perform A SP skill
-    if (this.current.chartType != MusicChartType.Beat) {
-      this.performASPSkill(this.actables)
+    if (
+      this.current.chartType === MusicChartType.ActiveSkill
+      || this.current.chartType === MusicChartType.SpecialSkill
+    ) {
+      const flag = this.performASPSkill(this.actables)
+    } else if (
+      this.current.chartType === MusicChartType.Beat
+    ) {
+      this.current
     }
+
+    // reset combo
     
+    this.rotateCT()
+    this.rotateRemains()
+
+    // validate and perform P skills (p2)
     // ...
+
+    // aftermath
+
   }
 
   //#region partial imports
@@ -107,5 +125,8 @@ export class Concert {
   determineActSkillPrivilege = determineActSkillPrivilege
   performASPSkill = performASPSkill
   performPSkill = performPSkill
+  performStageSkill = performStageSkill
+  _performSkill = _performSkill
+  implementEfficacy = implementEfficacy
   //#endregion partial imports
 }

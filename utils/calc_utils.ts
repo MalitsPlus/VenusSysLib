@@ -12,7 +12,7 @@ import {
 } from "../types/concert_types"
 import {
   AttributeType,
-  MusicChartType, SkillEfficacyType
+  SkillEfficacyType
 } from "../types/proto/proto_enum"
 import { WapSkillLevel } from "../types/wap/skill_waps"
 import {
@@ -34,11 +34,11 @@ export function calcParam(
 
 export function calcBuffedParam(
   base: number,
-  mul: number,
-  add: number,
-  isPermil?: boolean
+  mul: number = 0,
+  add: number = 0,
+  isPermil: boolean = true,
 ): number {
-  var divisor = 1
+  let divisor = 1
   if (isPermil) {
     divisor = 1000
   }

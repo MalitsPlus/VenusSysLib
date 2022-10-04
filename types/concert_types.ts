@@ -3,7 +3,7 @@ import {
   MusicChartType,
   SkillFailureType
 } from "./proto/proto_enum"
-import { LiveDeck } from "./card_types"
+import { LiveCard, LiveDeck } from "./card_types"
 import { WapLiveBeat } from "./wap/misc_waps"
 import { WapQuest } from "./wap/quest_waps"
 import { WapSkillLevel } from "./wap/skill_waps"
@@ -46,6 +46,8 @@ export type CardStatus = {
   getSkillStatus: (this: CardStatus, index: number) => SkillStatus,
   getEffects: (this: CardStatus, type: SkillEfficacyType, needZeroRemain?: boolean) => Effect[],
   getEffectSumGrade: (this: CardStatus, type: SkillEfficacyType) => number,
+  getBuffedPermil: (this: CardStatus, type: "dance" | "vocal" | "visual") => number,
+  refreshParam: (this: CardStatus, card: LiveCard, type: "dance" | "vocal" | "visual") => void,
 }
 
 export type ConcertSkill = WapSkillLevel & {
@@ -64,7 +66,10 @@ export type SkillStatus = {
   skillIndex: number,
   coolTime: number,
   remainCount: number,
+  initCount: number,
   used: boolean,
+
+  hasRemain: () => boolean,
 }
 
 export type StageSkillStatus = SkillStatus & {

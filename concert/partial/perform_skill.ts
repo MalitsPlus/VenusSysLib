@@ -1,29 +1,52 @@
+import { LiveCard } from "../../types/card_types";
 import { Actable, ActSkill, CardStatus, SkillStatus, StageSkillStatus } from "../../types/concert_types";
 import { WapLiveAbility, WapSkillLevel } from "../../types/wap/skill_waps";
-import { Concert } from "../concert";
 import * as calc from "../../utils/calc_utils";
-import { LiveCard } from "../../types/card_types"
-import { SkillEfficacyType } from "../../types/proto/proto_enum";
-import { getTriggeredIndexes } from "../trigger_proc";
 import { getCritical } from "../../utils/chart_utils";
+import { Concert } from "../concert";
 import { getTargetIndexes } from "../target_proc";
-import { implementEfficacy } from "./impl_efficacy";
+import { getTriggeredIndexes } from "../trigger_proc";
 
+/**
+ * Performs A, SP skill and return a flag refers to performing info.
+ * @param this 
+ * @param actables 
+ * @returns A number which refers to which side performed this skill, or Zero(failed).
+ */
 export function performASPSkill(
   this: Concert,
   actables: Actable[],
-): boolean {
+): number {
   // skill failed
   if (actables.length === 0) {
-    return false
+    return 0
   }
   if (actables[0].skills.length === 0) {
-    return false
+    return 0
   }
 
   const { index, skills } = actables[0]
-  // well, despite the name, it is totally can be reuse here
-  return this.performPSkill(index, skills[0], false)
+  const card = this.liveDeck.getCard(index)
+  const skill = card.getSkill(skills[0])
+  const cardStat = this.current.getCardStatus(index)
+  const skillStat = cardStat.getSkillStatus(skills[0])
+
+  const actSkill = this._performSkill(
+    index,
+    skills[0],
+    skill,
+    skillStat,
+    index > 5,
+    false,
+    card,
+    cardStat,
+  )
+
+  if (actSkill) {
+    this.current.actSkill = actSkill
+    return index > 5 ? 2: 1
+  }
+  return 0
 }
 
 export function performPSkill(
@@ -37,7 +60,22 @@ export function performPSkill(
   const cardStat = this.current.getCardStatus(cardIndex)
   const skillStat = cardStat.getSkillStatus(skillIndex)
 
-  const success = this._performSkill()
+  const actSkill = this._performSkill(
+    cardIndex,
+    skillIndex,
+    skill,
+    skillStat,
+    cardIndex > 5,
+    isBeforeBeat,
+    card,
+    cardStat,
+  )
+
+  if (actSkill) {
+    this.current.actPSkills.push(actSkill)
+    return true
+  }
+  return false
 }
 
 export function performStageSkill(
@@ -47,7 +85,19 @@ export function performStageSkill(
   isOpponentSide: boolean,
   isBeforeBeat: boolean,
 ): boolean {
-
+  const actSkill = this._performSkill(
+    100 + skillStat.userIndex,
+    skillStat.skillIndex,
+    liveAbility.skill,
+    skillStat,
+    isOpponentSide,
+    isBeforeBeat,
+  )
+  if (actSkill) {
+    this.current.actPSkills.push(actSkill)
+    return true
+  }
+  return false
 }
 
 export function _performSkill(
@@ -60,11 +110,11 @@ export function _performSkill(
   isBeforeBeat: boolean,
   card?: LiveCard,
   cardStat?: CardStatus,
-): boolean {
+): ActSkill | undefined {
 
   // rolling
   if (!calc.roll(skill.probabilityPermil)) {
-    return false
+    return
   }
 
   // check stamina 
@@ -77,7 +127,7 @@ export function _performSkill(
       this.live.quest.skillStaminaWeightPermil
     )
     if (cardStat.stamina < stamina) {
-      return false // stamina shortages
+      return // stamina shortages
     }
   }
 
@@ -98,10 +148,10 @@ export function _performSkill(
   if (!triggeredIndexes) {
     // TODO: notify new triggers
     console.error("New trigger hasn't been implemented.")
-    return false // unhandled triggers
+    return // unhandled triggers
   }
   if (triggeredIndexes.length === 0) {
-    return false // not triggered
+    return // not triggered
   }
 
   // SKILL ACTIVATION COMFIRMED
@@ -118,10 +168,12 @@ export function _performSkill(
       cardStat,
       this.live.quest.skillStaminaWeightPermil
     )
+    // consume stamina
+    cardStat.stamina -= stamina
   }
 
   // create a new ActSkill
-  let actPSkill: ActSkill = {
+  const actSkill: ActSkill = {
     cardIndex: cardIndex,
     skillIndex: skillIndex,
     order: this.order,
@@ -169,25 +221,26 @@ export function _performSkill(
     // implement to CardStatus
     const { value, grade, maxGrade } = this.implementEfficacy(
       detail.efficacy,
-      targetIndexes,
+      targetIndexes ?? [],
       cardIndex,
       skillIndex,
       isBeforeBeat,
     )
 
-    actPSkill.details.push({
+    actSkill.details.push({
       name: detail.efficacy.name,
       description: detail.efficacy.description,
-      ?grade: detail.efficacy.grade,
-      ?maxGrade: detail.efficacy.maxGrade,
+      grade: grade,
+      maxGrade: maxGrade,
       efficacyIndex: index,
       efficacyType: detail.efficacy.type,
       targetIndexes: targetIndexes,
-      value: ?,
+      value: value,
     })
 
     // set SkillStatus
     skillStat.coolTime = skill.coolTime
     skillStat.remainCount && skillStat.remainCount--
   }
+  return actSkill
 }

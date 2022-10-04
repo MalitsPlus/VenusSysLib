@@ -1,8 +1,8 @@
-import { DanceUpGrade } from "../../consts/eff_grades";
+import { VocalUpGrade } from "../../consts/eff_grades";
 import { Action } from "./action";
 import { v4 as uuidv4 } from "uuid"
 
-export const danceUp: Action = ({
+export const vocalUp: Action = ({
   concert,
   efficacy,
   targetIndexes,
@@ -13,7 +13,7 @@ export const danceUp: Action = ({
   // 计算 value，获取 grade，maxGrade
   // 注意有不能这样获取的情况
   const effInfo = {
-    value: DanceUpGrade[efficacy.grade],
+    value: VocalUpGrade[efficacy.grade],
     grade: efficacy.grade,
     maxGrade: efficacy.maxGrade,
   }
@@ -33,7 +33,7 @@ export const danceUp: Action = ({
       sourceSkillIndex: sourceSkillIndex,
     })
     // 刷新属性值
-    cardStat.refreshParam(concert.liveDeck.getCard(target), "dance")
+    cardStat.refreshParam(concert.liveDeck.getCard(target), "vocal")
   })
   return effInfo
 }
