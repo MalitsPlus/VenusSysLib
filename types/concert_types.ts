@@ -30,6 +30,7 @@ export type Chart = {
 
   getCardStatus: (this: Chart, index: number) => CardStatus,
   getUserStatus: (this: Chart, index: number) => UserStatus,
+  getStageStatus: (this: Chart, cardIndex: number, skillIndex: number) => StageSkillStatus | undefined,
 }
 
 export type CardStatus = {
@@ -74,6 +75,7 @@ export type SkillStatus = {
 
 export type StageSkillStatus = SkillStatus & {
   userIndex: number
+  cardIndex: number
 }
 
 // a superior Effect type used for calculation

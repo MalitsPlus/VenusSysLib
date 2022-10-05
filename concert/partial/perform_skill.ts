@@ -1,6 +1,6 @@
 import { LiveCard } from "../../types/card_types";
-import { Actable, ActSkill, CardStatus, SkillStatus, StageSkillStatus } from "../../types/concert_types";
-import { WapLiveAbility, WapSkillLevel } from "../../types/wap/skill_waps";
+import { Actable, ActSkill, CardStatus, SkillStatus } from "../../types/concert_types";
+import { WapSkillLevel } from "../../types/wap/skill_waps";
 import * as calc from "../../utils/calc_utils";
 import { getCritical } from "../../utils/chart_utils";
 import { Concert } from "../concert";
@@ -41,15 +41,15 @@ export function performASPSkill(
     card,
     cardStat,
   )
-
   if (actSkill) {
     this.current.actSkill = actSkill
+    skillStat.used = true
     return index > 5 ? 2: 1
   }
   return 0
 }
 
-export function performPSkill(
+export function performPSkill( 
   this: Concert,
   cardIndex: number,
   skillIndex: number,
@@ -73,6 +73,7 @@ export function performPSkill(
 
   if (actSkill) {
     this.current.actPSkills.push(actSkill)
+    skillStat.used = true
     return true
   }
   return false
@@ -80,21 +81,22 @@ export function performPSkill(
 
 export function performStageSkill(
   this: Concert,
-  liveAbility: WapLiveAbility,
-  skillStat: StageSkillStatus,
-  isOpponentSide: boolean,
+  cardIndex: number,
+  skillIndex: number,
   isBeforeBeat: boolean,
 ): boolean {
+  const skillStat = this.current.getStageStatus(cardIndex, skillIndex)!
   const actSkill = this._performSkill(
-    100 + skillStat.userIndex,
+    skillStat.cardIndex,
     skillStat.skillIndex,
-    liveAbility.skill,
+    this.live.quest.liveBonuses![skillIndex].skill,
     skillStat,
-    isOpponentSide,
+    cardIndex !== 101,
     isBeforeBeat,
   )
   if (actSkill) {
     this.current.actPSkills.push(actSkill)
+    skillStat.used = true
     return true
   }
   return false

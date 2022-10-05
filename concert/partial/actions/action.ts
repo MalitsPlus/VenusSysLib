@@ -18,6 +18,11 @@ export function typeOf(type: SkillEfficacyType): Action {
       return vocalUp
     case SkillEfficacyType.VisualUp:  // 15
       return visualUp
+    case SkillEfficacyType.StaminaRecovery: // 22
+      return defaultProc
+    case SkillEfficacyType.FixStaminaRecovery:  // 23
+      return fixStaminaRecovery
+    
     // ...
     default:
       return defaultProc
@@ -41,8 +46,7 @@ export type Action = ({
   sourceIndex: number,
   sourceSkillIndex: number,
   isBeforeBeat: boolean,
-}
-) => {
+}) => {
   value: number,
   grade: number,
   maxGrade: number,

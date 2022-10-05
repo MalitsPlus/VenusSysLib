@@ -7,7 +7,7 @@ export function rotateCT(
   this.current.cardStatuses.forEach(cardStat => {
     cardStat.skillStatuses.forEach(skillStat => {
       if (skillStat.coolTime) {
-        skillStat.coolTime -= 1 // FIXME: 是否需要判断 remain count?
+        skillStat.coolTime -= 1
       }
     })
   })

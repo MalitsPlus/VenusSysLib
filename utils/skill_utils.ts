@@ -1,22 +1,7 @@
-import * as efg from "../concert/consts/eff_grades"
-import { CardStatus, DetEffect, Effect, LiveCard, SkillStatus } from "../types/concert_types";
-import { AttributeType, MusicChartType, SkillEfficacyType } from "../types/proto/proto_enum";
-import { WapSkill, WapSkillLevel } from "../types/wrapper_types";
-
-// export function getEffValueByGrade(
-//   type: SkillEfficacyType,
-//   grade: number
-// ): number {
-//   switch (type) {
-//     case SkillEfficacyType.StaminaConsumptionIncrease:
-//       return efg.StaminaConsumptionIncreaseGrade[grade]
-//     case SkillEfficacyType.StaminaConsumptionReduction:
-//       return efg.StaminaConsumptionReductionGrade[grade]
-//     // TODO: implement remains
-//     default:
-//       return 0
-//   }
-// }
+import * as efg from "../concert/consts/eff_grades";
+import { LiveCard } from "../types/card_types";
+import { CardStatus, DetEffect, Effect } from "../types/concert_types";
+import { AttributeType, SkillEfficacyType } from "../types/proto/proto_enum";
 
 export function getDeckParamByChartType(
   type: AttributeType,
@@ -74,22 +59,11 @@ export function isEffects(
   })
 }
 
-// export function getEffectsByType(
-//   efficacyType: SkillEfficacyType,
-//   cardStatus: CardStatus,
-// ): Effect[] | undefined {
-//   let effects = cardStatus.effects?.filter(it => isEffect(it, efficacyType))
-//   if (!effects || effects.length === 0) {
-//     return undefined
-//   }
-//   return effects
-// }
-
 export function getMergedEffectByType(
   efficacyType: SkillEfficacyType,
   cardStatus: CardStatus,
 ): DetEffect | undefined {
-  let effects = getEffectsByType(efficacyType, cardStatus)
+  let effects = cardStatus.getEffects(efficacyType)
   if (!effects || effects.length === 0) {
     return undefined
   }
@@ -102,25 +76,4 @@ export function getMergedEffectByType(
     value: efg.EfficacyValue[efficacyType][grade],
     isInstant: false,
   }
-}
-
-export function isSkillImpossible(
-  cardStatus: CardStatus
-): boolean {
-  cardStatus.effects?.forEach(eff => {
-    if (isEffect(eff, SkillEfficacyType.SkillImpossible)) {
-      return true
-    }
-  })
-  return false
-}
-
-export function skillHasRemainCount(
-  skill: WapSkillLevel,
-  skillStatus: SkillStatus
-): boolean {
-  if (skill.limitCount > 0 && skillStatus.remainCount <= 0) {
-    return false
-  }
-  return true
 }

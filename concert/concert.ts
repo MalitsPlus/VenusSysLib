@@ -8,9 +8,14 @@ import checkActSkillExistence from "./partial/b_check_existence";
 import { LiveDeck } from "../types/card_types";
 import checkActSkillStamina from "./partial/c_check_act_skill_stamina";
 import checkActSkillCoolTime from "./partial/d_check_act_skill_cool_time";
-import determineActSkillPrivilege from "./partial/e_determine_act_skill_privilege";
+import determineActSkillPrivilege from "./partial/f_determine_act_skill_privilege";
 import { performASPSkill, performPSkill, performStageSkill, _performSkill } from "./partial/perform_skill";
 import { implementEfficacy } from "./partial/impl_efficacy";
+import { preparePSkill } from "./partial/prepare_p_skill";
+import checkActSkillPossibility from "./partial/e_check_act_skill_possibility";
+import { rotateCT } from "./partial/rotate_ct";
+import { rotateRemains } from "./partial/rotate_remains";
+import { performBeat } from "./partial/perform_beat";
 
 export class Concert {
 
@@ -29,7 +34,7 @@ export class Concert {
   protected order: number
   protected actables: Actable[]
   pSkills: { cardIndex: number, skillIndex: number }[]
-  protected pSkillPerformed: number[]
+  pSkillPerformed: { cardIndex: number, skillIndex: number }[]
   migratedEffs: {
     index: number
     type: SkillEfficacyType.StrengthEffectMigrationBeforeActiveSkill
@@ -55,17 +60,19 @@ export class Concert {
   private prepare(musicPtn: WapMusicChartPattern) {
     this.previous = this.charts[this.charts.length - 1]
     this.actables = []
+    this.pSkillPerformed = []
     this.current = {
       chartType: musicPtn.type,
       sequence: musicPtn.sequence,
       actPosition: musicPtn.position,
       actPSkills: [],
-      // FIXME: https://github.com/MalitsPlus/VenusSysLib/issues/2
+      // 🚨FIXME: https://github.com/MalitsPlus/VenusSysLib/issues/2
       cardStatuses: this.previous.cardStatuses,
       userStatuses: this.previous.userStatuses,
       stageSkillStatuses: this.previous.stageSkillStatuses,
       getCardStatus: util.getCardStatusByIndex,
       getUserStatus: util.getUserStatusByIndex,
+      getStageStatus: util.getStageStatusByIndexes,
     }
     // remove effects which have no remain count
     this.current.cardStatuses.forEach(cardStat => {
@@ -81,34 +88,44 @@ export class Concert {
       if (this.current.chartType === MusicChartType.ActiveSkill) {
         this.checkActSkillCoolTime()
       }
+      this.checkActSkillPossibility()
       this.determineActSkillPrivilege()
     }
 
     // validate and perform P skills (p1)
-    // ...
+    for (const idxes of this.preparePSkill(true)) {
+      if (idxes.cardIndex > 100) {
+        this.performStageSkill(idxes.cardIndex, idxes.skillIndex, true)
+      } else {
+        this.performPSkill(idxes.cardIndex, idxes.skillIndex, true)
+      }
+    }
 
     // perform A SP skill
-    if (
-      this.current.chartType === MusicChartType.ActiveSkill
+    let flag = 99
+    if (this.current.chartType === MusicChartType.ActiveSkill
       || this.current.chartType === MusicChartType.SpecialSkill
     ) {
-      const flag = this.performASPSkill(this.actables)
-    } else if (
-      this.current.chartType === MusicChartType.Beat
-    ) {
-      this.current
+      flag = this.performASPSkill(this.actables)
+    } else if (this.current.chartType === MusicChartType.Beat) {
+      this.performBeat()
     }
 
     // reset combo
-    
+    this.handleCombo(flag)
     this.rotateCT()
     this.rotateRemains()
 
     // validate and perform P skills (p2)
-    // ...
-
+    for (const idxes of this.preparePSkill(false)) {
+      if (idxes.cardIndex > 100) {
+        this.performStageSkill(idxes.cardIndex, idxes.skillIndex, false)
+      } else {
+        this.performPSkill(idxes.cardIndex, idxes.skillIndex, false)
+      }
+    }
     // aftermath
-
+    // ...seems no aftermath need to be done at present
   }
 
   //#region partial imports
@@ -122,11 +139,16 @@ export class Concert {
   checkActSkillExistence = checkActSkillExistence
   checkActSkillStamina = checkActSkillStamina
   checkActSkillCoolTime = checkActSkillCoolTime
+  checkActSkillPossibility = checkActSkillPossibility
   determineActSkillPrivilege = determineActSkillPrivilege
+  preparePSkill = preparePSkill
   performASPSkill = performASPSkill
+  performBeat = performBeat
   performPSkill = performPSkill
   performStageSkill = performStageSkill
   _performSkill = _performSkill
   implementEfficacy = implementEfficacy
+  rotateCT = rotateCT
+  rotateRemains = rotateRemains
   //#endregion partial imports
 }

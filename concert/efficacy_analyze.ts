@@ -46,6 +46,7 @@ export function getFixStaminaRecoveryValue(
   if (matched) {
     return +matched[0]
   }
+  logError("Cannot find digital numbers right after 'fix_stamina_recovery-'.")
   return undefined
 }
 
@@ -57,4 +58,8 @@ function getEfficacyLastNum(
     return +matched[0]
   }
   return undefined
+}
+
+function logError(msg: string) {
+  console.error("[EfficacyAnalyze] " + msg)
 }

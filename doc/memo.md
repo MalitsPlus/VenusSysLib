@@ -2,3 +2,5 @@
 
 - 调查超过 maxGrade 且被适用了低下效果时，属性的上升值。
 
+- 调查当有多个 stage skill 时是否能在同一回合发动
+- 调查 stage skill 是否总是在 beat 前发动（钦定否定）

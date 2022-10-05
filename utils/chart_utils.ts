@@ -2,9 +2,11 @@ import { DanceBoostGrade, DanceDownGrade, DanceUpGrade, EfficacyMaxGrade, Visual
 import { LiveCard, LiveDeck, UserCard } from "../types/card_types"
 import {
   CardStatus,
-  Chart, Effect, Live, SkillStatus, UserStatus
+  Chart, Effect, Live, SkillStatus, StageSkillStatus, UserStatus
 } from "../types/concert_types"
 import { AttributeType, SkillEfficacyType } from "../types/proto/proto_enum"
+import { Quest } from "../types/proto/proto_master"
+import { WapQuest } from "../types/wap/quest_waps"
 import { WapSkillLevel } from "../types/wap/skill_waps"
 import { calcBuffedParam, calcCriticalRate } from "./calc_utils"
 
@@ -20,6 +22,13 @@ export function getUserStatusByIndex(
   index: number,
 ): UserStatus {
   return this.userStatuses.find(x => x.userIndex === index)! // FIXME: potential exception
+}
+export function getStageStatusByIndexes(
+  this: Chart,
+  cardIndex: number,
+  skillIndex: number,
+): StageSkillStatus | undefined {
+  return this.stageSkillStatuses?.find(x => x.cardIndex === cardIndex && x.skillIndex === skillIndex)
 }
 
 // LiveDeck
@@ -138,69 +147,8 @@ export function skillHasRemain(
 }
 
 
-
-
-
-
-
-export function getCardSkillStatusByIndex(
-  cardIndex: number,
-  skillIndex: number,
-  chart: Chart
-): SkillStatus {
-  return getCardStatusByIndex(cardIndex, chart).skillStatuses.find(it =>
-    it.skillIndex === skillIndex
-  )
-}
-
-export function getSkillByIndex(
-  skillIndex: number,
-  card?: LiveCard,
-  cardIndex?: number,
-  live?: Live
-): WapSkill {
-  if (live && cardIndex) {
-    card = getLiveCardByIndex(cardIndex, live)
-  }
-  if (card === undefined) {
-    throw new ReferenceError("'card' is undefined.")
-  }
-  switch (skillIndex) {
-    case 1: return card.skill1
-    case 2: return card.skill2
-    case 3: return card.skill3
-    default: throw new Error(`Skill index can never be '${skillIndex}'.`)
-  }
-}
-
-export function getSkillLevel(
-  skill: WapSkill,
-  level: number
-): WapSkillLevel {
-  return skill.wapSkillLevels.find(it => it.level === level)!
-}
-
-export function getCardSkillLevel(
-  skillIndex: number,
-  card: LiveCard
-): WapSkillLevel {
-  let skill = getSkillByIndex(skillIndex, card)
-  let skillLevel: number
-  switch (skillIndex) {
-    case 1:
-      skillLevel = card.skillLevel1; break;
-    case 2:
-      skillLevel = card.skillLevel2; break;
-    case 3:
-      skillLevel = card.skillLevel3; break;
-    default:
-      throw new Error(`Skill index can never be '${skillIndex}'.`)
-  }
-  return getSkillLevel(skill, skillLevel)
-}
-
 export function getLaneAttributeByPosition(
-  quest: QuestBase,
+  quest: Quest,
   position: number
 ): AttributeType {
   switch (position) {
@@ -211,15 +159,6 @@ export function getLaneAttributeByPosition(
     case 5: case 10: return quest.position5AttributeType
     default: throw TypeError(`Lane position '${position}' is invalid.`)
   }
-}
-
-export function indexIsOpponentSide(
-  cardIndex: number
-): boolean {
-  if (cardIndex >= 5 && cardIndex <= 10) {
-    return true
-  }
-  return false
 }
 
 export function getCritical(

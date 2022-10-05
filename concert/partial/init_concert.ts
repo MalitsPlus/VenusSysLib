@@ -1,6 +1,6 @@
 import { UserStatus, CardStatus, SkillStatus, StageSkillStatus } from "../../types/concert_types"
 import { MusicChartType, LiveAbilityType, SkillCategoryType } from "../../types/proto/proto_enum"
-import { getBuffedPermil, getCardSkillStatus, getCardStatusByIndex, getEffectsByType, getEffectSumGradeByType, getUserStatusByIndex, refreshParam, skillHasRemain } from "../../utils/chart_utils"
+import { getBuffedPermil, getCardSkillStatus, getCardStatusByIndex, getEffectsByType, getEffectSumGradeByType, getStageStatusByIndexes, getUserStatusByIndex, refreshParam, skillHasRemain } from "../../utils/chart_utils"
 import { Concert } from "../concert"
 
 export default function init(this: Concert) {
@@ -15,7 +15,9 @@ export default function init(this: Concert) {
     stageSkillStatuses: this.initStageSkillStatus(),
     getCardStatus: getCardStatusByIndex,
     getUserStatus: getUserStatusByIndex,
+    getStageStatus: getStageStatusByIndexes,
   }
+  // initialize pSkills list and descly order them by mental
   this.pSkills = this.liveDeck.liveCards.flatMap(card => {
     return card.liveCard.skills.filter(x =>
       x.skill.categoryType === SkillCategoryType.Passive
@@ -68,7 +70,7 @@ export function initSkillStatus(this: Concert, index: number): SkillStatus[] {
     .find(x => x.index === index)!
     .liveCard.skills.map(skill => ({
       skillIndex: skill.index,
-      coolTime: skill.skill.coolTime,
+      coolTime: 0,
       remainCount: skill.skill.limitCount,
       initCount: skill.skill.limitCount,
       used: false,
@@ -84,20 +86,26 @@ export function initStageSkillStatus(this: Concert): StageSkillStatus[] | undefi
     return undefined
   }
   const statuses: StageSkillStatus[] = bonuses.map((ability, index) => ({
-    skillIndex: 200 + index * 2,
-    coolTime: ability.skill.coolTime,
+    skillIndex: index,
+    cardIndex: 100 + 1,
+    coolTime: 0,
     remainCount: ability.skill.limitCount,
+    initCount: ability.skill.limitCount,
     userIndex: 1,
     used: false,
+    hasRemain: skillHasRemain,
   }))
   if (this.live.isBattle) {
     bonuses.forEach((ability, index) => {
       statuses.push({
-        skillIndex: 200 + index * 2 + 1,
-        coolTime: ability.skill.coolTime,
+        skillIndex: index,
+        cardIndex: 100 + 2,
+        coolTime: 0,
         remainCount: ability.skill.limitCount,
+        initCount: ability.skill.limitCount,
         userIndex: 2,
         used: false,
+        hasRemain: skillHasRemain,
       })
     })
   }

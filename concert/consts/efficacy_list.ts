@@ -14,7 +14,7 @@ export const ParamBoost = [
   SkillEfficacyType.VisualBoost,
 ]
 
-export const TriggerBefore = [
+export const TriggerBeforeList = [
   SkillTriggerType.Beat,
   SkillTriggerType.BeforeActiveSkillBySomeone,
   SkillTriggerType.BeforeSpecialSkillBySomeone,

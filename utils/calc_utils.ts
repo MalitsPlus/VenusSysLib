@@ -137,8 +137,3 @@ export function calcCriticalRate(
   // TODO: implement critical rate calculation
   return 0.5
 }
-
-export function calcBeatScore(
-): number {
-  return 0
-}
