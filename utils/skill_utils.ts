@@ -33,7 +33,7 @@ export function getValidGrade(
   efficacyType: SkillEfficacyType,
   grade: number
 ): number {
-  let maxGrade: number = efg.EfficacyMaxGrade[efficacyType]
+  const maxGrade: number = efg.EfficacyMaxGrade[efficacyType]
   if (!maxGrade) {
     return 0
   }
@@ -67,7 +67,7 @@ export function getMergedEffectByType(
   if (!effects || effects.length === 0) {
     return undefined
   }
-  var grade = 0
+  let grade = 0
   effects.forEach(it => grade += it.grade)
   grade = getValidGrade(efficacyType, grade)
   return {

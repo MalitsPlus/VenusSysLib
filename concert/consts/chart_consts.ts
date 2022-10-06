@@ -1,5 +1,5 @@
 import { SkillEfficacyType } from "../../types/proto/proto_enum"
-import { SkillEfficacyTypeWeaknessList } from "./efficacy_list"
+import { WeaknessDurationList } from "./efficacy_list"
 
 export const Index2Lane = {
   1: 1, 2: 2, 3: 3, 4: 4, 5: 5,
@@ -40,7 +40,7 @@ export const Str2EfficacyType: {
 export const Str2EfficacyGroup: {
   [key: string]: SkillEfficacyType[]
 } = {
-  weekness: SkillEfficacyTypeWeaknessList,
+  weekness: WeaknessDurationList,
 }
 
 export const IndexNeighbor: {

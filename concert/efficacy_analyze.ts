@@ -1,18 +1,7 @@
 import { GameSetting } from "../db/repository/setting_repository"
-import { SkillEfficacyType } from "../types/proto/proto_enum"
 import { SkillEfficacy } from "../types/proto/proto_master"
+import { WeaknessOtherDurationList, WeaknessOtherInstantList } from "./consts/efficacy_list"
 
-const durationList = [
-  SkillEfficacyType.SkillImpossible,
-  SkillEfficacyType.StaminaConsumptionIncrease,
-  SkillEfficacyType.StaminaContinuousConsumption,
-]
-const instantList = [
-  SkillEfficacyType.StaminaConsumption,
-  SkillEfficacyType.CoolTimeIncrease,
-  SkillEfficacyType.StrengthEffectErasing,
-  SkillEfficacyType.StrengthEffectErasingAll,
-]
 
 export function getEfficacyDuration(
   efficacy: SkillEfficacy
@@ -20,7 +9,7 @@ export function getEfficacyDuration(
   if ([
     ...GameSetting.skillEfficacyTypeStrengthList,
     ...GameSetting.skillEfficacyTypeWeaknessDownList,
-    ...durationList
+    ...WeaknessOtherDurationList
   ].includes(efficacy.type)) {
     return getEfficacyLastNum(efficacy.id)
   }
@@ -32,17 +21,27 @@ export function isEfficacyInstant(
   if ([
     ...GameSetting.skillEfficacyTypeScoreList,
     ...GameSetting.skillEfficacyTypeSupportList,
-    ...instantList
+    ...WeaknessOtherInstantList
   ].includes(efficacy.type)) {
     return true
   }
   return false
 }
 
+function getEfficacyLastNum(
+  efficacyId: string
+): number | undefined {
+  const matched = efficacyId.match(/\d+$/)
+  if (matched) {
+    return +matched[0]
+  }
+  return undefined
+}
+
 export function getFixStaminaRecoveryValue(
   efficacyId: string
 ): number | undefined {
-  let matched = efficacyId.match(/(?<=fix_stamina_recovery-)\d+/)
+  const matched = efficacyId.match(/(?<=fix_stamina_recovery-)\d+/)
   if (matched) {
     return +matched[0]
   }
@@ -50,13 +49,25 @@ export function getFixStaminaRecoveryValue(
   return undefined
 }
 
-function getEfficacyLastNum(
+export function getStrengthEffectCountIncreaseValue(
   efficacyId: string
 ): number | undefined {
-  let matched = efficacyId.match(/\d+$/)
+  const matched = efficacyId.match(/(?<=strength_effect_count_increase-)\d+/)
   if (matched) {
     return +matched[0]
   }
+  logError("Cannot find digital numbers right after 'strength_effect_count_increase-'.")
+  return undefined
+}
+
+export function getStrengthEffectValueIncreaseValue(
+  efficacyId: string
+): number | undefined {
+  const matched = efficacyId.match(/(?<=strength_effect_value_increase-)\d+/)
+  if (matched) {
+    return +matched[0]
+  }
+  logError("Cannot find digital numbers right after 'strength_effect_value_increase-'.")
   return undefined
 }
 

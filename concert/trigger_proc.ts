@@ -235,10 +235,10 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.StatusGroup: {
-        let group = tra.getTriggerStatusGroup(trigger.id)
+        const group = tra.getTriggerStatusGroup(trigger.id)
         if (group) {
           if (cardStatus?.effects?.some(eff =>
-            group!!.includes(eff.efficacyType)
+            group.includes(eff.efficacyType)
           )) {
             triggeredList.push(deckPosition)
           }

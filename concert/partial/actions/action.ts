@@ -2,8 +2,10 @@ import { SkillEfficacyType } from "../../../types/proto/proto_enum"
 import { WapSkillEfficacy } from "../../../types/wap/skill_waps"
 import { Concert } from "../../concert"
 import { danceUp } from "./dance_up"
+import { fixStaminaRecovery } from "./fix_stamina_recovery"
 import { visualUp } from "./visual_up"
 import { vocalUp } from "./vocal_up"
+import { weaknessEffectRecovery } from "./weakness_effect_recovery"
 
 /**
  * Determine efficacy type and return a corresponding impl function.
@@ -22,6 +24,8 @@ export function typeOf(type: SkillEfficacyType): Action {
       return defaultProc
     case SkillEfficacyType.FixStaminaRecovery:  // 23
       return fixStaminaRecovery
+    case SkillEfficacyType.WeaknessEffectRecovery:  // 24
+      return weaknessEffectRecovery
     
     // ...
     default:

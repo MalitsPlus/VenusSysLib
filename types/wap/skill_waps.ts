@@ -29,7 +29,7 @@ export type WapSkillDetail = SkillDetail & {
 export type WapSkillEfficacy = SkillEfficacy & {
   skillTarget?: SkillTarget
   duration: number
-  isInstant: boolean
+  isInstant: boolean  // FIXME: 考虑是否有必要？duration=0判断已足够？
 }
 
 export type WapLiveAbility = LiveAbilityLevel & {

@@ -1,4 +1,5 @@
-import { DanceBoostGrade, DanceDownGrade, DanceUpGrade, EfficacyMaxGrade, VisualBoostGrade, VisualDownGrade, VisualUpGrade, VocalBoostGrade, VocalDownGrade, VocalUpGrade } from "../concert/consts/eff_grades"
+import { DanceBoostGrade, DanceDownGrade, DanceUpGrade, EfficacyMaxGrade, EfficacyValue, VisualBoostGrade, VisualDownGrade, VisualUpGrade, VocalBoostGrade, VocalDownGrade, VocalUpGrade } from "../concert/consts/eff_grades"
+import { GameSetting } from "../db/repository/setting_repository"
 import { LiveCard, LiveDeck, UserCard } from "../types/card_types"
 import {
   CardStatus,
@@ -9,6 +10,7 @@ import { Quest } from "../types/proto/proto_master"
 import { WapQuest } from "../types/wap/quest_waps"
 import { WapSkillLevel } from "../types/wap/skill_waps"
 import { calcBuffedParam, calcCriticalRate } from "./calc_utils"
+import { getValidGrade } from "./skill_utils"
 
 // Chart
 export function getCardStatusByIndex(
@@ -134,6 +136,28 @@ export function refreshParam(
     case "visual":
       this.visual = calcBuffedParam(card.deckVisual, permil)
       break
+  }
+}
+export function getMergedStrengthEffectByType(
+  this: CardStatus,
+  efficacyType: SkillEfficacyType,
+) {
+  const effects = this.getEffects(efficacyType)
+  if (!effects || effects.length === 0) {
+    return undefined
+  }
+  if (!GameSetting.skillEfficacyTypeStrengthList.includes(efficacyType)) {
+    return undefined
+  }
+  let grade = 0
+  const maxGrade = EfficacyMaxGrade[efficacyType]
+  effects.forEach(it => grade += it.grade)
+  return {
+    efficacyType: efficacyType,
+    grade: grade,
+    maxGrade: maxGrade,
+    overwhelm: grade > maxGrade,
+    value: EfficacyValue[efficacyType][grade > maxGrade ? maxGrade : grade],
   }
 }
 

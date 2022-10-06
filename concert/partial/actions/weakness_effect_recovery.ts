@@ -1,9 +1,8 @@
 import { Action } from "./action";
 import { v4 as uuidv4 } from "uuid"
-import { getFixStaminaRecoveryValue } from "../../efficacy_analyze";
-import { calcStaminaRecovery } from "../../../utils/calc_utils";
+import { WeaknessDurationList } from "../../consts/efficacy_list";
 
-export const fixStaminaRecovery: Action = ({
+export const weaknessEffectRecovery: Action = ({
   concert,
   efficacy,
   targetIndexes,
@@ -12,12 +11,15 @@ export const fixStaminaRecovery: Action = ({
   isBeforeBeat,
 }) => {
   const effInfo = {
-    value: getFixStaminaRecoveryValue(efficacy.id) ?? 0,
+    value: 0,
     grade: efficacy.grade,
     maxGrade: efficacy.maxGrade,
   }
   targetIndexes.forEach(target => {
     const cardStat = concert.current.getCardStatus(target)
+    cardStat.effects = cardStat.effects.filter(eff => {
+      !WeaknessDurationList.includes(eff.efficacyType)
+    })
     cardStat.effects.push({
       id: uuidv4(),
       efficacyType: efficacy.type,
@@ -30,7 +32,6 @@ export const fixStaminaRecovery: Action = ({
       sourceIndex: sourceIndex,
       sourceSkillIndex: sourceSkillIndex,
     })
-    cardStat.stamina += calcStaminaRecovery(effInfo.value, concert.live.quest.staminaRecoveryWeightPermil)
   })
   return effInfo
 }

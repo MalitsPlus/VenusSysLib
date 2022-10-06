@@ -3,12 +3,11 @@ import {
   StaminaConsumptionAdjustment
 } from "../concert/consts/efficacy_list"
 import {
-  EfficacyValue,
-  StaminaConsumptionReductionGrade
+  EfficacyValue
 } from "../concert/consts/eff_grades"
 import { LiveCard } from "../types/card_types"
 import {
-  CardStatus,
+  CardStatus
 } from "../types/concert_types"
 import {
   AttributeType,
@@ -137,3 +136,14 @@ export function calcCriticalRate(
   // TODO: implement critical rate calculation
   return 0.5
 }
+
+export function calcStaminaRecovery(
+  base: number,
+  permil: number
+): number {
+  if (permil === 0) {
+    return base
+  }
+  return Math.floor(base * permil / 1000) // FIXME: 调查体力恢复率异常sif
+}
+

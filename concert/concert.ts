@@ -101,6 +101,9 @@ export class Concert {
       }
     }
 
+    // TODO: save a snapshot at this point
+    // ...
+
     // perform A SP skill
     let flag = 99
     if (this.current.chartType === MusicChartType.ActiveSkill
