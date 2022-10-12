@@ -1,5 +1,5 @@
 import { SkillFailureType } from "../../types/proto/proto_enum";
-import { calcStaminaConsumption } from "../../utils/calc_utils";
+import { calcSkillStaminaConsumption } from "../../utils/calc_utils";
 import { Concert } from "../concert";
 
 export default function checkActSkillStamina(
@@ -12,7 +12,7 @@ export default function checkActSkillStamina(
     const card = this.liveDeck.getCard(index)
     const cardStatus = this.current.getCardStatus(index)
     skills = skills.filter(skillIndex => {
-      const consumeSt = calcStaminaConsumption(
+      const consumeSt = calcSkillStaminaConsumption(
         card.getSkill(skillIndex),
         card,
         cardStatus,

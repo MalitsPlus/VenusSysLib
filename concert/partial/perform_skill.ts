@@ -1,11 +1,13 @@
 import { LiveCard } from "../../types/card_types";
 import { Actable, ActSkill, CardStatus, SkillStatus } from "../../types/concert_types";
+import { SkillEfficacyType } from "../../types/proto/proto_enum";
 import { WapSkillLevel } from "../../types/wap/skill_waps";
 import * as calc from "../../utils/calc_utils";
 import { getCritical } from "../../utils/chart_utils";
 import { Concert } from "../concert";
 import { getTargetIndexes } from "../target_proc";
 import { getTriggeredIndexes } from "../trigger_proc";
+import { ComboType } from "./handle_combo";
 
 /**
  * Performs A, SP skill and return a flag refers to performing info.
@@ -16,37 +18,41 @@ import { getTriggeredIndexes } from "../trigger_proc";
 export function performASPSkill(
   this: Concert,
   actables: Actable[],
-): number {
+): ComboType {
+  if (actables.length) {
+    if (actables[0].skills.length) {
+      const { index, skills } = actables[0]
+      const card = this.liveDeck.getCard(index)
+      const skill = card.getSkill(skills[0])
+      const cardStat = this.current.getCardStatus(index)
+      const skillStat = cardStat.getSkillStatus(skills[0])
+
+      const actSkill = this._performSkill(
+        index,
+        skills[0],
+        skill,
+        skillStat,
+        index > 5,
+        false,
+        card,
+        cardStat,
+      )
+      if (actSkill) {
+        this.current.actSkill = actSkill
+        skillStat.used = true
+        return index > 5 ? ComboType.AddOpponent : ComboType.AddAlly
+      }
+    }
+  }
   // skill failed
-  if (actables.length === 0) {
-    return 0
+  const isAllyBuffed = this.current
+    .getCardStatus(this.current.actPosition)
+    .getEffects(SkillEfficacyType.ComboContinuation).length > 0
+  if (isAllyBuffed) {
+    return ComboType.KeepAllyBreakOpponent
   }
-  if (actables[0].skills.length === 0) {
-    return 0
-  }
-
-  const { index, skills } = actables[0]
-  const card = this.liveDeck.getCard(index)
-  const skill = card.getSkill(skills[0])
-  const cardStat = this.current.getCardStatus(index)
-  const skillStat = cardStat.getSkillStatus(skills[0])
-
-  const actSkill = this._performSkill(
-    index,
-    skills[0],
-    skill,
-    skillStat,
-    index > 5,
-    false,
-    card,
-    cardStat,
-  )
-  if (actSkill) {
-    this.current.actSkill = actSkill
-    skillStat.used = true
-    return index > 5 ? 2: 1
-  }
-  return 0
+  // FIXME(delayed): keep opponent
+  return ComboType.Break
 }
 
 export function performPSkill( 
@@ -122,7 +128,7 @@ export function _performSkill(
   // check stamina 
   let stamina = skill.stamina
   if (card && cardStat) {
-    stamina = calc.calcStaminaConsumption(
+    stamina = calc.calcSkillStaminaConsumption(
       skill,
       card,
       cardStat,
@@ -164,7 +170,7 @@ export function _performSkill(
   )
   // calculate stamina consumption
   if (card && cardStat) {
-    stamina = calc.calcStaminaConsumption(
+    stamina = calc.calcSkillStaminaConsumption(
       skill,
       card,
       cardStat,

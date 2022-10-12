@@ -1,9 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
-import { calcStaminaRecovery } from "../../../utils/calc_utils";
-import { getFixStaminaRecoveryValue } from "../../efficacy_analyze";
+import { GameSetting } from "../../../db/repository/setting_repository";
 import { Action } from "./action";
 
-export const fixStaminaRecovery: Action = ({
+export const strengthEffectAssignmentAll: Action = ({
   concert,
   efficacy,
   targetIndexes,
@@ -12,12 +11,22 @@ export const fixStaminaRecovery: Action = ({
   isBeforeBeat,
 }) => {
   const effInfo = {
-    value: getFixStaminaRecoveryValue(efficacy.id) ?? 0,
+    value: 0,
     grade: efficacy.grade,
     maxGrade: efficacy.maxGrade,
   }
   targetIndexes.forEach(target => {
+    const sourceCardStat = concert.current.getCardStatus(sourceIndex)
     const cardStat = concert.current.getCardStatus(target)
+    sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
+      if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
+        cardStat.effects.push(eff)
+        return false
+      }
+      return true
+    })
+    cardStat.refreshAllParam(concert.liveDeck.getCard(sourceIndex))
+    cardStat.refreshAllParam(concert.liveDeck.getCard(target))
     cardStat.effects.push({
       id: uuidv4(),
       efficacyType: efficacy.type,
@@ -30,9 +39,6 @@ export const fixStaminaRecovery: Action = ({
       sourceIndex: sourceIndex,
       sourceSkillIndex: sourceSkillIndex,
     })
-    const expRecovery = calcStaminaRecovery(effInfo.value, cardStat, concert.live.quest.staminaRecoveryWeightPermil)
-    const maxStamina = concert.liveDeck.getCard(target).deckStamina
-    cardStat.stamina = expRecovery + cardStat.stamina > maxStamina ? maxStamina : expRecovery + cardStat.stamina
   })
   return effInfo
 }

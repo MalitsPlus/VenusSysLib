@@ -1,9 +1,9 @@
 import { Action } from "./action";
 import { v4 as uuidv4 } from "uuid"
-import { getStrengthEffectCountIncreaseValue } from "../../efficacy_analyze";
-import { GameSetting } from "../../../db/repository/setting_repository";
+import { getCoolTimeReductionValue } from "../../efficacy_analyze";
+import { CardStatus } from "../../../types/concert_types";
 
-export const strengthEffectCountIncrease: Action = ({
+export const coolTimeReduction: Action = ({
   concert,
   efficacy,
   targetIndexes,
@@ -11,21 +11,16 @@ export const strengthEffectCountIncrease: Action = ({
   sourceSkillIndex,
   isBeforeBeat,
 }) => {
-  const strengthCount = getStrengthEffectCountIncreaseValue(efficacy.id)
+  const reduceValue = getCoolTimeReductionValue(efficacy.id)
   const effInfo = {
-    value: strengthCount ?? 0,
+    value: reduceValue ?? 0,
     grade: efficacy.grade,
     maxGrade: efficacy.maxGrade,
   }
-  if (strengthCount) {
+  if (reduceValue) {
     targetIndexes.forEach(target => {
       const cardStat = concert.current.getCardStatus(target)
-      cardStat.effects.forEach(eff => {
-        if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
-          eff.remain += strengthCount
-          eff.ajusted = true
-        }
-      })
+      doReduction(cardStat, reduceValue)
       cardStat.effects.push({
         id: uuidv4(),
         efficacyType: efficacy.type,
@@ -41,4 +36,16 @@ export const strengthEffectCountIncrease: Action = ({
     })
   }
   return effInfo
+}
+
+export function doReduction(
+  cardStat: CardStatus,
+  reduceValue: number,
+) {
+  cardStat.skillStatuses.forEach(skillStat => {
+    if (skillStat.hasTimes()) {
+      const afterRdc = skillStat.coolTime - reduceValue
+      skillStat.coolTime = afterRdc < 0 ? 0 : afterRdc
+    }
+  })
 }

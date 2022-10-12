@@ -1,8 +1,10 @@
 import { Action } from "./action";
 import { v4 as uuidv4 } from "uuid"
-import { WeaknessDurationList } from "../../consts/efficacy_list";
+import { SkillEfficacyType } from "../../../types/proto/proto_enum";
+import { Effect } from "../../../types/concert_types";
+import { GameSetting } from "../../../db/repository/setting_repository";
 
-export const weaknessEffectRecovery: Action = ({
+export const StrengthEffectMigrationBeforeSpecialSkill: Action = ({
   concert,
   efficacy,
   targetIndexes,
@@ -17,9 +19,23 @@ export const weaknessEffectRecovery: Action = ({
   }
   targetIndexes.forEach(target => {
     const cardStat = concert.current.getCardStatus(target)
+    const migEff = {
+      index: target,
+      type: efficacy.type as SkillEfficacyType.StrengthEffectMigrationBeforeActiveSkill
+        | SkillEfficacyType.StrengthEffectMigrationBeforeSpecialSkill,
+      fromOrder: concert.current.sequence,
+      sourceIndex: sourceIndex,
+      sourceSkillIndex: sourceSkillIndex,
+      effs: [] as Effect[],
+    }
     cardStat.effects = cardStat.effects.filter(eff => {
-      !WeaknessDurationList.includes(eff.efficacyType)
+      if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
+        migEff.effs.push(eff)
+        return false
+      }
+      return true
     })
+    concert.migratedEffs.push(migEff)
     cardStat.refreshAllParam(concert.liveDeck.getCard(target))
     cardStat.effects.push({
       id: uuidv4(),

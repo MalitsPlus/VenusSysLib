@@ -16,6 +16,8 @@ import checkActSkillPossibility from "./partial/e_check_act_skill_possibility";
 import { rotateCT } from "./partial/rotate_ct";
 import { rotateRemains } from "./partial/rotate_remains";
 import { performBeat } from "./partial/perform_beat";
+import { ComboType, handleCombo } from "./partial/handle_combo";
+import { applyContinuousEffects } from "./partial/apply_continuous_effects";
 
 export class Concert {
 
@@ -105,7 +107,7 @@ export class Concert {
     // ...
 
     // perform A SP skill
-    let flag = 99
+    let flag = ComboType.AddBoth
     if (this.current.chartType === MusicChartType.ActiveSkill
       || this.current.chartType === MusicChartType.SpecialSkill
     ) {
@@ -127,8 +129,11 @@ export class Concert {
         this.performPSkill(idxes.cardIndex, idxes.skillIndex, false)
       }
     }
+
+    this.applyContinuousEffects()
+
     // aftermath
-    // ...seems no aftermath need to be done at present
+    // ...seems no aftermath is needed for now
   }
 
   //#region partial imports
@@ -151,7 +156,10 @@ export class Concert {
   performStageSkill = performStageSkill
   _performSkill = _performSkill
   implementEfficacy = implementEfficacy
+
+  handleCombo = handleCombo
   rotateCT = rotateCT
   rotateRemains = rotateRemains
+  applyContinuousEffects = applyContinuousEffects
   //#endregion partial imports
 }

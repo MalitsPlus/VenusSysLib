@@ -147,6 +147,19 @@ export const ActiveScoreMultiplierAddGrade = {
 }
 export const PassiveScoreMultiplierAddGrade = {
 }
+export const StaminaContinuousRecoveryGrade = {
+  0: 0, 1: 15, 2: 30, 3: 45, 4: 60, 5: 75,
+  6: 90, 7: 105, 8: 120, 9: 135, 10: 150,
+  11: 165, 12: 180, 13: 195, 14: 210, 15: 225,
+  16: 240, 17: 255, 18: 270, 19: 285, 20: 300,
+}
+
+export const StaminaContinuousConsumptionGrade = {
+  0: -0, 1: -15, 2: -30, 3: -45, 4: -60, 5: -75,
+  6: -90, 7: -105, 8: -120, 9: -135, 10: -150,
+  11: -165, 12: -180, 13: -195, 14: -210, 15: -225,
+  16: -240, 17: -255, 18: -270, 19: -285, 20: -300,
+}
 
 export const EfficacyValue = {
   [SkillEfficacyType.StaminaConsumptionReduction]: StaminaConsumptionReductionGrade,
@@ -175,6 +188,8 @@ export const EfficacyValue = {
   [SkillEfficacyType.SpecialScoreMultiplierAdd]: SpecialScoreMultiplierAddGrade,
   [SkillEfficacyType.ActiveScoreMultiplierAdd]: ActiveScoreMultiplierAddGrade,
   [SkillEfficacyType.PassiveScoreMultiplierAdd]: PassiveScoreMultiplierAddGrade,
+  [SkillEfficacyType.StaminaContinuousRecovery]: StaminaContinuousRecoveryGrade,
+  [SkillEfficacyType.StaminaContinuousConsumption]: StaminaContinuousConsumptionGrade,
 }
 
 export const EfficacyMaxGrade = {
@@ -206,6 +221,7 @@ export const EfficacyMaxGrade = {
   [SkillEfficacyType.SpecialScoreMultiplierAdd]: 30,
   [SkillEfficacyType.ActiveScoreMultiplierAdd]: 30,
   [SkillEfficacyType.PassiveScoreMultiplierAdd]: 30,
-  [SkillEfficacyType.StaminaContinuousRecovery]: 0,
+  [SkillEfficacyType.StaminaContinuousRecovery]: 20,
+  [SkillEfficacyType.StaminaContinuousConsumption]: 20,
   [SkillEfficacyType.ActiveSkillChanceAssignment]: 0,
 }

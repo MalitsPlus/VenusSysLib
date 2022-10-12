@@ -1,3 +1,4 @@
+import { StackableSkillEfficacyList } from "../concert/consts/efficacy_list"
 import { DanceBoostGrade, DanceDownGrade, DanceUpGrade, EfficacyMaxGrade, EfficacyValue, VisualBoostGrade, VisualDownGrade, VisualUpGrade, VocalBoostGrade, VocalDownGrade, VocalUpGrade } from "../concert/consts/eff_grades"
 import { GameSetting } from "../db/repository/setting_repository"
 import { LiveCard, LiveDeck, UserCard } from "../types/card_types"
@@ -56,6 +57,11 @@ export function getCardSkillStatus(
 ): SkillStatus {
   return this.skillStatuses.find(x => x.skillIndex === index)! // FIXME: potential exception
 }
+
+/**
+ * Get all specified type `Effect`s in this CardStatus.  
+ * By default zero-remaining effects will be ignored.
+ */
 export function getEffectsByType(
   this: CardStatus,
   _type: SkillEfficacyType,
@@ -65,12 +71,58 @@ export function getEffectsByType(
     x.efficacyType === _type && (needZeroRemain || x.remain)
   )
 }
+/**
+ * Get sum of specified type effect grades.  
+ * If this CardStatus doesn't possess the effect, 0 will be returned.
+ */
 export function getEffectSumGradeByType(
   this: CardStatus,
   _type: SkillEfficacyType,
 ): number {
-  return this.getEffects(_type).map(x => x.grade).reduce((c, p) => c + p)
+  const effs = this.getEffects(_type)
+  if (!effs.length) {
+    return 0
+  }
+  return effs.map(x => x.grade).reduce((c, p) => c + p)
 }
+/**
+ * Get sum of specified type effect grade.  
+ * Exceeding grades will be excluded.  
+ * 🚨CAUTION: If given `type` is not belong to `StrengthList` or other 2 weakness type,
+ * maxGrade exceeding check will not be performed and sumGrade 
+ * will be returned instead.
+ */
+export function getEffectSumGradeOrMaxGradeByType(
+  this: CardStatus,
+  _type: SkillEfficacyType,
+): number {
+  const sumGrade = this.getEffectSumGrade(_type)
+  if (!StackableSkillEfficacyList.includes(_type)) {
+    return sumGrade
+  }
+  const maxGrade = EfficacyMaxGrade[_type] ?? 0
+  return sumGrade > maxGrade ? maxGrade : sumGrade
+}
+/**
+ * Get and calculate effect value of specified type.  
+ * Exceeding grades will be excluded.  
+ * If the type is not belong to `StrengthList` or other 2 weakness type, always returns 0.
+ */   
+export function getEffectValue(
+  this: CardStatus,
+  _type: SkillEfficacyType,
+): number {
+  if (!StackableSkillEfficacyList.includes(_type)) {
+    return 0
+  }
+  const grade = this.getEffectSumOrMaxGrade(_type)
+  const value = EfficacyValue[_type][grade] ?? 0 // FIXME: protential error
+  return value
+}
+/**
+ * Apply all attribute-related effects, calculate sum of their permils, then return that sum.  
+ * Note exceeding grades will be excluded.
+ */
 export function getBuffedPermil(
   this: CardStatus,
   _type: "dance" | "vocal" | "visual"
@@ -113,13 +165,18 @@ export function getBuffedPermil(
   const downMaxGrade = EfficacyMaxGrade[downType]
 
   upGrade = upGrade > upMaxGrade ? upMaxGrade : upGrade
-  boostGrade = boostGrade > boostMaxGrade ? boostGrade : boostMaxGrade
-  downGrade = downGrade > downMaxGrade ? downGrade : downMaxGrade
+  boostGrade = boostGrade > boostMaxGrade ? boostMaxGrade : boostGrade
+  downGrade = downGrade > downMaxGrade ? downMaxGrade : downGrade
 
   return upDict[upGrade]
     + boostDict[boostGrade]
     + downDict[downGrade]
 }
+
+/**
+ * Refreshes property of given attribute in this `CardStatus`.
+ * If efficacy's grade reaches its maxGrade, exceeding grades will be ignored.
+ */
 export function refreshParam(
   this: CardStatus,
   card: LiveCard,
@@ -138,30 +195,40 @@ export function refreshParam(
       break
   }
 }
-export function getMergedStrengthEffectByType(
+
+export function refreshAllParam(
   this: CardStatus,
-  efficacyType: SkillEfficacyType,
+  card: LiveCard,
 ) {
-  const effects = this.getEffects(efficacyType)
-  if (!effects || effects.length === 0) {
-    return undefined
-  }
-  if (!GameSetting.skillEfficacyTypeStrengthList.includes(efficacyType)) {
-    return undefined
-  }
-  let grade = 0
-  const maxGrade = EfficacyMaxGrade[efficacyType]
-  effects.forEach(it => grade += it.grade)
-  return {
-    efficacyType: efficacyType,
-    grade: grade,
-    maxGrade: maxGrade,
-    overwhelm: grade > maxGrade,
-    value: EfficacyValue[efficacyType][grade > maxGrade ? maxGrade : grade],
-  }
+  this.refreshParam(card, "dance")
+  this.refreshParam(card, "vocal")
+  this.refreshParam(card, "visual")
 }
 
-export function skillHasRemain(
+// export function getMergedStrengthEffectByType(
+//   this: CardStatus,
+//   efficacyType: SkillEfficacyType,
+// ) {
+//   const effects = this.getEffects(efficacyType)
+//   if (!effects || effects.length === 0) {
+//     return undefined
+//   }
+//   if (!GameSetting.skillEfficacyTypeStrengthList.includes(efficacyType)) {
+//     return undefined
+//   }
+//   let grade = 0
+//   const maxGrade = EfficacyMaxGrade[efficacyType] ?? 0
+//   effects.forEach(it => grade += it.grade)
+//   return {
+//     efficacyType: efficacyType,
+//     grade: grade,
+//     maxGrade: maxGrade,
+//     overwhelm: grade > maxGrade,
+//     value: EfficacyValue[efficacyType][grade > maxGrade ? maxGrade : grade],
+//   }
+// }
+
+export function skillHasTimes(
   this: SkillStatus,
 ): boolean {
   if (!this.initCount || this.remainCount) {
@@ -169,7 +236,6 @@ export function skillHasRemain(
   }
   return false
 }
-
 
 export function getLaneAttributeByPosition(
   quest: Quest,

@@ -8,7 +8,7 @@ export function* preparePSkill(
 ) {
   // stage skills
   for (const it of this.current.stageSkillStatuses ?? []) {
-    if (!it.hasRemain()) {
+    if (!it.hasTimes()) {
       continue // 无剩余次数
     }
     if (it.coolTime) {
@@ -36,7 +36,7 @@ export function* preparePSkill(
   for (const it of this.pSkills) {
     const cardStat = this.current.getCardStatus(it.cardIndex)
     const skillStat = cardStat.getSkillStatus(it.skillIndex)
-    if (!skillStat.hasRemain()) {
+    if (!skillStat.hasTimes()) {
       continue // 无剩余次数
     }
     if (skillStat.coolTime) {

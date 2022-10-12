@@ -1,6 +1,6 @@
 import { UserStatus, CardStatus, SkillStatus, StageSkillStatus } from "../../types/concert_types"
 import { MusicChartType, LiveAbilityType, SkillCategoryType } from "../../types/proto/proto_enum"
-import { getBuffedPermil, getCardSkillStatus, getCardStatusByIndex, getEffectsByType, getEffectSumGradeByType, getStageStatusByIndexes, getUserStatusByIndex, refreshParam, skillHasRemain } from "../../utils/chart_utils"
+import { getBuffedPermil, getCardSkillStatus, getCardStatusByIndex, getEffectsByType, getEffectSumGradeByType, getEffectSumGradeOrMaxGradeByType, getEffectValue, getStageStatusByIndexes, getUserStatusByIndex, refreshAllParam, refreshParam, skillHasTimes } from "../../utils/chart_utils"
 import { Concert } from "../concert"
 
 export default function init(this: Concert) {
@@ -60,8 +60,11 @@ export function initCardStatus(this: Concert): CardStatus[] {
     getSkillStatus: getCardSkillStatus,
     getEffects: getEffectsByType,
     getEffectSumGrade: getEffectSumGradeByType,
+    getEffectSumOrMaxGrade: getEffectSumGradeOrMaxGradeByType,
+    getEffectValue: getEffectValue,
     getBuffedPermil: getBuffedPermil,
     refreshParam: refreshParam,
+    refreshAllParam: refreshAllParam,
   }))
 }
 
@@ -74,7 +77,7 @@ export function initSkillStatus(this: Concert, index: number): SkillStatus[] {
       remainCount: skill.skill.limitCount,
       initCount: skill.skill.limitCount,
       used: false,
-      hasRemain: skillHasRemain,
+      hasTimes: skillHasTimes,
     }))
 }
 
@@ -93,7 +96,7 @@ export function initStageSkillStatus(this: Concert): StageSkillStatus[] | undefi
     initCount: ability.skill.limitCount,
     userIndex: 1,
     used: false,
-    hasRemain: skillHasRemain,
+    hasTimes: skillHasTimes,
   }))
   if (this.live.isBattle) {
     bonuses.forEach((ability, index) => {
@@ -105,7 +108,7 @@ export function initStageSkillStatus(this: Concert): StageSkillStatus[] | undefi
         initCount: ability.skill.limitCount,
         userIndex: 2,
         used: false,
-        hasRemain: skillHasRemain,
+        hasTimes: skillHasTimes,
       })
     })
   }

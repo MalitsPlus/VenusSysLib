@@ -1,9 +1,8 @@
-import { v4 as uuidv4 } from "uuid";
-import { calcStaminaRecovery } from "../../../utils/calc_utils";
-import { getFixStaminaRecoveryValue } from "../../efficacy_analyze";
+import { VisualDownGrade } from "../../consts/eff_grades";
 import { Action } from "./action";
+import { v4 as uuidv4 } from "uuid"
 
-export const fixStaminaRecovery: Action = ({
+export const visualDown: Action = ({
   concert,
   efficacy,
   targetIndexes,
@@ -11,11 +10,14 @@ export const fixStaminaRecovery: Action = ({
   sourceSkillIndex,
   isBeforeBeat,
 }) => {
+  // 计算 value，获取 grade，maxGrade
+  // 注意有不能这样获取的情况
   const effInfo = {
-    value: getFixStaminaRecoveryValue(efficacy.id) ?? 0,
+    value: VisualDownGrade[efficacy.grade],
     grade: efficacy.grade,
     maxGrade: efficacy.maxGrade,
   }
+  // 对每个目标适用效果
   targetIndexes.forEach(target => {
     const cardStat = concert.current.getCardStatus(target)
     cardStat.effects.push({
@@ -30,9 +32,8 @@ export const fixStaminaRecovery: Action = ({
       sourceIndex: sourceIndex,
       sourceSkillIndex: sourceSkillIndex,
     })
-    const expRecovery = calcStaminaRecovery(effInfo.value, cardStat, concert.live.quest.staminaRecoveryWeightPermil)
-    const maxStamina = concert.liveDeck.getCard(target).deckStamina
-    cardStat.stamina = expRecovery + cardStat.stamina > maxStamina ? maxStamina : expRecovery + cardStat.stamina
+    // 刷新属性值
+    cardStat.refreshParam(concert.liveDeck.getCard(target), "visual")
   })
   return effInfo
 }

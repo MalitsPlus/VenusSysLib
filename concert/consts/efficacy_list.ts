@@ -47,3 +47,9 @@ export const SkillEfficacyStaminaRecoveryList = [
   SkillEfficacyType.FixStaminaRecovery,
   SkillEfficacyType.TargetStaminaRecovery,
 ]
+
+export const StackableSkillEfficacyList = [
+  GameSetting.skillEfficacyTypeStrengthList,
+  SkillEfficacyType.StaminaConsumptionIncrease,
+  SkillEfficacyType.StaminaContinuousConsumption,
+]

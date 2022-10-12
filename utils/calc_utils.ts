@@ -44,26 +44,14 @@ export function calcBuffedParam(
   return Math.floor(base * mul / divisor) + add
 }
 
-/**
- * Calculate stamina consumption.
- * @param skillLevel A `WapSkillLevel` to be performed.
- * @param card A `LiveCard` which performs this skill.
- * @param cardStatus A `CardStatus` belongs to which performs this skill.
- * @param staminaWeightPermil Stamina consumption rate of this stage.
- * @returns Calculated stamina amount to be consumed.
- */
 export function calcStaminaConsumption(
-  skillLevel: WapSkillLevel,
-  card: LiveCard,
-  cardStatus: CardStatus,
-  staminaWeightPermil: number
+  expectedSt: number,
+  cardStat: CardStatus,
+  questWeightPermil: number,
 ): number {
-  const expectedSt = skillLevel.staminaPermil
-    ? Math.floor(card.deckStamina * skillLevel.staminaPermil / 1000)
-    : skillLevel.stamina
   let permil = 1000
-  if (cardStatus.effects) {
-    cardStatus.effects.forEach(eff => {
+  if (cardStat.effects) {
+    cardStat.effects.forEach(eff => {
       if (isEffects(eff, StaminaConsumptionAdjustment)) {
         permil += EfficacyValue[eff.efficacyType][eff.grade]
       }
@@ -72,7 +60,36 @@ export function calcStaminaConsumption(
       }
     })
   }
-  return Math.floor(expectedSt * permil / 1000 * staminaWeightPermil / 1000)
+  return Math.floor(expectedSt * permil / 1000 * questWeightPermil / 1000)
+}
+
+export function calcStaminaRecovery(
+  expectedSt: number,
+  cardStat: CardStatus,
+  questWeightPermil: number,
+): number {
+  let permil = 1000
+  return Math.floor(expectedSt * permil / 1000 * questWeightPermil / 1000)
+}
+
+/**
+ * Calculate stamina consumption.
+ * @param skillLevel A `WapSkillLevel` to be performed.
+ * @param card A `LiveCard` which performs this skill.
+ * @param cardStatus A `CardStatus` belongs to which performs this skill.
+ * @param staminaWeightPermil Stamina consumption rate of this stage.
+ * @returns Calculated stamina amount to be consumed.
+ */
+export function calcSkillStaminaConsumption(
+  skillLevel: WapSkillLevel,
+  card: LiveCard,
+  cardStatus: CardStatus,
+  staminaWeightPermil: number
+): number {
+  const expectedSt = skillLevel.staminaPermil
+    ? Math.floor(card.deckStamina * skillLevel.staminaPermil / 1000)
+    : skillLevel.stamina
+  return calcStaminaConsumption(expectedSt, cardStatus, staminaWeightPermil)
 }
 
 export function calcActSkillPrivilege(
@@ -137,13 +154,13 @@ export function calcCriticalRate(
   return 0.5
 }
 
-export function calcStaminaRecovery(
-  base: number,
-  permil: number
-): number {
-  if (permil === 0) {
-    return base
-  }
-  return Math.floor(base * permil / 1000) // FIXME: 调查体力恢复率异常sif
-}
+// export function calcStaminaRecovery(
+//   base: number,
+//   permil: number
+// ): number {
+//   if (permil === 0) {
+//     return base
+//   }
+//   return Math.floor(base * permil / 1000)
+// }
 

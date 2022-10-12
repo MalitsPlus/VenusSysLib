@@ -1,8 +1,9 @@
-import { Action } from "./action";
-import { v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from "uuid";
 import { GameSetting } from "../../../db/repository/setting_repository";
+import { CardStatus } from "../../../types/concert_types";
+import { EfficacyValue } from "../../consts/eff_grades";
 import { getStrengthEffectValueIncreaseValue } from "../../efficacy_analyze";
-import { CardStatus, Effect } from "../../../types/concert_types";
+import { Action } from "./action";
 
 export const strengthEffectValueIncrease: Action = ({
   concert,
@@ -15,15 +16,18 @@ export const strengthEffectValueIncrease: Action = ({
   const strengthValue = getStrengthEffectValueIncreaseValue(efficacy.id)
   const effInfo = {
     value: strengthValue ?? 0,
-    grade: strengthValue ?? 0,
+    grade: efficacy.grade,
     maxGrade: efficacy.maxGrade,
   }
   if (strengthValue) {
     targetIndexes.forEach(target => {
       const cardStat = concert.current.getCardStatus(target)
-      for (const eff of getLongestEffects(cardStat)) {
+      for (const eff of getLongestEffects(cardStat)) {  // returned eff must be inside the `StrengthList`
         eff.grade += strengthValue
+        eff.value += EfficacyValue[eff.efficacyType][eff.grade] ?? 0
       }
+      // refresh attributes
+      cardStat.refreshAllParam(concert.liveDeck.getCard(target))
       cardStat.effects.push({
         id: uuidv4(),
         efficacyType: efficacy.type,

@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
-import { calcStaminaRecovery } from "../../../utils/calc_utils";
-import { getFixStaminaRecoveryValue } from "../../efficacy_analyze";
+import { calcStaminaConsumption } from "../../../utils/calc_utils";
+import { getStaminaConsumptionValue } from "../../efficacy_analyze";
 import { Action } from "./action";
 
-export const fixStaminaRecovery: Action = ({
+export const staminaConsumption: Action = ({
   concert,
   efficacy,
   targetIndexes,
@@ -12,7 +12,7 @@ export const fixStaminaRecovery: Action = ({
   isBeforeBeat,
 }) => {
   const effInfo = {
-    value: getFixStaminaRecoveryValue(efficacy.id) ?? 0,
+    value: getStaminaConsumptionValue(efficacy.id) ?? 0,
     grade: efficacy.grade,
     maxGrade: efficacy.maxGrade,
   }
@@ -30,9 +30,8 @@ export const fixStaminaRecovery: Action = ({
       sourceIndex: sourceIndex,
       sourceSkillIndex: sourceSkillIndex,
     })
-    const expRecovery = calcStaminaRecovery(effInfo.value, cardStat, concert.live.quest.staminaRecoveryWeightPermil)
-    const maxStamina = concert.liveDeck.getCard(target).deckStamina
-    cardStat.stamina = expRecovery + cardStat.stamina > maxStamina ? maxStamina : expRecovery + cardStat.stamina
+    const expConsume = calcStaminaConsumption(effInfo.value, cardStat, concert.live.quest.staminaRecoveryWeightPermil)
+    cardStat.stamina = cardStat.stamina - expConsume < 0 ? 0 : cardStat.stamina
   })
   return effInfo
 }

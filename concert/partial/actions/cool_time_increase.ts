@@ -1,9 +1,9 @@
+import { v4 as uuidv4 } from "uuid";
+import { CardStatus } from "../../../types/concert_types";
+import { getCoolTimeIncreaseValue } from "../../efficacy_analyze";
 import { Action } from "./action";
-import { v4 as uuidv4 } from "uuid"
-import { getStrengthEffectCountIncreaseValue } from "../../efficacy_analyze";
-import { GameSetting } from "../../../db/repository/setting_repository";
 
-export const strengthEffectCountIncrease: Action = ({
+export const coolTimeIncrease: Action = ({
   concert,
   efficacy,
   targetIndexes,
@@ -11,21 +11,16 @@ export const strengthEffectCountIncrease: Action = ({
   sourceSkillIndex,
   isBeforeBeat,
 }) => {
-  const strengthCount = getStrengthEffectCountIncreaseValue(efficacy.id)
+  const increaseValue = getCoolTimeIncreaseValue(efficacy.id)
   const effInfo = {
-    value: strengthCount ?? 0,
+    value: increaseValue ?? 0,
     grade: efficacy.grade,
     maxGrade: efficacy.maxGrade,
   }
-  if (strengthCount) {
+  if (increaseValue) {
     targetIndexes.forEach(target => {
       const cardStat = concert.current.getCardStatus(target)
-      cardStat.effects.forEach(eff => {
-        if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
-          eff.remain += strengthCount
-          eff.ajusted = true
-        }
-      })
+      doIncrease(cardStat, increaseValue)
       cardStat.effects.push({
         id: uuidv4(),
         efficacyType: efficacy.type,
@@ -41,4 +36,16 @@ export const strengthEffectCountIncrease: Action = ({
     })
   }
   return effInfo
+}
+
+export function doIncrease(
+  cardStat: CardStatus,
+  increaseValue: number,
+) {
+  cardStat.skillStatuses.forEach(skillStat => {
+    if (skillStat.hasTimes()) {
+      const afterInc = skillStat.coolTime + increaseValue
+      skillStat.coolTime = afterInc // FIXME(delayed): check maxCoolTime?
+    }
+  })
 }
