@@ -1,4 +1,4 @@
-import { getCard, getCardParam, getCardRarity } from "../db/repository/card_repository";
+import { getCard, getCardParameter, getCardRarity } from "../db/repository/card_repository";
 import { LiveCard, UserCard } from "../types/card_types";
 import { TransCard } from "../types/trans_types";
 import { calcParam } from "../utils/calc_utils";
@@ -33,7 +33,7 @@ export const getUserCard = (
   const wapCard = getCard(transCard.cardId)
   // TODO: add message?
   if (!wapCard) throw Error()
-  const param = getCardParam(wapCard.cardParameterId, transCard.level)
+  const param = getCardParameter(wapCard.cardParameterId, transCard.level)
   const rarity = getCardRarity(transCard.rarity)
   return {
     ...wapCard,

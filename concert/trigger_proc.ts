@@ -4,7 +4,7 @@ import {
   CardStatus,
   Chart,
   Live,
-  SkillStatus,
+  SkillStatus
 } from "../types/concert_types";
 import {
   AttributeType,
@@ -13,12 +13,9 @@ import {
   SkillTriggerType
 } from "../types/proto/proto_enum";
 import { SkillTrigger } from "../types/proto/proto_master";
-import {
-  getLaneAttributeByPosition,
-} from "../utils/chart_utils";
 import { isEffect } from "../utils/skill_utils";
 import { SkillEfficacyStaminaRecoveryList } from "./consts/efficacy_list";
-import * as tra from "./trigger_analyze"
+import * as tra from "./trigger_analyze";
 
 // returns undefined if trigger logic hasn't been implemented
 // returns empty array if has trigger but not triggered
@@ -261,7 +258,7 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.PositionAttributeVocal: {
-        let laneType = getLaneAttributeByPosition(live.quest, deckPosition)
+        let laneType = live.quest.getLaneType(deckPosition)
         if (laneType === AttributeType.Vocal) {
           triggeredList.push(deckPosition)
         }
@@ -269,7 +266,7 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.PositionAttributeDance: {
-        let laneType = getLaneAttributeByPosition(live.quest, deckPosition)
+        let laneType = live.quest.getLaneType(deckPosition)
         if (laneType === AttributeType.Dance) {
           triggeredList.push(deckPosition)
         }
@@ -277,7 +274,7 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.PositionAttributeVisual: {
-        let laneType = getLaneAttributeByPosition(live.quest, deckPosition)
+        let laneType = live.quest.getLaneType(deckPosition)
         if (laneType === AttributeType.Visual) {
           triggeredList.push(deckPosition)
         }

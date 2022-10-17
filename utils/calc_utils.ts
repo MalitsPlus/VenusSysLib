@@ -69,6 +69,9 @@ export function calcStaminaRecovery(
   questWeightPermil: number,
 ): number {
   let permil = 1000
+  if (questWeightPermil === 0) {
+    questWeightPermil = 1000
+  }
   return Math.floor(expectedSt * permil / 1000 * questWeightPermil / 1000)
 }
 

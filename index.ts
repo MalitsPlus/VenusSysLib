@@ -5,7 +5,7 @@ import { getLive } from "./satomi/live";
 import { Live } from "./types/concert_types";
 import { TransDeck } from "./types/trans_types";
 
-function simulate(
+export default function simulate(
   questId: string,
   transDeck: TransDeck,
   transOpntDeck?: TransDeck
@@ -16,6 +16,6 @@ function simulate(
   }
   let liveDeck = getLiveDeck(transDeck, transOpntDeck)
   let live = getLive(quest, liveDeck, liveDeck.isBattle)
-  Concert(live).simulate()
+  new Concert(live).go()
   return live
 }

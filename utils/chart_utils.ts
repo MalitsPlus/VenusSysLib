@@ -205,6 +205,20 @@ export function refreshAllParam(
   this.refreshParam(card, "visual")
 }
 
+export function getLaneTypeByIndex(
+  this: WapQuest,
+  index: number,
+): AttributeType {
+  switch (index) {
+    case 1: case 6: return this.position1AttributeType
+    case 2: case 7: return this.position2AttributeType
+    case 3: case 8: return this.position3AttributeType
+    case 4: case 9: return this.position4AttributeType
+    case 5: case 10: return this.position5AttributeType
+    default: throw TypeError(`Lane index '${index}' is invalid.`)
+  }
+}
+
 // export function getMergedStrengthEffectByType(
 //   this: CardStatus,
 //   efficacyType: SkillEfficacyType,
@@ -235,20 +249,6 @@ export function skillHasTimes(
     return true
   }
   return false
-}
-
-export function getLaneAttributeByPosition(
-  quest: Quest,
-  position: number
-): AttributeType {
-  switch (position) {
-    case 1: case 6: return quest.position1AttributeType
-    case 2: case 7: return quest.position2AttributeType
-    case 3: case 8: return quest.position3AttributeType
-    case 4: case 9: return quest.position4AttributeType
-    case 5: case 10: return quest.position5AttributeType
-    default: throw TypeError(`Lane position '${position}' is invalid.`)
-  }
 }
 
 export function getCritical(

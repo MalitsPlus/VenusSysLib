@@ -4,6 +4,7 @@ import { getBuffedPermil, getCardSkillStatus, getCardStatusByIndex, getEffectsBy
 import { Concert } from "../concert"
 
 export default function init(this: Concert) {
+  this.order = 0
   this.migratedEffs = []
   this.previous = {
     chartType: MusicChartType.Unknown,

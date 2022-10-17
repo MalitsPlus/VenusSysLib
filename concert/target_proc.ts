@@ -243,7 +243,7 @@ function _getTargetIndexes(
       // opponent side
       : targetList.filter(it => it >= 6)
     ).filter((_, index) => {
-      index < targetNum
+      return index < targetNum
     })
   }
 }

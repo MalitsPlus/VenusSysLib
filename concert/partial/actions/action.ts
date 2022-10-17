@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid"
 import { SkillEfficacyType } from "../../../types/proto/proto_enum"
 import { WapSkillEfficacy } from "../../../types/wap/skill_waps"
 import { Concert } from "../../concert"
@@ -128,6 +129,27 @@ const defaultProc: Action = ({
   if (mid) {
     val = mid[efficacy.grade] ?? 0
   }
+  const effInfo = {
+    value: val,
+    grade: efficacy.grade,
+    maxGrade: efficacy.maxGrade,
+  }
+  // apply effects to targets
+  targetIndexes.forEach(target => {
+    const cardStat = concert.current.getCardStatus(target)
+    cardStat.effects.push({
+      id: uuidv4(),
+      efficacyType: efficacy.type,
+      grade: effInfo.grade,
+      maxGrade: effInfo.maxGrade,
+      value: effInfo.value,
+      remain: efficacy.duration,
+      isInstant: efficacy.isInstant,
+      include: isBeforeBeat,
+      sourceIndex: sourceIndex,
+      sourceSkillIndex: sourceSkillIndex,
+    })
+  })
   return {
     value: val,
     grade: efficacy.grade,

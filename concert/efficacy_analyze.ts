@@ -2,7 +2,6 @@ import { GameSetting } from "../db/repository/setting_repository"
 import { SkillEfficacy } from "../types/proto/proto_master"
 import { WeaknessOtherDurationList, WeaknessOtherInstantList } from "./consts/efficacy_list"
 
-
 export function getEfficacyDuration(
   efficacy: SkillEfficacy
 ): number | undefined {

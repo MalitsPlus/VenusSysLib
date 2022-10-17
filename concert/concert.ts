@@ -1,3 +1,4 @@
+import _ from "lodash"
 import { Actable, Chart, Effect, Live } from "../types/concert_types";
 import { MusicChartType, SkillEfficacyType } from "../types/proto/proto_enum";
 import { WapMusicChartPattern } from "../types/wap/quest_waps";
@@ -60,7 +61,9 @@ export class Concert {
   }
 
   private prepare(musicPtn: WapMusicChartPattern) {
-    this.previous = this.charts[this.charts.length - 1]
+    if (musicPtn.sequence != 1) {
+      this.previous = this.charts[this.charts.length - 1]
+    }
     this.actables = []
     this.pSkillPerformed = []
     this.current = {
@@ -68,10 +71,9 @@ export class Concert {
       sequence: musicPtn.sequence,
       actPosition: musicPtn.position,
       actPSkills: [],
-      // 🚨FIXME: https://github.com/MalitsPlus/VenusSysLib/issues/2
-      cardStatuses: this.previous.cardStatuses,
-      userStatuses: this.previous.userStatuses,
-      stageSkillStatuses: this.previous.stageSkillStatuses,
+      cardStatuses: _.cloneDeep(this.previous.cardStatuses),
+      userStatuses: _.cloneDeep(this.previous.userStatuses),
+      stageSkillStatuses: _.cloneDeep(this.previous.stageSkillStatuses),
       getCardStatus: util.getCardStatusByIndex,
       getUserStatus: util.getUserStatusByIndex,
       getStageStatus: util.getStageStatusByIndexes,
@@ -133,7 +135,7 @@ export class Concert {
     this.applyContinuousEffects()
 
     // aftermath
-    // ...seems no aftermath is needed for now
+    this.charts.push(this.current)
   }
 
   //#region partial imports
