@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/hoshimi-venus.svg)](https://badge.fury.io/js/hoshimi-venus)
+
 # VenusSysLib
 
 [**hoshimi-venus**](https://www.npmjs.com/package/hoshimi-venus) (project name: **VenusSysLib**) is a common Node.js library used for simulating in-game Live.

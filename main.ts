@@ -45,5 +45,4 @@ function geneTestCard(
       technique: 4060,
     }
   }
-  
 }
