@@ -103,7 +103,29 @@
       "area-main-072",
       "area-main-073",
       "area-main-074",
-      "area-main-075"
+      "area-main-075",
+      "area-main-076",
+      "area-main-077",
+      "area-main-078",
+      "area-main-079",
+      "area-main-080",
+      "area-main-081",
+      "area-main-082",
+      "area-main-083"
+    ]
+  },
+  {
+    "id": "area-main-group-005",
+    "name": "ワールド",
+    "order": 5,
+    "assetId": "live-005",
+    "areaIds": [
+      "area-main-084",
+      "area-main-085",
+      "area-main-086",
+      "area-main-087",
+      "area-main-088",
+      "area-main-089"
     ]
   },
   {

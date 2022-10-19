@@ -848,6 +848,68 @@
     "noteText": ""
   },
   {
+    "id": "st-part-group-05",
+    "assetId": "group-05",
+    "name": "月のテンペスト",
+    "order": 5,
+    "type": 2,
+    "pointType": 4,
+    "storyEpisodeConsumptionId": "story-consumption-group-05",
+    "chapters": [
+      {
+        "chapter": 1,
+        "route": 1,
+        "name": "Saki's Memories",
+        "episodes": [
+          {
+            "episode": 1,
+            "assetId": "group_moon_01_01",
+            "storyId": "st-group-moon-01-01-01",
+            "viewConditionId": "cd-st-moon-22-0824",
+            "unlockConditionId": "",
+            "isReleased": false
+          },
+          {
+            "episode": 2,
+            "assetId": "group_moon_01_02",
+            "storyId": "st-group-moon-01-01-02",
+            "viewConditionId": "cd-st-group-moon-01-01-01",
+            "unlockConditionId": "",
+            "isReleased": false
+          },
+          {
+            "episode": 3,
+            "assetId": "group_moon_01_03",
+            "storyId": "st-group-moon-01-01-03",
+            "viewConditionId": "cd-st-group-moon-01-01-02",
+            "unlockConditionId": "",
+            "isReleased": false
+          },
+          {
+            "episode": 4,
+            "assetId": "group_moon_01_04",
+            "storyId": "st-group-moon-01-01-04",
+            "viewConditionId": "cd-st-group-moon-01-01-03",
+            "unlockConditionId": "",
+            "isReleased": false
+          },
+          {
+            "episode": 5,
+            "assetId": "group_moon_01_05",
+            "storyId": "st-group-moon-01-01-05",
+            "viewConditionId": "cd-st-group-moon-01-01-04",
+            "unlockConditionId": "",
+            "isReleased": false
+          }
+        ]
+      }
+    ],
+    "subTitle": "",
+    "viewConditionId": "",
+    "unlockConditionId": "",
+    "noteText": ""
+  },
+  {
     "id": "st-part-main-01",
     "assetId": "main-01",
     "name": "東京編",
@@ -1425,6 +1487,108 @@
     "subTitle": "",
     "viewConditionId": "",
     "unlockConditionId": "",
+    "storyEpisodeConsumptionId": "",
+    "noteText": ""
+  },
+  {
+    "id": "st-part-main-02",
+    "assetId": "main-02",
+    "name": "BIG4編",
+    "order": 3,
+    "type": 1,
+    "viewConditionId": "cd-st-main-cmn-01-02-44",
+    "unlockConditionId": "cd-st-main-cmn-01-02-44",
+    "pointType": 3,
+    "chapters": [
+      {
+        "chapter": 1,
+        "route": 1,
+        "name": "Dark Of the Moon",
+        "episodes": [
+          {
+            "episode": 1,
+            "assetId": "main_03_01_01",
+            "storyId": "st-main-cmn-02-01-01",
+            "viewConditionId": "cd-st-main-cmn-01-02-44",
+            "unlockConditionId": "cd-game_story_point_gte-1805",
+            "isReleased": true
+          },
+          {
+            "episode": 2,
+            "assetId": "main_03_01_02",
+            "storyId": "st-main-cmn-02-01-02",
+            "viewConditionId": "cd-st-main-cmn-01-02-44",
+            "unlockConditionId": "cd-game_story_point_gte-1820",
+            "isReleased": true
+          },
+          {
+            "episode": 3,
+            "assetId": "main_03_01_03",
+            "storyId": "st-main-cmn-02-01-03",
+            "viewConditionId": "cd-st-main-cmn-01-02-44",
+            "unlockConditionId": "cd-game_story_point_gte-1835",
+            "isReleased": true
+          },
+          {
+            "episode": 4,
+            "assetId": "main_03_01_04",
+            "storyId": "st-main-cmn-02-01-04",
+            "viewConditionId": "cd-st-main-cmn-01-02-44",
+            "unlockConditionId": "cd-game_story_point_gte-1850",
+            "isReleased": true
+          },
+          {
+            "episode": 5,
+            "assetId": "main_03_01_05",
+            "storyId": "st-main-cmn-02-01-05",
+            "viewConditionId": "cd-st-main-cmn-01-02-44",
+            "unlockConditionId": "cd-game_story_point_gte-1865",
+            "isReleased": true
+          },
+          {
+            "episode": 6,
+            "assetId": "main_03_02_01",
+            "storyId": "st-main-cmn-02-01-06",
+            "viewConditionId": "cd-st-main-cmn-02-01-05",
+            "unlockConditionId": "cd-game_story_point_gte-1965",
+            "isReleased": true
+          },
+          {
+            "episode": 7,
+            "assetId": "main_03_02_02",
+            "storyId": "st-main-cmn-02-01-07",
+            "viewConditionId": "cd-st-main-cmn-02-01-05",
+            "unlockConditionId": "cd-game_story_point_gte-1980",
+            "isReleased": true
+          },
+          {
+            "episode": 8,
+            "assetId": "main_03_02_03",
+            "storyId": "st-main-cmn-02-01-08",
+            "viewConditionId": "cd-st-main-cmn-02-01-05",
+            "unlockConditionId": "cd-game_story_point_gte-1995",
+            "isReleased": true
+          },
+          {
+            "episode": 9,
+            "assetId": "main_03_02_04",
+            "storyId": "st-main-cmn-02-01-09",
+            "viewConditionId": "cd-st-main-cmn-02-01-05",
+            "unlockConditionId": "cd-game_story_point_gte-2010",
+            "isReleased": true
+          },
+          {
+            "episode": 10,
+            "assetId": "main_03_02_05",
+            "storyId": "st-main-cmn-02-01-10",
+            "viewConditionId": "cd-st-main-cmn-02-01-05",
+            "unlockConditionId": "cd-game_story_point_gte-2025",
+            "isReleased": true
+          }
+        ]
+      }
+    ],
+    "subTitle": "",
     "storyEpisodeConsumptionId": "",
     "noteText": ""
   },

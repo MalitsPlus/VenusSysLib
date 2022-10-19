@@ -91,7 +91,7 @@
   },
   {
     "type": 19,
-    "unlockConditionId": "cd-comingsoon",
+    "unlockConditionId": "cd-function_lock-accessory-limit-break",
     "requiredManagerLevel": 0
   },
   {
@@ -116,6 +116,26 @@
   },
   {
     "type": 24,
+    "unlockConditionId": "cd-function_lock-buddy_use",
+    "requiredManagerLevel": 0
+  },
+  {
+    "type": 25,
+    "unlockConditionId": "cd-comingsoon",
+    "requiredManagerLevel": 0
+  },
+  {
+    "type": 26,
+    "unlockConditionId": "cd-function_lock-buddy_use",
+    "requiredManagerLevel": 0
+  },
+  {
+    "type": 27,
+    "unlockConditionId": "cd-function_lock-exercise",
+    "requiredManagerLevel": 0
+  },
+  {
+    "type": 28,
     "unlockConditionId": "cd-function_lock-buddy_use",
     "requiredManagerLevel": 0
   }

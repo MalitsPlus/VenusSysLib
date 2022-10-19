@@ -1,5 +1,25 @@
 [
   {
+    "key": "accessory.limitBreak.sheet.description",
+    "word": "以下の素材を消費して上限突破を行います。"
+  },
+  {
+    "key": "accessory.limitBreak.sheet.execute",
+    "word": "実行する"
+  },
+  {
+    "key": "accessory.limitBreak.sheet.title",
+    "word": "アクセサリ上限突破"
+  },
+  {
+    "key": "accessory.top.limitBreak",
+    "word": "上限突破"
+  },
+  {
+    "key": "accessory.top.limitBreak.done",
+    "word": "上限突破しました"
+  },
+  {
     "key": "account.top.group.move.label10",
     "word": "グループ移動後、14日間は反映停止状態となり、ランキングとVENUSランクの最速達成者の対象外となります。\n現在のグループで所持しているVENUSポイントはそのまま引き継ぎます。\n既に受け取り済みの達成者報酬は、再度受け取ることができません。\n反映停止状態の間も、VENUSポイントの獲得と減少は発生します。"
   },
@@ -121,11 +141,23 @@
   },
   {
     "key": "friend.top.invite.share.text",
-    "word": "コードを入力してダイヤをもらおう\nアイプラ始めるなら今がチャンス！\n▼招待コード\n{0}\n\nhttps://idolypride.page.link/tw_phcp\n\n#アイプラ"
+    "word": "コードを入力してダイヤをもらおう\nアイプラ始めるなら今がチャンス！\n▼招待コード\n{0}\n\nhttps://idolypride.page.link/tw_phcp\n\n※メインライブ#1クリアで入力可能\n#アイプラ"
+  },
+  {
+    "key": "function.maintenance.toast.message",
+    "word": "ショップメンテナンス中です"
   },
   {
     "key": "gacha.button.appeal.drawableLimitCount",
     "word": "1日1回"
+  },
+  {
+    "key": "gacha.continuousGacha.share.tweet.template",
+    "word": "https://idolypride.page.link/tw_phcp\nガチャ結果ツイートでさらに感謝の10連ガチャが引ける！\n#アイプラ引き放題　 #アイプラ1周年"
+  },
+  {
+    "key": "gacha.continuousGacha.share.tweet.template.title",
+    "word": "＼引き放題ガチャ開催／\n1周年記念！アイプラ引き放題ガチャ"
   },
   {
     "key": "gacha.exchange.costume",
@@ -140,12 +172,24 @@
     "word": "セット\n報酬"
   },
   {
+    "key": "gacha.normalGacha.continueCondition",
+    "word": "1周年記念引き放題ガチャ"
+  },
+  {
     "key": "gacha.normalGacha.detail.probability.normal",
     "word": "詳細"
   },
   {
+    "key": "gacha.normalGacha.shareReward",
+    "word": "外部投稿でさらに10連無料！"
+  },
+  {
     "key": "gacha.pickupGacha.description",
     "word": "アイドルを選択してください。 ({0}/{1})"
+  },
+  {
+    "key": "guild.reward.description",
+    "word": "本日勝利で"
   },
   {
     "key": "home.activity.lesson.rewardDialog.reward.title",
@@ -241,11 +285,11 @@
   },
   {
     "key": "marathon.releasePointAmount",
-    "word": "解放Pt：{0}"
+    "word": "解放Pt：無し"
   },
   {
     "key": "marathon.top.smallTitle",
-    "word": "リンクス"
+    "word": "ミニリンクス"
   },
   {
     "key": "notification.activity.lesson.message",
@@ -293,7 +337,7 @@
   },
   {
     "key": "photography.sheet.contest.exit.tweet.template",
-    "word": "＼ アイプラ写真判定 ／\n あなたのスコアはこちら ！\nhttps://idolypride.page.link/tw_phcp\n#アイプラ本気フォト　\n#アイプラ感謝祭"
+    "word": "＼ アイプラ写真判定 ／\nあなたのスコアはこちら ！\nいま始めると、ミクコラボ衣装がもらえる！\nhttps://idolypride.page.link/tw_phcp\n#初音ミク本気フォト\n#初音ミク"
   },
   {
     "key": "photography.sheet.contest.submission.description",
@@ -326,6 +370,10 @@
   {
     "key": "shop.sheet.marketResetConfirm.remainCount",
     "word": "次回更新までの残り回数　{0}回"
+  },
+  {
+    "key": "story.top.group",
+    "word": "TRINITYAiLEやLizNoirの物語"
   },
   {
     "key": "tour.sheet.resume.area",

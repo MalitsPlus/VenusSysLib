@@ -99,6 +99,13 @@
   },
   {
     "characterId": "char-ai",
+    "patternId": "call-pattern-card-ai-05-mizg-01",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}さん\nこの間の沖縄合宿で気になった\nことがあるんですけど。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_ai-05-mizg-01_talk-01-start"
+  },
+  {
+    "characterId": "char-ai",
     "patternId": "call-pattern-card-ai-05-tact-00",
     "managerCallText": "お疲れさま",
     "characterArrivalText": "今度はリズノワ四人で\nプロモーションのお仕事を\nやらせてもらえるんですよね！？",
@@ -211,6 +218,13 @@
   },
   {
     "characterId": "char-aoi",
+    "patternId": "call-pattern-card-aoi-05-mizg-01",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ライブで客席に\n水をかける演出があったでしょ？\nあれ、凄く盛り上がったよね",
+    "characterArrivalVoiceAssetId": "sud_vo_home_aoi-05-mizg-01_talk-01-start"
+  },
+  {
+    "characterId": "char-aoi",
     "patternId": "call-pattern-card-aoi-05-vlnt-00",
     "managerCallText": "お疲れさま",
     "characterArrivalText": "{user}君は\nバレンタインに\n告白されたことはあるの？",
@@ -222,6 +236,13 @@
     "managerCallText": "お疲れさま",
     "characterArrivalText": "衣装を作り直す時、背中を押して\nくれてありがとうございました。\n今度お礼をさせて下さい！",
     "characterArrivalVoiceAssetId": "sud_vo_home_chs-05-chsk-00_talk-01-start"
+  },
+  {
+    "characterId": "char-chs",
+    "patternId": "call-pattern-card-chs-05-flow-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ドッキリ番組のスタッフさんから\n今度は騙す側をやってみないかって\n誘われたんです。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_chs-05-flow-00_talk-01-start"
   },
   {
     "characterId": "char-chs",
@@ -448,6 +469,104 @@
     "characterArrivalVoiceAssetId": "sud_vo_home_hrk-05-idol-00_talk-01-start"
   },
   {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-card-kan-05-idol-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "今度kana達が出る番組、\nバラエティってどういうこと！？\nしかも激辛メニュー挑戦ってさぁ！",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan-05-idol-00_talk-01-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-01",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ⅢXのkanaで～す！\nこれからは星見の子達と一緒に、もっと上を目指して頑張りま～す！\nみんな、応援よろしくね～！",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-01-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-02",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "アイツら、ほんっとムカつく～！\nまたkanaのことお子様扱いして！",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-02-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-03",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ねえ！\nどーいうことっ！？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-03-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-04",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ここの事務所、めっちゃ握手会多いですよね。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-04-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-05",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "も～！\nムカつく、ムカつく\nムカつくっ！！",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-05-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-06",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "あ、{user}だ！\n今日のライブ、kanaのこと\nちゃんと見ててくれました？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-06-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-07",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "この事務所の幼稚園みたいなノリ、どうにかしてくれませんか？\nkana、我慢の限界なんですけど。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-07-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-08",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "この事務所の人、長瀬麻奈めっちゃ好きですよね。\n{user}も含めて。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-08-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-09",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "疲れた…。\nkana、もうやめたいな～。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-09-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-10",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "暇人発見！\nあの撮影用ライト、kanaに当ててもらってもいいですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-10-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-11",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ねえ、聞いてよ{user}！",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-11-start"
+  },
+  {
+    "characterId": "char-kan",
+    "patternId": "call-pattern-kan-12",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}、\n今からご飯行きませんか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kan_talk-12-start"
+  },
+  {
+    "characterId": "char-kkr",
+    "patternId": "call-pattern-card-kkr-05-mizg-01",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}さんは\nアイスはお好きですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kkr-05-mizg-01_talk-01-start"
+  },
+  {
     "characterId": "char-kkr",
     "patternId": "call-pattern-card-kkr-05-seik-00",
     "managerCallText": "お疲れさま",
@@ -458,7 +577,7 @@
     "characterId": "char-kkr",
     "patternId": "call-pattern-card-kkr-05-vlnt-00",
     "managerCallText": "お疲れさま",
-    "characterArrivalText": "天使さんがくれた聖なるチョコは\n堪能出来ましたかー？　",
+    "characterArrivalText": "天使さんがくれた聖なるチョコは\n堪能出来ましたかー？",
     "characterArrivalVoiceAssetId": "sud_vo_home_kkr-05-vlnt-00_talk-01-start"
   },
   {
@@ -486,7 +605,7 @@
     "characterId": "char-kkr",
     "patternId": "call-pattern-kkr-04",
     "managerCallText": "お疲れさま",
-    "characterArrivalText": "いや〜まさかライブであんな失敗を\nするとは…おバカですねぇ〜私も\n愛ちゃんも。{user}さんも、すみませんねぇ〜！",
+    "characterArrivalText": "いや〜まさかライブであんな失敗をするとは…おバカですねぇ〜私も愛ちゃんも。{user}さんも、すみませんねぇ〜！",
     "characterArrivalVoiceAssetId": "sud_vo_home_kkr_talk-04-start"
   },
   {
@@ -553,11 +672,109 @@
     "characterArrivalVoiceAssetId": "sud_vo_home_kkr-05-idol-00_talk-01-start"
   },
   {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-card-kor-05-idol-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "そろそろ打ち合わせしましょう。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor-05-idol-00_talk-01-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-01",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ⅢXのfranです！　事務所は変わりましたが気持ちは変わらずみなさんと一緒です。私達らしく頑張るので、よろしくお願いします！",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-01-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-02",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "あのー、レッスンの時間組んでいただいてますが、三分の一にしていただいていいですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-02-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-03",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "今日はⅢXでの撮影ですよね？\nで、その後雑誌の取材、ですね。\nでは行ってきます。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-03-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-04",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "スタジオの入り時間が変わった話、\nkanaとmihoにも伝えておいて\n下さい。私は連絡先知らないので。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-04-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-05",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "次回のライブバトルの相手の情報、\n教えてもらってもいいですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-05-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-06",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ⅢXとしての仕事もありがたいんですけど、私個人の仕事ももう少し増やせませんか？　モデル関係とか。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-06-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-07",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "事務所、意外と綺麗ですよね。\n汚くて雑多な感じを想像していました。{user}さんのセンスですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-07-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-08",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "あぁーもう！\nkanaにはうんざり。マネージャーさんからも言って下さい。ほんっとお子様なんだから。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-08-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-09",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "前から気になってたんだけど、\nあなた忙しすぎなんじゃない？\n適切な給料もらえてるの？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-09-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-10",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}さん。\n私の弱みってなんだと思いますか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-10-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-11",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ちょっと相談しづらいんですが…\nファッション業界の先輩からパーティーに誘われてて、一緒に来てもらってもいいですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-11-start"
+  },
+  {
+    "characterId": "char-kor",
+    "patternId": "call-pattern-kor-12",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}さんって\nお酒飲まれるんですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_kor_talk-12-start"
+  },
+  {
     "characterId": "char-ktn",
     "patternId": "call-pattern-card-ktn-05-fest-00",
     "managerCallText": "お疲れさま",
     "characterArrivalText": "月ストの今年最初のライブ\nSNSで話題になっていましたよ",
     "characterArrivalVoiceAssetId": "sud_vo_home_ktn-05-fest-00_talk-01-start"
+  },
+  {
+    "characterId": "char-ktn",
+    "patternId": "call-pattern-card-ktn-05-kiok-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "アカペラって、練習方法として\n凄くいいみたいです。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_ktn-05-kiok-00_talk-01-start"
   },
   {
     "characterId": "char-ktn",
@@ -680,6 +897,13 @@
   },
   {
     "characterId": "char-mei",
+    "patternId": "call-pattern-card-mei-05-mizg-02",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}さん！\n{user}さん！\nすっごく嬉しいことがあったのー",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mei-05-mizg-02_talk-01-start"
+  },
+  {
+    "characterId": "char-mei",
     "patternId": "call-pattern-card-mei-05-rock-00",
     "managerCallText": "お疲れさま",
     "characterArrivalText": "この前ね、芽衣、怜ちゃんの\n実家に突然行ったでしょ？",
@@ -703,7 +927,7 @@
     "characterId": "char-mei",
     "patternId": "call-pattern-mei-03",
     "managerCallText": "お疲れさま",
-    "characterArrivalText": "ねぇ、{user}さん…\n昨日ライブ会場でね、他のアイドル達が麻奈は大したことないって言ってて…悲しくなっちゃった…",
+    "characterArrivalText": "ねぇ、{user}さん…昨日ライブ会場でね、他のアイドル達が麻奈は大したことないって言ってて…悲しくなっちゃった…",
     "characterArrivalVoiceAssetId": "sud_vo_home_mei_talk-03-start"
   },
   {
@@ -775,6 +999,97 @@
     "managerCallText": "お疲れさま",
     "characterArrivalText": "そういえば、{user}さんは笑顔上手になった？",
     "characterArrivalVoiceAssetId": "sud_vo_home_mei-05-idol-00_talk-01-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-card-mhk-05-idol-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "なるほど…こういうところもか…",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk-05-idol-00_talk-01-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-01",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "この度、移籍したⅢXのmiho\nです。早々にBIG4に返り咲いて\n見せるので、ファンのみなさんは\n楽しみに待っていて下さいね。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-01-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-02",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "以前懇意にしていた企業さんに\n連絡を取っているんですけど、お返事すらいただけないところもあるんです。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-02-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-03",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "星見プロでは、物販のスタッフさんへの指示は誰が行っているんですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-03-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-04",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "星見プロに来てから何本かライブをやらせてもらいましたけど、\n少し不思議な感覚があるんです。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-04-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-05",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "サニーピースのライブや\nレッスン動画を全てお借りしても\nよろしいでしょうか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-05-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-06",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "贅沢言う気はありません。\nでも、先週のお仕事については、\n一度お話しておきたくて…",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-06-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-07",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "今はこうして星見プロでお世話に\nなっていますけど、私はまだ\n忘れた訳じゃありませんから。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-07-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-08",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "昨日のライブ、お客さんの反応も\nメディアの反応も良かったですね。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-08-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-09",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "事務所の雰囲気は\nいつもこういう感じですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-09-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-10",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ごめんなさい。\n今日の打ち合わせ私だけでも\n大丈夫ですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-10-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-11",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "実は私、長瀬麻奈に同行している\n{user}さんを\n何度か見かけているんです。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-11-start"
+  },
+  {
+    "characterId": "char-mhk",
+    "patternId": "call-pattern-mhk-12",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ねぇ、fran、\n私のバッグどこにあるか知らない？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_mhk_talk-12-start"
   },
   {
     "characterId": "char-mna",
@@ -897,6 +1212,13 @@
   },
   {
     "characterId": "char-ngs",
+    "patternId": "call-pattern-card-ngs-05-mizg-02",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}さん\nこっそり相談してもいいですか…？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_ngs-05-mizg-02_talk-01-start"
+  },
+  {
+    "characterId": "char-ngs",
     "patternId": "call-pattern-ngs-01",
     "managerCallText": "お疲れさま",
     "characterArrivalText": "自己紹介、してみますね。\n伊吹渚です。まだ未熟ですが、みんなに元気を与えられるよう頑張ります。よろしくお願いしますっ！",
@@ -985,6 +1307,13 @@
     "managerCallText": "お疲れさま",
     "characterArrivalText": "来週のテレビ番組、食レポがある\nじゃないですか？　それでちょっと\n相談があって…",
     "characterArrivalVoiceAssetId": "sud_vo_home_ngs-05-idol-00_talk-01-start"
+  },
+  {
+    "characterId": "char-rei",
+    "patternId": "call-pattern-card-rei-05-mizg-02",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "夏のイベントに出て、\nアイドルとして成長したと\n思うんです。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_rei-05-mizg-02_talk-01-start"
   },
   {
     "characterId": "char-rei",
@@ -1121,6 +1450,13 @@
   },
   {
     "characterId": "char-rio",
+    "patternId": "call-pattern-card-rio-05-kiok-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "ねえ、{user}さん\nこの間、あの子にゆかりのある\n場所に二人で行ったじゃない。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_rio-05-kiok-00_talk-01-start"
+  },
+  {
+    "characterId": "char-rio",
     "patternId": "call-pattern-rio-01",
     "managerCallText": "お疲れさま",
     "characterArrivalText": "…LizNoirの神崎莉央です。\n最高のパフォーマンスをお見せ\nします。是非ライブに足を\n運んでみてください。",
@@ -1216,6 +1552,13 @@
     "managerCallText": "お疲れさま",
     "characterArrivalText": "合同練習の時に\n一緒だったモデルさんから\n連絡がきたんです！",
     "characterArrivalVoiceAssetId": "sud_vo_home_rui-05-date-00_talk-01-start"
+  },
+  {
+    "characterId": "char-rui",
+    "patternId": "call-pattern-card-rui-05-miku-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}さん\nいいこと考えました！",
+    "characterArrivalVoiceAssetId": "sud_vo_home_rui-05-miku-00_talk-01-start"
   },
   {
     "characterId": "char-rui",
@@ -1338,6 +1681,13 @@
   },
   {
     "characterId": "char-ski",
+    "patternId": "call-pattern-card-ski-05-mizg-02",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}さんは、\n休日にどんなことを\nしてるんですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_ski-05-mizg-02_talk-01-start"
+  },
+  {
+    "characterId": "char-ski",
     "patternId": "call-pattern-card-ski-05-waso-00",
     "managerCallText": "お疲れさま",
     "characterArrivalText": "MCについて悩んでいるんです。",
@@ -1396,7 +1746,7 @@
     "characterId": "char-ski",
     "patternId": "call-pattern-ski-08",
     "managerCallText": "お疲れさま",
-    "characterArrivalText": "すみません、{user}さん。今お忙しいですか？\nひとつお願いしたいことが\nあります。",
+    "characterArrivalText": "すみません、{user}さん。\n今お忙しいですか？ひとつお願いしたいことがあります。",
     "characterArrivalVoiceAssetId": "sud_vo_home_ski_talk-08-start"
   },
   {
@@ -1548,6 +1898,13 @@
   },
   {
     "characterId": "char-smr",
+    "patternId": "call-pattern-card-smr-05-fest-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "{user}さんは、\n学校の成績はどんな感じ\nだったんですか？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_smr-05-fest-00_talk-01-start"
+  },
+  {
+    "characterId": "char-smr",
     "patternId": "call-pattern-card-smr-05-frut-00",
     "managerCallText": "お疲れさま",
     "characterArrivalText": "{user}さん！\n優ちゃんから聞きましたか？",
@@ -1681,6 +2038,13 @@
   },
   {
     "characterId": "char-suz",
+    "patternId": "call-pattern-card-suz-05-seik-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "そろそろじゃありませんこと？",
+    "characterArrivalVoiceAssetId": "sud_vo_home_suz-05-seik-00_talk-01-start"
+  },
+  {
+    "characterId": "char-suz",
     "patternId": "call-pattern-suz-01",
     "managerCallText": "お疲れさま",
     "characterArrivalText": "私こそが「星降る奇跡」の後継者、\n成宮すずですわ！　月のテンペスト\n影のリーダーにしてブレーン、\n参謀にして黒幕ですわ！",
@@ -1690,7 +2054,7 @@
     "characterId": "char-suz",
     "patternId": "call-pattern-suz-02",
     "managerCallText": "お疲れさま",
-    "characterArrivalText": "あら、{user}さん。\n昨日のライブ、無様な姿をお見せしてしまいましたわ。ま、まぁ弘法も筆の誤りというものですわ！",
+    "characterArrivalText": "あら、{user}さん。昨日のライブ、無様な姿をお見せしてしまいましたわ。ま、まぁ弘法も筆の誤りというものですわ！",
     "characterArrivalVoiceAssetId": "sud_vo_home_suz_talk-02-start"
   },
   {
@@ -1776,6 +2140,13 @@
     "managerCallText": "お疲れさま",
     "characterArrivalText": "{user}さん\nこの前の釣り、どう、でした？",
     "characterArrivalVoiceAssetId": "sud_vo_home_szk-05-chna-00_talk-01-start"
+  },
+  {
+    "characterId": "char-szk",
+    "patternId": "call-pattern-card-szk-05-rock-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "今度は、久しぶりに……\nデビューライブの映像、\n観返してみた……",
+    "characterArrivalVoiceAssetId": "sud_vo_home_szk-05-rock-00_talk-01-start"
   },
   {
     "characterId": "char-szk",
@@ -1874,6 +2245,13 @@
     "managerCallText": "お疲れさま",
     "characterArrivalText": "ソロパートで初めて、客席が…\n私の色に、染まった時のこと…\n時々思い出す…",
     "characterArrivalVoiceAssetId": "sud_vo_home_szk-05-idol-00_talk-01-start"
+  },
+  {
+    "characterId": "char-yu",
+    "patternId": "call-pattern-card-yu-05-fest-00",
+    "managerCallText": "お疲れさま",
+    "characterArrivalText": "あんな、この間看病して\nくれた件、瑠依ちゃん達に\n説明したんやけど。",
+    "characterArrivalVoiceAssetId": "sud_vo_home_yu-05-fest-00_talk-01-start"
   },
   {
     "characterId": "char-yu",

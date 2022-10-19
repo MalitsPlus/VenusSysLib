@@ -32,11 +32,27 @@
     ]
   },
   {
+    "id": "message_group_kan",
+    "name": "kana",
+    "assetId": "kan",
+    "characterIds": [
+      "char-kan"
+    ]
+  },
+  {
     "id": "message_group_kkr",
     "name": "こころ",
     "assetId": "kkr",
     "characterIds": [
       "char-kkr"
+    ]
+  },
+  {
+    "id": "message_group_kor",
+    "name": "fran",
+    "assetId": "kor",
+    "characterIds": [
+      "char-kor"
     ]
   },
   {
@@ -69,11 +85,40 @@
     ]
   },
   {
+    "id": "message_group_ladder-22-0812",
+    "name": "LizNoir業務連絡",
+    "assetId": "ladder-22-0812",
+    "characterIds": [
+      "char-rio",
+      "char-aoi",
+      "char-ai",
+      "char-kkr"
+    ]
+  },
+  {
+    "id": "message_group_ladder-22-0916",
+    "name": "トリトリトリエル",
+    "assetId": "ladder-22-0916",
+    "characterIds": [
+      "char-rui",
+      "char-yu",
+      "char-smr"
+    ]
+  },
+  {
     "id": "message_group_mei",
     "name": "芽衣",
     "assetId": "mei",
     "characterIds": [
       "char-mei"
+    ]
+  },
+  {
+    "id": "message_group_mhk",
+    "name": "miho",
+    "assetId": "mhk",
+    "characterIds": [
+      "char-mhk"
     ]
   },
   {

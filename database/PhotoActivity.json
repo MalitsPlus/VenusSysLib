@@ -11,7 +11,10 @@
     "forceCostumeTypeId": "mizg",
     "photoShootingMotionSetId": "bedrock-00",
     "isDeleteCharacter": true,
-    "order": 9,
+    "order": 80,
+    "impossibleShootingCharacterIds": [
+      "char-mku"
+    ],
     "viewConditionId": "",
     "unlockConditionId": ""
   },
@@ -24,14 +27,17 @@
     "costumeTypeIds": [
       "casl",
       "schl",
-      "trng"
+      "trng",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "casl",
     "photoShootingMotionSetId": "cafe-00",
     "isDeleteCharacter": true,
     "order": 110,
     "unlockConditionId": "cd-manager_level_gte-20",
-    "viewConditionId": ""
+    "viewConditionId": "",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-catstreet-01",
@@ -43,14 +49,17 @@
       "idol",
       "casl",
       "schl",
-      "trng"
+      "trng",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "casl",
     "photoShootingMotionSetId": "catstreet-01",
     "isDeleteCharacter": true,
-    "order": 6,
+    "order": 65,
     "viewConditionId": "cd-time-photo-shopping-01-close",
-    "unlockConditionId": ""
+    "unlockConditionId": "",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-event_stage",
@@ -60,14 +69,17 @@
     "stageId": "stage-photo-ministage-00",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "idol",
     "photoShootingMotionSetId": "ministage-00",
     "isDeleteCharacter": true,
     "order": 150,
     "viewConditionId": "cd-manager_level_gte-45",
-    "unlockConditionId": "cd-manager_level_gte-80"
+    "unlockConditionId": "cd-manager_level_gte-80",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-fashion_model",
@@ -77,14 +89,18 @@
     "stageId": "stage-photo-studio-01",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "photoShootingMotionSetId": "house-00",
     "isDeleteCharacter": true,
     "order": 160,
     "viewConditionId": "cd-manager_level_gte-45",
-    "unlockConditionId": "cd-manager_level_gte-90"
+    "unlockConditionId": "cd-manager_level_gte-90",
+    "impossibleShootingCharacterIds": [
+      "char-mku"
+    ]
   },
   {
     "id": "photo_activity-flyers",
@@ -95,14 +111,37 @@
     "costumeTypeIds": [
       "idol",
       "casl",
-      "schl"
+      "schl",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "idol",
     "photoShootingMotionSetId": "square-00",
     "isDeleteCharacter": true,
     "order": 100,
     "viewConditionId": "",
-    "unlockConditionId": ""
+    "unlockConditionId": "",
+    "impossibleShootingCharacterIds": []
+  },
+  {
+    "id": "photo_activity-hillpark",
+    "name": "星見市高台",
+    "type": 1,
+    "thumbAssetId": "hillpark-00",
+    "stageId": "stage-photo-hillpark-00",
+    "costumeTypeIds": [
+      "casl",
+      "schl",
+      "gene",
+      "idol-miku"
+    ],
+    "forceCostumeTypeId": "casl",
+    "photoShootingMotionSetId": "hillpark-00",
+    "isDeleteCharacter": true,
+    "order": 40,
+    "viewConditionId": "",
+    "unlockConditionId": "",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-hot_spring",
@@ -118,7 +157,10 @@
     "isDeleteCharacter": true,
     "order": 170,
     "viewConditionId": "cd-manager_level_gte-45",
-    "unlockConditionId": "cd-manager_level_gte-115"
+    "unlockConditionId": "cd-manager_level_gte-115",
+    "impossibleShootingCharacterIds": [
+      "char-mku"
+    ]
   },
   {
     "id": "photo_activity-living",
@@ -128,14 +170,17 @@
     "stageId": "stage-photo-living-01",
     "costumeTypeIds": [
       "casl",
-      "schl"
+      "schl",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "casl",
     "photoShootingMotionSetId": "living-01",
     "isDeleteCharacter": true,
-    "order": 4,
+    "order": 50,
     "viewConditionId": "",
-    "unlockConditionId": ""
+    "unlockConditionId": "",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-ministage",
@@ -148,14 +193,17 @@
       "schl",
       "trng",
       "casl",
-      "mizg-water-ng"
+      "mizg-water-ng",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "idol",
     "photoShootingMotionSetId": "ministage-01",
     "isDeleteCharacter": true,
-    "order": 7,
+    "order": 75,
     "viewConditionId": "cd-time-photo-ministage-01-close",
-    "unlockConditionId": ""
+    "unlockConditionId": "",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-pool",
@@ -170,9 +218,32 @@
     "forceCostumeTypeId": "mizg",
     "photoShootingMotionSetId": "pool-00",
     "isDeleteCharacter": true,
-    "order": 10,
+    "order": 90,
+    "impossibleShootingCharacterIds": [
+      "char-mku"
+    ],
     "viewConditionId": "",
     "unlockConditionId": ""
+  },
+  {
+    "id": "photo_activity-quiz",
+    "name": "クイズ番組",
+    "type": 1,
+    "thumbAssetId": "quiz-00",
+    "stageId": "stage-photo-quiz-00",
+    "costumeTypeIds": [
+      "idol",
+      "casl",
+      "gene",
+      "idol-miku"
+    ],
+    "forceCostumeTypeId": "idol",
+    "photoShootingMotionSetId": "quiz-00",
+    "isDeleteCharacter": true,
+    "order": 30,
+    "viewConditionId": "",
+    "unlockConditionId": "",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-radio_distribution",
@@ -183,14 +254,17 @@
     "costumeTypeIds": [
       "idol",
       "casl",
-      "schl"
+      "schl",
+      "gene",
+      "idol-miku"
     ],
-    "forceCostumeTypeId": "casl",
+    "forceCostumeTypeId": "idol",
     "photoShootingMotionSetId": "recording-00",
     "isDeleteCharacter": true,
     "order": 140,
     "viewConditionId": "cd-manager_level_gte-45",
-    "unlockConditionId": "cd-manager_level_gte-60"
+    "unlockConditionId": "cd-manager_level_gte-60",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-shopping",
@@ -201,14 +275,17 @@
     "costumeTypeIds": [
       "casl",
       "schl",
-      "trng"
+      "trng",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "casl",
     "photoShootingMotionSetId": "catstreet-00",
     "isDeleteCharacter": true,
     "order": 130,
     "unlockConditionId": "cd-manager_level_gte-45",
-    "viewConditionId": ""
+    "viewConditionId": "",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-studio-00",
@@ -217,14 +294,17 @@
     "thumbAssetId": "studio-00",
     "stageId": "stage-photo-studio-00",
     "costumeTypeIds": [
-      "casl"
+      "casl",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "casl",
     "photoShootingMotionSetId": "studio-00",
     "isDeleteCharacter": true,
-    "order": 5,
+    "order": 60,
     "viewConditionId": "",
-    "unlockConditionId": ""
+    "unlockConditionId": "",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-theme_park",
@@ -235,14 +315,17 @@
     "costumeTypeIds": [
       "casl",
       "schl",
-      "trng"
+      "trng",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "casl",
     "photoShootingMotionSetId": "themepark-00",
     "isDeleteCharacter": true,
-    "order": 8,
+    "order": 70,
     "viewConditionId": "",
-    "unlockConditionId": ""
+    "unlockConditionId": "",
+    "impossibleShootingCharacterIds": []
   },
   {
     "id": "photo_activity-video_distribution",
@@ -251,13 +334,16 @@
     "thumbAssetId": "video_destribution-00",
     "stageId": "stage-photo-cooking-00",
     "costumeTypeIds": [
-      "casl"
+      "casl",
+      "gene",
+      "idol-miku"
     ],
     "forceCostumeTypeId": "casl",
     "photoShootingMotionSetId": "cooking-00",
     "isDeleteCharacter": true,
     "order": 120,
     "unlockConditionId": "cd-manager_level_gte-30",
-    "viewConditionId": ""
+    "viewConditionId": "",
+    "impossibleShootingCharacterIds": []
   }
 ]

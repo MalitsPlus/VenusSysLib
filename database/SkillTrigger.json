@@ -20,6 +20,11 @@
     "characterIds": []
   },
   {
+    "id": "tg-before_special_skill",
+    "type": 37,
+    "characterIds": []
+  },
+  {
     "id": "tg-before_special_skill_by_someone",
     "type": 6,
     "characterIds": []
@@ -42,6 +47,21 @@
   {
     "id": "tg-combo-80",
     "type": 3,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo_less_equal-100",
+    "type": 33,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo_less_equal-50",
+    "type": 33,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo_less_equal-80",
+    "type": 33,
     "characterIds": []
   },
   {

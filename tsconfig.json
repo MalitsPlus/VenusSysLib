@@ -1,17 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
+      "esnext",
       "dom",
-      "dom.iterable",
-      "esnext"
     ],
     "module": "commonjs",
     "outDir": "out",
+    "newLine": "lf",
+    "declaration": true,
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "strictNullChecks": true,
     "downlevelIteration": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    // "strict": true,
+    // "alwaysStrict": true,
   },
+  "include": [
+    "**/*.ts",
+    "database/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "out",
+    "test",
+  ]
 }

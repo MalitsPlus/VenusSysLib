@@ -1824,10 +1824,28 @@
         "subStep": 100,
         "navigationType": 3,
         "texts": [
-          "ライブをプレイして、解放Ptとリンクスメダルを獲得しましょう。\nBOXゲージが最大になるとBOXガチャを引けるようになります。"
+          "ライブをプレイして、ミニリンクスメダルを獲得しましょう。\nBOXゲージが最大になるとBOXガチャを引けるようになります。"
         ],
         "assetIds": [
           "img_tutorial_tips_tips-013"
+        ],
+        "navigationPositionType": 0
+      }
+    ],
+    "unlockConditionId": ""
+  },
+  {
+    "type": 26,
+    "stepInfo": [
+      {
+        "step": 1,
+        "subStep": 100,
+        "navigationType": 3,
+        "texts": [
+          "アクセサリを上限突破することで更なる能力アップを目指しましょう！"
+        ],
+        "assetIds": [
+          "img_tutorial_tips_tips-018"
         ],
         "navigationPositionType": 0
       }
@@ -1864,6 +1882,50 @@
         ],
         "assetIds": [
           "img_tutorial_tips_tips-016"
+        ],
+        "navigationPositionType": 0
+      }
+    ],
+    "unlockConditionId": ""
+  },
+  {
+    "type": 29,
+    "stepInfo": [
+      {
+        "step": 1,
+        "subStep": 100,
+        "navigationType": 0,
+        "navigationPositionType": 0,
+        "texts": [],
+        "assetIds": []
+      },
+      {
+        "step": 2,
+        "subStep": 100,
+        "navigationType": 3,
+        "texts": [
+          "フォトレタッチでは、フォトの品質、レアリティ、オプションをレシピの通りに書き換えることができます。\nお気に入りのフォトをレタッチして、アイドルに装備しましょう。"
+        ],
+        "assetIds": [
+          "img_tutorial_tips_tips-017"
+        ],
+        "navigationPositionType": 0
+      }
+    ],
+    "unlockConditionId": ""
+  },
+  {
+    "type": 30,
+    "stepInfo": [
+      {
+        "step": 1,
+        "subStep": 100,
+        "navigationType": 3,
+        "texts": [
+          "コラボアイドルはメモリーズと同様に時間や世界の異なる特別なアイドルです。\nお仕事には出すことは出来ず、ファン数、コアファン率は全アイドルの平均値となります。"
+        ],
+        "assetIds": [
+          "img_tutorial_tips_tips-014"
         ],
         "navigationPositionType": 0
       }

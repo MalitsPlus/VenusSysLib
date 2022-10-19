@@ -512,6 +512,169 @@
     "receiveConditionId": "cd-time-login-22-0621-0630"
   },
   {
+    "id": "login_bonus-campaign-22-0625-01",
+    "name": "1周年記念",
+    "description": "7日間の特別なログインボーナス",
+    "type": 2,
+    "assetId": "login-campaign-22-0625-01",
+    "topColorCode": "00CEFF",
+    "bottomColorCode": "D0FFA0",
+    "priority": 10,
+    "rewardIds": [
+      "rd_auto;decoration;deco-login-campaign-22-0625-01;1",
+      "rd_auto;item;item-daily_quest_ticket_01;3",
+      "rd_auto;item;item-photo_enhance;10",
+      "rd_auto;item;item-daily_quest_ticket_02;3",
+      "rd_auto;item;item-gacha_ticket-r5-22-0624;1",
+      "rd_auto;item;item-daily_quest_ticket_03;3",
+      "rd_auto;stone;;500"
+    ],
+    "openConditionId": "cd-time-login-22-0625-0701",
+    "receiveConditionId": "cd-time-login-22-0625-0708"
+  },
+  {
+    "id": "login_bonus-campaign-22-0804-01",
+    "name": "サマーログイン",
+    "description": "7日間の特別なログインボーナス",
+    "type": 2,
+    "assetId": "login-campaign-22-0804-01",
+    "topColorCode": "00CEFF",
+    "bottomColorCode": "D0FFA0",
+    "priority": 10,
+    "rewardIds": [
+      "rd_auto;item;item-act_promotion_shorten;5",
+      "rd_auto;item;item-daily_quest_ticket_01;3",
+      "rd_auto;item;item-photo_enhance;10",
+      "rd_auto;item;item-daily_quest_ticket_02;3",
+      "rd_auto;item;item-gacha_ticket-r5-22-0624;1",
+      "rd_auto;item;item-daily_quest_ticket_03;3",
+      "rd_auto;stone;;500"
+    ],
+    "openConditionId": "cd-time-login-22-0804-0810",
+    "receiveConditionId": "cd-time-login-22-0804-0817"
+  },
+  {
+    "id": "login_bonus-campaign-22-0821-01",
+    "name": "育成応援",
+    "description": "5日間の特別なログインボーナス",
+    "type": 2,
+    "assetId": "login-campaign-21-0706-01",
+    "topColorCode": "00CEFF",
+    "bottomColorCode": "D0FFA0",
+    "priority": 10,
+    "rewardIds": [
+      "rd_auto;item;item-daily_quest_ticket_01;2",
+      "rd_auto;item;item-daily_quest_ticket_02;2",
+      "rd_auto;item;item-act_refresh_shorten;1",
+      "rd_auto;item;item-act_promotion_shorten;1",
+      "rd_auto;stone;;500"
+    ],
+    "openConditionId": "cd-time-login-22-0821-0825",
+    "receiveConditionId": "cd-time-login-22-0821-0830"
+  },
+  {
+    "id": "login_bonus-campaign-22-0829-01",
+    "name": "初音ミクコラボ\nカウントダウン",
+    "description": "3日間の特別なログインボーナス",
+    "type": 2,
+    "assetId": "login-campaign-22-0828-01",
+    "topColorCode": "00CEFF",
+    "bottomColorCode": "D0FFA0",
+    "priority": 10,
+    "rewardIds": [
+      "rd_auto;item;item-act_promotion_shorten;10",
+      "rd_auto;stone;;390",
+      "rd_auto;item;item-card_limit_break;100"
+    ],
+    "openConditionId": "cd-time-login-22-0829-0831",
+    "receiveConditionId": "cd-time-login-22-0829-0907"
+  },
+  {
+    "id": "login_bonus-campaign-22-0901-01",
+    "name": "初音ミクコラボ",
+    "description": "10日間の特別なログインボーナス",
+    "type": 2,
+    "assetId": "login-campaign-22-0901-01",
+    "topColorCode": "00CEFF",
+    "bottomColorCode": "D0FFA0",
+    "priority": 10,
+    "rewardIds": [
+      "rd_auto;item;item-exchange-collaboration-medal-22-0831;20",
+      "rd_auto;stone;;390",
+      "rd_auto;item;item-daily_quest_ticket_01;5",
+      "rd_auto;item;item-exchange-collaboration-medal-22-0831;20",
+      "rd_auto;stone;;390",
+      "rd_auto;item;item-exchange-collaboration-medal-22-0831;20",
+      "rd_auto;item;item-daily_quest_ticket_02;5",
+      "rd_auto;item;item-exchange-collaboration-medal-22-0831;20",
+      "rd_auto;stone;;390",
+      "rd_auto;item;item-gacha_ticket-r5-22-0624;1"
+    ],
+    "openConditionId": "cd-time-login-22-0901-0910",
+    "receiveConditionId": "cd-time-login-22-0901-0918"
+  },
+  {
+    "id": "login_bonus-campaign-22-0923-01",
+    "name": "育成応援",
+    "description": "5日間の特別なログインボーナス",
+    "type": 2,
+    "assetId": "login-campaign-21-0706-01",
+    "topColorCode": "00CEFF",
+    "bottomColorCode": "D0FFA0",
+    "priority": 10,
+    "rewardIds": [
+      "rd_auto;item;item-daily_quest_ticket_01;2",
+      "rd_auto;item;item-daily_quest_ticket_02;2",
+      "rd_auto;item;item-card_skill;2500",
+      "rd_auto;item;item-act_promotion_shorten;1",
+      "rd_auto;stone;;500"
+    ],
+    "openConditionId": "cd-time-login-22-0923-0927",
+    "receiveConditionId": "cd-time-login-22-0923-1002"
+  },
+  {
+    "id": "login_bonus-campaign-22-0928-01",
+    "name": "フェス開催記念",
+    "description": "7日間の特別なログインボーナス",
+    "type": 2,
+    "assetId": "login-campaign-22-0928-01",
+    "topColorCode": "00CEFF",
+    "bottomColorCode": "D0FFA0",
+    "priority": 10,
+    "rewardIds": [
+      "rd_auto;photo_all_in_one;phot-prm-5-5;1",
+      "rd_auto;item;item-daily_quest_ticket_01;3",
+      "rd_auto;item;item-photo_enhance;30",
+      "rd_auto;item;item-card_skill;10000",
+      "rd_auto;item;item-daily_quest_ticket_02;3",
+      "rd_auto;item;item-rarity_exp_medal-21-1228;1",
+      "rd_auto;stone;;500"
+    ],
+    "openConditionId": "cd-time-login-22-0928-1004",
+    "receiveConditionId": "cd-time-login-22-0928-1011"
+  },
+  {
+    "id": "login_bonus-campaign-22-1021-01",
+    "name": "MV公開記念",
+    "description": "7日間の特別なログインボーナス",
+    "type": 2,
+    "assetId": "login-campaign-22-1021-01",
+    "topColorCode": "00CEFF",
+    "bottomColorCode": "D0FFA0",
+    "priority": 10,
+    "rewardIds": [
+      "rd_auto;decoration;deco-sp-moon-22-1021;1",
+      "rd_auto;item;item-photo_reroll;2000",
+      "rd_auto;item;item-photo_enhance;10",
+      "rd_auto;item;item-daily_quest_ticket_03;3",
+      "rd_auto;item;item-photo_enhance;10",
+      "rd_auto;item;item-photo_reroll;2000",
+      "rd_auto;stone;;500"
+    ],
+    "openConditionId": "cd-time-login-22-1021-1027",
+    "receiveConditionId": "cd-time-login-22-1021-1103"
+  },
+  {
     "id": "login_bonus-normal-01",
     "name": "デイリー",
     "description": "毎日もらえるログインボーナス",

@@ -1,5 +1,31 @@
 [
   {
+    "id": "music-clb-001",
+    "assetId": "clb-001",
+    "name": "Magical Melody",
+    "description": "Magical Melody",
+    "order": 430,
+    "lyricist": "烏屋茶房",
+    "composer": "八王子P、kz",
+    "arranger": "kz",
+    "singer": "TRINITYAiLE with 初音ミク",
+    "viewConditionId": "cd-time-music-clb-001-22-0831-close-shoot",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
+    "id": "music-hsm-001",
+    "assetId": "hsm-001",
+    "name": "IDOLY PRIDE",
+    "description": "IDOLY PRIDE",
+    "order": 445,
+    "lyricist": "清竜人",
+    "composer": "清竜人",
+    "arranger": "清竜人",
+    "singer": "星見プロダクション",
+    "viewConditionId": "cd-time-music-hsm-001-22-0731-close-shoot",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
     "id": "music-hsm-002",
     "assetId": "hsm-002",
     "name": "Fight oh! MIRAI oh!",
@@ -130,6 +156,19 @@
     "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
   },
   {
+    "id": "music-mna-006",
+    "assetId": "mna-006",
+    "name": "星の海の記憶(琴乃×莉央ver.)",
+    "description": "星の海の記憶(琴乃×莉央ver.)",
+    "order": 410,
+    "lyricist": "やしきん",
+    "composer": "やしきん",
+    "arranger": "やしきん",
+    "singer": "長瀬琴乃 × 神崎莉央",
+    "viewConditionId": "cd-time-music-mna-006-22-1003-close-shoot",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
     "id": "music-mna-007",
     "assetId": "mna-007",
     "name": "Precious",
@@ -192,6 +231,71 @@
     "arranger": "坂和也 & Wicky.Recordings",
     "singer": "月のテンペスト",
     "viewConditionId": "cd-tutorial-finish-photo-create-shooting",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
+    "id": "music-mv-001",
+    "assetId": "hsm-007",
+    "name": "それを人は“青春”と呼んだ",
+    "description": "それを人は“青春”と呼んだ",
+    "order": 440,
+    "lyricist": "HoneyWorks",
+    "composer": "HoneyWorks",
+    "arranger": "HoneyWorks",
+    "singer": "星見プロダクション",
+    "viewConditionId": "cd-april-photo-shooting-mv-001",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
+    "id": "music-mv-002",
+    "assetId": "liz-008",
+    "name": "Blue sky summer",
+    "description": "Blue sky summer",
+    "order": 440,
+    "lyricist": "Q-MHz",
+    "composer": "Q-MHz",
+    "arranger": "Q-MHz、eba",
+    "singer": "LizNoir",
+    "viewConditionId": "cd-photo-shooting-mv-002",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
+    "id": "music-mv-003",
+    "assetId": "tri-002",
+    "name": "les plumes",
+    "description": "les plumes",
+    "order": 415,
+    "lyricist": "kz",
+    "composer": "kz",
+    "arranger": "kz",
+    "singer": "TRINITYAiLE",
+    "viewConditionId": "cd-photo-shooting-mv-003",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
+    "id": "music-mv-004",
+    "assetId": "mna-005",
+    "name": "星の海の記憶",
+    "description": "星の海の記憶",
+    "order": 100,
+    "lyricist": "やしきん",
+    "composer": "やしきん",
+    "arranger": "やしきん",
+    "singer": "長瀬麻奈",
+    "viewConditionId": "cd-photo-shooting-mv-004",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
+    "id": "music-mv-005",
+    "assetId": "moon-006",
+    "name": "裏と表",
+    "description": "裏と表",
+    "order": 95,
+    "lyricist": "利根川貴之",
+    "composer": "利根川貴之、坂和也",
+    "arranger": "坂和也 & Wicky.Recordings",
+    "singer": "月のテンペスト",
+    "viewConditionId": "cd-photo-shooting-mv-005",
     "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
   },
   {
@@ -260,6 +364,19 @@
     "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
   },
   {
+    "id": "music-thrx-001",
+    "assetId": "thrx-001",
+    "name": "Bang Bang",
+    "description": "Bang Bang",
+    "order": 450,
+    "lyricist": "Mayu Wakisaka",
+    "composer": "ハヤシベトモノリ",
+    "arranger": "ハヤシベトモノリ",
+    "singer": "ⅢX",
+    "viewConditionId": "cd-time-music-thrx-001-22-0628-close-shoot",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
     "id": "music-tri-001",
     "assetId": "tri-001",
     "name": "Aile to Yell",
@@ -270,6 +387,19 @@
     "arranger": "kz",
     "singer": "TRINITYAiLE",
     "viewConditionId": "cd-tutorial-finish-photo-create-shooting",
+    "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
+  },
+  {
+    "id": "music-tri-002",
+    "assetId": "tri-002",
+    "name": "les plumes",
+    "description": "les plumes",
+    "order": 420,
+    "lyricist": "kz",
+    "composer": "kz",
+    "arranger": "kz",
+    "singer": "TRINITYAiLE",
+    "viewConditionId": "cd-time-music-tri-002-22-0927-close-shoot",
     "unlockConditionId": "cd-tutorial-finish-photo-create-shooting"
   },
   {

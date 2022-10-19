@@ -200,6 +200,14 @@
     "autoProvideConditionId": ""
   },
   {
+    "id": "deco-login-campaign-22-0625-01",
+    "name": "1周年デコレーション",
+    "assetId": "login-campaign-22-0625-01",
+    "order": 51,
+    "description": "1周年記念の名刺デコレーションアイテム",
+    "autoProvideConditionId": ""
+  },
+  {
     "id": "deco-shop-21-1220-01",
     "name": "クリスマス名刺デコレーション",
     "assetId": "shop-pack-21-1220",
@@ -213,6 +221,30 @@
     "assetId": "sp-halw-01",
     "order": 43,
     "description": "ハロウィン",
+    "autoProvideConditionId": ""
+  },
+  {
+    "id": "deco-sp-hoshiumi-22-1003",
+    "name": "星の海の記憶",
+    "assetId": "sp-hoshiumi-22-1003",
+    "order": 53,
+    "description": "「星の海の記憶」をテーマにした特別な名刺デコレーション",
+    "autoProvideConditionId": ""
+  },
+  {
+    "id": "deco-sp-miku-01",
+    "name": "初音ミクコラボ",
+    "assetId": "sp-miku-22-0831",
+    "order": 51,
+    "description": "初音ミクコラボの名刺デコレーションアイテム",
+    "autoProvideConditionId": ""
+  },
+  {
+    "id": "deco-sp-moon-22-1021",
+    "name": "裏と表",
+    "assetId": "sp-moon-22-1021",
+    "order": 54,
+    "description": "MV公開記念の名刺デコレーション",
     "autoProvideConditionId": ""
   },
   {
@@ -237,6 +269,14 @@
     "assetId": "sp-the-sun-22-0526",
     "order": 50,
     "description": "The SUN",
+    "autoProvideConditionId": ""
+  },
+  {
+    "id": "deco-sp-tri-22-0927",
+    "name": "les plumes",
+    "assetId": "sp-tri-22-0927",
+    "order": 52,
+    "description": "フェス開催記念の名刺デコレーション",
     "autoProvideConditionId": ""
   }
 ]

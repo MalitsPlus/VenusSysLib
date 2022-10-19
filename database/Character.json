@@ -22,7 +22,9 @@
       "cos-ai-idol-00",
       "cos-ai-idol-02",
       "cos-ai-kait-00",
+      "cos-ai-miku-00",
       "cos-ai-mizg-00",
+      "cos-ai-mizg-01",
       "cos-ai-schl-00",
       "cos-ai-sdam-00",
       "cos-ai-sdpl-00",
@@ -129,7 +131,7 @@
       "sud_vo_cmn_ai_dress-01",
       "sud_vo_cmn_ai_dress-02"
     ],
-    "psylliumColerType": 8,
+    "psylliumColorType": 8,
     "shortProfile": "人を笑顔にすることが\n大好きなLizNoirの\nムードメーカー",
     "threeSize": "B85・W59・H86",
     "catchphrase": "なるほど！\n腹筋1000回\nすればいいんですね！",
@@ -141,6 +143,9 @@
     "groupPositionX": 0.68,
     "groupPositionY": 0.76,
     "catchphraseColor": "7ECCEE",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "LizNoir",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -171,7 +176,9 @@
       "cos-aoi-idol-00",
       "cos-aoi-idol-02",
       "cos-aoi-kait-00",
+      "cos-aoi-miku-00",
       "cos-aoi-mizg-00",
+      "cos-aoi-mizg-01",
       "cos-aoi-schl-00",
       "cos-aoi-sdam-00",
       "cos-aoi-sdpl-00",
@@ -278,7 +285,7 @@
       "sud_vo_cmn_aoi_dress-02"
     ],
     "isLeftHanded": true,
-    "psylliumColerType": 13,
+    "psylliumColorType": 13,
     "shortProfile": "感情の起伏が少なく\n常に冷静な\nLizNoirのブレーン",
     "threeSize": "B79・W57・H75",
     "catchphrase": "なんでもいいよ。",
@@ -290,6 +297,9 @@
     "groupPositionX": 0.84,
     "groupPositionY": 0.63,
     "catchphraseColor": "6F77CC",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "LizNoir",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -317,10 +327,12 @@
       "cos-chs-casl-00",
       "cos-chs-casl-01",
       "cos-chs-chsk-00",
+      "cos-chs-flow-00",
       "cos-chs-idol-00",
       "cos-chs-idol-01",
       "cos-chs-idol-02",
       "cos-chs-idol-03",
+      "cos-chs-miku-00",
       "cos-chs-mizg-00",
       "cos-chs-mizg-01",
       "cos-chs-newy-00",
@@ -430,7 +442,7 @@
       "sud_vo_cmn_chs_dress-01",
       "sud_vo_cmn_chs_dress-02"
     ],
-    "psylliumColerType": 9,
+    "psylliumColorType": 9,
     "shortProfile": "引っ込み思案で臆病\nそんな自分を変えるため\nアイドルを志した",
     "threeSize": "B76・W58・H78",
     "catchphrase": "お姉ちゃんは合格して、\n私は落ちちゃったから……。",
@@ -441,6 +453,9 @@
     "groupPositionX": 0.75,
     "groupPositionY": 0.53,
     "catchphraseColor": "E7BBD2",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "サニーピース",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -474,6 +489,7 @@
       "cos-hrk-idol-01",
       "cos-hrk-idol-02",
       "cos-hrk-idol-03",
+      "cos-hrk-miku-00",
       "cos-hrk-mizg-00",
       "cos-hrk-mizg-01",
       "cos-hrk-newy-00",
@@ -582,7 +598,7 @@
       "sud_vo_cmn_hrk_dress-01",
       "sud_vo_cmn_hrk_dress-02"
     ],
-    "psylliumColerType": 11,
+    "psylliumColorType": 11,
     "shortProfile": "みんなのお姉さんで\nサニーピースのまとめ役",
     "threeSize": "B90・W62・H87",
     "catchphrase": "私ってやっぱり\n地味で、普通で……\n華がなくて……",
@@ -594,6 +610,9 @@
     "groupPositionX": 0.62,
     "groupPositionY": 0.85,
     "catchphraseColor": "C1A7E2",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "サニーピース",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -604,96 +623,125 @@
   {
     "id": "char-kan",
     "assetId": "kan",
-    "order": 1001,
+    "characterGroupId": "character_group_6",
+    "order": 19,
     "name": "kana",
     "cv": "田中あいみ",
-    "age": "-",
-    "birthday": "-",
-    "height": "-",
-    "weight": "-",
+    "age": "20歳",
+    "birthday": "4月10日",
+    "height": "166cm",
+    "weight": "44kg",
     "zodiacSign": "おひつじ座",
-    "hometown": "-",
-    "favorite": "-",
-    "unfavorite": "-",
-    "profile": "-",
+    "hometown": "非公表",
+    "favorite": "SNSのいいね、父",
+    "unfavorite": "祖父",
+    "profile": "裏表が激しいが、ずば抜けたセンスを持つ小悪魔アイドル。大人気モデル出身で、小さい頃から数々の雑誌の表紙を飾っている。承認欲求が高く、SNSのフォロワーは200万以上。",
     "costumeIds": [
-      "cos-kan-casl-00"
+      "cos-kan-casl-00",
+      "cos-kan-idol-00",
+      "cos-kan-miku-00",
+      "cos-kan-mizg-00",
+      "cos-kan-sdam-00",
+      "cos-kan-sdpl-00",
+      "cos-kan-trng-00"
     ],
     "altCharacters": [
       {
-        "characterId": "char-aoi",
+        "characterId": "char-ai",
         "priority": 1
       },
       {
-        "characterId": "char-chs",
-        "priority": 15
-      },
-      {
-        "characterId": "char-hrk",
-        "priority": 13
-      },
-      {
-        "characterId": "char-kkr",
+        "characterId": "char-aoi",
         "priority": 2
       },
       {
-        "characterId": "char-kor",
-        "priority": 17
-      },
-      {
-        "characterId": "char-mei",
-        "priority": 11
-      },
-      {
-        "characterId": "char-mhk",
-        "priority": 18
-      },
-      {
-        "characterId": "char-ngs",
-        "priority": 10
-      },
-      {
-        "characterId": "char-rei",
+        "characterId": "char-chs",
         "priority": 16
       },
       {
-        "characterId": "char-rio",
-        "priority": 3
-      },
-      {
-        "characterId": "char-rui",
-        "priority": 6
-      },
-      {
-        "characterId": "char-ski",
-        "priority": 8
-      },
-      {
-        "characterId": "char-skr",
+        "characterId": "char-hrk",
         "priority": 14
       },
       {
-        "characterId": "char-smr",
-        "priority": 5
+        "characterId": "char-kkr",
+        "priority": 3
       },
       {
-        "characterId": "char-suz",
-        "priority": 7
+        "characterId": "char-kor",
+        "priority": 18
       },
       {
-        "characterId": "char-szk",
+        "characterId": "char-ktn",
+        "priority": 10
+      },
+      {
+        "characterId": "char-mei",
         "priority": 12
       },
       {
-        "characterId": "char-yu",
+        "characterId": "char-mhk",
+        "priority": 19
+      },
+      {
+        "characterId": "char-ngs",
+        "priority": 11
+      },
+      {
+        "characterId": "char-rei",
+        "priority": 17
+      },
+      {
+        "characterId": "char-rio",
         "priority": 4
+      },
+      {
+        "characterId": "char-rui",
+        "priority": 7
+      },
+      {
+        "characterId": "char-ski",
+        "priority": 9
+      },
+      {
+        "characterId": "char-skr",
+        "priority": 15
+      },
+      {
+        "characterId": "char-smr",
+        "priority": 6
+      },
+      {
+        "characterId": "char-suz",
+        "priority": 8
+      },
+      {
+        "characterId": "char-szk",
+        "priority": 13
+      },
+      {
+        "characterId": "char-yu",
+        "priority": 5
       }
     ],
-    "defaultCostumeId": "cos-mhk-casl-00",
+    "defaultCostumeId": "cos-kan-trng-00",
     "heightCorrectionPermil": 846,
     "color": "474744",
-    "talkArrivalMotionAssetId": "mot_adv_chr_mna_appr-001_in",
-    "viewConditionId": "cd-chr-thrx-never-view",
+    "activityFanEventWords": [
+      {
+        "word": "ありがとう\nございま～す！",
+        "voiceAssetId": "sud_vo_act_kan_fan-01"
+      },
+      {
+        "word": "kana、\n感激～！",
+        "voiceAssetId": "sud_vo_act_kan_fan-02"
+      },
+      {
+        "word": "また来てね～！",
+        "voiceAssetId": "sud_vo_act_kan_fan-03"
+      }
+    ],
+    "talkArrivalMotionAssetId": "mot_adv_chr_kan_appr-001_in",
+    "viewConditionId": "cd-date-22-0628",
     "personalityType": 1,
     "simplePersonalityType": 1,
     "sdPersonalityType": 1,
@@ -706,29 +754,30 @@
       ""
     ],
     "costumeVoiceAssetIds": [
-      "sud_vo_cmn_mna_dress-01",
-      "sud_vo_cmn_mna_dress-02"
+      "sud_vo_cmn_kan_dress-01",
+      "sud_vo_cmn_kan_dress-02"
     ],
-    "psylliumColerType": 7,
+    "psylliumColorType": 7,
     "shortProfile": "裏表が激しいが、\nずば抜けたセンスを持つ\n小悪魔アイドル",
-    "threeSize": "-",
-    "catchphrase": "-",
-    "firstName": "miho",
-    "idiom": "-",
-    "defaultLiveCostumeId": "cos-mhk-casl-00",
-    "characterGroupId": "",
+    "threeSize": "B78・W55・H83",
+    "catchphrase": "きゃはっ！　\n当然でしょ、\nだってkanaだもんね！",
+    "firstName": "kana",
+    "idiom": "孤独",
+    "defaultLiveCostumeId": "cos-kan-trng-00",
+    "facePositionX": -95.0,
+    "facePositionY": 780.0,
+    "groupPositionX": 0.69,
+    "groupPositionY": 0.57,
+    "catchphraseColor": "F0F000",
+    "unlockConditionId": "cd-chr-obtain-kan",
+    "type": 1,
+    "groupName": "ⅢX",
     "enName": "",
     "isNpc": false,
-    "activityFanEventWords": [],
     "talkArrivalAdditionMotionAssetId": "",
     "isLeftHanded": false,
     "isMemories": false,
-    "facePositionX": 0.0,
-    "facePositionY": 0.0,
-    "groupPositionX": 0.0,
-    "groupPositionY": 0.0,
-    "catchphraseColor": "",
-    "unlockConditionId": ""
+    "isHomeDanceTarget": false
   },
   {
     "id": "char-kkr",
@@ -752,7 +801,10 @@
       "cos-kkr-casl-01",
       "cos-kkr-idol-00",
       "cos-kkr-idol-02",
+      "cos-kkr-kait-00",
+      "cos-kkr-miku-00",
       "cos-kkr-mizg-00",
+      "cos-kkr-mizg-01",
       "cos-kkr-schl-00",
       "cos-kkr-sdam-00",
       "cos-kkr-sdpl-00",
@@ -859,7 +911,7 @@
       "sud_vo_cmn_kkr_dress-01",
       "sud_vo_cmn_kkr_dress-02"
     ],
-    "psylliumColerType": 9,
+    "psylliumColorType": 9,
     "shortProfile": "人懐っこくお調子者な\nLizNoirの切り込み隊長",
     "threeSize": "B74・W54・H73",
     "catchphrase": "アナタの心を鷲掴み☆\n赤崎こころ、\n14歳でーすっ！",
@@ -870,6 +922,9 @@
     "groupPositionX": 0.52,
     "groupPositionY": 0.63,
     "catchphraseColor": "FC9BB3",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "LizNoir",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -969,9 +1024,11 @@
     "personalityType": 1,
     "simplePersonalityType": 1,
     "sdPersonalityType": 1,
-    "psylliumColerType": 13,
+    "psylliumColorType": 13,
     "firstName": "牧野",
     "defaultLiveCostumeId": "cos-koh-casl-00",
+    "type": 2,
+    "groupName": "ー",
     "characterGroupId": "",
     "zodiacSign": "",
     "hometown": "",
@@ -996,140 +1053,167 @@
     "groupPositionX": 0.0,
     "groupPositionY": 0.0,
     "catchphraseColor": "",
-    "unlockConditionId": ""
+    "unlockConditionId": "",
+    "isHomeDanceTarget": false
   },
   {
     "id": "char-kor",
     "assetId": "kor",
-    "order": 1000,
+    "characterGroupId": "character_group_6",
+    "order": 18,
     "name": "fran",
     "cv": "Lynn",
-    "age": "-",
-    "birthday": "-",
-    "height": "-",
-    "weight": "-",
+    "age": "22歳",
+    "birthday": "6月11日",
+    "height": "172cm",
+    "weight": "47kg",
     "zodiacSign": "ふたご座",
-    "hometown": "-",
-    "favorite": "-",
-    "unfavorite": "-",
-    "profile": "-",
+    "hometown": "非公表",
+    "favorite": "ファッション、お金、漫画",
+    "unfavorite": "お金にならないこと、パーティー",
+    "profile": "抜群のスタイルを持つ、天才肌で努力を知らないカリスマ。ⅢXのセンターで、パリコレへの出場経験もあるトップモデル出身。ある理由から極端にお金に執着している。",
     "costumeIds": [
-      "cos-kor-casl-00"
+      "cos-kor-casl-00",
+      "cos-kor-idol-00",
+      "cos-kor-miku-00",
+      "cos-kor-mizg-00",
+      "cos-kor-sdam-00",
+      "cos-kor-sdpl-00",
+      "cos-kor-trng-00"
     ],
     "altCharacters": [
       {
-        "characterId": "char-aoi",
+        "characterId": "char-ai",
         "priority": 1
       },
       {
-        "characterId": "char-chs",
-        "priority": 15
-      },
-      {
-        "characterId": "char-hrk",
-        "priority": 13
-      },
-      {
-        "characterId": "char-kan",
-        "priority": 17
-      },
-      {
-        "characterId": "char-kkr",
+        "characterId": "char-aoi",
         "priority": 2
       },
       {
-        "characterId": "char-ktn",
-        "priority": 9
-      },
-      {
-        "characterId": "char-mei",
-        "priority": 11
-      },
-      {
-        "characterId": "char-mhk",
-        "priority": 18
-      },
-      {
-        "characterId": "char-ngs",
-        "priority": 10
-      },
-      {
-        "characterId": "char-rei",
+        "characterId": "char-chs",
         "priority": 16
       },
       {
-        "characterId": "char-rio",
-        "priority": 3
-      },
-      {
-        "characterId": "char-rui",
-        "priority": 6
-      },
-      {
-        "characterId": "char-ski",
-        "priority": 8
-      },
-      {
-        "characterId": "char-skr",
+        "characterId": "char-hrk",
         "priority": 14
       },
       {
-        "characterId": "char-smr",
-        "priority": 5
+        "characterId": "char-kan",
+        "priority": 18
       },
       {
-        "characterId": "char-suz",
-        "priority": 7
+        "characterId": "char-kkr",
+        "priority": 3
       },
       {
-        "characterId": "char-szk",
+        "characterId": "char-ktn",
+        "priority": 10
+      },
+      {
+        "characterId": "char-mei",
         "priority": 12
       },
       {
-        "characterId": "char-yu",
+        "characterId": "char-mhk",
+        "priority": 19
+      },
+      {
+        "characterId": "char-ngs",
+        "priority": 11
+      },
+      {
+        "characterId": "char-rei",
+        "priority": 17
+      },
+      {
+        "characterId": "char-rio",
         "priority": 4
+      },
+      {
+        "characterId": "char-rui",
+        "priority": 7
+      },
+      {
+        "characterId": "char-ski",
+        "priority": 9
+      },
+      {
+        "characterId": "char-skr",
+        "priority": 15
+      },
+      {
+        "characterId": "char-smr",
+        "priority": 6
+      },
+      {
+        "characterId": "char-suz",
+        "priority": 8
+      },
+      {
+        "characterId": "char-szk",
+        "priority": 13
+      },
+      {
+        "characterId": "char-yu",
+        "priority": 5
       }
     ],
-    "defaultCostumeId": "cos-kor-casl-00",
+    "defaultCostumeId": "cos-kor-trng-00",
     "heightCorrectionPermil": 1307,
     "color": "474744",
-    "talkArrivalMotionAssetId": "mot_adv_chr_mna_appr-001_in",
-    "viewConditionId": "cd-chr-thrx-never-view",
-    "personalityType": 1,
-    "simplePersonalityType": 1,
-    "sdPersonalityType": 1,
+    "activityFanEventWords": [
+      {
+        "word": "ありがとう\nございます！",
+        "voiceAssetId": "sud_vo_act_kor_fan-01"
+      },
+      {
+        "word": "お会いできて\n嬉しいです",
+        "voiceAssetId": "sud_vo_act_kor_fan-02"
+      },
+      {
+        "word": "また来て\nくださいね！",
+        "voiceAssetId": "sud_vo_act_kor_fan-03"
+      }
+    ],
+    "talkArrivalMotionAssetId": "mot_adv_chr_kor_appr-001_in",
+    "viewConditionId": "cd-date-22-0628",
+    "personalityType": 4,
+    "simplePersonalityType": 3,
+    "sdPersonalityType": 4,
     "costumeMotionAssetIds": [
-      "mot_dress_chr_cmn_action-001-a_in",
-      "mot_dress_chr_cmn_action-002-a_in"
+      "mot_dress_chr_cmn_action-001-d_in",
+      "mot_dress_chr_cmn_action-002-d_in"
     ],
     "costumeAdditionMotionAssetIds": [
       "",
       ""
     ],
     "costumeVoiceAssetIds": [
-      "sud_vo_cmn_mna_dress-01",
-      "sud_vo_cmn_mna_dress-02"
+      "sud_vo_cmn_kor_dress-01",
+      "sud_vo_cmn_kor_dress-02"
     ],
-    "psylliumColerType": 7,
+    "psylliumColorType": 7,
     "shortProfile": "抜群のスタイルを持つ、\n天才肌で努力を知らない\nカリスマ",
-    "threeSize": "-",
-    "catchphrase": "-",
+    "threeSize": "B82・W54・H86",
+    "catchphrase": "アイドルをやっている\n目的は、ただお金を\n稼ぐため。",
     "firstName": "fran",
-    "idiom": "-",
-    "defaultLiveCostumeId": "cos-kor-casl-00",
-    "characterGroupId": "",
+    "idiom": "狂奔",
+    "defaultLiveCostumeId": "cos-kor-trng-00",
+    "facePositionY": 500.0,
+    "groupPositionX": 0.23,
+    "groupPositionY": 0.75,
+    "catchphraseColor": "F0F000",
+    "unlockConditionId": "cd-chr-obtain-kor",
+    "type": 1,
+    "groupName": "ⅢX",
     "enName": "",
     "isNpc": false,
-    "activityFanEventWords": [],
     "talkArrivalAdditionMotionAssetId": "",
     "isLeftHanded": false,
     "isMemories": false,
     "facePositionX": 0.0,
-    "facePositionY": 0.0,
-    "groupPositionX": 0.0,
-    "groupPositionY": 0.0,
-    "catchphraseColor": "",
-    "unlockConditionId": ""
+    "isHomeDanceTarget": false
   },
   {
     "id": "char-ktn",
@@ -1155,8 +1239,11 @@
       "cos-ktn-idol-00",
       "cos-ktn-idol-01",
       "cos-ktn-idol-02",
+      "cos-ktn-kiok-00",
+      "cos-ktn-miku-00",
       "cos-ktn-mizg-00",
       "cos-ktn-mizg-01",
+      "cos-ktn-mizg-02",
       "cos-ktn-schl-00",
       "cos-ktn-sdam-00",
       "cos-ktn-sdpl-00",
@@ -1262,7 +1349,7 @@
       "sud_vo_cmn_ktn_dress-01",
       "sud_vo_cmn_ktn_dress-02"
     ],
-    "psylliumColerType": 14,
+    "psylliumColorType": 14,
     "shortProfile": "姉・長瀬麻奈の遺志を\n受け継ぎアイドルを\n志した少女",
     "threeSize": "B79・W55・H80",
     "catchphrase": "私、一人で\n出来るので。",
@@ -1274,6 +1361,9 @@
     "groupPositionX": 0.55,
     "groupPositionY": 0.61,
     "catchphraseColor": "5C88DA",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "月のテンペスト",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -1305,8 +1395,10 @@
       "cos-mei-idol-00",
       "cos-mei-idol-01",
       "cos-mei-idol-02",
+      "cos-mei-miku-00",
       "cos-mei-mizg-00",
       "cos-mei-mizg-01",
+      "cos-mei-mizg-02",
       "cos-mei-rock-00",
       "cos-mei-schl-00",
       "cos-mei-sdam-00",
@@ -1412,7 +1504,7 @@
       "sud_vo_cmn_mei_dress-01",
       "sud_vo_cmn_mei_dress-02"
     ],
-    "psylliumColerType": 1,
+    "psylliumColorType": 1,
     "shortProfile": "直感に従い生きる\n予測不能で無邪気な少女",
     "threeSize": "B86・W58・H84",
     "catchphrase": "何恥ずかしがってるの？\n一緒に塀の上で\nデートした仲なのに。",
@@ -1424,6 +1516,9 @@
     "groupPositionX": 0.87,
     "groupPositionY": 0.78,
     "catchphraseColor": "E03E52",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "月のテンペスト",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -1434,96 +1529,271 @@
   {
     "id": "char-mhk",
     "assetId": "mhk",
-    "order": 1002,
+    "characterGroupId": "character_group_6",
+    "order": 20,
     "name": "miho",
     "cv": "村川梨衣",
-    "age": "-",
-    "birthday": "-",
-    "height": "-",
-    "weight": "-",
+    "age": "24歳",
+    "birthday": "1月25日",
+    "height": "165cm",
+    "weight": "47kg",
     "zodiacSign": "みずがめ座",
-    "hometown": "-",
-    "favorite": "-",
-    "unfavorite": "-",
-    "profile": "-",
+    "hometown": "非公表",
+    "favorite": "アイドル、葉ちゃん",
+    "unfavorite": "長瀬麻奈",
+    "profile": "豊富な経験と知識を活かして活動に励む理論派。BIG4に手が届く寸前で突如解散した、人気二人組アイドルのメンバーだった過去を持つ。グループのブレーン的存在で基本的に温厚だが、執念深い一面も。",
     "costumeIds": [
-      "cos-mhk-casl-00"
+      "cos-mhk-casl-00",
+      "cos-mhk-idol-00",
+      "cos-mhk-miku-00",
+      "cos-mhk-mizg-00",
+      "cos-mhk-sdam-00",
+      "cos-mhk-sdpl-00",
+      "cos-mhk-trng-00"
     ],
     "altCharacters": [
       {
-        "characterId": "char-aoi",
+        "characterId": "char-ai",
         "priority": 1
       },
       {
-        "characterId": "char-chs",
-        "priority": 15
-      },
-      {
-        "characterId": "char-hrk",
-        "priority": 13
-      },
-      {
-        "characterId": "char-kan",
-        "priority": 17
-      },
-      {
-        "characterId": "char-kkr",
+        "characterId": "char-aoi",
         "priority": 2
       },
       {
-        "characterId": "char-mei",
-        "priority": 11
-      },
-      {
-        "characterId": "char-mhk",
-        "priority": 18
-      },
-      {
-        "characterId": "char-ngs",
-        "priority": 10
-      },
-      {
-        "characterId": "char-rei",
+        "characterId": "char-chs",
         "priority": 16
       },
       {
-        "characterId": "char-rio",
-        "priority": 3
-      },
-      {
-        "characterId": "char-rui",
-        "priority": 6
-      },
-      {
-        "characterId": "char-ski",
-        "priority": 8
-      },
-      {
-        "characterId": "char-skr",
+        "characterId": "char-hrk",
         "priority": 14
       },
       {
-        "characterId": "char-smr",
-        "priority": 5
+        "characterId": "char-kan",
+        "priority": 19
       },
       {
-        "characterId": "char-suz",
-        "priority": 7
+        "characterId": "char-kkr",
+        "priority": 3
       },
       {
-        "characterId": "char-szk",
+        "characterId": "char-kor",
+        "priority": 18
+      },
+      {
+        "characterId": "char-ktn",
+        "priority": 10
+      },
+      {
+        "characterId": "char-mei",
         "priority": 12
       },
       {
-        "characterId": "char-yu",
+        "characterId": "char-ngs",
+        "priority": 11
+      },
+      {
+        "characterId": "char-rei",
+        "priority": 17
+      },
+      {
+        "characterId": "char-rio",
         "priority": 4
+      },
+      {
+        "characterId": "char-rui",
+        "priority": 7
+      },
+      {
+        "characterId": "char-ski",
+        "priority": 9
+      },
+      {
+        "characterId": "char-skr",
+        "priority": 15
+      },
+      {
+        "characterId": "char-smr",
+        "priority": 6
+      },
+      {
+        "characterId": "char-suz",
+        "priority": 8
+      },
+      {
+        "characterId": "char-szk",
+        "priority": 13
+      },
+      {
+        "characterId": "char-yu",
+        "priority": 5
       }
     ],
-    "defaultCostumeId": "cos-kan-casl-00",
+    "defaultCostumeId": "cos-mhk-trng-00",
     "heightCorrectionPermil": 769,
     "color": "474744",
-    "talkArrivalMotionAssetId": "mot_adv_chr_mna_appr-001_in",
-    "viewConditionId": "cd-chr-thrx-never-view",
+    "activityFanEventWords": [
+      {
+        "word": "ありがとう",
+        "voiceAssetId": "sud_vo_act_mhk_fan-01"
+      },
+      {
+        "word": "会えて\n嬉しいです",
+        "voiceAssetId": "sud_vo_act_mhk_fan-02"
+      },
+      {
+        "word": "またお会い\nしましょう",
+        "voiceAssetId": "sud_vo_act_mhk_fan-03"
+      }
+    ],
+    "talkArrivalMotionAssetId": "mot_adv_chr_mhk_appr-001_in",
+    "viewConditionId": "cd-date-22-0628",
+    "personalityType": 3,
+    "simplePersonalityType": 2,
+    "sdPersonalityType": 3,
+    "costumeMotionAssetIds": [
+      "mot_dress_chr_cmn_action-001-c_in",
+      "mot_dress_chr_cmn_action-002-c_in"
+    ],
+    "costumeAdditionMotionAssetIds": [
+      "",
+      ""
+    ],
+    "costumeVoiceAssetIds": [
+      "sud_vo_cmn_mhk_dress-01",
+      "sud_vo_cmn_mhk_dress-02"
+    ],
+    "psylliumColorType": 7,
+    "shortProfile": "豊富な経験と知識を活かして\n活動に励む\n理論派",
+    "threeSize": "B87・W54・H84",
+    "catchphrase": "高得点を取る『攻略法』\nとでも言うべきものはある。",
+    "firstName": "miho",
+    "idiom": "憂愁",
+    "defaultLiveCostumeId": "cos-mhk-trng-00",
+    "facePositionY": 500.0,
+    "groupPositionX": 0.54,
+    "groupPositionY": 0.81,
+    "catchphraseColor": "F0F000",
+    "unlockConditionId": "cd-chr-obtain-mhk",
+    "type": 1,
+    "groupName": "ⅢX",
+    "enName": "",
+    "isNpc": false,
+    "talkArrivalAdditionMotionAssetId": "",
+    "isLeftHanded": false,
+    "isMemories": false,
+    "facePositionX": 0.0,
+    "isHomeDanceTarget": false
+  },
+  {
+    "id": "char-mku",
+    "assetId": "mku",
+    "characterGroupId": "character_group_mku",
+    "order": 1001,
+    "name": "初音ミク",
+    "enName": "MIKU HATSUNE",
+    "cv": "藤田咲",
+    "age": "16歳",
+    "birthday": "8月31日",
+    "height": "158cm",
+    "weight": "42kg",
+    "zodiacSign": "乙女座",
+    "hometown": "ー",
+    "favorite": "ー",
+    "unfavorite": "ー",
+    "profile": "世代を超えて愛される、ポップでキュートなバーチャル・シンガー。VENUSプログラムとは無縁の舞台で活躍しており、その明るく美しい歌声は、世界中の人々を魅了している。",
+    "costumeIds": [
+      "cos-mku-miku-00",
+      "cos-mku-miku-00-casl",
+      "cos-mku-miku-01"
+    ],
+    "altCharacters": [
+      {
+        "characterId": "char-ai",
+        "priority": 1
+      },
+      {
+        "characterId": "char-aoi",
+        "priority": 2
+      },
+      {
+        "characterId": "char-chs",
+        "priority": 16
+      },
+      {
+        "characterId": "char-hrk",
+        "priority": 14
+      },
+      {
+        "characterId": "char-kan",
+        "priority": 19
+      },
+      {
+        "characterId": "char-kkr",
+        "priority": 3
+      },
+      {
+        "characterId": "char-kor",
+        "priority": 18
+      },
+      {
+        "characterId": "char-ktn",
+        "priority": 10
+      },
+      {
+        "characterId": "char-mei",
+        "priority": 12
+      },
+      {
+        "characterId": "char-mhk",
+        "priority": 20
+      },
+      {
+        "characterId": "char-ngs",
+        "priority": 11
+      },
+      {
+        "characterId": "char-rei",
+        "priority": 17
+      },
+      {
+        "characterId": "char-rio",
+        "priority": 4
+      },
+      {
+        "characterId": "char-rui",
+        "priority": 7
+      },
+      {
+        "characterId": "char-ski",
+        "priority": 9
+      },
+      {
+        "characterId": "char-skr",
+        "priority": 15
+      },
+      {
+        "characterId": "char-smr",
+        "priority": 6
+      },
+      {
+        "characterId": "char-suz",
+        "priority": 8
+      },
+      {
+        "characterId": "char-szk",
+        "priority": 13
+      },
+      {
+        "characterId": "char-yu",
+        "priority": 5
+      }
+    ],
+    "defaultCostumeId": "cos-mku-miku-00",
+    "heightCorrectionPermil": 231,
+    "color": "55B4B0",
+    "talkArrivalMotionAssetId": "mot_adv_chr_yu_appr-001_in",
+    "viewConditionId": "cd-date-22-0831",
     "personalityType": 1,
     "simplePersonalityType": 1,
     "sdPersonalityType": 1,
@@ -1536,29 +1806,30 @@
       ""
     ],
     "costumeVoiceAssetIds": [
-      "sud_vo_cmn_mna_dress-01",
-      "sud_vo_cmn_mna_dress-02"
+      "sud_vo_cmn_mku_dress-01",
+      "sud_vo_cmn_mku_dress-02"
     ],
-    "psylliumColerType": 7,
-    "shortProfile": "豊富な経験と知識を活かして\n活動に励む\n理論派",
-    "threeSize": "-",
-    "catchphrase": "-",
-    "firstName": "kana",
-    "idiom": "-",
-    "defaultLiveCostumeId": "cos-kan-casl-00",
-    "characterGroupId": "",
-    "enName": "",
+    "shortProfile": "世代を超えて愛される、ポップでキュートなバーチャル・シンガー",
+    "threeSize": "ー",
+    "catchphrase": "ー",
+    "firstName": "ミク",
+    "isMemories": true,
+    "defaultLiveCostumeId": "cos-mku-miku-00",
+    "facePositionY": 700.0,
+    "groupPositionX": 0.6,
+    "groupPositionY": 0.75,
+    "catchphraseColor": "55B4B0",
+    "unlockConditionId": "cd-chr-obtain-mku",
+    "type": 4,
+    "groupName": "ー",
     "isNpc": false,
     "activityFanEventWords": [],
     "talkArrivalAdditionMotionAssetId": "",
     "isLeftHanded": false,
-    "isMemories": false,
+    "psylliumColorType": 0,
+    "idiom": "",
     "facePositionX": 0.0,
-    "facePositionY": 0.0,
-    "groupPositionX": 0.0,
-    "groupPositionY": 0.0,
-    "catchphraseColor": "",
-    "unlockConditionId": ""
+    "isHomeDanceTarget": false
   },
   {
     "id": "char-mna",
@@ -1581,6 +1852,7 @@
       "cos-mna-casl-00",
       "cos-mna-fest-00",
       "cos-mna-idol-00",
+      "cos-mna-miku-00",
       "cos-mna-mizg-00",
       "cos-mna-schl-00",
       "cos-mna-trng-00"
@@ -1653,7 +1925,7 @@
     ],
     "defaultCostumeId": "cos-mna-trng-00",
     "heightCorrectionPermil": 231,
-    "color": "#F252B0",
+    "color": "F252B0",
     "talkArrivalMotionAssetId": "mot_adv_chr_mna_appr-001_in",
     "personalityType": 1,
     "simplePersonalityType": 1,
@@ -1670,7 +1942,7 @@
       "sud_vo_cmn_mna_dress-01",
       "sud_vo_cmn_mna_dress-02"
     ],
-    "psylliumColerType": 4,
+    "psylliumColorType": 4,
     "shortProfile": "『星降る奇跡』\nと呼ばれる\n伝説のアイドル",
     "threeSize": "B82・W55・H80",
     "catchphrase": "さあ、アイドルの頂点へ！",
@@ -1682,13 +1954,16 @@
     "groupPositionX": 0.45,
     "groupPositionY": 0.66,
     "unlockConditionId": "cd-chr-obtain-mna",
+    "type": 3,
+    "groupName": "長瀬麻奈",
     "isNpc": false,
     "activityFanEventWords": [],
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
     "facePositionX": 0.0,
-    "catchphraseColor": ""
+    "catchphraseColor": "",
+    "isHomeDanceTarget": false
   },
   {
     "id": "char-ngs",
@@ -1715,8 +1990,10 @@
       "cos-ngs-idol-00",
       "cos-ngs-idol-01",
       "cos-ngs-idol-02",
+      "cos-ngs-miku-00",
       "cos-ngs-mizg-00",
       "cos-ngs-mizg-01",
+      "cos-ngs-mizg-02",
       "cos-ngs-schl-00",
       "cos-ngs-sdam-00",
       "cos-ngs-sdpl-00",
@@ -1821,7 +2098,7 @@
       "sud_vo_cmn_ngs_dress-01",
       "sud_vo_cmn_ngs_dress-02"
     ],
-    "psylliumColerType": 4,
+    "psylliumColorType": 4,
     "shortProfile": "親友・琴乃を支えるために\nアイドルとなった少女",
     "threeSize": "B83・W59・H85",
     "catchphrase": "琴乃ちゃんがそういうなら\n私は反対しないよ。",
@@ -1832,6 +2109,9 @@
     "groupPositionX": 0.68,
     "groupPositionY": 0.68,
     "catchphraseColor": "F56D9E",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "月のテンペスト",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -1864,8 +2144,10 @@
       "cos-rei-idol-01",
       "cos-rei-idol-02",
       "cos-rei-idol-03",
+      "cos-rei-miku-00",
       "cos-rei-mizg-00",
       "cos-rei-mizg-01",
+      "cos-rei-mizg-02",
       "cos-rei-newy-00",
       "cos-rei-onep-00",
       "cos-rei-rock-00",
@@ -1973,7 +2255,7 @@
       "sud_vo_cmn_rei_dress-01",
       "sud_vo_cmn_rei_dress-02"
     ],
-    "psylliumColerType": 8,
+    "psylliumColorType": 8,
     "shortProfile": "両親にダンスを仕事として\n認めてもらうため\nアイドルを志す",
     "threeSize": "B83・W56・H85",
     "catchphrase": "私が全部、\nそうするって決めた\nことだから。",
@@ -1985,6 +2267,9 @@
     "groupPositionX": 0.33,
     "groupPositionY": 0.44,
     "catchphraseColor": "ACE3EF",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "サニーピース",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -2017,7 +2302,10 @@
       "cos-rio-idol-00",
       "cos-rio-idol-02",
       "cos-rio-kait-00",
+      "cos-rio-kiok-00",
+      "cos-rio-miku-00",
       "cos-rio-mizg-00",
+      "cos-rio-mizg-01",
       "cos-rio-schl-00",
       "cos-rio-sdam-00",
       "cos-rio-sdpl-00",
@@ -2123,7 +2411,7 @@
       "sud_vo_cmn_rio_dress-01",
       "sud_vo_cmn_rio_dress-02"
     ],
-    "psylliumColerType": 12,
+    "psylliumColorType": 12,
     "shortProfile": "勝利に貪欲な\nLizNoir不動のセンター",
     "threeSize": "B83・W56・H83",
     "catchphrase": "初めての挫折を、\n私達が味わわせてあげる。",
@@ -2135,6 +2423,9 @@
     "groupPositionX": 0.36,
     "groupPositionY": 0.81,
     "catchphraseColor": "AE5287",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "LizNoir",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -2165,6 +2456,8 @@
       "cos-rui-date-00",
       "cos-rui-idol-00",
       "cos-rui-idol-02",
+      "cos-rui-idol-03",
+      "cos-rui-miku-00",
       "cos-rui-mizg-00",
       "cos-rui-mizg-01",
       "cos-rui-schl-00",
@@ -2273,7 +2566,7 @@
       "sud_vo_cmn_rui_dress-01",
       "sud_vo_cmn_rui_dress-02"
     ],
-    "psylliumColerType": 16,
+    "psylliumColorType": 16,
     "shortProfile": "TRINITYAiLEの\n絶対的センター",
     "threeSize": "B84・W56・H84",
     "catchphrase": "私たち三人は\n最高のチームですから。",
@@ -2284,6 +2577,9 @@
     "groupPositionX": 0.52,
     "groupPositionY": 0.65,
     "catchphraseColor": "FCFAF1",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "TRINITYAiLE",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -2317,8 +2613,10 @@
       "cos-ski-idol-01",
       "cos-ski-idol-02",
       "cos-ski-kifj-00",
+      "cos-ski-miku-00",
       "cos-ski-mizg-00",
       "cos-ski-mizg-01",
+      "cos-ski-mizg-02",
       "cos-ski-schl-00",
       "cos-ski-sdam-00",
       "cos-ski-sdpl-00",
@@ -2424,7 +2722,7 @@
       "sud_vo_cmn_ski_dress-01",
       "sud_vo_cmn_ski_dress-02"
     ],
-    "psylliumColerType": 10,
+    "psylliumColorType": 10,
     "shortProfile": "絵に描いたような優等生で\n月のテンペストのまとめ役",
     "threeSize": "B84・W58・H80",
     "catchphrase": "だって私が…\nお姉ちゃんなんだから。",
@@ -2436,6 +2734,9 @@
     "groupPositionX": 0.22,
     "groupPositionY": 0.74,
     "catchphraseColor": "6ACEB9",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "月のテンペスト",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -2464,10 +2765,12 @@
       "cos-skr-casl-00",
       "cos-skr-casl-01",
       "cos-skr-fest-00",
+      "cos-skr-flow-00",
       "cos-skr-idol-00",
       "cos-skr-idol-01",
       "cos-skr-idol-02",
       "cos-skr-idol-03",
+      "cos-skr-miku-00",
       "cos-skr-mizg-00",
       "cos-skr-mizg-01",
       "cos-skr-newy-00",
@@ -2576,7 +2879,7 @@
       "sud_vo_cmn_skr_dress-02"
     ],
     "isLeftHanded": true,
-    "psylliumColerType": 6,
+    "psylliumColorType": 6,
     "shortProfile": "何気ない日々を大切にする\n天真爛漫なアイドル",
     "threeSize": "B82・W57・H81",
     "catchphrase": "今、この胸、すっごい\nドキドキしてるから。",
@@ -2588,6 +2891,9 @@
     "groupPositionX": 0.46,
     "groupPositionY": 0.61,
     "catchphraseColor": "F69941",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "サニーピース",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -2614,9 +2920,12 @@
     "costumeIds": [
       "cos-smr-casl-00",
       "cos-smr-casl-01",
+      "cos-smr-fest-00",
       "cos-smr-frut-00",
       "cos-smr-idol-00",
       "cos-smr-idol-02",
+      "cos-smr-idol-03",
+      "cos-smr-miku-00",
       "cos-smr-mizg-00",
       "cos-smr-mizg-01",
       "cos-smr-schl-00",
@@ -2724,7 +3033,7 @@
       "sud_vo_cmn_smr_dress-01",
       "sud_vo_cmn_smr_dress-02"
     ],
-    "psylliumColerType": 15,
+    "psylliumColorType": 15,
     "shortProfile": "家族を想い\nアイドルを志した\n元天才子役",
     "threeSize": "B73・W54・H75",
     "catchphrase": "元子役？\nえへへ、どうでしょうね〜",
@@ -2735,6 +3044,9 @@
     "groupPositionX": 0.4,
     "groupPositionY": 0.4,
     "catchphraseColor": "FFE495",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "TRINITYAiLE",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -2836,6 +3148,8 @@
     "sdPersonalityType": 1,
     "firstName": "橋本",
     "defaultLiveCostumeId": "cos-stm-casl-00",
+    "type": 2,
+    "groupName": "ー",
     "characterGroupId": "",
     "zodiacSign": "",
     "hometown": "",
@@ -2850,7 +3164,7 @@
     "costumeAdditionMotionAssetIds": [],
     "costumeVoiceAssetIds": [],
     "isLeftHanded": false,
-    "psylliumColerType": 0,
+    "psylliumColorType": 0,
     "shortProfile": "",
     "threeSize": "",
     "catchphrase": "",
@@ -2861,7 +3175,8 @@
     "groupPositionX": 0.0,
     "groupPositionY": 0.0,
     "catchphraseColor": "",
-    "unlockConditionId": ""
+    "unlockConditionId": "",
+    "isHomeDanceTarget": false
   },
   {
     "id": "char-suz",
@@ -2887,12 +3202,15 @@
       "cos-suz-idol-00",
       "cos-suz-idol-01",
       "cos-suz-idol-02",
+      "cos-suz-miku-00",
       "cos-suz-mizg-00",
       "cos-suz-mizg-01",
+      "cos-suz-mizg-02",
       "cos-suz-onep-00",
       "cos-suz-schl-00",
       "cos-suz-sdam-00",
       "cos-suz-sdpl-00",
+      "cos-suz-seik-00",
       "cos-suz-trng-00"
     ],
     "altCharacters": [
@@ -2994,7 +3312,7 @@
       "sud_vo_cmn_suz_dress-01",
       "sud_vo_cmn_suz_dress-02"
     ],
-    "psylliumColerType": 5,
+    "psylliumColorType": 5,
     "shortProfile": "長瀬麻奈を崇拝する\nドジでいじられやすい\nお嬢様",
     "threeSize": "B71・W53・H73",
     "catchphrase": "私の足を引っ張らないよう\n皆様、よろしく\nお願いしますわ。",
@@ -3005,6 +3323,9 @@
     "groupPositionX": 0.33,
     "groupPositionY": 0.45,
     "catchphraseColor": "F2EE56",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "月のテンペスト",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -3034,13 +3355,16 @@
       "cos-szk-casl-00",
       "cos-szk-casl-01",
       "cos-szk-chna-00",
+      "cos-szk-flow-00",
       "cos-szk-idol-00",
       "cos-szk-idol-01",
       "cos-szk-idol-02",
       "cos-szk-idol-03",
+      "cos-szk-miku-00",
       "cos-szk-mizg-00",
       "cos-szk-mizg-01",
       "cos-szk-newy-00",
+      "cos-szk-rock-00",
       "cos-szk-schl-00",
       "cos-szk-sdam-00",
       "cos-szk-sdpl-00",
@@ -3147,7 +3471,7 @@
       "sud_vo_cmn_szk_dress-02"
     ],
     "isLeftHanded": true,
-    "psylliumColerType": 2,
+    "psylliumColorType": 2,
     "shortProfile": "笑顔が少し苦手で寡黙な\nアイドルオタク",
     "threeSize": "B77・W57・H79",
     "catchphrase": "トーク、は……\nなんとか、\nがんばる。",
@@ -3158,6 +3482,9 @@
     "groupPositionX": 0.26,
     "groupPositionY": 0.77,
     "catchphraseColor": "99C99B",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "サニーピース",
     "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -3257,6 +3584,8 @@
     "sdPersonalityType": 1,
     "firstName": "VENUS事務局",
     "defaultLiveCostumeId": "cos-stm-casl-00",
+    "type": 2,
+    "groupName": "ー",
     "characterGroupId": "",
     "cv": "",
     "zodiacSign": "",
@@ -3272,7 +3601,7 @@
     "costumeAdditionMotionAssetIds": [],
     "costumeVoiceAssetIds": [],
     "isLeftHanded": false,
-    "psylliumColerType": 0,
+    "psylliumColorType": 0,
     "shortProfile": "",
     "threeSize": "",
     "catchphrase": "",
@@ -3283,7 +3612,8 @@
     "groupPositionX": 0.0,
     "groupPositionY": 0.0,
     "catchphraseColor": "",
-    "unlockConditionId": ""
+    "unlockConditionId": "",
+    "isHomeDanceTarget": false
   },
   {
     "id": "char-yu",
@@ -3305,8 +3635,11 @@
     "costumeIds": [
       "cos-yu-casl-00",
       "cos-yu-casl-01",
+      "cos-yu-fest-00",
       "cos-yu-idol-00",
       "cos-yu-idol-02",
+      "cos-yu-idol-03",
+      "cos-yu-miku-00",
       "cos-yu-mizg-00",
       "cos-yu-mizg-01",
       "cos-yu-schl-00",
@@ -3414,7 +3747,7 @@
       "sud_vo_cmn_yu_dress-01",
       "sud_vo_cmn_yu_dress-02"
     ],
-    "psylliumColerType": 7,
+    "psylliumColorType": 7,
     "shortProfile": "常に冷静な\nTRINITYAiLEの\nまとめ役",
     "threeSize": "B88・W59・H86",
     "catchphrase": "瑠依ちゃんが一番に\nなってくれたら\nええんや。",
@@ -3425,6 +3758,9 @@
     "groupPositionX": 0.75,
     "groupPositionY": 0.64,
     "catchphraseColor": "AECE6E",
+    "isHomeDanceTarget": true,
+    "type": 1,
+    "groupName": "TRINITYAiLE",
     "isNpc": false,
     "heightCorrectionPermil": 0,
     "talkArrivalAdditionMotionAssetId": "",

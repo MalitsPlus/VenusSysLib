@@ -38,7 +38,8 @@
     "costumeTypeIds": [
       "casl",
       "schl",
-      "trng"
+      "trng",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "cafe-00",
@@ -53,11 +54,49 @@
     "assistantNpcSpineId": ""
   },
   {
+    "id": "camp",
+    "costumeTypeIds": [
+      "casl",
+      "gene"
+    ],
+    "forceCostumeTypeId": "casl",
+    "fieldId": "camp-00",
+    "existBackground": true,
+    "existForeground": true,
+    "backgroundTopColorCode": "26353a",
+    "backgroundBottomColorCode": "406a5d",
+    "fieldSpineNumber": 1,
+    "existProp": true,
+    "fieldSpineColorSlotId": "",
+    "fieldSpineColorSlotNumber": 0,
+    "assistantNpcSpineId": ""
+  },
+  {
+    "id": "cm",
+    "costumeTypeIds": [
+      "casl",
+      "schl",
+      "gene"
+    ],
+    "forceCostumeTypeId": "casl",
+    "fieldId": "cm-00",
+    "existBackground": true,
+    "backgroundTopColorCode": "d4dbe1",
+    "backgroundBottomColorCode": "e4be9e",
+    "fieldSpineNumber": 4,
+    "existForeground": false,
+    "fieldSpineColorSlotId": "",
+    "fieldSpineColorSlotNumber": 0,
+    "existProp": false,
+    "assistantNpcSpineId": ""
+  },
+  {
     "id": "dormitory",
     "costumeTypeIds": [
       "casl",
       "schl",
-      "trng"
+      "trng",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "dormitory-00",
@@ -77,7 +116,8 @@
       "idol",
       "casl",
       "mizg",
-      "mizg-water-ng"
+      "mizg-water-ng",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "event-booth-00",
@@ -95,7 +135,8 @@
     "id": "event_stage",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "event-stage-00",
@@ -115,7 +156,8 @@
       "idol",
       "casl",
       "schl",
-      "mizg-water-ng"
+      "mizg-water-ng",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "fashion-show-00",
@@ -133,7 +175,8 @@
     "id": "fashion_model",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "fashion-model-00",
@@ -152,7 +195,8 @@
     "costumeTypeIds": [
       "idol",
       "casl",
-      "schl"
+      "schl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "flyers-00",
@@ -170,7 +214,8 @@
     "id": "handshake-stage-1",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "tent-00",
@@ -188,7 +233,8 @@
     "id": "handshake-stage-2",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "cd-shop-00",
@@ -206,7 +252,8 @@
     "id": "handshake-stage-3",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "live-house-00",
@@ -224,7 +271,8 @@
     "id": "handshake-stage-4",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "event-space-00",
@@ -236,6 +284,43 @@
     "fieldSpineNumber": 0,
     "fieldSpineColorSlotId": "",
     "fieldSpineColorSlotNumber": 0,
+    "assistantNpcSpineId": ""
+  },
+  {
+    "id": "handshake-stage-5",
+    "costumeTypeIds": [
+      "idol",
+      "casl",
+      "gene"
+    ],
+    "forceCostumeTypeId": "idol",
+    "fieldId": "gym-00",
+    "existBackground": true,
+    "existForeground": true,
+    "backgroundTopColorCode": "277881",
+    "backgroundBottomColorCode": "dfac74",
+    "existProp": true,
+    "fieldSpineNumber": 0,
+    "fieldSpineColorSlotId": "",
+    "fieldSpineColorSlotNumber": 0,
+    "assistantNpcSpineId": ""
+  },
+  {
+    "id": "hawaii",
+    "costumeTypeIds": [
+      "mizg",
+      "mizg-water-ng"
+    ],
+    "forceCostumeTypeId": "mizg",
+    "fieldId": "hawaii-00",
+    "existBackground": true,
+    "backgroundTopColorCode": "337af1",
+    "backgroundBottomColorCode": "c48c55",
+    "fieldSpineNumber": 3,
+    "existForeground": false,
+    "fieldSpineColorSlotId": "",
+    "fieldSpineColorSlotNumber": 0,
+    "existProp": false,
     "assistantNpcSpineId": ""
   },
   {
@@ -259,7 +344,8 @@
     "id": "karaoke",
     "costumeTypeIds": [
       "casl",
-      "schl"
+      "schl",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "karaoke-00",
@@ -277,7 +363,8 @@
     "id": "music-program",
     "costumeTypeIds": [
       "idol",
-      "mizg-water-ng"
+      "mizg-water-ng",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "music-program-00",
@@ -295,7 +382,8 @@
     "id": "photo-session-stage-1",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "tent-00",
@@ -313,7 +401,8 @@
     "id": "photo-session-stage-2",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "cd-shop-00",
@@ -331,7 +420,8 @@
     "id": "photo-session-stage-3",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "live-house-00",
@@ -349,7 +439,8 @@
     "id": "photo-session-stage-4",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "event-space-00",
@@ -357,6 +448,25 @@
     "existForeground": true,
     "backgroundTopColorCode": "e3e9f1",
     "backgroundBottomColorCode": "fcdcb5",
+    "existProp": true,
+    "assistantNpcSpineId": "cameraman",
+    "fieldSpineNumber": 0,
+    "fieldSpineColorSlotId": "",
+    "fieldSpineColorSlotNumber": 0
+  },
+  {
+    "id": "photo-session-stage-5",
+    "costumeTypeIds": [
+      "idol",
+      "casl",
+      "gene"
+    ],
+    "forceCostumeTypeId": "idol",
+    "fieldId": "gym-00",
+    "existBackground": true,
+    "existForeground": true,
+    "backgroundTopColorCode": "277881",
+    "backgroundBottomColorCode": "dfac74",
     "existProp": true,
     "assistantNpcSpineId": "cameraman",
     "fieldSpineNumber": 0,
@@ -384,7 +494,8 @@
     "id": "promotion-video",
     "costumeTypeIds": [
       "idol",
-      "mizg-water-ng"
+      "mizg-water-ng",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "promotion-video-00",
@@ -405,7 +516,8 @@
       "casl",
       "schl",
       "mizg",
-      "mizg-water-ng"
+      "mizg-water-ng",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "pr-shooting-00",
@@ -423,7 +535,8 @@
     "id": "quiz_program",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "quiz-program-00",
@@ -442,7 +555,8 @@
     "costumeTypeIds": [
       "idol",
       "casl",
-      "schl"
+      "schl",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "radio-distribution-00",
@@ -461,7 +575,8 @@
     "costumeTypeIds": [
       "casl",
       "schl",
-      "trng"
+      "trng",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "shopping-00",
@@ -479,7 +594,8 @@
     "id": "sign-stage-1",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "tent-00",
@@ -497,7 +613,8 @@
     "id": "sign-stage-2",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "cd-shop-00",
@@ -515,7 +632,8 @@
     "id": "sign-stage-3",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "live-house-00",
@@ -533,7 +651,8 @@
     "id": "sign-stage-4",
     "costumeTypeIds": [
       "idol",
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "idol",
     "fieldId": "event-space-00",
@@ -543,6 +662,43 @@
     "backgroundBottomColorCode": "fcdcb5",
     "existProp": true,
     "fieldSpineNumber": 0,
+    "fieldSpineColorSlotId": "",
+    "fieldSpineColorSlotNumber": 0,
+    "assistantNpcSpineId": ""
+  },
+  {
+    "id": "sign-stage-5",
+    "costumeTypeIds": [
+      "idol",
+      "casl",
+      "gene"
+    ],
+    "forceCostumeTypeId": "idol",
+    "fieldId": "gym-00",
+    "existBackground": true,
+    "existForeground": true,
+    "backgroundTopColorCode": "277881",
+    "backgroundBottomColorCode": "dfac74",
+    "existProp": true,
+    "fieldSpineNumber": 0,
+    "fieldSpineColorSlotId": "",
+    "fieldSpineColorSlotNumber": 0,
+    "assistantNpcSpineId": ""
+  },
+  {
+    "id": "stadium",
+    "costumeTypeIds": [
+      "idol",
+      "gene"
+    ],
+    "forceCostumeTypeId": "idol",
+    "fieldId": "stadium-00",
+    "existBackground": true,
+    "backgroundTopColorCode": "282387",
+    "backgroundBottomColorCode": "eba06c",
+    "fieldSpineNumber": 2,
+    "existProp": true,
+    "existForeground": false,
     "fieldSpineColorSlotId": "",
     "fieldSpineColorSlotNumber": 0,
     "assistantNpcSpineId": ""
@@ -566,11 +722,30 @@
     "assistantNpcSpineId": ""
   },
   {
+    "id": "talk-program",
+    "costumeTypeIds": [
+      "casl",
+      "gene"
+    ],
+    "forceCostumeTypeId": "casl",
+    "fieldId": "talk-program-00",
+    "existBackground": true,
+    "backgroundTopColorCode": "7e8ca2",
+    "backgroundBottomColorCode": "e2dad4",
+    "fieldSpineNumber": 1,
+    "existProp": true,
+    "existForeground": false,
+    "fieldSpineColorSlotId": "",
+    "fieldSpineColorSlotNumber": 0,
+    "assistantNpcSpineId": ""
+  },
+  {
     "id": "theme_park",
     "costumeTypeIds": [
       "casl",
       "schl",
-      "trng"
+      "trng",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "theme-park-00",
@@ -587,7 +762,8 @@
   {
     "id": "video_distribution",
     "costumeTypeIds": [
-      "casl"
+      "casl",
+      "gene"
     ],
     "forceCostumeTypeId": "casl",
     "fieldId": "video-distribution-00",

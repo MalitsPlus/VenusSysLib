@@ -210,6 +210,66 @@
     "liveAbilityId": ""
   },
   {
+    "id": "card-ai-05-mizg-01",
+    "assetId": "ai-05-mizg-01",
+    "name": "ネオン煌めくナイトプール",
+    "description": "じゃあ、もしもですよ\r\nもし、マネージャーじゃなかったら\r\n……今の私、ナンパしたくなりますか？",
+    "type": 3,
+    "characterId": "char-ai",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 412,
+    "danceRatioPermil": 329,
+    "visualRatioPermil": 289,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-ai-05-mizg-01-1",
+    "skillId2": "sk-ai-05-mizg-01-2",
+    "skillId3": "sk-ai-05-mizg-01-3",
+    "activityAbilityId": "aab-promotion_manager_exp_up",
+    "order": 227,
+    "releaseDate": "1659236400000",
+    "rewardCostumeId": "cos-ai-mizg-01",
+    "imageType1": 3,
+    "displayPositionX1": -0.165,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": 0.125,
+    "highlightDisplayPositionY1": 0.153,
+    "highlightDisplayScale1": 1.1,
+    "imageType2": 3,
+    "displayPositionX2": -0.165,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": 0.125,
+    "highlightDisplayPositionY2": 0.153,
+    "highlightDisplayScale2": 1.1,
+    "obtainMessage": "……今の私、ナンパしたくなりますか？",
+    "stories": [
+      {
+        "storyId": "st-card-ai-05-mizg-01-01"
+      },
+      {
+        "storyId": "st-card-ai-05-mizg-01-02"
+      },
+      {
+        "storyId": "st-card-ai-05-mizg-01-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-ai-05-mizg-01",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-ai-05-mizg-01",
+        "messageId": ""
+      }
+    ],
+    "liveAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "homeTalks": []
+  },
+  {
     "id": "card-ai-05-tact-00",
     "assetId": "ai-05-tact-00",
     "name": "セクシーシューティング",
@@ -327,6 +387,47 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "homeTalks": []
+  },
+  {
+    "id": "card-aoi-02-eve-01",
+    "assetId": "aoi-02-eve-01",
+    "name": "そっとしておく仲間の背中",
+    "description": "莉央、ちゃんと琴乃と話してるかな\n僕らは静かに見守ってよう",
+    "type": 1,
+    "characterId": "char-aoi",
+    "initialRarity": 2,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 321,
+    "danceRatioPermil": 279,
+    "visualRatioPermil": 430,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-aoi-02-eve-01-1",
+    "skillId2": "sk-aoi-02-eve-01-2",
+    "skillId3": "sk-aoi-02-eve-01-3",
+    "order": 241,
+    "releaseDate": "1664766000000",
+    "imageType1": 1,
+    "displayPositionX1": -0.008,
+    "displayPositionY1": 0.237,
+    "displayScale1": 1.1,
+    "highlightDisplayPositionX1": -0.007,
+    "highlightDisplayPositionY1": 0.286,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 2,
+    "displayPositionX2": 0.367,
+    "displayPositionY2": -0.024,
+    "displayScale2": 2.0,
+    "highlightDisplayPositionX2": -0.462,
+    "highlightDisplayPositionY2": 0.085,
+    "highlightDisplayScale2": 2.0,
+    "liveAbilityId": "",
+    "activityAbilityId": "",
+    "rewardCostumeId": "",
+    "obtainMessage": "",
+    "stories": [],
+    "messages": [],
     "homeTalks": []
   },
   {
@@ -538,6 +639,66 @@
       }
     ],
     "activityAbilityId": ""
+  },
+  {
+    "id": "card-aoi-05-mizg-01",
+    "assetId": "aoi-05-mizg-01",
+    "name": "君と結ぶ夏の約束",
+    "description": "みんな覚悟は出来てる？\r\n僕達のステージをこの夏一番熱い場所にするよ\r\n夏の太陽よりも熱くて眩しい\r\nライブを目に焼き付けてよね",
+    "type": 1,
+    "characterId": "char-aoi",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 279,
+    "danceRatioPermil": 432,
+    "visualRatioPermil": 319,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-aoi-05-mizg-01-1",
+    "skillId2": "sk-aoi-05-mizg-01-2",
+    "skillId3": "sk-aoi-05-mizg-01-3",
+    "liveAbilityId": "lba-dance_multiply",
+    "order": 228,
+    "releaseDate": "1659236400000",
+    "rewardCostumeId": "cos-aoi-mizg-01",
+    "imageType1": 3,
+    "displayPositionX1": 0.017,
+    "displayPositionY1": 0.092,
+    "displayScale1": 1.4,
+    "highlightDisplayPositionX1": -0.121,
+    "highlightDisplayPositionY1": 0.198,
+    "highlightDisplayScale1": 1.4,
+    "imageType2": 3,
+    "displayPositionX2": 0.017,
+    "displayPositionY2": 0.092,
+    "displayScale2": 1.4,
+    "highlightDisplayPositionX2": -0.121,
+    "highlightDisplayPositionY2": 0.198,
+    "highlightDisplayScale2": 1.4,
+    "obtainMessage": "僕達のステージを、\nこの夏一番熱い場所にするよ",
+    "stories": [
+      {
+        "storyId": "st-card-aoi-05-mizg-01-01"
+      },
+      {
+        "storyId": "st-card-aoi-05-mizg-01-02"
+      },
+      {
+        "storyId": "st-card-aoi-05-mizg-01-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-aoi-05-mizg-01",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-aoi-05-mizg-01",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "homeTalks": []
   },
   {
     "id": "card-aoi-05-vlnt-00",
@@ -777,6 +938,66 @@
       {
         "messageId": "message-card-chs-05-chsk-00-02",
         "telephoneId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "homeTalks": []
+  },
+  {
+    "id": "card-chs-05-flow-00",
+    "assetId": "chs-05-flow-00",
+    "name": "檻に咲く名花",
+    "description": "今日は何かが起こりそうな気がします\r\nどんな撮影になるのか、楽しみです",
+    "type": 2,
+    "characterId": "char-chs",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 410,
+    "danceRatioPermil": 329,
+    "visualRatioPermil": 291,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-chs-05-flow-00-1",
+    "skillId2": "sk-chs-05-flow-00-2",
+    "skillId3": "sk-chs-05-flow-00-3",
+    "liveAbilityId": "lba-vocal_multiply",
+    "order": 243,
+    "releaseDate": "1666148400000",
+    "rewardCostumeId": "cos-chs-flow-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.157,
+    "displayPositionY1": 0.143,
+    "displayScale1": 1.4,
+    "highlightDisplayPositionX1": 0.057,
+    "highlightDisplayPositionY1": 0.236,
+    "highlightDisplayScale1": 0.9,
+    "imageType2": 3,
+    "displayPositionX2": -0.157,
+    "displayPositionY2": 0.143,
+    "displayScale2": 1.4,
+    "highlightDisplayPositionX2": 0.057,
+    "highlightDisplayPositionY2": 0.236,
+    "highlightDisplayScale2": 0.9,
+    "obtainMessage": "どうしたら笑ってくれるのかな……",
+    "stories": [
+      {
+        "storyId": "st-card-chs-05-flow-00-01"
+      },
+      {
+        "storyId": "st-card-chs-05-flow-00-02"
+      },
+      {
+        "storyId": "st-card-chs-05-flow-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-chs-05-flow-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-chs-05-flow-00",
+        "messageId": ""
       }
     ],
     "activityAbilityId": "",
@@ -1402,6 +1623,66 @@
     "homeTalks": []
   },
   {
+    "id": "card-kan-05-idol-00",
+    "assetId": "kan-05-idol-00",
+    "name": "a piece of cake",
+    "description": "今日は最っ高だったなー！！\nやっぱ、すかっと勝つのが一番気分がいいね！",
+    "type": 3,
+    "characterId": "char-kan",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 285,
+    "danceRatioPermil": 415,
+    "visualRatioPermil": 330,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-kan-05-idol-00-1",
+    "skillId2": "sk-kan-05-idol-00-2",
+    "skillId3": "sk-kan-05-idol-00-3",
+    "liveAbilityId": "lba-critical_score_multiply",
+    "order": 221,
+    "releaseDate": "1656385200000",
+    "rewardCostumeId": "cos-kan-idol-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.237,
+    "displayPositionY1": 0.083,
+    "displayScale1": 1.2,
+    "highlightDisplayPositionX1": 0.895,
+    "highlightDisplayPositionY1": 0.089,
+    "highlightDisplayScale1": 1.1,
+    "imageType2": 3,
+    "displayPositionX2": -0.237,
+    "displayPositionY2": 0.083,
+    "displayScale2": 1.2,
+    "highlightDisplayPositionX2": 0.895,
+    "highlightDisplayPositionY2": 0.089,
+    "highlightDisplayScale2": 1.1,
+    "obtainMessage": "やっぱ、すかっと勝つのが\n一番気分がいいね！",
+    "stories": [
+      {
+        "storyId": "st-card-kan-05-idol-00-01"
+      },
+      {
+        "storyId": "st-card-kan-05-idol-00-02"
+      },
+      {
+        "storyId": "st-card-kan-05-idol-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-kan-05-idol-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-kan-05-idol-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "homeTalks": []
+  },
+  {
     "id": "card-kkr-03-schl-00",
     "assetId": "kkr-03-schl-00",
     "name": "たまには本気で",
@@ -1548,6 +1829,66 @@
     "activityAbilityId": ""
   },
   {
+    "id": "card-kkr-05-mizg-01",
+    "assetId": "kkr-05-mizg-01",
+    "name": "忘れられない夏の味",
+    "description": "あれ～、照れてるんですかぁ？\r\n恥ずかしがらなくていいんですよ？\r\n溶けちゃう前にこころが食べさせてあげますね\r\nお口を開けて……はい、あーん",
+    "type": 1,
+    "characterId": "char-kkr",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 279,
+    "danceRatioPermil": 433,
+    "visualRatioPermil": 318,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-kkr-05-mizg-01-1",
+    "skillId2": "sk-kkr-05-mizg-01-2",
+    "skillId3": "sk-kkr-05-mizg-01-3",
+    "liveAbilityId": "lba-special_skill_score_multiply",
+    "order": 230,
+    "releaseDate": "1659927600000",
+    "rewardCostumeId": "cos-kkr-mizg-01",
+    "imageType1": 3,
+    "displayPositionX1": 0.035,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": 0.103,
+    "highlightDisplayPositionY1": 0.118,
+    "highlightDisplayScale1": 0.6,
+    "imageType2": 3,
+    "displayPositionX2": 0.035,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": 0.103,
+    "highlightDisplayPositionY2": 0.118,
+    "highlightDisplayScale2": 0.6,
+    "obtainMessage": "やっぱり夏といえばかき氷ですよね～",
+    "stories": [
+      {
+        "storyId": "st-card-kkr-05-mizg-01-01"
+      },
+      {
+        "storyId": "st-card-kkr-05-mizg-01-02"
+      },
+      {
+        "storyId": "st-card-kkr-05-mizg-01-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-kkr-05-mizg-01",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-kkr-05-mizg-01",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "homeTalks": []
+  },
+  {
     "id": "card-kkr-05-seik-00",
     "assetId": "kkr-05-seik-00",
     "name": "私は私",
@@ -1669,6 +2010,66 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "homeTalks": []
+  },
+  {
+    "id": "card-kor-05-idol-00",
+    "assetId": "kor-05-idol-00",
+    "name": "snake in the grass",
+    "description": "いくらお金が稼げるからって、全く楽しくないなら\r\n移籍してまでアイドル続けたりはしませんよ\r\nま、ファッションの次くらいにですけどね！",
+    "type": 1,
+    "characterId": "char-kor",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 435,
+    "danceRatioPermil": 320,
+    "visualRatioPermil": 275,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-kor-05-idol-00-1",
+    "skillId2": "sk-kor-05-idol-00-2",
+    "skillId3": "sk-kor-05-idol-00-3",
+    "liveAbilityId": "lba-technique_add",
+    "order": 220,
+    "releaseDate": "1656385200000",
+    "rewardCostumeId": "cos-kor-idol-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.24,
+    "displayPositionY1": 0.188,
+    "displayScale1": 1.6,
+    "highlightDisplayPositionX1": 0.356,
+    "highlightDisplayPositionY1": 0.237,
+    "highlightDisplayScale1": 1.3,
+    "imageType2": 3,
+    "displayPositionX2": -0.24,
+    "displayPositionY2": 0.188,
+    "displayScale2": 1.6,
+    "highlightDisplayPositionX2": 0.356,
+    "highlightDisplayPositionY2": 0.237,
+    "highlightDisplayScale2": 1.3,
+    "obtainMessage": "全く楽しくないなら\n移籍してまでアイドル\n続けたりはしませんよ",
+    "stories": [
+      {
+        "storyId": "st-card-kor-05-idol-00-01"
+      },
+      {
+        "storyId": "st-card-kor-05-idol-00-02"
+      },
+      {
+        "storyId": "st-card-kor-05-idol-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-kor-05-idol-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-kor-05-idol-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
     "homeTalks": []
   },
   {
@@ -1836,6 +2237,47 @@
     "homeTalks": []
   },
   {
+    "id": "card-ktn-05-add-00",
+    "assetId": "ktn-05-add-00",
+    "name": "星海に捧ぐ追想の歌",
+    "description": "お姉ちゃんが繫げてくれた運命の下で\n私達またこうして歌ってるよ\n季節がめぐって、またいつか会える日まで……\nこれから先も、ずっと見守っていてね",
+    "type": 1,
+    "characterId": "char-ktn",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 318,
+    "danceRatioPermil": 281,
+    "visualRatioPermil": 431,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-ktn-05-add-00-1",
+    "skillId2": "sk-ktn-05-add-00-2",
+    "skillId3": "sk-ktn-05-add-00-3",
+    "activityAbilityId": "aab-refresh_stamina_up",
+    "order": 242,
+    "releaseDate": "1664766000000",
+    "imageType1": 2,
+    "displayPositionX1": 0.059,
+    "displayPositionY1": 0.236,
+    "displayScale1": 2.0,
+    "highlightDisplayPositionX1": -0.149,
+    "highlightDisplayPositionY1": 0.279,
+    "highlightDisplayScale1": 1.3,
+    "imageType2": 2,
+    "displayPositionX2": 0.059,
+    "displayPositionY2": 0.236,
+    "displayScale2": 2.0,
+    "highlightDisplayPositionX2": -0.149,
+    "highlightDisplayPositionY2": 0.279,
+    "highlightDisplayScale2": 1.3,
+    "obtainMessage": "お姉ちゃんが繫げてくれた運命の下で\n私達またこうして歌ってるよ",
+    "liveAbilityId": "",
+    "rewardCostumeId": "",
+    "stories": [],
+    "messages": [],
+    "homeTalks": []
+  },
+  {
     "id": "card-ktn-05-fest-00",
     "assetId": "ktn-05-fest-00",
     "name": "光華霜夜",
@@ -1958,6 +2400,66 @@
       }
     ],
     "activityAbilityId": ""
+  },
+  {
+    "id": "card-ktn-05-kiok-00",
+    "assetId": "ktn-05-kiok-00",
+    "name": "泡沫の悲しみ、思いは胸に",
+    "description": "なんだか……私の中で、お姉ちゃんが\n遠くに行ってしまう気がして、寂しいんです\nだから私は、お姉ちゃんの曲を歌いたいんです\n普段の生活の中で思い出すだけじゃなくて\nアイドルとして、お姉ちゃんの……長瀬麻奈の曲を歌う",
+    "type": 3,
+    "characterId": "char-ktn",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 288,
+    "danceRatioPermil": 414,
+    "visualRatioPermil": 328,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-ktn-05-kiok-00-1",
+    "skillId2": "sk-ktn-05-kiok-00-2",
+    "skillId3": "sk-ktn-05-kiok-00-3",
+    "liveAbilityId": "lba-beat_score_multiply",
+    "order": 239,
+    "releaseDate": "1664766000000",
+    "rewardCostumeId": "cos-ktn-kiok-00",
+    "imageType1": 3,
+    "displayPositionX1": 0.098,
+    "displayPositionY1": 0.083,
+    "displayScale1": 1.2,
+    "highlightDisplayPositionX1": -0.183,
+    "highlightDisplayPositionY1": 0.265,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 3,
+    "displayPositionX2": 0.098,
+    "displayPositionY2": 0.083,
+    "displayScale2": 1.2,
+    "highlightDisplayPositionX2": -0.183,
+    "highlightDisplayPositionY2": 0.265,
+    "highlightDisplayScale2": 1.0,
+    "obtainMessage": "莉央さんと精一杯\nお姉ちゃんの曲を届けるから……！",
+    "stories": [
+      {
+        "storyId": "st-card-ktn-05-kiok-00-01"
+      },
+      {
+        "storyId": "st-card-ktn-05-kiok-00-02"
+      },
+      {
+        "storyId": "st-card-ktn-05-kiok-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-ktn-05-kiok-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-ktn-05-kiok-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "homeTalks": []
   },
   {
     "id": "card-ktn-05-mizg-01",
@@ -2354,6 +2856,66 @@
     "activityAbilityId": ""
   },
   {
+    "id": "card-mei-05-mizg-02",
+    "assetId": "mei-05-mizg-02",
+    "name": "隠しきれない顔の火照り",
+    "description": "これからの一年だって、きっといろいろあるよ\r\n大変なことも、それ以上に楽しいこともいーっぱい！\r\n来年の今頃、芽衣達はどうなってるんだろうね",
+    "type": 3,
+    "characterId": "char-mei",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 292,
+    "danceRatioPermil": 411,
+    "visualRatioPermil": 327,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-mei-05-mizg-02-1",
+    "skillId2": "sk-mei-05-mizg-02-2",
+    "skillId3": "sk-mei-05-mizg-02-3",
+    "liveAbilityId": "lba-active_skill_score_multiply",
+    "order": 226,
+    "releaseDate": "1657854000000",
+    "rewardCostumeId": "cos-mei-mizg-02",
+    "imageType1": 3,
+    "displayPositionX1": 0.005,
+    "displayPositionY1": 0.083,
+    "displayScale1": 1.2,
+    "highlightDisplayPositionX1": -0.053,
+    "highlightDisplayPositionY1": 0.224,
+    "highlightDisplayScale1": 0.8,
+    "imageType2": 3,
+    "displayPositionX2": 0.005,
+    "displayPositionY2": 0.083,
+    "displayScale2": 1.2,
+    "highlightDisplayPositionX2": -0.053,
+    "highlightDisplayPositionY2": 0.224,
+    "highlightDisplayScale2": 0.8,
+    "obtainMessage": "来年の今頃、芽衣達は\nどうなってるんだろうね",
+    "stories": [
+      {
+        "storyId": "st-card-mei-05-mizg-02-01"
+      },
+      {
+        "storyId": "st-card-mei-05-mizg-02-02"
+      },
+      {
+        "storyId": "st-card-mei-05-mizg-02-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-mei-05-mizg-02",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-mei-05-mizg-02",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "homeTalks": []
+  },
+  {
     "id": "card-mei-05-rock-00",
     "assetId": "mei-05-rock-00",
     "name": "いつかまた一緒に",
@@ -2411,6 +2973,117 @@
       }
     ],
     "activityAbilityId": "",
+    "homeTalks": []
+  },
+  {
+    "id": "card-mhk-05-idol-00",
+    "assetId": "mhk-05-idol-00",
+    "name": "make a comeback",
+    "description": "また何度も失敗するのでしょうけど\nでもそれも糧にして、いつか――\r\n必ず私達はトップに立ちます",
+    "type": 2,
+    "characterId": "char-mhk",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 320,
+    "danceRatioPermil": 277,
+    "visualRatioPermil": 403,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-mhk-05-idol-00-1",
+    "skillId2": "sk-mhk-05-idol-00-2",
+    "skillId3": "sk-mhk-05-idol-00-3",
+    "activityAbilityId": "aab-promotion_manager_exp_up",
+    "order": 222,
+    "releaseDate": "1656385200000",
+    "rewardCostumeId": "cos-mhk-idol-00",
+    "imageType1": 3,
+    "displayPositionX1": 0.268,
+    "displayPositionY1": 0.115,
+    "displayScale1": 1.3,
+    "highlightDisplayPositionX1": -0.4,
+    "highlightDisplayPositionY1": 0.202,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 3,
+    "displayPositionX2": 0.268,
+    "displayPositionY2": 0.115,
+    "displayScale2": 1.3,
+    "highlightDisplayPositionX2": -0.4,
+    "highlightDisplayPositionY2": 0.202,
+    "highlightDisplayScale2": 1.0,
+    "obtainMessage": "私、これで満足するつもり\nはありません",
+    "stories": [
+      {
+        "storyId": "st-card-mhk-05-idol-00-01"
+      },
+      {
+        "storyId": "st-card-mhk-05-idol-00-02"
+      },
+      {
+        "storyId": "st-card-mhk-05-idol-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-mhk-05-idol-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-mhk-05-idol-00",
+        "messageId": ""
+      }
+    ],
+    "liveAbilityId": "",
+    "homeTalks": []
+  },
+  {
+    "id": "card-mku-05-miku-00",
+    "assetId": "mku-05-miku-00",
+    "name": "世界繋ぐ未来の音",
+    "description": "私はもっともっと、みんなと繋がりたい\r\nここにいるみんなの心が知りたい！\r\nそんな想いを込めて歌ったけど……\r\nみんなに、届いたかな？",
+    "type": 3,
+    "characterId": "char-mku",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 413,
+    "danceRatioPermil": 328,
+    "visualRatioPermil": 289,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-mku-05-miku-00-1",
+    "skillId2": "sk-mku-05-miku-00-2",
+    "skillId3": "sk-mku-05-miku-00-3",
+    "activityAbilityId": "aab-promotion_gold_up",
+    "order": 232,
+    "releaseDate": "1661914800000",
+    "rewardCostumeId": "cos-mku-miku-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.106,
+    "displayPositionY1": 0.154,
+    "displayScale1": 1.5,
+    "highlightDisplayPositionX1": 0.06,
+    "highlightDisplayPositionY1": 0.233,
+    "highlightDisplayScale1": 1.4,
+    "imageType2": 3,
+    "displayPositionX2": -0.106,
+    "displayPositionY2": 0.154,
+    "displayScale2": 1.5,
+    "highlightDisplayPositionX2": 0.06,
+    "highlightDisplayPositionY2": 0.233,
+    "highlightDisplayScale2": 1.4,
+    "obtainMessage": "私はもっともっと、みんなと繋がりたい！",
+    "stories": [
+      {
+        "storyId": "st-card-mku-05-miku-00-01"
+      },
+      {
+        "storyId": "st-card-mku-05-miku-00-02"
+      },
+      {
+        "storyId": "st-card-mku-05-miku-00-03"
+      }
+    ],
+    "liveAbilityId": "",
+    "messages": [],
     "homeTalks": []
   },
   {
@@ -2532,6 +3205,47 @@
       }
     ],
     "liveAbilityId": ""
+  },
+  {
+    "id": "card-mna-05-prem-00",
+    "assetId": "mna-05-prem-00",
+    "name": "花火に鼓動が高鳴る夜",
+    "description": "楽しい時間っていつもあっという間に終わるんだよね\nずっと、こうしていられたらいいのになぁ",
+    "type": 1,
+    "characterId": "char-mna",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 304,
+    "danceRatioPermil": 270,
+    "visualRatioPermil": 426,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-mna-05-prem-00-1",
+    "skillId2": "sk-mna-05-prem-00-2",
+    "skillId3": "sk-mna-05-prem-00-3",
+    "activityAbilityId": "aab-promotion_accessory_multi_step_reward_up",
+    "order": 218,
+    "releaseDate": "1656039600000",
+    "imageType1": 3,
+    "displayPositionX1": -0.102,
+    "displayPositionY1": 0.115,
+    "displayScale1": 1.3,
+    "highlightDisplayPositionX1": 0.111,
+    "highlightDisplayPositionY1": 0.189,
+    "highlightDisplayScale1": 0.8,
+    "imageType2": 3,
+    "displayPositionX2": -0.102,
+    "displayPositionY2": 0.115,
+    "displayScale2": 1.3,
+    "highlightDisplayPositionX2": 0.111,
+    "highlightDisplayPositionY2": 0.189,
+    "highlightDisplayScale2": 0.8,
+    "obtainMessage": "きみのこと、頼りにしてるよ",
+    "liveAbilityId": "",
+    "rewardCostumeId": "",
+    "stories": [],
+    "messages": [],
+    "homeTalks": []
   },
   {
     "id": "card-ngs-02-eve-01",
@@ -2905,6 +3619,66 @@
     "activityAbilityId": ""
   },
   {
+    "id": "card-ngs-05-mizg-02",
+    "assetId": "ngs-05-mizg-02",
+    "name": "夏空シェイプアップ",
+    "description": "……今更ですけど、この衣装、結構攻めてますよね？\r\n着るの、凄く恥ずかしかったんですけど\r\nせっかくの夏フェスですから、頑張っちゃいました！",
+    "type": 1,
+    "characterId": "char-ngs",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 306,
+    "danceRatioPermil": 270,
+    "visualRatioPermil": 424,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-ngs-05-mizg-02-1",
+    "skillId2": "sk-ngs-05-mizg-02-2",
+    "skillId3": "sk-ngs-05-mizg-02-3",
+    "activityAbilityId": "aab-refresh_stamina_up",
+    "order": 223,
+    "releaseDate": "1656817200000",
+    "rewardCostumeId": "cos-ngs-mizg-02",
+    "imageType1": 3,
+    "displayPositionX1": -0.127,
+    "displayPositionY1": 0.083,
+    "displayScale1": 1.2,
+    "highlightDisplayPositionX1": 0.75,
+    "highlightDisplayPositionY1": 0.197,
+    "highlightDisplayScale1": 0.9,
+    "imageType2": 3,
+    "displayPositionX2": -0.127,
+    "displayPositionY2": 0.083,
+    "displayScale2": 1.2,
+    "highlightDisplayPositionX2": 0.75,
+    "highlightDisplayPositionY2": 0.197,
+    "highlightDisplayScale2": 0.9,
+    "obtainMessage": "この衣装、結構攻めてますよね？",
+    "stories": [
+      {
+        "storyId": "st-card-ngs-05-mizg-02-01"
+      },
+      {
+        "storyId": "st-card-ngs-05-mizg-02-02"
+      },
+      {
+        "storyId": "st-card-ngs-05-mizg-02-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-ngs-05-mizg-02",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-ngs-05-mizg-02",
+        "messageId": ""
+      }
+    ],
+    "liveAbilityId": "",
+    "homeTalks": []
+  },
+  {
     "id": "card-rei-02-eve-01",
     "assetId": "rei-02-eve-01",
     "name": "ココロ Distance",
@@ -3090,6 +3864,66 @@
       }
     ],
     "activityAbilityId": ""
+  },
+  {
+    "id": "card-rei-05-mizg-02",
+    "assetId": "rei-05-mizg-02",
+    "name": "大胆なのは夏のせい",
+    "description": "ふふ……夏の海って楽しいわね\r\n水着で海に飛び込みたくなる気持ちが分かるわ\r\nマネージャー、冷たくて気持ちいいですよ！\r\nこっちに来て私達と水遊びしませんか？",
+    "type": 2,
+    "characterId": "char-rei",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 399,
+    "danceRatioPermil": 319,
+    "visualRatioPermil": 282,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-rei-05-mizg-02-1",
+    "skillId2": "sk-rei-05-mizg-02-2",
+    "skillId3": "sk-rei-05-mizg-02-3",
+    "liveAbilityId": "lba-vocal_multiply",
+    "order": 224,
+    "releaseDate": "1656817200000",
+    "rewardCostumeId": "cos-rei-mizg-02",
+    "imageType1": 3,
+    "displayPositionX1": 0.233,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": -0.59,
+    "highlightDisplayPositionY1": 0.229,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 3,
+    "displayPositionX2": 0.233,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -0.59,
+    "highlightDisplayPositionY2": 0.229,
+    "highlightDisplayScale2": 1.0,
+    "obtainMessage": "こっちに来て私達と水遊びしませんか？",
+    "stories": [
+      {
+        "storyId": "st-card-rei-05-mizg-02-01"
+      },
+      {
+        "storyId": "st-card-rei-05-mizg-02-02"
+      },
+      {
+        "storyId": "st-card-rei-05-mizg-02-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-rei-05-mizg-02",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-rei-05-mizg-02",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "homeTalks": []
   },
   {
     "id": "card-rei-05-newy-00",
@@ -3389,6 +4223,47 @@
     "highlightDisplayPositionX2": 0.022,
     "highlightDisplayPositionY2": 0.222,
     "highlightDisplayScale2": 0.8,
+    "liveAbilityId": "",
+    "activityAbilityId": "",
+    "rewardCostumeId": "",
+    "displayPositionY2": 0.0,
+    "obtainMessage": "",
+    "stories": [],
+    "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-rio-02-eve-03",
+    "assetId": "rio-02-eve-03",
+    "name": "どたばたバカンス",
+    "description": "悪いけど、貴方達と遊んでいる暇はないの\nせっかく海に来たのだから、ナンパなんてせず泳いできなさいよ",
+    "type": 1,
+    "characterId": "char-rio",
+    "initialRarity": 2,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 421,
+    "danceRatioPermil": 309,
+    "visualRatioPermil": 270,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-rio-02-eve-03-1",
+    "skillId2": "sk-rio-02-eve-03-2",
+    "skillId3": "sk-rio-02-eve-03-3",
+    "order": 229,
+    "releaseDate": "1659236400000",
+    "imageType1": 1,
+    "displayPositionX1": 0.012,
+    "displayPositionY1": 0.261,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": -0.087,
+    "highlightDisplayPositionY1": 0.283,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 2,
+    "displayPositionX2": 0.041,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -0.139,
+    "highlightDisplayPositionY2": 0.19,
+    "highlightDisplayScale2": 1.1,
     "liveAbilityId": "",
     "activityAbilityId": "",
     "rewardCostumeId": "",
@@ -3729,6 +4604,66 @@
     "homeTalks": []
   },
   {
+    "id": "card-rio-05-kiok-00",
+    "assetId": "rio-05-kiok-00",
+    "name": "心に刻む星月夜",
+    "description": "今、こうして貴方と見ているこの海を\r\n私はきっと、一生忘れない\r\n麻奈が、綺麗だと感じた、この星の海を――",
+    "type": 2,
+    "characterId": "char-rio",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 318,
+    "danceRatioPermil": 280,
+    "visualRatioPermil": 402,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-rio-05-kiok-00-1",
+    "skillId2": "sk-rio-05-kiok-00-2",
+    "skillId3": "sk-rio-05-kiok-00-3",
+    "liveAbilityId": "lba-visual_multiply",
+    "order": 240,
+    "releaseDate": "1664766000000",
+    "rewardCostumeId": "cos-rio-kiok-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.238,
+    "displayPositionY1": 0.083,
+    "displayScale1": 1.2,
+    "highlightDisplayPositionX1": 0.324,
+    "highlightDisplayPositionY1": 0.2,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 3,
+    "displayPositionX2": -0.238,
+    "displayPositionY2": 0.083,
+    "displayScale2": 1.2,
+    "highlightDisplayPositionX2": 0.324,
+    "highlightDisplayPositionY2": 0.2,
+    "highlightDisplayScale2": 1.0,
+    "obtainMessage": "貴方と見ているこの海を\n私はきっと、一生忘れない",
+    "stories": [
+      {
+        "storyId": "st-card-rio-05-kiok-00-01"
+      },
+      {
+        "storyId": "st-card-rio-05-kiok-00-02"
+      },
+      {
+        "storyId": "st-card-rio-05-kiok-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-rio-05-kiok-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-rio-05-kiok-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "homeTalks": []
+  },
+  {
     "id": "card-rui-01-casl-00",
     "assetId": "rui-01-eve-00",
     "name": "夕暮れのホームで",
@@ -4015,6 +4950,66 @@
       }
     ],
     "activityAbilityId": ""
+  },
+  {
+    "id": "card-rui-05-miku-00",
+    "assetId": "rui-05-miku-00",
+    "name": "歌に乗せて届ける想い",
+    "description": "この気持ち、全部、大切にしていて……いいの？\r\n……ありがとう、ミク。\r\n私の背中を押してくれて",
+    "type": 1,
+    "characterId": "char-rui",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 318,
+    "danceRatioPermil": 279,
+    "visualRatioPermil": 433,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-rui-05-miku-00-1",
+    "skillId2": "sk-rui-05-miku-00-2",
+    "skillId3": "sk-rui-05-miku-00-3",
+    "liveAbilityId": "lba-mental_add",
+    "order": 233,
+    "releaseDate": "1661914800000",
+    "rewardCostumeId": "cos-rui-miku-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.1,
+    "displayPositionY1": 0.167,
+    "displayScale1": 1.5,
+    "highlightDisplayPositionX1": 0.022,
+    "highlightDisplayPositionY1": 0.21,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 3,
+    "displayPositionX2": -0.1,
+    "displayPositionY2": 0.167,
+    "displayScale2": 1.5,
+    "highlightDisplayPositionX2": 0.022,
+    "highlightDisplayPositionY2": 0.21,
+    "highlightDisplayScale2": 1.0,
+    "obtainMessage": "ミクの気持ち――\nみんなへの感謝の気持ちを\n曲に込めて、歌います",
+    "stories": [
+      {
+        "storyId": "st-card-rui-05-miku-00-01"
+      },
+      {
+        "storyId": "st-card-rui-05-miku-00-02"
+      },
+      {
+        "storyId": "st-card-rui-05-miku-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-rui-05-miku-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-rui-05-miku-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "homeTalks": []
   },
   {
     "id": "card-rui-05-mizg-01",
@@ -4452,6 +5447,66 @@
     "activityAbilityId": ""
   },
   {
+    "id": "card-ski-05-mizg-02",
+    "assetId": "ski-05-mizg-02",
+    "name": "サンライト照らす眼差し",
+    "description": "私が……少しでも色っぽいと思った瞬間に\r\n写真を撮って下さい！　許可はいりませんから！\r\nあ……そうだ。日焼け止めを塗り直しておかないと\r\nん……ひんやりしてて気持ちいい……",
+    "type": 3,
+    "characterId": "char-ski",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 326,
+    "danceRatioPermil": 290,
+    "visualRatioPermil": 414,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-ski-05-mizg-02-1",
+    "skillId2": "sk-ski-05-mizg-02-2",
+    "skillId3": "sk-ski-05-mizg-02-3",
+    "activityAbilityId": "aab-fan_event_manager_exp_up",
+    "order": 231,
+    "releaseDate": "1660878000000",
+    "rewardCostumeId": "cos-ski-mizg-02",
+    "imageType1": 3,
+    "displayPositionX1": -0.15,
+    "displayPositionY1": 0.083,
+    "displayScale1": 1.2,
+    "highlightDisplayPositionY1": 0.268,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 3,
+    "displayPositionX2": -0.15,
+    "displayPositionY2": 0.083,
+    "displayScale2": 1.2,
+    "highlightDisplayPositionY2": 0.268,
+    "highlightDisplayScale2": 1.0,
+    "obtainMessage": "ん……ひんやりしてて気持ちいい……",
+    "stories": [
+      {
+        "storyId": "st-card-ski-05-mizg-02-01"
+      },
+      {
+        "storyId": "st-card-ski-05-mizg-02-02"
+      },
+      {
+        "storyId": "st-card-ski-05-mizg-02-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-ski-05-mizg-02",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-ski-05-mizg-02",
+        "messageId": ""
+      }
+    ],
+    "liveAbilityId": "",
+    "highlightDisplayPositionX1": 0.0,
+    "highlightDisplayPositionX2": 0.0,
+    "homeTalks": []
+  },
+  {
     "id": "card-ski-05-waso-00",
     "assetId": "ski-05-waso-00",
     "name": "胸に秘めていた情熱",
@@ -4547,6 +5602,47 @@
     "rewardCostumeId": "",
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
+    "obtainMessage": "",
+    "stories": [],
+    "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-skr-02-eve-01",
+    "assetId": "skr-02-eve-01",
+    "name": "仲良しアピール",
+    "description": "さっすがSNSのプロkanaさんだなぁ\nこれから写真を撮る時はアドバイス通り、半目がいいのかな？",
+    "type": 3,
+    "characterId": "char-skr",
+    "initialRarity": 2,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 329,
+    "danceRatioPermil": 290,
+    "visualRatioPermil": 411,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-skr-02-eve-01-1",
+    "skillId2": "sk-skr-02-eve-01-2",
+    "skillId3": "sk-skr-02-eve-01-3",
+    "order": 225,
+    "releaseDate": "1656406800000",
+    "imageType1": 1,
+    "displayPositionX1": -0.002,
+    "displayPositionY1": 0.252,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": 0.008,
+    "highlightDisplayPositionY1": 0.243,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 2,
+    "displayPositionX2": 0.019,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -0.045,
+    "highlightDisplayPositionY2": 0.004,
+    "highlightDisplayScale2": 0.8,
+    "liveAbilityId": "",
+    "activityAbilityId": "",
+    "rewardCostumeId": "",
+    "displayPositionY2": 0.0,
     "obtainMessage": "",
     "stories": [],
     "messages": [],
@@ -4962,6 +6058,66 @@
     "obtainMessage": "",
     "stories": [],
     "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-smr-05-fest-00",
+    "assetId": "smr-05-fest-00",
+    "name": "歌詠み花",
+    "description": "――ここには、色とりどりの花と\r\n心を豊かにする音楽が溢れてます\r\n美しい花と音の海の中で\r\nあなたも一緒に泳いでみませんか！",
+    "type": 1,
+    "characterId": "char-smr",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 278,
+    "danceRatioPermil": 435,
+    "visualRatioPermil": 317,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-smr-05-fest-00-1",
+    "skillId2": "sk-smr-05-fest-00-2",
+    "skillId3": "sk-smr-05-fest-00-3",
+    "activityAbilityId": "aab-promotion_manager_exp_up",
+    "order": 238,
+    "releaseDate": "1664247600000",
+    "rewardCostumeId": "cos-smr-fest-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.234,
+    "displayPositionY1": 0.188,
+    "displayScale1": 1.6,
+    "highlightDisplayPositionX1": 0.904,
+    "highlightDisplayPositionY1": 0.254,
+    "highlightDisplayScale1": 1.2,
+    "imageType2": 3,
+    "displayPositionX2": -0.234,
+    "displayPositionY2": 0.188,
+    "displayScale2": 1.6,
+    "highlightDisplayPositionX2": 0.904,
+    "highlightDisplayPositionY2": 0.254,
+    "highlightDisplayScale2": 1.2,
+    "obtainMessage": "これからも、いっぱい頼らせて下さいね",
+    "stories": [
+      {
+        "storyId": "st-card-smr-05-fest-00-01"
+      },
+      {
+        "storyId": "st-card-smr-05-fest-00-02"
+      },
+      {
+        "storyId": "st-card-smr-05-fest-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-smr-05-fest-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-smr-05-fest-00",
+        "messageId": ""
+      }
+    ],
+    "liveAbilityId": "",
     "homeTalks": []
   },
   {
@@ -5584,6 +6740,66 @@
     "homeTalks": []
   },
   {
+    "id": "card-suz-05-seik-00",
+    "assetId": "suz-05-seik-00",
+    "name": "乙女のメソッド",
+    "description": "私、あの時思い出しましたの\r\nただ全力で役を演じればいいということ、そして……\r\n自分で考えたあの子の設定を\r\nそうしたら、自然に演技が出来ましたわ",
+    "type": 2,
+    "characterId": "char-suz",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 278,
+    "danceRatioPermil": 404,
+    "visualRatioPermil": 318,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-suz-05-seik-00-1",
+    "skillId2": "sk-suz-05-seik-00-2",
+    "skillId3": "sk-suz-05-seik-00-3",
+    "activityAbilityId": "aab-promotion_accessory_multi_step_reward_up",
+    "order": 235,
+    "releaseDate": "1663210800000",
+    "rewardCostumeId": "cos-suz-seik-00",
+    "imageType1": 3,
+    "displayPositionX1": 0.01,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": -0.042,
+    "highlightDisplayPositionY1": 0.24,
+    "highlightDisplayScale1": 2.0,
+    "imageType2": 3,
+    "displayPositionX2": 0.01,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -0.042,
+    "highlightDisplayPositionY2": 0.24,
+    "highlightDisplayScale2": 2.0,
+    "obtainMessage": "いけますわ、\n役のイメージが完全に降りてきました",
+    "stories": [
+      {
+        "storyId": "st-card-suz-05-seik-00-01"
+      },
+      {
+        "storyId": "st-card-suz-05-seik-00-02"
+      },
+      {
+        "storyId": "st-card-suz-05-seik-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-suz-05-seik-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-suz-05-seik-00",
+        "messageId": ""
+      }
+    ],
+    "liveAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "homeTalks": []
+  },
+  {
     "id": "card-szk-02-eve-01",
     "assetId": "szk-02-eve-01",
     "name": "みんなのピースを",
@@ -5872,6 +7088,66 @@
     "displayPositionY2": 0.0
   },
   {
+    "id": "card-szk-05-rock-00",
+    "assetId": "szk-05-rock-00",
+    "name": "香るミステリアスクール",
+    "description": "笑顔は見せずに……気持ちを込めて……\r\nもっとクールに、私の中のかっこ良さを研ぎ澄ます……\r\n自信を持って、胸を張って、前を向いて\r\n今日の私は……世界一かっこいいアイドル……！",
+    "type": 1,
+    "characterId": "char-szk",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 434,
+    "danceRatioPermil": 319,
+    "visualRatioPermil": 277,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-szk-05-rock-00-1",
+    "skillId2": "sk-szk-05-rock-00-2",
+    "skillId3": "sk-szk-05-rock-00-3",
+    "liveAbilityId": "lba-vocal_multiply",
+    "order": 236,
+    "releaseDate": "1663729200000",
+    "rewardCostumeId": "cos-szk-rock-00",
+    "imageType1": 3,
+    "displayPositionX1": 0.089,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": -0.133,
+    "highlightDisplayPositionY1": 0.228,
+    "highlightDisplayScale1": 0.7,
+    "imageType2": 3,
+    "displayPositionX2": 0.089,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -0.133,
+    "highlightDisplayPositionY2": 0.228,
+    "highlightDisplayScale2": 0.7,
+    "obtainMessage": "今日の私は……\n世界一かっこいいアイドル……！",
+    "stories": [
+      {
+        "storyId": "st-card-szk-05-rock-00-01"
+      },
+      {
+        "storyId": "st-card-szk-05-rock-00-02"
+      },
+      {
+        "storyId": "st-card-szk-05-rock-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-szk-05-rock-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-szk-05-rock-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "homeTalks": []
+  },
+  {
     "id": "card-szk-05-yuru-00",
     "assetId": "szk-05-yuru-00",
     "name": "一緒に歌える幸せ",
@@ -5929,6 +7205,47 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "homeTalks": []
+  },
+  {
+    "id": "card-yu-02-miku-00",
+    "assetId": "yu-02-miku-00",
+    "name": "セレブレイトサウンド",
+    "description": "ミクちゃんの想いとうちらの想いが繋がった最高の曲や！\nファンのみんなに届くとええな～",
+    "type": 2,
+    "characterId": "char-yu",
+    "initialRarity": 2,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 280,
+    "danceRatioPermil": 401,
+    "visualRatioPermil": 319,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-yu-02-miku-00-1",
+    "skillId2": "sk-yu-02-miku-00-2",
+    "skillId3": "sk-yu-02-miku-00-3",
+    "order": 234,
+    "releaseDate": "1661936400000",
+    "imageType1": 1,
+    "displayPositionX1": -0.001,
+    "displayPositionY1": 0.229,
+    "displayScale1": 1.1,
+    "highlightDisplayPositionX1": -0.019,
+    "highlightDisplayPositionY1": 0.254,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 2,
+    "displayPositionX2": -0.18,
+    "displayPositionY2": -0.122,
+    "displayScale2": 2.0,
+    "highlightDisplayPositionX2": 0.138,
+    "highlightDisplayPositionY2": -0.091,
+    "highlightDisplayScale2": 1.3,
+    "liveAbilityId": "",
+    "activityAbilityId": "",
+    "rewardCostumeId": "",
+    "obtainMessage": "",
+    "stories": [],
+    "messages": [],
     "homeTalks": []
   },
   {
@@ -6011,6 +7328,66 @@
     "obtainMessage": "",
     "stories": [],
     "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-yu-05-fest-00",
+    "assetId": "yu-05-fest-00",
+    "name": "甘えん坊の鈴村さん",
+    "description": "ファンのみなさん！　スタッフのみなさん！\nそれから――\r\nずっと支えてくれる――あなたに\nうちらの歌で恩返し！　最後まで観て下さいねー！",
+    "type": 2,
+    "characterId": "char-yu",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 401,
+    "danceRatioPermil": 317,
+    "visualRatioPermil": 282,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-yu-05-fest-00-1",
+    "skillId2": "sk-yu-05-fest-00-2",
+    "skillId3": "sk-yu-05-fest-00-3",
+    "liveAbilityId": "lba-technique_add",
+    "order": 237,
+    "releaseDate": "1664247600000",
+    "rewardCostumeId": "cos-yu-fest-00",
+    "imageType1": 3,
+    "displayPositionX1": 0.16,
+    "displayPositionY1": 0.115,
+    "displayScale1": 1.3,
+    "highlightDisplayPositionX1": -0.133,
+    "highlightDisplayPositionY1": 0.228,
+    "highlightDisplayScale1": 0.7,
+    "imageType2": 3,
+    "displayPositionX2": 0.16,
+    "displayPositionY2": 0.115,
+    "displayScale2": 1.3,
+    "highlightDisplayPositionX2": -0.133,
+    "highlightDisplayPositionY2": 0.228,
+    "highlightDisplayScale2": 0.7,
+    "obtainMessage": "ずっと支えてくれる――あなたに\nうちらの歌で恩返し！",
+    "stories": [
+      {
+        "storyId": "st-card-yu-05-fest-00-01"
+      },
+      {
+        "storyId": "st-card-yu-05-fest-00-02"
+      },
+      {
+        "storyId": "st-card-yu-05-fest-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-yu-05-fest-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-yu-05-fest-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
     "homeTalks": []
   },
   {

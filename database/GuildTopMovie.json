@@ -1,5 +1,17 @@
 [
   {
+    "assetId": "clb-001-22-0915",
+    "musicAssetId": "sud_music_bgm_clb-001-inst",
+    "conditionId": "cd-time-gvg-22-0915-0921",
+    "order": 1
+  },
+  {
+    "assetId": "hsm-001-22-0815",
+    "musicAssetId": "sud_music_bgm_hsm-001-inst",
+    "conditionId": "cd-time-gvg-22-0815-0821",
+    "order": 1
+  },
+  {
     "assetId": "hsm-002-21-0916",
     "musicAssetId": "sud_music_bgm_hsm-002-inst",
     "conditionId": "cd-time-gvg-21-0916-0922",
@@ -15,6 +27,12 @@
     "assetId": "liz-007-22-0217",
     "musicAssetId": "sud_music_bgm_liz-007-inst",
     "conditionId": "cd-time-gvg-22-0217-0223",
+    "order": 1
+  },
+  {
+    "assetId": "mna-006-22-1015",
+    "musicAssetId": "sud_music_bgm_mna-006-inst",
+    "conditionId": "cd-time-gvg-22-1015-1021",
     "order": 1
   },
   {
@@ -57,6 +75,12 @@
     "assetId": "sun-006-22-0621",
     "musicAssetId": "sud_music_bgm_sun-006-inst",
     "conditionId": "cd-time-gvg-22-0621-0627",
+    "order": 1
+  },
+  {
+    "assetId": "thrx-001-22-0715",
+    "musicAssetId": "sud_music_bgm_thrx-001-inst",
+    "conditionId": "cd-time-gvg-22-0715-0721",
     "order": 1
   },
   {

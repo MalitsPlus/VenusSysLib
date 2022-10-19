@@ -85,6 +85,11 @@
     "isOpponent": false
   },
   {
+    "id": "target-position_attribute_vocal-2",
+    "type": 19,
+    "isOpponent": false
+  },
+  {
     "id": "target-self",
     "type": 1,
     "isOpponent": false
@@ -145,7 +150,17 @@
     "isOpponent": false
   },
   {
+    "id": "target-visual-2",
+    "type": 18,
+    "isOpponent": false
+  },
+  {
     "id": "target-visual-3",
+    "type": 18,
+    "isOpponent": false
+  },
+  {
+    "id": "target-visual-5",
     "type": 18,
     "isOpponent": false
   },
@@ -162,6 +177,11 @@
   {
     "id": "target-visual_higher-3",
     "type": 8,
+    "isOpponent": false
+  },
+  {
+    "id": "target-vocal-1",
+    "type": 16,
     "isOpponent": false
   },
   {
