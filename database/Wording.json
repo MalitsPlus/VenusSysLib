@@ -96,8 +96,16 @@
     "word": "スタッフ育成で使用"
   },
   {
+    "key": "common.hair.description.withCharacterName",
+    "word": "{0}のヘアスタイル"
+  },
+  {
     "key": "costume.chara.update",
     "word": "お気に入り衣装に設定しました"
+  },
+  {
+    "key": "deck.entrust.undo",
+    "word": "おまかせ設定が取り消されました"
   },
   {
     "key": "deck.photo.retouched",
@@ -176,12 +184,32 @@
     "word": "1周年記念引き放題ガチャ"
   },
   {
+    "key": "gacha.normalGacha.detail.probability.hair",
+    "word": "一ノ瀬怜のヘアスタイル"
+  },
+  {
+    "key": "gacha.normalGacha.detail.probability.idle",
+    "word": "※既に所持している場合プレミアムフォトメダル×1に変換"
+  },
+  {
     "key": "gacha.normalGacha.detail.probability.normal",
     "word": "詳細"
   },
   {
     "key": "gacha.normalGacha.shareReward",
     "word": "外部投稿でさらに10連無料！"
+  },
+  {
+    "key": "gacha.normalGacha.stamp.confirm.gift",
+    "word": "アイテムはギフトに送られます。"
+  },
+  {
+    "key": "gacha.normalGacha.stamp.effect.gift",
+    "word": "アイテムはギフトに送られています。"
+  },
+  {
+    "key": "gacha.normalGacha.stamp.nextLabel",
+    "word": "次で獲得"
   },
   {
     "key": "gacha.pickupGacha.description",
@@ -201,7 +229,7 @@
   },
   {
     "key": "ladder.panel.disable.toast.pointShortage",
-    "word": "メッセPtが足りません"
+    "word": "{0}が足りません"
   },
   {
     "key": "live.daily.balloon.limitedLive",
@@ -284,12 +312,32 @@
     "word": "No.{0}"
   },
   {
+    "key": "marathon.raid.mission.title.sub",
+    "word": "マルチリンクス"
+  },
+  {
     "key": "marathon.releasePointAmount",
-    "word": "解放Pt：無し"
+    "word": "解放Pt：{0}"
+  },
+  {
+    "key": "marathon.sheet.staminaRecoveryItemSelect.kStamina.description",
+    "word": "Kスタミナ"
+  },
+  {
+    "key": "marathon.sheet.staminaRecoveryItemSelect.lStamina.description",
+    "word": "Lスタミナ"
+  },
+  {
+    "key": "marathon.top.raid.bigTitle",
+    "word": "MULTI LINKS"
+  },
+  {
+    "key": "marathon.top.raid.update.button.toast",
+    "word": "更新可能まで あと{0}秒"
   },
   {
     "key": "marathon.top.smallTitle",
-    "word": "ミニリンクス"
+    "word": "マルチリンクス"
   },
   {
     "key": "notification.activity.lesson.message",
@@ -298,6 +346,14 @@
   {
     "key": "photo.detail.equipableCharacter",
     "word": "編成可能："
+  },
+  {
+    "key": "photo.sell.bulk.sheet.description",
+    "word": "指定した条件のフォトを一括で選択します。(最大300枚)"
+  },
+  {
+    "key": "photo.sell.empty",
+    "word": "フォトを選択してください"
   },
   {
     "key": "photoContest.eventFilm",
@@ -314,6 +370,10 @@
   {
     "key": "photoContest.top.overlay.title",
     "word": "イベント撮影パス入手"
+  },
+  {
+    "key": "photography.photo.execute",
+    "word": "決定する"
   },
   {
     "key": "photography.sheet.confirm.description",

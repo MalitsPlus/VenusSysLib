@@ -9,6 +9,10 @@ const rawCard: Card[] = protoCard
 const rawCardParameter: CardParameter[] = protoCardParameter
 const rawCardRarity: CardRarity[] = protoCardRarity
 
+const getAllRawCard = () => {
+  return rawCard
+}
+
 const getRawCard = (
   id: string
 ): Card | undefined => {
@@ -32,4 +36,5 @@ export {
   getRawCard,
   getRawCardParameters,
   getRawCardRarity,
+  getAllRawCard,
 }

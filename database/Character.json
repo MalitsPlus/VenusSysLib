@@ -146,11 +146,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "LizNoir",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "unlockConditionId": ""
   },
   {
@@ -300,10 +298,8 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "LizNoir",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
-    "isMemories": false,
     "unlockConditionId": ""
   },
   {
@@ -332,6 +328,7 @@
       "cos-chs-idol-01",
       "cos-chs-idol-02",
       "cos-chs-idol-03",
+      "cos-chs-idol-04",
       "cos-chs-miku-00",
       "cos-chs-mizg-00",
       "cos-chs-mizg-01",
@@ -456,11 +453,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "サニーピース",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "facePositionX": 0.0,
     "unlockConditionId": ""
   },
@@ -489,10 +484,12 @@
       "cos-hrk-idol-01",
       "cos-hrk-idol-02",
       "cos-hrk-idol-03",
+      "cos-hrk-idol-04",
       "cos-hrk-miku-00",
       "cos-hrk-mizg-00",
       "cos-hrk-mizg-01",
       "cos-hrk-newy-00",
+      "cos-hrk-onep-00",
       "cos-hrk-schl-00",
       "cos-hrk-sdam-00",
       "cos-hrk-sdpl-00",
@@ -613,11 +610,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "サニーピース",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "unlockConditionId": ""
   },
   {
@@ -641,6 +636,7 @@
       "cos-kan-idol-00",
       "cos-kan-miku-00",
       "cos-kan-mizg-00",
+      "cos-kan-poli-00",
       "cos-kan-sdam-00",
       "cos-kan-sdpl-00",
       "cos-kan-trng-00"
@@ -773,10 +769,8 @@
     "type": 1,
     "groupName": "ⅢX",
     "enName": "",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "isHomeDanceTarget": false
   },
   {
@@ -925,11 +919,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "LizNoir",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "facePositionX": 0.0,
     "unlockConditionId": ""
   },
@@ -944,7 +936,6 @@
     "birthday": "-",
     "height": "-",
     "weight": "-",
-    "isNpc": true,
     "costumeIds": [
       "cos-koh-casl-00"
     ],
@@ -1047,7 +1038,6 @@
     "threeSize": "",
     "catchphrase": "",
     "idiom": "",
-    "isMemories": false,
     "facePositionX": 0.0,
     "facePositionY": 0.0,
     "groupPositionX": 0.0,
@@ -1077,6 +1067,7 @@
       "cos-kor-idol-00",
       "cos-kor-miku-00",
       "cos-kor-mizg-00",
+      "cos-kor-poli-00",
       "cos-kor-sdam-00",
       "cos-kor-sdpl-00",
       "cos-kor-trng-00"
@@ -1208,10 +1199,8 @@
     "type": 1,
     "groupName": "ⅢX",
     "enName": "",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "facePositionX": 0.0,
     "isHomeDanceTarget": false
   },
@@ -1364,11 +1353,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "月のテンペスト",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "unlockConditionId": ""
   },
   {
@@ -1519,11 +1506,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "月のテンペスト",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "unlockConditionId": ""
   },
   {
@@ -1547,6 +1532,7 @@
       "cos-mhk-idol-00",
       "cos-mhk-miku-00",
       "cos-mhk-mizg-00",
+      "cos-mhk-poli-00",
       "cos-mhk-sdam-00",
       "cos-mhk-sdpl-00",
       "cos-mhk-trng-00"
@@ -1678,10 +1664,8 @@
     "type": 1,
     "groupName": "ⅢX",
     "enName": "",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "facePositionX": 0.0,
     "isHomeDanceTarget": false
   },
@@ -1813,7 +1797,6 @@
     "threeSize": "ー",
     "catchphrase": "ー",
     "firstName": "ミク",
-    "isMemories": true,
     "defaultLiveCostumeId": "cos-mku-miku-00",
     "facePositionY": 700.0,
     "groupPositionX": 0.6,
@@ -1822,7 +1805,6 @@
     "unlockConditionId": "cd-chr-obtain-mku",
     "type": 4,
     "groupName": "ー",
-    "isNpc": false,
     "activityFanEventWords": [],
     "talkArrivalAdditionMotionAssetId": "",
     "isLeftHanded": false,
@@ -1948,7 +1930,6 @@
     "catchphrase": "さあ、アイドルの頂点へ！",
     "firstName": "麻奈",
     "idiom": "奇跡",
-    "isMemories": true,
     "defaultLiveCostumeId": "cos-mna-trng-00",
     "facePositionY": 620.0,
     "groupPositionX": 0.45,
@@ -1956,7 +1937,6 @@
     "unlockConditionId": "cd-chr-obtain-mna",
     "type": 3,
     "groupName": "長瀬麻奈",
-    "isNpc": false,
     "activityFanEventWords": [],
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
@@ -2112,11 +2092,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "月のテンペスト",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "facePositionX": 0.0,
     "unlockConditionId": ""
   },
@@ -2144,6 +2122,7 @@
       "cos-rei-idol-01",
       "cos-rei-idol-02",
       "cos-rei-idol-03",
+      "cos-rei-idol-04",
       "cos-rei-miku-00",
       "cos-rei-mizg-00",
       "cos-rei-mizg-01",
@@ -2270,11 +2249,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "サニーピース",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "unlockConditionId": ""
   },
   {
@@ -2426,11 +2403,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "LizNoir",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "unlockConditionId": ""
   },
   {
@@ -2580,11 +2555,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "TRINITYAiLE",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "facePositionX": 0.0,
     "unlockConditionId": ""
   },
@@ -2737,11 +2710,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "月のテンペスト",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "unlockConditionId": ""
   },
   {
@@ -2770,6 +2741,7 @@
       "cos-skr-idol-01",
       "cos-skr-idol-02",
       "cos-skr-idol-03",
+      "cos-skr-idol-04",
       "cos-skr-miku-00",
       "cos-skr-mizg-00",
       "cos-skr-mizg-01",
@@ -2894,10 +2866,8 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "サニーピース",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
-    "isMemories": false,
     "unlockConditionId": ""
   },
   {
@@ -3047,11 +3017,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "TRINITYAiLE",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "facePositionX": 0.0,
     "unlockConditionId": ""
   },
@@ -3066,7 +3034,6 @@
     "birthday": "-",
     "height": "-",
     "weight": "-",
-    "isNpc": true,
     "costumeIds": [
       "cos-stm-casl-00"
     ],
@@ -3169,7 +3136,6 @@
     "threeSize": "",
     "catchphrase": "",
     "idiom": "",
-    "isMemories": false,
     "facePositionX": 0.0,
     "facePositionY": 0.0,
     "groupPositionX": 0.0,
@@ -3326,11 +3292,9 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "月のテンペスト",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "facePositionX": 0.0,
     "unlockConditionId": ""
   },
@@ -3360,6 +3324,7 @@
       "cos-szk-idol-01",
       "cos-szk-idol-02",
       "cos-szk-idol-03",
+      "cos-szk-idol-04",
       "cos-szk-miku-00",
       "cos-szk-mizg-00",
       "cos-szk-mizg-01",
@@ -3485,10 +3450,8 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "サニーピース",
-    "isNpc": false,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
-    "isMemories": false,
     "facePositionX": 0.0,
     "unlockConditionId": ""
   },
@@ -3502,7 +3465,6 @@
     "birthday": "-",
     "height": "-",
     "weight": "-",
-    "isNpc": true,
     "costumeIds": [
       "cos-vns-casl-00"
     ],
@@ -3606,7 +3568,6 @@
     "threeSize": "",
     "catchphrase": "",
     "idiom": "",
-    "isMemories": false,
     "facePositionX": 0.0,
     "facePositionY": 0.0,
     "groupPositionX": 0.0,
@@ -3761,12 +3722,10 @@
     "isHomeDanceTarget": true,
     "type": 1,
     "groupName": "TRINITYAiLE",
-    "isNpc": false,
     "heightCorrectionPermil": 0,
     "talkArrivalAdditionMotionAssetId": "",
     "viewConditionId": "",
     "isLeftHanded": false,
-    "isMemories": false,
     "facePositionX": 0.0,
     "unlockConditionId": ""
   }

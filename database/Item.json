@@ -308,6 +308,17 @@
     "salePrice": 0
   },
   {
+    "id": "item-daily_quest_ticket_sp-22-1028",
+    "name": "スペシャルパス",
+    "assetId": "quest-daily-special",
+    "description": "デイリーライブ【スペシャル】に挑戦できる\nイベント終了後は消失します",
+    "howToGet": "ショップなど",
+    "type": 2006,
+    "value": 1,
+    "order": 220,
+    "salePrice": 0
+  },
+  {
     "id": "item-exchange-anniversary-medal-22-0526",
     "name": "1周年記念メダル",
     "assetId": "medal-anniversary",
@@ -368,6 +379,17 @@
     "assetId": "card-exchange-05",
     "description": "★5アイドル交換所で好きな\nメンバーと交換できるチケット",
     "howToGet": "1周年記念ドリームギフトガチャ",
+    "type": 10,
+    "value": 1,
+    "order": 140,
+    "salePrice": 0
+  },
+  {
+    "id": "item-exchange-ticket-22-1106",
+    "name": "★5契約書",
+    "assetId": "card-exchange-05",
+    "description": "★5アイドル交換所で好きな\nメンバーと交換できるチケット",
+    "howToGet": "水着オールスター2021ドリームギフトガチャ",
     "type": 10,
     "value": 1,
     "order": 140,
@@ -781,6 +803,17 @@
     "salePrice": 0
   },
   {
+    "id": "item-gacha_point-lm-set-bloom-22-1028",
+    "name": "心溶けゆくKEEPOUTガチャPt",
+    "assetId": "gacha-point",
+    "description": "該当するガチャページの「ガチャPt」から\nガチャPtを消費してアイドルを獲得できる",
+    "type": 9,
+    "value": 1,
+    "order": 140,
+    "howToGet": "",
+    "salePrice": 0
+  },
+  {
     "id": "item-gacha_point-pick-set-bloom-21-1112",
     "name": "福招く獅子舞娘ガチャPt",
     "assetId": "gacha-point",
@@ -959,6 +992,28 @@
   {
     "id": "item-gacha_point-pick-set-bloom-22-1019",
     "name": "揺れ動く花色ガチャPt",
+    "assetId": "gacha-point",
+    "description": "該当するガチャページの「ガチャPt」から\nガチャPtを消費してアイドルを獲得できる",
+    "type": 9,
+    "value": 1,
+    "order": 140,
+    "howToGet": "",
+    "salePrice": 0
+  },
+  {
+    "id": "item-gacha_point-pick-set-bloom-22-1108",
+    "name": "心溶けゆく呂色髪ガチャPt",
+    "assetId": "gacha-point",
+    "description": "該当するガチャページの「ガチャPt」から\nガチャPtを消費してアイドルを獲得できる",
+    "type": 9,
+    "value": 1,
+    "order": 140,
+    "howToGet": "",
+    "salePrice": 0
+  },
+  {
+    "id": "item-gacha_point-pick-set-bloom-22-1120",
+    "name": "心溶けゆく紅葉酒スタンプガチャPt",
     "assetId": "gacha-point",
     "description": "該当するガチャページの「ガチャPt」から\nガチャPtを消費してアイドルを獲得できる",
     "type": 9,
@@ -1177,6 +1232,17 @@
     "salePrice": 0
   },
   {
+    "id": "item-gacha_point-rev-select-01-22-1106",
+    "name": "選べる★5水着オールスター2021ガチャPt",
+    "assetId": "gacha-point",
+    "description": "該当するガチャページの「ガチャPt」から\nガチャPtを消費してアイドルを獲得できる",
+    "type": 9,
+    "value": 1,
+    "order": 140,
+    "howToGet": "",
+    "salePrice": 0
+  },
+  {
     "id": "item-gacha_point-select-01-21-1206",
     "name": "選べる★5バッファーガチャPt",
     "assetId": "gacha-point",
@@ -1278,6 +1344,17 @@
   {
     "id": "item-gacha_point-select-01-22-1014",
     "name": "選べる★5バッファーガチャPt",
+    "assetId": "gacha-point",
+    "description": "該当するガチャページの「ガチャPt」から\nガチャPtを消費してアイドルを獲得できる",
+    "type": 9,
+    "value": 1,
+    "order": 140,
+    "howToGet": "",
+    "salePrice": 0
+  },
+  {
+    "id": "item-gacha_point-select-01-22-1116",
+    "name": "選べる★5ボーカルガチャPt",
     "assetId": "gacha-point",
     "description": "該当するガチャページの「ガチャPt」から\nガチャPtを消費してアイドルを獲得できる",
     "type": 9,
@@ -1405,6 +1482,72 @@
     "type": 8001,
     "value": 1,
     "order": 100,
+    "salePrice": 0
+  },
+  {
+    "id": "item-ladder_pt_22-1028-raid",
+    "name": "報酬Pt",
+    "assetId": "marathon-raid-pt",
+    "description": "マルチリンクスイベントで報酬を獲得することができます\nイベント終了後はコインに変換されます",
+    "howToGet": "マルチリンクスイベント",
+    "type": 8001,
+    "value": 1,
+    "order": 100,
+    "salePrice": 0
+  },
+  {
+    "id": "item-ladder_pt_22-1109",
+    "name": "メッセPt",
+    "assetId": "ladder-pt",
+    "description": "メッセージミッションで報酬を獲得することができます\nイベント終了後はコインに変換されます",
+    "howToGet": "メッセージミッション、自主トレ、プロモーション、ファンイベントなど",
+    "type": 8001,
+    "value": 1,
+    "order": 100,
+    "salePrice": 0
+  },
+  {
+    "id": "item-marathon-raid_medal-22-1028",
+    "name": "リンクスメダル",
+    "assetId": "medal-marathon",
+    "description": "BOXガチャを引くことができます\nイベント終了後はコインに変換されます",
+    "howToGet": "マルチリンクスイベント",
+    "type": 4001,
+    "value": 1,
+    "order": 1000,
+    "salePrice": 0
+  },
+  {
+    "id": "item-marathon-raid_quest_unlock-22-1028",
+    "name": "解放Pt",
+    "assetId": "marathon-release-pt",
+    "description": "マルチリンクスイベントの解放Ptです\nイベント終了後はコインに変換されます",
+    "howToGet": "マルチリンクスイベント",
+    "type": 5002,
+    "value": 1,
+    "order": 1002,
+    "salePrice": 0
+  },
+  {
+    "id": "item-marathon-raid_raid-stamina_recovery-22-1028",
+    "name": "協力キャンディ",
+    "assetId": "marathon-raid-stamina-recovery-raid",
+    "description": "マルチリンクスの協力スタミナを回復します\nイベント終了後はコインに変換されます",
+    "howToGet": "プロモーション、ファンイベントなど",
+    "type": 5003,
+    "value": 10,
+    "order": 1001,
+    "salePrice": 0
+  },
+  {
+    "id": "item-marathon-raid_stamina_recovery-22-1028",
+    "name": "リンクスキャンディ",
+    "assetId": "marathon-stamina-recovery",
+    "description": "マルチリンクスのスタミナを回復します\nイベント終了後はコインに変換されます",
+    "howToGet": "ハイスコアライブ、プロモーション、ファンイベント、ショップなど",
+    "type": 5001,
+    "value": 20,
+    "order": 1001,
     "salePrice": 0
   },
   {

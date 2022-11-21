@@ -41,7 +41,6 @@
     "nameColor": "000000",
     "characterType": 1,
     "viewConditionId": "",
-    "isMemories": false,
     "textColor": ""
   },
   {
@@ -86,7 +85,6 @@
     "nameColor": "000000",
     "characterType": 1,
     "viewConditionId": "",
-    "isMemories": false,
     "textColor": ""
   },
   {
@@ -119,8 +117,7 @@
     "textColor": "FFFFFF",
     "nameColor": "000000",
     "characterType": 1,
-    "viewConditionId": "",
-    "isMemories": false
+    "viewConditionId": ""
   },
   {
     "id": "character_group_4",
@@ -158,8 +155,7 @@
     "textColor": "63A663",
     "nameColor": "FFFFFF",
     "characterType": 1,
-    "viewConditionId": "",
-    "isMemories": false
+    "viewConditionId": ""
   },
   {
     "id": "character_group_5",
@@ -175,7 +171,6 @@
         "assetId": ""
       }
     ],
-    "isMemories": true,
     "characterType": 3,
     "viewConditionId": "",
     "backgroundColor": "",
@@ -212,8 +207,7 @@
     "textColor": "F0F000",
     "nameColor": "FFFFFF",
     "characterType": 1,
-    "viewConditionId": "",
-    "isMemories": false
+    "viewConditionId": ""
   },
   {
     "id": "character_group_mku",
@@ -230,7 +224,6 @@
         "assetId": ""
       }
     ],
-    "isMemories": true,
     "characterType": 4,
     "backgroundColor": "",
     "textColor": "",
