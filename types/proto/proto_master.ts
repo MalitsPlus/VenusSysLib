@@ -13,8 +13,10 @@ import type {
   CharacterPersonalityType,
   SimpleCharacterPersonalityType,
   CharacterSdPersonalityType,
-  PsylliumColerType,
+  PsylliumColorType,
+  CharacterType,
   EventMissionType,
+  ExtraStoryPartType,
   FunctionLockType,
   GachaType,
   ResourceType,
@@ -47,6 +49,7 @@ import type {
   SkillEfficacyType,
   SkillTriggerType,
   ParameterType,
+  StoryAdvPlayType,
   StoryPartType,
   PointType,
   TutorialType,
@@ -71,6 +74,7 @@ import type {
   DayOfWeekType,
   JoinedGuildType,
   ResultRankType,
+  ExerciseHintType,
   PhotoAbilityGradeType,
   TutorialNavigationType,
   TutorialNavigationPositionType,
@@ -165,6 +169,16 @@ export type ActivityRefreshLevel = {
   name: string
   viewConditionId: string
   unlockConditionId: string
+}
+
+export type AdvLiveMovie = {
+  id: string
+  musicId: string
+  stageId: string
+  costumeIds: string[]
+  audiencePercent: number
+  playStartMillisecond: number
+  playEndMillisecond: number
 }
 
 export type Area = {
@@ -318,7 +332,6 @@ export type Character = {
   favorite: string
   unfavorite: string
   profile: string
-  isNpc: boolean
   costumeIds: string[]
   altCharacters: CharacterDuplicate[]
   defaultCostumeId: string
@@ -335,13 +348,12 @@ export type Character = {
   costumeAdditionMotionAssetIds: string[]
   costumeVoiceAssetIds: string[]
   isLeftHanded: boolean
-  psylliumColerType: PsylliumColerType
+  psylliumColorType: PsylliumColorType
   shortProfile: string
   threeSize: string
   catchphrase: string
   firstName: string
   idiom: string
-  isMemories: boolean
   defaultLiveCostumeId: string
   facePositionX: number
   facePositionY: number
@@ -349,6 +361,9 @@ export type Character = {
   groupPositionY: number
   catchphraseColor: string
   unlockConditionId: string
+  isHomeDanceTarget: boolean
+  type: CharacterType
+  groupName: string
 }
 
 export type CharacterCostumeGroup = {
@@ -369,9 +384,10 @@ export type CharacterGroup = {
   viewConditionId: string
   color: string
   mappings: CharacterGroupMapping[]
-  isMemories: boolean
   backgroundColor: string
   textColor: string
+  nameColor: string
+  characterType: CharacterType
 }
 
 export type CharacterGroupMapping = {
@@ -488,6 +504,10 @@ export type ConditionObtainEmblem = {
   emblemId: string
 }
 
+export type ConditionObtainHair = {
+  hairId: string
+}
+
 export type ConditionObtainItem = {
   itemId: string
 }
@@ -513,14 +533,20 @@ export type ConditionWearCostume = {
   costumeId: string
 }
 
+export type ConditionWearHair = {
+  hairId: string
+}
+
 export type ConditionWearLiveCostume = {
   costumeId: string
 }
 
+export type ConditionWearLiveHair = {
+  hairId: string
+}
+
 export type Costume = {
   id: string
-  hairAssetId: string
-  faceAssetId: string
   bodyAssetId: string
   characterId: string
   order: number
@@ -530,6 +556,7 @@ export type Costume = {
   sdAssetId: string
   motifAssetId: string
   isUserUnavailable: boolean
+  defaultHairId: string
 }
 
 export type Decoration = {
@@ -581,6 +608,85 @@ export type EventStoryEpisode = {
   isAppeal: boolean
 }
 
+export type Exercise = {
+  id: string
+  name: string
+  description: string
+  unlockConditionId: string
+  rewardId: string
+  questId: string
+  exerciseUserId: string
+  exerciseDeckId: string
+  exerciseCardGroupId: string
+  exercisePhotoGroupId: string
+  exerciseAccessoryGroupId: string
+  order: number
+}
+
+export type ExerciseAccessory = {
+  accessoryId: string
+  amount: number
+}
+
+export type ExerciseCardGroup = {
+  groupId: string
+  cardIds: string[]
+}
+
+export type ExerciseCostume = {
+  characterId: string
+  costumeId: string
+}
+
+export type ExerciseDeckPosition = {
+  position: number
+  cardId: string
+  addVocal: number
+  addDance: number
+  addVisual: number
+  addStamina: number
+  addMental: number
+  addTechnique: number
+}
+
+export type ExercisePhoto = {
+  photoAllInOneId: string
+  amount: number
+}
+
+export type ExtraStory = {
+  id: string
+  extraStoryPartId: string
+  assetId: string
+  name: string
+  description: string
+  order: number
+  viewConditionId: string
+  unlockConditionId: string
+  episodes: ExtraStoryEpisode[]
+}
+
+export type ExtraStoryEpisode = {
+  episode: number
+  assetId: string
+  storyId: string
+  viewConditionId: string
+  unlockConditionId: string
+}
+
+export type ExtraStoryPart = {
+  id: string
+  assetId: string
+  name: string
+  subTitle: string
+  noteText: string
+  order: number
+  type: ExtraStoryPartType
+  viewConditionId: string
+  unlockConditionId: string
+  extraStoryIds: string[]
+}
+
 export type FunctionLock = {
   type: FunctionLockType
   requiredManagerLevel: number
@@ -610,6 +716,7 @@ export type Gacha = {
   selectPickupAmount: number
   selectCardIds: string[]
   shopId: string
+  bgmAssetId: string
   buttonIds: string[]
   exchangeIds: string[]
   cardRewards: GachaCardReward[]
@@ -631,6 +738,7 @@ export type GachaButton = {
   bonusCount: number
   order: number
   gachaId: string
+  gachaStampSheetGroupId: string
 }
 
 export type GachaCardReward = {
@@ -647,11 +755,42 @@ export type GachaExchange = {
   gachaId: string
 }
 
+export type GachaStamp = {
+  groupId: string
+  sheetNumber: number
+  stampNumber: number
+  rewardId: string
+  rewardGachaButtonId: string
+  assetId: string
+  description: string
+  isFeatured: boolean
+}
+
+export type GachaStampSheet = {
+  groupId: string
+  sheetNumber: number
+  costumeIds: string[]
+}
+
 export type GuildTopMovie = {
   assetId: string
   musicAssetId: string
   conditionId: string
   order: number
+}
+
+export type Hair = {
+  id: string
+  hairAssetId: string
+  faceAssetId: string
+  sdHairAssetId: string
+  characterId: string
+  wearableCostumeIds: string[]
+  notWearableCostumeIds: string[]
+  fittingCostumeId: string
+  order: number
+  name: string
+  releaseTime: string
 }
 
 export type HierarchyDetailGrade = {
@@ -1029,6 +1168,7 @@ export type Music = {
   originalCharacterIds: string[]
   notSelectableStageTypes: StageType[]
   mvAssetId: string
+  selectableStageIds: string[]
 }
 
 export type MusicMasteryReward = {
@@ -1085,6 +1225,7 @@ export type PhotoActivity = {
   order: number
   viewConditionId: string
   unlockConditionId: string
+  impossibleShootingCharacterIds: string[]
 }
 
 export type PhotoAllInOne = {
@@ -1114,6 +1255,7 @@ export type PhotoContestActivity = {
   order: number
   viewConditionId: string
   unlockConditionId: string
+  impossibleShootingCharacterIds: string[]
 }
 
 export type PhotoContestQuestMusic = {
@@ -1245,7 +1387,6 @@ export type Quest = {
   name: string
   description: string
   order: number
-  skipType: LiveSkipType
   musicChartPatternId: string
   position1AttributeType: AttributeType
   position2AttributeType: AttributeType
@@ -1281,6 +1422,7 @@ export type Quest = {
   ticketAmount: number
   achievedRankRewards: QuestAchievedRankReward[]
   liveBonusGroupId: string
+  liveSkipType: LiveSkipType
 }
 
 export type QuestAchievedRankReward = {
@@ -1354,6 +1496,7 @@ export type RaceQuest = {
   questAudienceAdvantageId: string
   moodType: MoodType
   activityLessonRewardType: RaceActivityLessonRewardType
+  liveSkipType: LiveSkipType
 }
 
 export type RaceQuestDifficulty = {
@@ -1430,9 +1573,6 @@ export type Setting = {
   activityLessonPromoteEffectHours: number
   activityLessonPromoteFreeLimitCount: number
   functionMaintenanceMessage: string
-  pvpLiveSkipAvailable: boolean
-  gvgLiveSkipAvailable: boolean
-  tourLiveSkipAvailable: boolean
   gvgChallengeStoneAmount: number
   trainingCostumeIds: string[]
   tutorialActivityLessonPromoteMinutes: number
@@ -1489,6 +1629,9 @@ export type Setting = {
   photoDefaultLimit: number
   photoRecipeLimit: string
   photoRecipeSaleAmountLimit: number
+  exerciseFixedBannerNoticeId: string
+  deckEntrustCoolTimeLotteryCoefficientPermil: number
+  deckEntrustMentalLotteryCoefficientPermil: number
   statusEffectTypeStrengthList: StatusEffectType[]
   statusEffectTypeWeaknessDownList: StatusEffectType[]
   statusEffectTypeWeaknessOtherList: StatusEffectType[]
@@ -1498,7 +1641,6 @@ export type Setting = {
   skillEfficacyTypeWeaknessDownList: SkillEfficacyType[]
   skillEfficacyTypeWeaknessOtherList: SkillEfficacyType[]
   backsideRankingDisplayNum: number
-  backsideLiveSkipAvailable: boolean
   photoContestRankingDisplayNum: number
   raceRankingDisplayNum: number
   raceDailyRankingDisplayNum: number
@@ -1554,11 +1696,12 @@ export type StaffLevel = {
 
 export type Story = {
   id: string
-  advAssetId: string
   sectionName: string
   name: string
   description: string
   rewardId: string
+  advPlayTypes: StoryAdvPlayType[]
+  advAssetIds: string[]
 }
 
 export type StoryEpisode = {
@@ -1729,6 +1872,50 @@ export type Division = {
   id: string
   order: number
   name: string
+}
+
+export type ExerciseAccessoryGroup = {
+  groupId: string
+  accessories: ExerciseAccessory[]
+}
+
+export type ExerciseDeck = {
+  id: string
+  positions: ExerciseDeckPosition[]
+}
+
+export type ExerciseHint = {
+  exerciseId: string
+  contents: ExerciseHintContent[]
+}
+
+export type ExercisePhotoGroup = {
+  groupId: string
+  photos: ExercisePhoto[]
+}
+
+export type ExerciseUser = {
+  id: string
+  managerLevel: number
+  cardLevel: number
+  cardRarity: number
+  lightFanAmount: number
+  middleFanAmount: number
+  heavyFanAmount: number
+  addVocal: number
+  addDance: number
+  addVisual: number
+  addStamina: number
+  addMental: number
+  addTechnique: number
+  skillLevel1: number
+  skillLevel2: number
+  skillLevel3: number
+}
+
+export type GachaStampSheetGroup = {
+  groupId: string
+  assetId: string
 }
 
 export type Guild = {
@@ -1910,6 +2097,7 @@ export type Stage = {
   description: string
   order: number
   timeDifference: string
+  isHideWithPhotoShooting: boolean
 }
 
 export type StoreProduct = {
@@ -2038,6 +2226,9 @@ export type ConditionSetting = {
   contestQuestHighestRank: ConditionContestQuestHighestRank
   comebackUser: ConditionComebackUser
   gameStartTerm: ConditionGameStartTerm
+  obtainHair: ConditionObtainHair
+  wearHair: ConditionWearHair
+  wearLiveHair: ConditionWearLiveHair
 }
 
 export type ConditionStartHours = {
@@ -2221,6 +2412,14 @@ export type ConsumptionResource = {
   resourceIds: string[]
   subResourceIds: string[]
   amount: number
+}
+
+export type ExerciseHintContent = {
+  number: number
+  type: ExerciseHintType
+  title: string
+  text: string
+  assetIds: string[]
 }
 
 export type HelpContent = {

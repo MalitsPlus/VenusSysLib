@@ -71,6 +71,7 @@ export type User = {
   photoLimitExtendedCount: number
   inviteHostUserId: string
   buddyCardId: string
+  nextPhotoImageIds: string[]
   managerLevel: number
   cardSupportMaxNumber: number
 }
@@ -145,6 +146,8 @@ export type UserCharacter = {
   liveHighestScore: string
   characterOnlyPhotoAmount: number
   liveCostumeId: string
+  favoriteHairId: string
+  liveHairId: string
   activityLevel: number
   audienceCandidateAmount: number
 }
@@ -168,6 +171,11 @@ export type UserDecoration = {
 
 export type UserEmblem = {
   emblemId: string
+}
+
+export type UserHair = {
+  hairId: string
+  checked: boolean
 }
 
 export type UserHierarchy = {
@@ -368,6 +376,7 @@ export type UserDeckPosition = {
   part2AccessoryId: string
   photoIds: string[]
   costumeId: string
+  hairId: string
 }
 
 export type UserGachaButton = {

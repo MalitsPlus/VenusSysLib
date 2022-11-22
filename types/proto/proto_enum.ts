@@ -63,6 +63,7 @@ export enum AreaType {
   Tower = 4,
   SubTower = 5,
   Tutorial = 101,
+  Exercise = 102,
 }
 
 export enum AssetDownloadType {
@@ -181,6 +182,14 @@ export enum CharacterSdPersonalityType {
   Carefree = 5,
 }
 
+export enum CharacterType {
+  Unknown = 0,
+  Normal = 1,
+  Npc = 2,
+  Memories = 3,
+  Collaboration = 4,
+}
+
 export enum DayOfWeekType {
   Unknown = 0,
   Sunday = 1,
@@ -230,6 +239,7 @@ export enum DokanType {
   VerticalMovie = 5,
   HorizontalMovie = 6,
   Story = 7,
+  Free = 8,
 }
 
 export enum ErrorCode {
@@ -244,6 +254,7 @@ export enum ErrorCode {
   RequestLocked = 2003,
   Unauthenticated = 2004,
   LockFailed = 2005,
+  UserDeleted = 2006,
   ContainsNgword = 3001,
   OpponentNotFound = 3002,
   PasswordMigrationFailed = 3003,
@@ -276,12 +287,25 @@ export enum ErrorCode {
   InviteWrongCode = 3030,
   InviteHostGuestLimit = 3031,
   InviteEnterCodeNotAllowed = 3032,
+  MarathonRaidFinished = 3033,
 }
 
 export enum EventMissionType {
   Unknown = 0,
   Event = 1,
   Campaign = 2,
+}
+
+export enum ExerciseHintType {
+  Unknown = 0,
+  Initial = 1,
+  AfterFailed = 2,
+}
+
+export enum ExtraStoryPartType {
+  Unknown = 0,
+  Normal = 1,
+  Limited = 2,
 }
 
 export enum ForumListReplyRequestType {
@@ -319,6 +343,10 @@ export enum FunctionLockType {
   PhotoRetouch = 22,
   InviteHost = 23,
   BuddyUse = 24,
+  AuthDelete = 25,
+  BuddyUseQuestContest = 26,
+  Exercise = 27,
+  BuddyUseMarathon = 28,
 }
 
 export enum FunctionMaintenanceType {
@@ -367,6 +395,7 @@ export enum GachaType {
   Item = 2,
   Premium = 3,
   Continuous = 4,
+  Stamp = 5,
 }
 
 export enum GiftFilterType {
@@ -557,6 +586,18 @@ export enum HelpDisplayTargetType {
   FriendSearch = 146,
   FriendTop = 147,
   FriendCode = 148,
+  ExerciseTop = 149,
+  ExerciseDeckEdit = 150,
+  ExerciseDeckPhotoEdit = 151,
+  ExerciseDeckAccessoryEdit = 152,
+  ExerciseLiveDeckSelect = 153,
+  ExerciseLiveBattleDeckSelect = 154,
+  ExerciseLiveResult = 155,
+  MarathonRaidList = 156,
+  MarathonRaidTop = 157,
+  MarathonRaidLiveQuestSelect = 158,
+  MarathonRaidLiveDeckSelect = 159,
+  MarathonRaidLiveBattleDeckSelect = 160,
 }
 
 export enum HelpType {
@@ -616,6 +657,9 @@ export enum ItemType {
   ActivityFanEventSuperMode = 1003,
   ActivityFanEventSpeedUp = 1004,
   ActivityFanEventCheerPointUp = 1005,
+  ActivityFanEventRewardUp = 1006,
+  ActivityLessonPromote = 1007,
+  ActivityPromotionSpecialShorten = 1008,
   QuestDailyGoldTicket = 2001,
   QuestDailyCardEnhanceTicket = 2002,
   QuestDailyPhotoTicketTicket = 2003,
@@ -626,6 +670,7 @@ export enum ItemType {
   BoxGachaPoint = 4001,
   MarathonStaminaRecovery = 5001,
   MarathonQuestUnlock = 5002,
+  MarathonRaidStaminaRecovery = 5003,
   PhotoContestSubmitting = 6001,
   PhotoContestCreating = 6002,
   RacePoint = 7001,
@@ -744,6 +789,7 @@ export enum LiveSkipType {
   None = 1,
   Always = 2,
   AfterPlay = 3,
+  AlwaysFullSkip = 4,
 }
 
 export enum LiveTipType {
@@ -810,6 +856,26 @@ export enum LoginBonusType {
   Unknown = 0,
   Normal = 1,
   Event = 2,
+}
+
+export enum MarathonRaidProgressType {
+  Unknown = 0,
+  Joinable = 1,
+  Progressing = 2,
+  Finished = 3,
+  History = 4,
+}
+
+export enum MarathonRaidStatusType {
+  Unknown = 0,
+  Joined = 1,
+  Finished = 2,
+}
+
+export enum MarathonType {
+  Unknown = 0,
+  Normal = 1,
+  Raid = 2,
 }
 
 export enum MessageInstantType {
@@ -912,6 +978,17 @@ export enum MissionType {
   QuestSubTowerClearCount = 52,
   PhotoRetouchCount = 53,
   PhotoRetouchTotalCount = 54,
+  AccessoryUsedAmount = 55,
+  AnimeStoryPointUsedAmount = 56,
+  GameStoryPointUsedAmount = 57,
+  GroupStoryPointUsedAmount = 58,
+  GoldUsedAmount = 59,
+  GuildMedalUsedAmount = 60,
+  PvpMedalUsedAmount = 61,
+  ItemUsedAmount = 62,
+  PhotoRecipeUsedAmount = 63,
+  StoneUsedAmount = 64,
+  PaidStoneUsedAmount = 65,
   TourAreaClearCount = 1001,
   TourRivalClearCount = 1002,
   TourBossClearCountWithCharacter = 1003,
@@ -924,6 +1001,9 @@ export enum MissionType {
   BacksideSurpriseCount = 1105,
   MarathonQuestClearCount = 1201,
   MarathonQuestClearDifficulty = 1202,
+  MarathonRaidClearCount = 1203,
+  MarathonRaidHostCount = 1204,
+  MarathonRaidJoinCount = 1205,
   RacePanelClearCount = 1301,
   RaceQuestClearCount = 1302,
   RaceEnhanceLiveBonusAchievement = 1303,
@@ -1145,7 +1225,7 @@ export enum ProviderType {
   Password = 99,
 }
 
-export enum PsylliumColerType {
+export enum PsylliumColorType {
   Unknown = 0,
   Red = 1,
   Green = 2,
@@ -1222,6 +1302,7 @@ export enum ResourceType {
   CardRarityExpLimitChange = 25,
   Decoration = 26,
   PhotoRecipe = 27,
+  Hair = 28,
   Set = 999,
 }
 
@@ -1295,6 +1376,11 @@ export enum RewardSortResourceType {
   ItemLadderPoint = 57,
   PhotoRecipe = 58,
   ItemPhotoInk = 59,
+  Hair = 60,
+  ItemMarathonRaidStaminaRecovery = 61,
+  ItemActivityFanEventRewardUp = 62,
+  ItemActivityLessonPromote = 63,
+  ItemActivityPromotionSpecialShorten = 65,
 }
 
 export enum RewardSortTargetType {
@@ -1311,6 +1397,7 @@ export enum RewardSortTargetType {
   ActivityPromotionResult = 10,
   ActivityPromotionMainReward = 11,
   PremiumGachaProbability = 12,
+  MarathonRaidQuestReward = 13,
 }
 
 export enum RuleType {
@@ -1320,6 +1407,7 @@ export enum RuleType {
   FundSettlement = 3,
   CommercialTransaction = 4,
   ServiceGuideline = 5,
+  Licence = 6,
 }
 
 export enum SalaryDetailType {
@@ -1630,6 +1718,15 @@ export enum StatusEffectType {
   StaminaContinuousConsumption = 1007,
 }
 
+export enum StoryAdvPlayType {
+  Unknown = 0,
+  Adv = 1,
+  LiveMovie = 2,
+  VerticalAdv = 3,
+  VerticalMovie = 4,
+  HorizontalMovie = 5,
+}
+
 export enum StoryPartType {
   Unknown = 0,
   Main = 1,
@@ -1735,4 +1832,6 @@ export enum TutorialType {
   Race = 27,
   Ladder = 28,
   PhotoRetouch = 29,
+  Collaboration = 30,
+  MarathonRaid = 31,
 }

@@ -1,8 +1,8 @@
 // Generated from ProtoApi.proto
 
 import type {
-  GachaContinuousResultType,
   ResultRankType,
+  LiveSkipType,
   LinkType,
   BoxGachaItemType,
   DokanType,
@@ -10,8 +10,10 @@ import type {
   ResourceType,
   ResetTimingType,
   ActivityFanEventType,
+  GachaContinuousResultType,
   GachaType,
   GvgMatchResultType,
+  MarathonType,
   LadderPanelType,
   AttributeType,
   MoodType,
@@ -49,6 +51,8 @@ import type {
   GraphicType,
   HomePositionType,
   FunctionMaintenanceType,
+  MarathonRaidProgressType,
+  RuleType,
   ProviderType,
   ErrorCode,
   PhotoImageRequestType,
@@ -69,9 +73,9 @@ import type {
 import type {
   UserPhoto,
   UserMission,
+  RewardResult,
   Reward,
   Payslip,
-  RewardResult,
   UserPublic,
   UserCharacter,
   User,
@@ -106,26 +110,13 @@ import type {
   UserPhotoRecipe,
   UserBuddy,
   UserInvite,
+  UserHair,
   ConsumptionResult,
   UserGift,
   UserGiftHistory,
   UserLoginBonus,
   MasterTag,
 } from './proto_transaction'
-
-export type GachaContinuousInfo = {
-  totalDrawCount: number
-  cardIds: string[]
-  isFinished: boolean
-  externalRewardInfo: ExternalRewardInfo
-}
-
-export type GachaContinuousResult = {
-  totalDrawCount: number
-  cardIds: string[]
-  resultType: GachaContinuousResultType
-  externalRewardInfo: ExternalRewardInfo
-}
 
 export type ActiveFanEvent = {
   characterIds: string[]
@@ -155,6 +146,7 @@ export type ActiveRefresh = {
 export type ActivityCharacterInfo = {
   characterId: string
   costumeId: string
+  hairId: string
 }
 
 export type ActivityLessonProgress = {
@@ -200,6 +192,7 @@ export type BacksideDeckCardDetailInfo = {
   photos: UserPhoto[]
   staminaPermil: number
   supported: boolean
+  displayHairId: string
 }
 
 export type BacksideDeckCardInfo = {
@@ -255,6 +248,7 @@ export type BacksidePanelGoalInfo = {
   stageId: string
   backsideQuestSettingId: string
   mentalThreshold: number
+  liveSkipType: LiveSkipType
 }
 
 export type BacksidePanelLiveInfo = {
@@ -266,6 +260,7 @@ export type BacksidePanelLiveInfo = {
   stageId: string
   backsideQuestSettingId: string
   mentalThreshold: number
+  liveSkipType: LiveSkipType
 }
 
 export type BacksidePanelPvpInfo = {
@@ -278,6 +273,7 @@ export type BacksidePanelPvpInfo = {
   opponentInfo: BacksideOpponentInfo
   backsideQuestSettingId: string
   mentalThreshold: number
+  liveSkipType: LiveSkipType
 }
 
 export type BacksidePracticeStageInfo = {
@@ -350,6 +346,9 @@ export type DokanInfo = {
   name: string
   shopType: ShopType
   storyId: string
+  linkTitle: string
+  linkType: LinkType
+  linkDetail: string
 }
 
 export type EventButtonDisplayInfo = {
@@ -409,10 +408,47 @@ export type ExchangeItem = {
   unlockConditionId: string
 }
 
+export type ExerciseDeckPosition = {
+  position: number
+  cardId: string
+  part1AccessoryId: string
+  part2AccessoryId: string
+  photoAllInOneIds: string[]
+}
+
+export type ExerciseInfo = {
+  exerciseId: string
+  unlocked: boolean
+  positions: ExerciseDeckPosition[]
+  opponentInfo: QuestOpponentInfo
+}
+
+export type ExerciseStartResponse = {
+  questId: string
+  result: LiveResult
+  rankType: ResultRankType
+  rankPlus: number
+  rankPatterns: QuestRankPattern[]
+  clearRewards: RewardResult[]
+  commonResponse: CommonResponse
+}
+
 export type ExternalRewardInfo = {
   externalRewardId: string
   rewardId: string
   isReceived: boolean
+}
+
+export type ExtraStoryInfo = {
+  id: string
+  unlocked: boolean
+  episodes: ExtraStoryEpisodeInfo[]
+}
+
+export type ExtraStoryPartInfo = {
+  id: string
+  unlocked: boolean
+  stories: ExtraStoryInfo[]
 }
 
 export type FanEvent = {
@@ -450,6 +486,7 @@ export type FanEventCharacterInfo = {
   activityPoint: number
   maxStep: number
   lastSavedActivityPoint: number
+  hairId: string
 }
 
 export type FanEventProgress = {
@@ -495,6 +532,20 @@ export type GachaButtonInfo = {
   drawTime: string
 }
 
+export type GachaContinuousInfo = {
+  totalDrawCount: number
+  cardIds: string[]
+  isFinished: boolean
+  externalRewardInfo: ExternalRewardInfo
+}
+
+export type GachaContinuousResult = {
+  totalDrawCount: number
+  cardIds: string[]
+  resultType: GachaContinuousResultType
+  externalRewardInfo: ExternalRewardInfo
+}
+
 export type GachaExchangeInfo = {
   id: string
   exchangedCount: number
@@ -520,6 +571,7 @@ export type GachaInfo = {
   selectedCardIds: string[]
   premiumInfo: GachaPremiumInfo
   continuousInfo: GachaContinuousInfo
+  stampInfo: GachaStampInfo
 }
 
 export type GachaPremiumInfo = {
@@ -701,6 +753,8 @@ export type HomeEnterResponse = {
   lessonInfo: LessonInfo
   eventButtonDisplayInfos: EventButtonDisplayInfo[]
   hasCanReceiveInviteHostRewards: boolean
+  existsUnclearedExercise: boolean
+  extraStoryPartInfos: ExtraStoryPartInfo[]
   pvpRewardResultInfo: PvpRewardResultInfo
   gvgRewardResultInfo: GvgRewardResultInfo
   tourRewardResultInfos: TourRewardResultInfo[]
@@ -729,7 +783,7 @@ export type HomeLadderInfo = {
   isUnlocked: boolean
   eventMissionId: string
   messageGroupId: string
-  hasReachablePanel: boolean
+  reachablePanelCount: number
 }
 
 export type HomeMarathonInfo = {
@@ -745,6 +799,11 @@ export type HomeMarathonInfo = {
   isUnlocked: boolean
   eventMissionId: string
   isMaxStamina: boolean
+  isRaidStaminaOverThreshold: boolean
+  hasFinishedRaidQuest: boolean
+  isRaidHostEnable: boolean
+  reachableLadderPanelCount: number
+  type: MarathonType
 }
 
 export type HomePhotoContestInfo = {
@@ -815,6 +874,7 @@ export type LadderInfo = {
   topColorCode: string
   bottomColorCode: string
   bgmAssetId: string
+  backgroundAssetId: string
 }
 
 export type LadderPanel = {
@@ -875,6 +935,7 @@ export type LiveBattleQuestInfo = {
   questAudienceAdvantageId: string
   moodType: MoodType
   liveBonusGroupId: string
+  liveSkipType: LiveSkipType
 }
 
 export type LiveCardInfo = {
@@ -892,6 +953,7 @@ export type LiveCardResult = {
 export type LiveCharacterAssetInfo = {
   characterId: string
   costumeId: string
+  hairId: string
 }
 
 export type LiveDeckCard = {
@@ -915,6 +977,8 @@ export type LiveDeckCard = {
   skills: LiveDeckCardSkill[]
   isBuddy: boolean
   isFriendBuddy: boolean
+  displayHairId: string
+  isTourScout: boolean
 }
 
 export type LiveDeckCardSkill = {
@@ -981,6 +1045,14 @@ export type MarathonInfo = {
   noticeInfo: NoticeInfo
   staminaRecoveryItemId: string
   questUnlockItemId: string
+  type: MarathonType
+  raidStaminaRecoveryItemId: string
+  initialRaidStamina: number
+  raidStaminaRecoveryMinutes: number
+  raidQuest: MarathonRaidQuest
+  raidRequiredPointFriendDiscountRatePermil: number
+  raidLimitHours: number
+  ladderInfo: LadderInfo
 }
 
 export type MarathonLiveBonusInfo = {
@@ -1015,7 +1087,75 @@ export type MarathonQuestStartResponse = {
   highestClearRankType: ResultRankType
   highestScore: string
   addMarathonPoint: number
+  friendApplyToBuddyInfo: FriendApplyToBuddyInfo
   commonResponse: CommonResponse
+}
+
+export type MarathonRaidHostUser = {
+  name: string
+  isFriend: boolean
+  favoriteCard: FavoriteCardInfo
+  favoritePhoto: FavoritePhotoInfo
+  decorationId: string
+  userId: string
+}
+
+export type MarathonRaidQuest = {
+  id: string
+  stageId: string
+  name: string
+  description: string
+  unlockConditionId: string
+  unlockDescription: string
+  musicId: string
+  musicChartPatternId: string
+  position1AttributeType: AttributeType
+  position2AttributeType: AttributeType
+  position3AttributeType: AttributeType
+  position4AttributeType: AttributeType
+  position5AttributeType: AttributeType
+  activeSkillWeightPermil: number
+  specialSkillWeightPermil: number
+  skillStaminaWeightPermil: number
+  staminaRecoveryWeightPermil: number
+  beatDanceWeightPermil: number
+  beatVocalWeightPermil: number
+  beatVisualWeightPermil: number
+  questPressureId: string
+  questCharacterAdvantageId: string
+  questAudienceAdvantageId: string
+  moodType: MoodType
+  maxCapacity: number
+  liveBonusGroupId: string
+  unlocked: boolean
+  difficulties: MarathonRaidQuestDifficulty[]
+}
+
+export type MarathonRaidQuestDifficulty = {
+  raidQuestId: string
+  difficultyNumber: number
+  difficultyLevel: number
+  mentalThreshold: number
+  clearScore: string
+  requiredRaidStamina: number
+  hostRewardId: string
+  joinRewardId: string
+  mvpRewardId: string
+  unlockConditionId: string
+  rewardManagerExp: number
+  rewardCardExp: number
+  cleared: boolean
+  unlocked: boolean
+  liveSkipType: LiveSkipType
+}
+
+export type MarathonRaidRankedUser = {
+  rank: number
+  userName: string
+  managerLevel: number
+  score: string
+  emblemId: string
+  userId: string
 }
 
 export type MarketItem = {
@@ -1264,6 +1404,27 @@ export type QuestAreaInfo = {
   quests: QuestInfo[]
 }
 
+export type QuestBulkDailyDeckPositionInfo = {
+  position: number
+  cardId: string
+}
+
+export type QuestBulkDailyInfo = {
+  questId: string
+  deckPositions: QuestBulkDailyDeckPositionInfo[]
+  rankType: ResultRankType
+  rankPlus: number
+}
+
+export type QuestBulkDailyResultInfo = {
+  questId: string
+  playCount: number
+  deckPositions: QuestBulkDailyDeckPositionInfo[]
+  reward: QuestReward
+  rankType: ResultRankType
+  rankPlus: number
+}
+
 export type QuestClearInfo = {
   score: string
   userName: string
@@ -1341,6 +1502,7 @@ export type QuestTopResponse = {
   towerArea: QuestAreaInfo
   contestArea: QuestAreaInfo
   isTowerTopUnlocked: boolean
+  bulkDailyInfos: QuestBulkDailyInfo[]
   commonResponse: CommonResponse
 }
 
@@ -1567,6 +1729,7 @@ export type TourEffectLive = {
   rewardId: string
   difficultyLevel: number
   tourQuestSettingId: string
+  liveSkipType: LiveSkipType
 }
 
 export type TourEffectPvp = {
@@ -1581,6 +1744,7 @@ export type TourEffectPvp = {
   scoutInfo: TourScoutInfo
   rewardId: string
   tourQuestSettingId: string
+  liveSkipType: LiveSkipType
 }
 
 export type TourEffectRefresh = {
@@ -1649,6 +1813,7 @@ export type ActivityStartFanEventRequest = {
   characterIds: string[]
   costumeIds: string[]
   itemIds: string[]
+  hairIds: string[]
 }
 
 export type ActivityStartFanEventResponse = {
@@ -1709,6 +1874,7 @@ export type ActivityStartPromotionRequest = {
   activityPromotionId: string
   characterIds: string[]
   costumeIds: string[]
+  hairIds: string[]
 }
 
 export type ActivityStartPromotionResponse = {
@@ -1767,6 +1933,7 @@ export type ActivityStartRefreshRequest = {
   activityRefreshLevel: number
   characterIds: string[]
   costumeIds: string[]
+  hairIds: string[]
 }
 
 export type ActivityStartRefreshResponse = {
@@ -1805,6 +1972,7 @@ export type ActivityReceiveLessonRewardResponse = {
 
 export type ActivityPromoteLessonRequest = {
   isFree: boolean
+  useItemId: string
 }
 
 export type ActivityPromoteLessonResponse = {
@@ -1868,6 +2036,9 @@ export type AuthLoginResponse = {
   gameAuthToken: string
   userPublic: UserPublic
   requiredFirebaseReauthenticate: boolean
+}
+
+export type AuthDeleteResponse = {
 }
 
 export type BacksideTopRequest = {
@@ -1968,31 +2139,13 @@ export type BacksideStageSurpriseFinishResponse = {
 export type BacksideStageDeckPositionChangeRequest = {
   backsideId: string
   deckPositionInfos: BacksideDeckPositionInfo[]
-  pieceNumber: number
-  radiusNumber: number
-  panelNumber: number
 }
 
 export type BacksideStageDeckPositionChangeResponse = {
-  deckCardDetailInfos: BacksideDeckCardDetailInfo[]
-  deckCardStaminaInfos: BacksideDeckCardStaminaInfo[]
   deckUserCharacters: UserCharacter[]
-  baseDeckOverallValue: string
-  commonResponse: CommonResponse
-}
-
-export type BacksideStageDeckGetRequest = {
-  backsideId: string
-  pieceNumber: number
-  radiusNumber: number
-  panelNumber: number
-}
-
-export type BacksideStageDeckGetResponse = {
-  deckCardDetailInfos: BacksideDeckCardDetailInfo[]
-  deckCardStaminaInfos: BacksideDeckCardStaminaInfo[]
-  deckUserCharacters: UserCharacter[]
-  baseDeckOverallValue: string
+  deckDetailInfo: BacksideStageDeckDetailInfo
+  scoreLiveDeckDetailInfo: BacksideStageDeckDetailInfo
+  battleLiveDeckDetailInfo: BacksideStageDeckDetailInfo
   commonResponse: CommonResponse
 }
 
@@ -2079,30 +2232,38 @@ export type BacksideLiveBonusInfo = {
   liveBonuses: BacksideLiveBonus[]
 }
 
+export type BacksideStageDeckDetailInfo = {
+  deckCardDetailInfos: BacksideDeckCardDetailInfo[]
+  deckCardStaminaInfos: BacksideDeckCardStaminaInfo[]
+  baseDeckOverallValue: string
+}
+
 export type BacksideStageInfo = {
   panelInfos: BacksidePanelInfo[]
   scheduleInfos: BacksideScheduleInfo[]
   nextActionCount: string
   practiceScore: string
-  deckCardDetailInfos: BacksideDeckCardDetailInfo[]
-  deckCardStaminaInfos: BacksideDeckCardStaminaInfo[]
   liveBonuses: BacksideLiveBonus[]
   allLiveBonusInfos: BacksideLiveBonusInfo[]
   cardLiveAbilityInfos: BacksideCardLiveAbilityInfo[]
   totalPracticeScore: string
   deckUserCharacters: UserCharacter[]
-  baseDeckOverallValue: string
+  deckDetailInfo: BacksideStageDeckDetailInfo
+  scoreLiveDeckDetailInfo: BacksideStageDeckDetailInfo
+  battleLiveDeckDetailInfo: BacksideStageDeckDetailInfo
 }
 
 export type BacksideStageProgressInfo = {
   panelInfos: BacksidePanelInfo[]
   nextActionCount: string
   practiceScore: string
-  deckCardStaminaInfos: BacksideDeckCardStaminaInfo[]
   liveBonuses: BacksideLiveBonus[]
   execPanelLocationInfo: BacksideExecPanelLocationInfo
   totalPracticeScore: string
-  deckCardDetailInfos: BacksideDeckCardDetailInfo[]
+  deckUserCharacters: UserCharacter[]
+  deckDetailInfo: BacksideStageDeckDetailInfo
+  scoreLiveDeckDetailInfo: BacksideStageDeckDetailInfo
+  battleLiveDeckDetailInfo: BacksideStageDeckDetailInfo
 }
 
 export type BacksidePanelInfo = {
@@ -2434,6 +2595,7 @@ export type NoticeInfo = {
   displayNotification: boolean
   startTime: string
   listTitle: string
+  notificationRestartTime: string
 }
 
 export type PaidJpy = {
@@ -2469,6 +2631,11 @@ export type EventStoryEpisodeInfo = {
   unlocked: boolean
 }
 
+export type ExtraStoryEpisodeInfo = {
+  episode: number
+  unlocked: boolean
+}
+
 export type EventExchangeBoothInfo = {
   id: string
   name: string
@@ -2490,6 +2657,11 @@ export type PvpSeasonInfo = {
 export type CurrentGvgInfo = {
   gvgSeason: GvgSeasonInfo
   isRemainingChallenge: boolean
+}
+
+export type GachaStampInfo = {
+  currentSheetNumber: number
+  currentStampNumber: number
 }
 
 export type HomeEventInfo = {
@@ -2532,6 +2704,23 @@ export type UserDeckPosition = {
   photoIds: string[]
   costumeId: string
   buddyUserId: string
+  hairId: string
+}
+
+export type LadderProgressInfo = {
+  steps: LadderStep[]
+}
+
+export type LadderStep = {
+  step: number
+  lane1Panel: LadderPanel
+  lane2Panel: LadderPanel
+  lane3Panel: LadderPanel
+}
+
+export type FriendApplyToBuddyInfo = {
+  isActive: boolean
+  isAlreadyOffered: boolean
 }
 
 export type CommonResponse = {
@@ -2576,6 +2765,7 @@ export type UpdatedData = {
   photoRecipes: UserPhotoRecipe[]
   buddy: UserBuddy
   invite: UserInvite
+  hairs: UserHair[]
 }
 
 export type DeletedData = {
@@ -2592,6 +2782,7 @@ export type DeletedData = {
 
 export type CostumeSetRequest = {
   costumeId: string
+  hairId: string
 }
 
 export type CostumeSetResponse = {
@@ -2600,6 +2791,7 @@ export type CostumeSetResponse = {
 
 export type CostumeLiveSetRequest = {
   costumeId: string
+  hairId: string
 }
 
 export type CostumeLiveSetResponse = {
@@ -2710,6 +2902,44 @@ export type ExchangeExecuteResponse = {
   results: RewardResult[]
   afterExchangeItem: ExchangeItem
   booth: ExchangeBooth
+  commonResponse: CommonResponse
+}
+
+export type ExchangeTryOnRequest = {
+  exchangeId: string
+  costumeId: string
+  hairId: string
+}
+
+export type ExchangeTryOnResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ExerciseTopResponse = {
+  exercises: ExerciseInfo[]
+  commonResponse: CommonResponse
+}
+
+export type ExerciseSaveDeckRequest = {
+  exerciseId: string
+  positions: ExerciseDeckPosition[]
+}
+
+export type ExerciseSaveDeckResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ExerciseStartRequest = {
+  exerciseId: string
+  isSkip: boolean
+}
+
+export type ExerciseListAssetRequest = {
+  exerciseId: string
+}
+
+export type ExerciseListAssetResponse = {
+  characterAssets: LiveCharacterAssetInfo[]
   commonResponse: CommonResponse
 }
 
@@ -2837,6 +3067,7 @@ export type FriendApplyResponse = {
   isAlreadyOffered: boolean
   isAccountBan: boolean
   applied: boolean
+  isAccountDeleted: boolean
   commonResponse: CommonResponse
 }
 
@@ -2850,6 +3081,7 @@ export type FriendApproveResponse = {
   isOfferDeleted: boolean
   isAccountBan: boolean
   approved: boolean
+  isAccountDeleted: boolean
   commonResponse: CommonResponse
 }
 
@@ -2909,6 +3141,8 @@ export type GachaDrawResponse = {
   gachaMovie: GachaMovie
   cardRewards: Reward[]
   continuousResult: GachaContinuousResult
+  stampInfo: GachaStampInfo
+  stampRewards: Reward[]
   commonResponse: CommonResponse
 }
 
@@ -3075,7 +3309,6 @@ export type GvgTopInfo = {
   guildRankingRewards: GvgGuildRankingRewardInfo[]
   gvgQuest: LiveBattleQuestInfo
   userGvgSeason: UserGvgSeasonInfo
-  isSkipAvailable: boolean
 }
 
 export type UserGvgSeasonInfo = {
@@ -3148,6 +3381,14 @@ export type GvgListAssetRequest = {
 export type GvgListAssetResponse = {
   characterAssets: LiveCharacterAssetInfo[]
   opponentCharacterAssets: LiveCharacterAssetInfo[]
+  commonResponse: CommonResponse
+}
+
+export type HairCheckRequest = {
+  hairId: string
+}
+
+export type HairCheckResponse = {
   commonResponse: CommonResponse
 }
 
@@ -3347,6 +3588,7 @@ export type BannerInfo = {
   boardBanners: Banner[]
   questBanners: Banner[]
   inviteBanners: Banner[]
+  exerciseBanners: Banner[]
 }
 
 export type FanEventInfo = {
@@ -3432,18 +3674,8 @@ export type LadderPanelReachRequest = {
 export type LadderPanelReachResponse = {
   rewardResults: RewardResult[]
   progressInfo: LadderProgressInfo
+  reachablePanelCount: number
   commonResponse: CommonResponse
-}
-
-export type LadderProgressInfo = {
-  steps: LadderStep[]
-}
-
-export type LadderStep = {
-  step: number
-  lane1Panel: LadderPanel
-  lane2Panel: LadderPanel
-  lane3Panel: LadderPanel
 }
 
 export type LoginBonusListResponse = {
@@ -3494,11 +3726,15 @@ export type MarathonQuestStartRequest = {
   deckNumber: number
   isSkip: boolean
   execCount: number
+  userBuddyDeckPositions: UserDeckPosition[]
+  buddyDeckName: string
 }
 
 export type MarathonQuestListAssetRequest = {
-  marathonQuestId: string
+  marathonId: string
   deckNumber: number
+  userBuddyDeckPositions: UserDeckPosition[]
+  buddyDeckName: string
 }
 
 export type MarathonQuestListAssetResponse = {
@@ -3520,10 +3756,13 @@ export type MarathonListDeckRequest = {
   marathonId: string
   marathonQuestId: string
   marathonQuestDifficultyNumber: number
+  marathonBuddyDecks: MarathonBuddyDeck[]
 }
 
 export type MarathonListDeckResponse = {
   deckInfos: MarathonDeckInfo[]
+  buddyDeckInfos: MarathonDeckInfo[]
+  commonResponse: CommonResponse
 }
 
 export type MarathonDeckSaveRequest = {
@@ -3536,6 +3775,23 @@ export type MarathonDeckSaveRequest = {
 
 export type MarathonDeckSaveResponse = {
   deckInfo: MarathonDeckInfo
+  commonResponse: CommonResponse
+}
+
+export type MarathonBuddyDeckRequest = {
+  marathonQuestId: string
+  marathonQuestDifficultyNumber: number
+  marathonBuddyDecks: MarathonBuddyDeck[]
+}
+
+export type MarathonBuddyDeck = {
+  deckNumber: number
+  deckName: string
+  userBuddyDeckPositions: UserDeckPosition[]
+}
+
+export type MarathonBuddyDeckResponse = {
+  buddyDeckInfos: MarathonDeckInfo[]
   commonResponse: CommonResponse
 }
 
@@ -3560,10 +3816,157 @@ export type MarathonBoxGachaResetResponse = {
   commonResponse: CommonResponse
 }
 
+export type MarathonRaidListRequest = {
+  marathonId: string
+}
+
+export type MarathonRaidListResponse = {
+  joinableQuests: MarathonRaidQuestProgress[]
+  progressingQuests: MarathonRaidQuestProgress[]
+  finishedQuests: MarathonRaidQuestProgress[]
+  updateEnableTime: string
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidCheckProgressRequest = {
+  marathonId: string
+  raidId: string
+}
+
+export type MarathonRaidCheckProgressResponse = {
+  finished: boolean
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidListHistoryRequest = {
+  marathonId: string
+}
+
+export type MarathonRaidListHistoryResponse = {
+  quests: MarathonRaidQuestProgress[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidGetHistoryDetailRequest = {
+  marathonId: string
+  raidId: string
+}
+
+export type MarathonRaidGetHistoryDetailResponse = {
+  raidResult: MarathonRaidResult
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidListRankingRequest = {
+  marathonId: string
+  raidId: string
+}
+
+export type MarathonRaidListRankingResponse = {
+  rankedUsers: MarathonRaidRankedUser[]
+  selfScore: string
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidStartRequest = {
+  marathonId: string
+  difficultyNumber: number
+  deckNumber: number
+  isSkip: boolean
+}
+
+export type MarathonRaidStartResponse = {
+  marathonId: string
+  difficultyNumber: number
+  difficultyLevel: number
+  result: LiveResult
+  reward: QuestReward
+  hostRewards: RewardResult[]
+  raidEndTime: string
+  raidResult: MarathonRaidResult
+  beforeScore: string
+  rankPatterns: QuestRankPattern[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidJoinRequest = {
+  marathonId: string
+  raidId: string
+  deckNumber: number
+  isSkip: boolean
+  difficultyNumber: number
+}
+
+export type MarathonRaidJoinResponse = {
+  marathonId: string
+  difficultyNumber: number
+  difficultyLevel: number
+  result: LiveResult
+  joinRewards: RewardResult[]
+  raidEndTime: string
+  raidResult: MarathonRaidResult
+  beforeScore: string
+  rankPatterns: QuestRankPattern[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidFinishRequest = {
+  marathonId: string
+  raidId: string
+}
+
+export type MarathonRaidFinishResponse = {
+  raidResult: MarathonRaidResult
+  commonResponse: CommonResponse
+}
+
+export type MarathonUseRaidStaminaRecoveryItemRequest = {
+  marathonId: string
+  amount: number
+}
+
+export type MarathonUseRaidStaminaRecoveryItemResponse = {
+  userMarathonInfo: UserMarathonInfo
+  commonResponse: CommonResponse
+}
+
+export type MarathonListRaidDeckRequest = {
+  marathonId: string
+  difficultyNumber: number
+  raidId: string
+}
+
+export type MarathonListRaidDeckResponse = {
+  deckInfos: MarathonDeckInfo[]
+  rankedUsers: MarathonRaidSimpleRankedUser[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidDeckSaveRequest = {
+  marathonId: string
+  number: number
+  name: string
+  userDeckPositions: UserDeckPosition[]
+  difficultyNumber: number
+}
+
+export type MarathonRaidDeckSaveResponse = {
+  deckInfo: MarathonDeckInfo
+  commonResponse: CommonResponse
+}
+
 export type UserMarathonInfo = {
   currentStamina: number
   staminaUpdatedTime: string
   liveBonusInfos: MarathonLiveBonusInfo[]
+  currentRaidStamina: number
+  raidStaminaUpdatedTime: string
+  ladderProgressInfo: LadderProgressInfo
+  progressingRaidQuestCount: number
+  finishedRaidQuestCount: number
+  nextRaidHostEnableTime: string
+  isRaidHostEnable: boolean
+  reachableLadderPanelCount: number
 }
 
 export type MarathonQuestDifficultyLevelInfo = {
@@ -3574,6 +3977,7 @@ export type MarathonQuestDifficultyLevelInfo = {
   opponentInfo: QuestOpponentInfo
   unlocked: boolean
   highestScore: string
+  liveSkipType: LiveSkipType
 }
 
 export type MarathonDeckInfo = {
@@ -3598,6 +4002,37 @@ export type MarathonPhotoInfo = {
   photoId: string
   level: number
   abilities: MarathonPhotoAbilityInfo[]
+}
+
+export type MarathonRaidResult = {
+  isClear: boolean
+  score: string
+  clearScore: string
+  totalScore: string
+  elapsedMilliSeconds: number
+  rank: number
+  joinedUserCount: number
+  mvpRewards: RewardResult[]
+  rankedUsers: MarathonRaidRankedUser[]
+}
+
+export type MarathonRaidSimpleRankedUser = {
+  rank: number
+  userName: string
+  userId: string
+}
+
+export type MarathonRaidQuestProgress = {
+  raidId: string
+  hostUser: MarathonRaidHostUser
+  raidEndTime: string
+  joinedUserCount: number
+  clearScore: string
+  totalScore: string
+  difficultyNumber: number
+  difficultyLevel: number
+  progressType: MarathonRaidProgressType
+  liveSkipType: LiveSkipType
 }
 
 export type MarketListItemResponse = {
@@ -3636,6 +4071,14 @@ export type MasterGetResponse = {
 
 export type MasterFaqResponse = {
   helpCategories: HelpCategory[]
+}
+
+export type MasterRuleRequest = {
+  ruleType: RuleType
+}
+
+export type MasterRuleResponse = {
+  text: string
 }
 
 export type MessageListGroupResponse = {
@@ -3843,6 +4286,7 @@ export type NoticeListResponse = {
   noticeHasNext: boolean
   malfunctionNoticeHasNext: boolean
   prNoticeHasNext: boolean
+  roootAssociateToken: string
   commonResponse: CommonResponse
 }
 
@@ -3854,6 +4298,7 @@ export type NoticeFetchRequest = {
 export type NoticeFetchResponse = {
   notices: NoticeInfo[]
   hasNext: boolean
+  roootAssociateToken: string
   commonResponse: CommonResponse
 }
 
@@ -3863,6 +4308,7 @@ export type NoticeGetRequest = {
 
 export type NoticeGetResponse = {
   notice: NoticeInfo
+  roootAssociateToken: string
   commonResponse: CommonResponse
 }
 
@@ -3945,6 +4391,7 @@ export type PhotoCheckShootingRequest = {
   photoStageId: string
   characterIds: string[]
   costumeIds: string[]
+  hairIds: string[]
 }
 
 export type PhotoCheckShootingResponse = {
@@ -3961,10 +4408,35 @@ export type PhotoCreateShootingRequest = {
   characterIds: string[]
   costumeIds: string[]
   manualCount: number
+  hairIds: string[]
 }
 
 export type PhotoCreateShootingResponse = {
   photo: UserPhoto
+  isGift: boolean
+  commonResponse: CommonResponse
+}
+
+export type PhotoCreateShootingsRequest = {
+  actionType: PhotoShootingActionType
+  photoActivityId: string
+  photoMusicId: string
+  photoStageId: string
+  characterIds: string[]
+  costumeIds: string[]
+  hairIds: string[]
+  createShootingParams: PhotoCreateShootingParam[]
+  manualCount: number
+}
+
+export type PhotoCreateShootingParam = {
+  photoImageId: string
+  itemId: string
+  mainCharacterId: string
+}
+
+export type PhotoCreateShootingsResponse = {
+  photos: UserPhoto[]
   isGift: boolean
   commonResponse: CommonResponse
 }
@@ -4039,6 +4511,7 @@ export type PhotoContestCheckShootingRequest = {
   selectedCharacterIds: string[]
   selectedCostumeIds: string[]
   sectionId: string
+  selectedHairIds: string[]
 }
 
 export type PhotoContestCheckShootingResponse = {
@@ -4066,6 +4539,8 @@ export type PhotoContestSubmitShootingRequest = {
   shootingMotionId: string
   selectedCharacterIds: string[]
   selectedCostumeIds: string[]
+  hairIds: string[]
+  selectedHairIds: string[]
 }
 
 export type PhotoContestCreateShootingRequest = {
@@ -4179,7 +4654,6 @@ export type PvpTopResultInfo = {
   pvpQuest: LiveBattleQuestInfo
   userPvpSeason: UserPvpSeasonInfo
   rank: string
-  isSkipAvailable: boolean
   pvpTicketAvailableAmount: number
 }
 
@@ -4247,6 +4721,7 @@ export type QuestListMainResponse = {
 
 export type QuestListDailyResponse = {
   areas: QuestAreaInfo[]
+  bulkDailyInfos: QuestBulkDailyInfo[]
   commonResponse: CommonResponse
 }
 
@@ -4268,6 +4743,11 @@ export type QuestStartRequest = {
   playCount: number
   userBuddyDeckPositions: UserDeckPosition[]
   buddyDeckName: string
+}
+
+export type QuestStartBulkDailyResponse = {
+  results: QuestBulkDailyResultInfo[]
+  commonResponse: CommonResponse
 }
 
 export type QuestListTowerRankingRequest = {
@@ -4338,11 +4818,6 @@ export type QuestTopPvpInfo = {
   rank: number
   remainingChallengeCount: number
   latestPvpSeason: PvpSeasonInfo
-}
-
-export type FriendApplyToBuddyInfo = {
-  isActive: boolean
-  isAlreadyOffered: boolean
 }
 
 export type RaceTopRequest = {
@@ -4693,6 +5168,16 @@ export type ShopReceiveConditionRewardResponse = {
   commonResponse: CommonResponse
 }
 
+export type ShopTryOnRequest = {
+  shopItemId: string
+  costumeId: string
+  hairId: string
+}
+
+export type ShopTryOnResponse = {
+  commonResponse: CommonResponse
+}
+
 export type StaffTrainRequest = {
   parameterType: ParameterType
 }
@@ -4738,6 +5223,22 @@ export type StoryReadEventResponse = {
   commonResponse: CommonResponse
 }
 
+export type StoryListExtraResponse = {
+  infos: ExtraStoryPartInfo[]
+  commonResponse: CommonResponse
+}
+
+export type StoryReadExtraRequest = {
+  extraStoryId: string
+  episode: number
+  isLast: boolean
+}
+
+export type StoryReadExtraResponse = {
+  rewards: RewardResult[]
+  commonResponse: CommonResponse
+}
+
 export type SystemCheckRequest = {
   firebaseIDToken: string
 }
@@ -4749,6 +5250,7 @@ export type SystemCheckResponse = {
   keepAliveTimeoutMilliseconds: number
   enableCrashlyticsCollection: boolean
   enableUnityLogErrorToLogException: boolean
+  enableApiParallelExecutionSuppression: boolean
 }
 
 export type MaintenanceInfo = {
@@ -5131,6 +5633,7 @@ export type TutorialActivityReceiveLessonRewardResponse = {
 
 export type TutorialPhotoCreateShootingRequest = {
   mainCharacterId: string
+  photoImageId: string
 }
 
 export type TutorialPhotoCreateShootingResponse = {
@@ -5180,6 +5683,7 @@ export type UserGetResponse = {
   photoRecipes: UserPhotoRecipe[]
   buddy: UserBuddy
   invite: UserInvite
+  hairs: UserHair[]
   userPublic: UserPublic
 }
 
