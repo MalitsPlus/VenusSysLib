@@ -1,4 +1,3 @@
-
 import protoCard from "../../database/Card.json"
 import protoCardParameter from "../../database/CardParameter.json"
 import protoCardRarity from '../../database/CardRarity.json';
