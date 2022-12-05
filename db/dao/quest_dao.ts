@@ -8,13 +8,22 @@ import protoLiveBonusGroup from "../../database/LiveBonusGroup.json"
 import protoLiveBonus from "../../database/LiveBonus.json"
 import protoliveAbility from "../../database/LiveAbility.json"
 
-
 const rawQuest: Quest[] = protoQuest
 const rawMusic: Music[] = protoMusic
 const rawMusicChartPattern: MusicChartPattern[] = protoMusicChartPattern
 const rawLiveBonusGroup: LiveBonusGroup[] = protoLiveBonusGroup
 const rawLiveBonus: LiveBonus[] = protoLiveBonus
 const rawLiveAbility: LiveAbility[] = protoliveAbility
+
+const getAllQuests = () => {
+  return rawQuest
+}
+
+const getRawQuests = (
+  reg: string
+): Quest[] => {
+  return rawQuest.filter(it => !!it.areaId.match(reg))
+}
 
 const getRawQuest = (
   id: string
@@ -64,4 +73,6 @@ export {
   getRawLiveBonusGroup,
   getRawLiveBonus,
   getRawLiveAbility,
+  getRawQuests,
+  getAllQuests,
 }

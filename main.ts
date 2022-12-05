@@ -1,6 +1,10 @@
 import * as fs from 'fs'
+import { getRawQuests } from './db/dao/quest_dao';
 import simulate from "./index";
 import { TransDeck, TransCard } from "./types/trans_types"
+
+const reg = "area-daily-002"
+const xxx = getRawQuests(reg)
 
 const questId = "qt-area-1-008"
 const allyDeck: TransDeck = {
