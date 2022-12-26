@@ -9,7 +9,7 @@ export default function checkActSkillPossibility(
   }
   this.actables = this.actables.filter(actable => {
     const cardStat = this.current.getCardStatus(actable.index)
-    const impossible = cardStat.getEffects(SkillEfficacyType.SkillImpossible)
+    const impossible = cardStat.getEffects(SkillEfficacyType.SkillImpossible, true)
     if (impossible.length > 0) {
       if (actable.index <= 5) {
         this.current.failureFlag = SkillFailureType.InSkillImpossibleEffect

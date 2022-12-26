@@ -65,10 +65,13 @@ export function getCardSkillStatus(
 export function getEffectsByType(
   this: CardStatus,
   _type: SkillEfficacyType,
-  needZeroRemain: boolean = false,
+  included?: boolean,
+  needZeroRemain?: boolean,
 ): Effect[] {
   return this.effects.filter(x =>
-    x.efficacyType === _type && (needZeroRemain || x.remain)
+    x.efficacyType === _type
+    && (included === undefined || x.include === included)
+    && (needZeroRemain === undefined || needZeroRemain || x.remain)
   )
 }
 /**
@@ -78,8 +81,10 @@ export function getEffectsByType(
 export function getEffectSumGradeByType(
   this: CardStatus,
   _type: SkillEfficacyType,
+  included: boolean = true,
+  needZeroRemain?: boolean
 ): number {
-  const effs = this.getEffects(_type)
+  const effs = this.getEffects(_type, included, needZeroRemain)
   if (!effs.length) {
     return 0
   }
@@ -95,8 +100,10 @@ export function getEffectSumGradeByType(
 export function getEffectSumGradeOrMaxGradeByType(
   this: CardStatus,
   _type: SkillEfficacyType,
+  included: boolean = true,
+  needZeroRemain?: boolean
 ): number {
-  const sumGrade = this.getEffectSumGrade(_type)
+  const sumGrade = this.getEffectSumGrade(_type, included, needZeroRemain)
   if (!StackableSkillEfficacyList.includes(_type)) {
     return sumGrade
   }
@@ -107,7 +114,7 @@ export function getEffectSumGradeOrMaxGradeByType(
  * Get and calculate effect value of specified type.  
  * Exceeding grades will be excluded.  
  * If the type is not belong to `StrengthList` or other 2 weakness type, always returns 0.
- */   
+ */
 export function getEffectValue(
   this: CardStatus,
   _type: SkillEfficacyType,
@@ -115,7 +122,7 @@ export function getEffectValue(
   if (!StackableSkillEfficacyList.includes(_type)) {
     return 0
   }
-  const grade = this.getEffectSumOrMaxGrade(_type)
+  const grade = this.getEffectSumOrMaxGrade(_type, true)
   const value = EfficacyValue[_type][grade] ?? 0 // FIXME: protential error
   return value
 }
@@ -157,12 +164,12 @@ export function getBuffedPermil(
       }
     }
   })()
-  let upGrade = this.getEffectSumGrade(upType)
-  const upMaxGrade = EfficacyMaxGrade[upType]
-  let boostGrade = this.getEffectSumGrade(boostType)
-  const boostMaxGrade = EfficacyMaxGrade[boostType]
-  let downGrade = this.getEffectSumGrade(downType)
-  const downMaxGrade = EfficacyMaxGrade[downType]
+  let upGrade = this.getEffectSumGrade(upType, true)
+  const upMaxGrade = EfficacyMaxGrade[upType] ?? 99
+  let boostGrade = this.getEffectSumGrade(boostType, true)
+  const boostMaxGrade = EfficacyMaxGrade[boostType] ?? 99
+  let downGrade = this.getEffectSumGrade(downType, true)
+  const downMaxGrade = EfficacyMaxGrade[downType] ?? 99
 
   upGrade = upGrade > upMaxGrade ? upMaxGrade : upGrade
   boostGrade = boostGrade > boostMaxGrade ? boostMaxGrade : boostGrade
@@ -182,16 +189,16 @@ export function refreshParam(
   card: LiveCard,
   type: "dance" | "vocal" | "visual"
 ) {
-  const permil = this.getBuffedPermil(type)
+  const permil = this.getBuffedPermil(type) + 1000
   switch (type) {
     case "dance":
-      this.dance = calcBuffedParam(card.deckDance, permil)
+      this.dance = calcBuffedParam(card.deckDance, permil, 0, true)
       break
     case "vocal":
-      this.vocal = calcBuffedParam(card.deckVocal, permil)
+      this.vocal = calcBuffedParam(card.deckVocal, permil, 0, true)
       break
     case "visual":
-      this.visual = calcBuffedParam(card.deckVisual, permil)
+      this.visual = calcBuffedParam(card.deckVisual, permil, 0, true)
       break
   }
 }

@@ -32,21 +32,21 @@ export class Concert {
   live: Live
   charts: Chart[]
   liveDeck: LiveDeck
-  protected previous: Chart
-  current: Chart
-  protected order: number
-  protected actables: Actable[]
-  pSkills: { cardIndex: number, skillIndex: number }[]
-  pSkillPerformed: { cardIndex: number, skillIndex: number }[]
-  migratedEffs: {
-    index: number
-    type: SkillEfficacyType.StrengthEffectMigrationBeforeActiveSkill
-    | SkillEfficacyType.StrengthEffectMigrationBeforeSpecialSkill
-    effs: Effect[]
-    fromOrder: number
-    sourceIndex: number
-    sourceSkillIndex: number
-  }[]
+  protected previous!: Chart;
+  current!: Chart;
+  protected order!: number;
+  protected actables!: Actable[];
+  pSkills!: { cardIndex: number; skillIndex: number; }[];
+  pSkillPerformed!: { cardIndex: number; skillIndex: number; }[];
+  migratedEffs!: {
+    index: number;
+    type: SkillEfficacyType.StrengthEffectMigrationBeforeActiveSkill |
+    SkillEfficacyType.StrengthEffectMigrationBeforeSpecialSkill;
+    effs: Effect[];
+    fromOrder: number;
+    sourceIndex: number;
+    sourceSkillIndex: number;
+  }[];
 
   // methods
   go() {
@@ -79,8 +79,15 @@ export class Concert {
       getStageStatus: util.getStageStatusByIndexes,
     }
     // remove effects which have no remain count
+    // also, at this point, all effects shall be in effect,
+    // change `include` to `true`.
     this.current.cardStatuses.forEach(cardStat => {
-      cardStat.effects = cardStat.effects.filter(eff => eff.remain !== 0)
+      cardStat.effects = cardStat.effects.filter(
+        eff => {
+          eff.include = true
+          return eff.remain !== 0
+        }
+      )
     })
   }
 

@@ -1,7 +1,9 @@
 import { SkillEfficacyType } from "../../types/proto/proto_enum"
 import { WeaknessDurationList } from "./efficacy_list"
 
-export const Index2Lane = {
+export const Index2Lane: {
+  [k: number]: number
+} = {
   1: 1, 2: 2, 3: 3, 4: 4, 5: 5,
   6: 1, 7: 2, 8: 3, 9: 4, 10: 5,
 }
@@ -58,7 +60,9 @@ export const IndexNeighbor: {
   10: [8],
 }
 
-export const SameLaneOpponent = {
+export const SameLaneOpponent: {
+  [k: number]: number
+} = {
   1: 6, 2: 7, 3: 8, 4: 9, 5: 10,
   6: 1, 7: 2, 8: 3, 9: 4, 10: 5,
 }

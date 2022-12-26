@@ -1,6 +1,6 @@
 {
   "name": "hoshimi-venus",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "author": "vibbit (https://github.com/MalitsPlus)",
   "description": "Venus System Library (tentative)",
   "keywords": [],
@@ -27,6 +27,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@types/node": "^18.11.2"
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.2",
+    "@types/uuid": "^9.0.0"
   }
 }

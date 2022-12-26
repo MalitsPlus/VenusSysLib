@@ -203,8 +203,8 @@ function _getTargetIndexes(
 
         case SkillTargetType.OpponentCenter: {
           isOpponentTarget = true
-          if (deckPosition >= 6) return 1
-          else return 6
+          if (deckPosition >= 6) return [1]
+          else return [6]
         }
 
         case SkillTargetType.OpponentCardType: {
@@ -228,7 +228,7 @@ function _getTargetIndexes(
 
         case SkillTargetType.OpponentSamePosition: {
           isOpponentTarget = true
-          return SameLaneOpponent[deckPosition]
+          return [SameLaneOpponent[deckPosition]]
         }
 
         default:

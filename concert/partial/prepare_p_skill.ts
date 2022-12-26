@@ -42,9 +42,10 @@ export function* preparePSkill(
     if (skillStat.coolTime) {
       continue // 在 CT 中
     } 
-    if (cardStat.getEffects(SkillEfficacyType.SkillImpossible).length) {
-      continue // 不调中
-    }
+    // FIXME: P skill 不受不调影响
+    // if (cardStat.getEffects(SkillEfficacyType.SkillImpossible, true).length) {
+    //   continue // 不调中
+    // }
     if (this.pSkillPerformed.some(performed => 
       performed.cardIndex === it.cardIndex && performed.skillIndex === it.skillIndex)
     ) {

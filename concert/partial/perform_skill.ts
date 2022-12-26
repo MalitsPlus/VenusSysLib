@@ -47,7 +47,7 @@ export function performASPSkill(
   // skill failed
   const isAllyBuffed = this.current
     .getCardStatus(this.current.actPosition)
-    .getEffects(SkillEfficacyType.ComboContinuation).length > 0
+    .getEffects(SkillEfficacyType.ComboContinuation, true).length > 0
   if (isAllyBuffed) {
     return ComboType.KeepAllyBreakOpponent
   }
