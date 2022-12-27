@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { MusicChartType, SkillEfficacyType } from "../../types/proto/proto_enum";
 import { Concert } from "../concert";
 import { Index2Lane } from "../consts/chart_consts";
@@ -10,6 +11,11 @@ export default function migration(this: Concert) {
   this.migratedEffs.forEach((migreff, index) => {
     if (matches(this.current.chartType, migreff.type)) {
       if (Index2Lane[migreff.index] === this.current.actPosition) {
+        migreff.effs.forEach(eff => {
+          eff.migrated = true
+          eff.include = true
+          eff.id = uuidv4()
+        })
         // push migrated effects to current effects
         this.current.getCardStatus(migreff.index).effects.push(...migreff.effs)
         applied.push(index)

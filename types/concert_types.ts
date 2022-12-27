@@ -116,6 +116,7 @@ export type DetEffect = {
   value: number,
   isInstant: boolean,
   ajusted?: boolean,
+  migrated?: boolean,
 }
 
 export type Effect = DetEffect & {
