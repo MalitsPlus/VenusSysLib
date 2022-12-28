@@ -4,6 +4,11 @@ import {
   SkillTriggerType
 } from "../../types/proto/proto_enum"
 
+export const WeaknessAllList = [
+  ...GameSetting.skillEfficacyTypeWeaknessDownList,
+  ...GameSetting.skillEfficacyTypeWeaknessOtherList,
+]
+
 export const WeaknessOtherDurationList = [
   SkillEfficacyType.SkillImpossible,
   SkillEfficacyType.StaminaConsumptionIncrease,
