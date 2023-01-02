@@ -4,32 +4,29 @@ import { TransCard } from "../types/trans_types";
 import { calcParam } from "../utils/calc_utils";
 import { getUserCardSkillByIndex } from "../utils/chart_utils";
 
-export function getLiveCard(transCard: TransCard): LiveCard {
-  const userCard = getUserCard(transCard)
+export function getLiveCard(userCard: UserCard): LiveCard {
   const {
-    isArbitrary,
     vocal,
     dance,
     visual,
     stamina,
     mental,
     technique
-  } = transCard
+  } = userCard
   return {
     ...userCard,
-    deckVocal: isArbitrary ? vocal : userCard.vocal,
-    deckDance: isArbitrary ? dance : userCard.dance,
-    deckVisual: isArbitrary ? visual : userCard.visual,
-    deckStamina: isArbitrary ? stamina : userCard.stamina,
-    deckMental: isArbitrary ? mental : userCard.mental,
-    deckTechnique: isArbitrary ? technique : userCard.technique,
-    isArbitrary: isArbitrary,
+    deckVocal: vocal,
+    deckDance: dance,
+    deckVisual: visual,
+    deckStamina: stamina,
+    deckMental: mental,
+    deckTechnique: technique,
   }
 }
 
 export const getUserCard = (
   transCard: TransCard
-): UserCard => { 
+): UserCard => {
   const wapCard = getCard(transCard.cardId)
   // TODO: add message?
   if (!wapCard) throw Error()
@@ -39,10 +36,10 @@ export const getUserCard = (
     ...wapCard,
     level: transCard.level,
     rarity: transCard.rarity,
-    vocal: calcParam(+param.value, wapCard.vocalRatioPermil, rarity.parameterBonusPermil),
-    dance: calcParam(+param.value, wapCard.danceRatioPermil, rarity.parameterBonusPermil),
-    visual: calcParam(+param.value, wapCard.visualRatioPermil, rarity.parameterBonusPermil),
-    stamina: calcParam(+param.staminaValue, wapCard.staminaRatioPermil, rarity.parameterBonusPermil),
+    vocal: !!transCard.vocal ? transCard.vocal : calcParam(+param.value, wapCard.vocalRatioPermil, rarity.parameterBonusPermil),
+    dance: !!transCard.dance ? transCard.dance : calcParam(+param.value, wapCard.danceRatioPermil, rarity.parameterBonusPermil),
+    visual: !!transCard.visual ? transCard.visual : calcParam(+param.value, wapCard.visualRatioPermil, rarity.parameterBonusPermil),
+    stamina: !!transCard.stamina ? transCard.stamina : calcParam(+param.staminaValue, wapCard.staminaRatioPermil, rarity.parameterBonusPermil),
     mental: transCard.mental,
     technique: transCard.technique,
     skillLevel1: transCard.skillLevel1,
@@ -63,5 +60,26 @@ export const getUserCard = (
       },
     ],
     getSkill: getUserCardSkillByIndex
+  }
+}
+
+export const getDefaultUserCard = (id: string): UserCard => {
+  return getUserCard(getDefaultTransCard(id))
+}
+
+const getDefaultTransCard = (id: string): TransCard => {
+  return {
+    cardId: id,
+    level: 190,
+    rarity: 10,
+    skillLevel1: 4,
+    skillLevel2: 4,
+    skillLevel3: 2,
+    mental: 5000,
+    technique: 8000,
+    vocal: 0,
+    dance: 0,
+    visual: 0,
+    stamina: 0,
   }
 }

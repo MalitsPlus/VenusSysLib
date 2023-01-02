@@ -9,7 +9,7 @@ export function getLiveDeck(
 ): LiveDeck {
   const liveDeck: LiveDeck = {
     isBattle: false,
-    liveCards: transDeck.transCards.map(it => ({
+    liveCards: transDeck.userCards.map(it => ({
       index: it.index,
       liveCard: getLiveCard(it.card)
     })),
@@ -17,7 +17,7 @@ export function getLiveDeck(
   }
   if (transOpntDeck) {
     liveDeck.isBattle = true
-    transOpntDeck.transCards.forEach(it => {
+    transOpntDeck.userCards.forEach(it => {
       liveDeck.liveCards.push({
         index: it.index,
         liveCard: getLiveCard(it.card)

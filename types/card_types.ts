@@ -18,7 +18,7 @@ export type LiveCard = UserCard & {
   readonly deckStamina: number,
   readonly deckMental: number,
   readonly deckTechnique: number,
-  isArbitrary: boolean,
+  // isArbitrary: boolean,
   audienceAmount?: number,
   // TODO: implement exSkills
 }
