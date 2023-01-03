@@ -21,6 +21,7 @@ export function getLiveCard(userCard: UserCard): LiveCard {
     deckStamina: stamina,
     deckMental: mental,
     deckTechnique: technique,
+    getSkill: getUserCardSkillByIndex,
   }
 }
 
@@ -59,7 +60,6 @@ export const getUserCard = (
         skill: wapCard.skill3.wapSkillLevels.find(x => x.level === transCard.skillLevel3)!
       },
     ],
-    getSkill: getUserCardSkillByIndex
   }
 }
 

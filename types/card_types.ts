@@ -20,6 +20,7 @@ export type LiveCard = UserCard & {
   readonly deckTechnique: number,
   // isArbitrary: boolean,
   audienceAmount?: number,
+  getSkill: (index: number) => WapSkillLevel,
   // TODO: implement exSkills
 }
 
@@ -41,6 +42,4 @@ export type UserCard = WapCard & {
   }[]
   liveAbilityLevel?: number
   activityAbilityLevel?: number
-
-  getSkill: (index: number) => WapSkillLevel
 }
