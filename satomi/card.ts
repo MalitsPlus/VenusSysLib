@@ -1,5 +1,6 @@
-import { getCard, getCardParameter, getCardRarity } from "../db/repository/card_repository";
+import { getCard, getCardParameter, getCardParameters, getCardRarity } from "../db/repository/card_repository";
 import { LiveCard, UserCard } from "../types/card_types";
+import { Card } from "../types/proto/proto_master";
 import { TransCard } from "../types/trans_types";
 import { calcParam } from "../utils/calc_utils";
 import { getUserCardSkillByIndex } from "../utils/chart_utils";
@@ -22,6 +23,21 @@ export function getLiveCard(userCard: UserCard): LiveCard {
     deckMental: mental,
     deckTechnique: technique,
     getSkill: getUserCardSkillByIndex,
+  }
+}
+
+export const getDefaultParam = (
+  card: Card,
+  attr: "dance" | "vocal" | "visual" | "stamina",
+  rarity: number = 10,
+  level: number = 200,
+) => {
+  const param = getCardParameter(card.cardParameterId, level)
+  const cardRarity = getCardRarity(rarity)
+  if (attr === "stamina") {
+    return calcParam(+param.staminaValue, card.staminaRatioPermil, cardRarity.parameterBonusPermil)
+  } else {
+    return calcParam(+param.value, card[`${attr}RatioPermil`], cardRarity.parameterBonusPermil)
   }
 }
 
@@ -70,7 +86,7 @@ export const getDefaultUserCard = (id: string): UserCard => {
 const getDefaultTransCard = (id: string): TransCard => {
   return {
     cardId: id,
-    level: 190,
+    level: 200,
     rarity: 10,
     skillLevel1: 4,
     skillLevel2: 4,
