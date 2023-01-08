@@ -52,12 +52,12 @@ export type CardStatus = {
    * Get all specified type `Effect`s in this CardStatus.  
    * By default zero-remaining effects will be ignored.
    */
-  getEffects: (this: CardStatus, type: SkillEfficacyType, included?: boolean, needZeroRemain?: boolean) => Effect[],
+  getEffects: (this: CardStatus, type: SkillEfficacyType, exceptUnincluded?: boolean, needZeroRemain?: boolean) => Effect[],
   /**
    * Get sum of specified type effect grades.  
    * If this CardStatus doesn't possess the effect, 0 will be returned.
    */
-  getEffectSumGrade: (this: CardStatus, type: SkillEfficacyType, included: boolean, needZeroRemain?: boolean) => number,
+  getEffectSumGrade: (this: CardStatus, type: SkillEfficacyType, exceptUnincluded?: boolean, needZeroRemain?: boolean) => number,
   /**
    * Get sum of specified type effect grade.  
    * If the grade exceeds maxGrade, maxGrade will be returned.  
@@ -65,18 +65,18 @@ export type CardStatus = {
    * maxGrade exceeding check will not be performed and sumGrade 
    * will be returned instead.
    */
-  getEffectSumOrMaxGrade: (this: CardStatus, type: SkillEfficacyType, include: boolean, needZeroRemain?: boolean) => number,
+  getEffectSumOrMaxGrade: (this: CardStatus, type: SkillEfficacyType, exceptUnincluded?: boolean, needZeroRemain?: boolean) => number,
   /**
    * Get and calculate effect value of specified type.  
    * If the grade exceeds maxGrade, maxGrade will be used to calculate.  
    * If the type is not belong to `StrengthList`, always returns 0.
    */
-  getEffectValue: (this: CardStatus, type: SkillEfficacyType) => number,
+  getEffectValue: (this: CardStatus, type: SkillEfficacyType, exceptUnincluded: boolean, needZeroRemain?: boolean) => number,
   /**
    * Apply all attribute-related effects, calculate sum of their permils, then return that sum.  
    * Note exceeding grades will be excluded.
    */
-  getBuffedPermil: (this: CardStatus, type: "dance" | "vocal" | "visual") => number,
+  getBuffedPermil: (this: CardStatus, type: "dance" | "vocal" | "visual", exceptUnincluded: boolean, needZeroRemain?: boolean) => number,
   /**
    * Refreshes property of given `type` in this `CardStatus`.
    * If efficacy's grade reaches its maxGrade, exceeding grades will be ignored.

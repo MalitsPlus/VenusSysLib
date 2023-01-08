@@ -128,7 +128,8 @@ export function calcActSkillPrivilege(
 
   powerRate += (getMergedEffectByType(
     SkillEfficacyType.SkillSuccessRateUp,
-    cardStatus
+    cardStatus,
+    true,
   )?.value ?? 0) / 1000
 
   return param * powerRate

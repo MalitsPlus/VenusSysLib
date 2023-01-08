@@ -62,8 +62,9 @@ export function isEffects(
 export function getMergedEffectByType(
   efficacyType: SkillEfficacyType,
   cardStatus: CardStatus,
+  exceptUnincluded: boolean,
 ): DetEffect | undefined {
-  let effects = cardStatus.getEffects(efficacyType, true)
+  let effects = cardStatus.getEffects(efficacyType, exceptUnincluded)
   if (!effects || effects.length === 0) {
     return undefined
   }

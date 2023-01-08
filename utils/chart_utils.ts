@@ -60,31 +60,32 @@ export function getCardSkillStatus(
 
 /**
  * Get all specified type `Effect`s in this CardStatus.  
- * By default zero-remaining effects will be ignored.
+ * By default zero-remaining effects will be ignored while Unincludeds being contained.
  */
 export function getEffectsByType(
   this: CardStatus,
   _type: SkillEfficacyType,
-  included?: boolean,
+  exceptUnincluded?: boolean,
   needZeroRemain?: boolean,
 ): Effect[] {
   return this.effects.filter(x =>
     x.efficacyType === _type
-    && (included === undefined || x.include === included)
-    && (needZeroRemain === undefined || needZeroRemain || x.remain)
+    && (!exceptUnincluded || x.include)
+    && (needZeroRemain || x.remain !== 0)
   )
 }
 /**
  * Get sum of specified type effect grades.  
  * If this CardStatus doesn't possess the effect, 0 will be returned.
+ * By default zero-remaining effects will be ignored while Unincludeds being contained.
  */
 export function getEffectSumGradeByType(
   this: CardStatus,
   _type: SkillEfficacyType,
-  included: boolean = true,
+  exceptUnincluded?: boolean,
   needZeroRemain?: boolean
 ): number {
-  const effs = this.getEffects(_type, included, needZeroRemain)
+  const effs = this.getEffects(_type, exceptUnincluded, needZeroRemain)
   if (!effs.length) {
     return 0
   }
@@ -93,17 +94,17 @@ export function getEffectSumGradeByType(
 /**
  * Get sum of specified type effect grade.  
  * Exceeding grades will be excluded.  
+ * By default zero-remaining effects will be ignored while Unincludeds being contained.
  * 🚨CAUTION: If given `type` is not belong to `StrengthList` or other 2 weakness type,
- * maxGrade exceeding check will not be performed and sumGrade 
- * will be returned instead.
+ * maxGrade exceeding check will not be performed and sumGrade will be returned instead.
  */
 export function getEffectSumGradeOrMaxGradeByType(
   this: CardStatus,
   _type: SkillEfficacyType,
-  included: boolean = true,
+  exceptUnincluded?: boolean,
   needZeroRemain?: boolean
 ): number {
-  const sumGrade = this.getEffectSumGrade(_type, included, needZeroRemain)
+  const sumGrade = this.getEffectSumGrade(_type, exceptUnincluded, needZeroRemain)
   if (!StackableSkillEfficacyList.includes(_type)) {
     return sumGrade
   }
@@ -113,16 +114,19 @@ export function getEffectSumGradeOrMaxGradeByType(
 /**
  * Get and calculate effect value of specified type.  
  * Exceeding grades will be excluded.  
+ * By default zero-remaining effects will be ignored while Unincludeds being contained.
  * If the type is not belong to `StrengthList` or other 2 weakness type, always returns 0.
  */
 export function getEffectValue(
   this: CardStatus,
   _type: SkillEfficacyType,
+  exceptUnincluded: boolean,
+  needZeroRemain?: boolean,
 ): number {
   if (!StackableSkillEfficacyList.includes(_type)) {
     return 0
   }
-  const grade = this.getEffectSumOrMaxGrade(_type, true)
+  const grade = this.getEffectSumOrMaxGrade(_type, exceptUnincluded, needZeroRemain)
   const value = EfficacyValue[_type][grade] ?? 0 // FIXME: protential error
   return value
 }
@@ -130,10 +134,13 @@ export function getEffectValue(
 /**
  * Apply all attribute-related effects, calculate sum of their permils, then return that sum.  
  * Note exceeding grades will be excluded.
+ * By default zero-remaining effects will be ignored while Unincludeds being contained.
  */
 export function getBuffedPermil(
   this: CardStatus,
   _type: "dance" | "vocal" | "visual",
+  exceptUnincluded: boolean,
+  needZeroRemain?: boolean,
 ): number {
   const { upType, boostType, downType, upDict, boostDict, downDict } = (() => {
     if (_type === "dance") {
@@ -165,11 +172,11 @@ export function getBuffedPermil(
       }
     }
   })()
-  let upGrade = this.getEffectSumGrade(upType, true)
+  let upGrade = this.getEffectSumGrade(upType, exceptUnincluded, needZeroRemain)
   const upMaxGrade = EfficacyMaxGrade[upType] ?? 99
-  let boostGrade = this.getEffectSumGrade(boostType, true)
+  let boostGrade = this.getEffectSumGrade(boostType, exceptUnincluded, needZeroRemain)
   const boostMaxGrade = EfficacyMaxGrade[boostType] ?? 99
-  let downGrade = this.getEffectSumGrade(downType, true)
+  let downGrade = this.getEffectSumGrade(downType, exceptUnincluded, needZeroRemain)
   const downMaxGrade = EfficacyMaxGrade[downType] ?? 99
 
   upGrade = upGrade > upMaxGrade ? upMaxGrade : upGrade
@@ -189,7 +196,7 @@ export function refreshParam(
   this: CardStatus,
   type: "dance" | "vocal" | "visual"
 ) {
-  const permil = this.getBuffedPermil(type) + 1000
+  const permil = this.getBuffedPermil(type, false) + 1000
   switch (type) {
     case "dance":
       this.dance = calcBuffedParam(this.deckDance, permil, 0, true)
