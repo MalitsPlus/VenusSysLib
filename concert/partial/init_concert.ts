@@ -1,6 +1,19 @@
-import { UserStatus, CardStatus, SkillStatus, StageSkillStatus } from "../../types/concert_types"
-import { MusicChartType, LiveAbilityType, SkillCategoryType } from "../../types/proto/proto_enum"
-import { getBuffedPermil, getCardSkillStatus, getCardStatusByIndex, getEffectsByType, getEffectSumGradeByType, getEffectSumGradeOrMaxGradeByType, getEffectValue, getStageStatusByIndexes, getUserStatusByIndex, refreshAllParam, refreshParam, skillHasTimes } from "../../utils/chart_utils"
+import { CardStatus, SkillStatus, StageSkillStatus, UserStatus } from "../../types/concert_types"
+import { LiveAbilityType, MusicChartType, SkillCategoryType } from "../../types/proto/proto_enum"
+import {
+  getBuffedPermil,
+  getCardSkillStatus,
+  getCardStatusByIndex,
+  getEffectsByType,
+  getEffectSumGradeByType,
+  getEffectSumGradeOrMaxGradeByType,
+  getEffectValue,
+  getStageStatusByIndexes,
+  getUserStatusByIndex,
+  refreshAllParam,
+  refreshParam,
+  skillHasTimes
+} from "../../utils/chart_utils"
 import { Concert } from "../concert"
 
 export default function init(this: Concert) {
@@ -50,12 +63,15 @@ export function initUserStatus(this: Concert): UserStatus[] {
 export function initCardStatus(this: Concert): CardStatus[] {
   return this.liveDeck.liveCards.map(card => ({
     cardIndex: card.index,
+    deckVocal: card.liveCard.deckVocal,
+    deckDance: card.liveCard.deckDance,
+    deckVisual: card.liveCard.deckVisual,
     vocal: card.liveCard.deckVocal,
     dance: card.liveCard.deckDance,
-    visual: card.liveCard.visual,
-    stamina: card.liveCard.stamina,
-    technique: card.liveCard.technique,
-    mental: card.liveCard.mental,
+    visual: card.liveCard.deckVisual,
+    stamina: card.liveCard.deckStamina,
+    technique: card.liveCard.deckTechnique,
+    mental: card.liveCard.deckMental,
     skillStatuses: this.initSkillStatus(card.index),
     effects: [],
     getSkillStatus: getCardSkillStatus,

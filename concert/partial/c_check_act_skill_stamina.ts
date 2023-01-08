@@ -8,18 +8,20 @@ export default function checkActSkillStamina(
   if (this.actables.length === 0) {
     return
   }
-  this.actables = this.actables.filter(({index, skills}) => {
+  this.actables = this.actables.filter(({ index, skills }) => {
     const card = this.liveDeck.getCard(index)
     const cardStatus = this.current.getCardStatus(index)
-    skills = skills.filter(skillIndex => {
-      const consumeSt = calcSkillStaminaConsumption(
-        card.getSkill(skillIndex),
-        card,
-        cardStatus,
-        this.live.quest.skillStaminaWeightPermil
-      )
-      return cardStatus.stamina >= consumeSt
-    })
+    if (cardStatus) {
+      skills = skills.filter(skillIndex => {
+        const consumeSt = calcSkillStaminaConsumption(
+          card.getSkill(skillIndex),
+          card,
+          cardStatus,
+          this.live.quest.skillStaminaWeightPermil
+        )
+        return cardStatus.stamina >= consumeSt
+      })
+    }
     // set FailureFlag if ally side no skills available 
     if (index <= 5 && skills.length === 0) {
       this.current.failureFlag = SkillFailureType.StaminaShortage

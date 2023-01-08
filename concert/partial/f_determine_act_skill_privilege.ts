@@ -17,7 +17,7 @@ export default function determineActSkillPrivilege(
     const cardStat = this.current.getCardStatus(index)
     return {
       index: index,
-      power: calcActSkillPrivilege(laneType, card, cardStat)
+      power: calcActSkillPrivilege(laneType, card, cardStat!)
     }
   })
 

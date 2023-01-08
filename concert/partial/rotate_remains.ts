@@ -7,7 +7,7 @@ export function rotateRemains(
     cardStat.effects.forEach(eff => {
       if (eff.remain) {
         eff.remain -= 1
-      } 
+      }
     })
   })
 }

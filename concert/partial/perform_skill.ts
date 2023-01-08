@@ -24,7 +24,7 @@ export function performASPSkill(
       const { index, skills } = actables[0]
       const card = this.liveDeck.getCard(index)
       const skill = card.getSkill(skills[0])
-      const cardStat = this.current.getCardStatus(index)
+      const cardStat = this.current.getCardStatus(index)!
       const skillStat = cardStat.getSkillStatus(skills[0])
 
       const actSkill = this._performSkill(
@@ -46,7 +46,7 @@ export function performASPSkill(
   }
   // skill failed
   const isAllyBuffed = this.current
-    .getCardStatus(this.current.actPosition)
+    .getCardStatus(this.current.actPosition)!
     .getEffects(SkillEfficacyType.ComboContinuation, true).length > 0
   if (isAllyBuffed) {
     return ComboType.KeepAllyBreakOpponent
@@ -63,7 +63,7 @@ export function performPSkill(
 ): boolean {
   const card = this.liveDeck.getCard(cardIndex)
   const skill = card.getSkill(skillIndex)
-  const cardStat = this.current.getCardStatus(cardIndex)
+  const cardStat = this.current.getCardStatus(cardIndex)!
   const skillStat = cardStat.getSkillStatus(skillIndex)
 
   const actSkill = this._performSkill(

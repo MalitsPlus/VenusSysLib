@@ -20,7 +20,7 @@ export const danceDown: Action = ({
   // 对每个目标适用效果
   targetIndexes.forEach(target => {
     const cardStat = concert.current.getCardStatus(target)
-    cardStat.effects.push({
+    cardStat?.effects.push({
       id: uuidv4(),
       efficacyType: efficacy.type,
       grade: effInfo.grade,
@@ -33,7 +33,7 @@ export const danceDown: Action = ({
       sourceSkillIndex: sourceSkillIndex,
     })
     // 刷新属性值
-    cardStat.refreshParam(concert.liveDeck.getCard(target), "dance")
+    cardStat?.refreshParam("dance")
   })
   return effInfo
 }

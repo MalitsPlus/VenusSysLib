@@ -17,22 +17,24 @@ export const strengthEffectErasingAll: Action = ({
   }
   targetIndexes.forEach(target => {
     const cardStat = concert.current.getCardStatus(target)
-    cardStat.effects = cardStat.effects.filter(eff => {
-      !GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)
-    })
-    cardStat.refreshAllParam(concert.liveDeck.getCard(target))
-    cardStat.effects.push({
-      id: uuidv4(),
-      efficacyType: efficacy.type,
-      grade: effInfo.grade,
-      maxGrade: effInfo.maxGrade,
-      value: effInfo.value,
-      remain: efficacy.duration,
-      isInstant: efficacy.isInstant,
-      include: isBeforeBeat,
-      sourceIndex: sourceIndex,
-      sourceSkillIndex: sourceSkillIndex,
-    })
+    if (cardStat) {
+      cardStat.effects = cardStat.effects.filter(eff => {
+        return !GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)
+      })
+      cardStat.refreshAllParam()
+      cardStat.effects.push({
+        id: uuidv4(),
+        efficacyType: efficacy.type,
+        grade: effInfo.grade,
+        maxGrade: effInfo.maxGrade,
+        value: effInfo.value,
+        remain: efficacy.duration,
+        isInstant: efficacy.isInstant,
+        include: isBeforeBeat,
+        sourceIndex: sourceIndex,
+        sourceSkillIndex: sourceSkillIndex,
+      })
+    }
   })
   return effInfo
 }

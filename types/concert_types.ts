@@ -28,13 +28,16 @@ export type Chart = {
   actPSkills: ActSkill[],
   failureFlag?: SkillFailureType,
 
-  getCardStatus: (this: Chart, index: number) => CardStatus,
-  getUserStatus: (this: Chart, index: number) => UserStatus,
+  getCardStatus: (this: Chart, index: number) => CardStatus | undefined,
+  getUserStatus: (this: Chart, index: number) => UserStatus | undefined,
   getStageStatus: (this: Chart, cardIndex: number, skillIndex: number) => StageSkillStatus | undefined,
 }
 
 export type CardStatus = {
-  cardIndex: number,
+  readonly cardIndex: number,
+  readonly deckVocal: number,
+  readonly deckDance: number,
+  readonly deckVisual: number,
   vocal: number,
   dance: number,
   visual: number,
@@ -78,8 +81,8 @@ export type CardStatus = {
    * Refreshes property of given `type` in this `CardStatus`.
    * If efficacy's grade reaches its maxGrade, exceeding grades will be ignored.
    */
-  refreshParam: (this: CardStatus, card: LiveCard, type: "dance" | "vocal" | "visual") => void,
-  refreshAllParam: (this: CardStatus, card: LiveCard) => void,
+  refreshParam: (this: CardStatus, type: "dance" | "vocal" | "visual") => void,
+  refreshAllParam: (this: CardStatus) => void,
 }
 
 export type ConcertSkill = WapSkillLevel & {
@@ -117,6 +120,9 @@ export type DetEffect = {
   isInstant: boolean,
   ajusted?: boolean,
   migrated?: boolean,
+  strengthenValue?: number,
+  strengthenInclude?: boolean,
+  lengthenValue?: number,
 }
 
 export type Effect = DetEffect & {

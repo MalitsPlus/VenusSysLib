@@ -137,7 +137,7 @@ const defaultProc: Action = ({
   // apply effects to targets
   targetIndexes.forEach(target => {
     const cardStat = concert.current.getCardStatus(target)
-    cardStat.effects.push({
+    cardStat?.effects.push({
       id: uuidv4(),
       efficacyType: efficacy.type,
       grade: effInfo.grade,

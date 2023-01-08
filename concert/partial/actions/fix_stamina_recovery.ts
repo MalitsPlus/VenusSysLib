@@ -18,21 +18,23 @@ export const fixStaminaRecovery: Action = ({
   }
   targetIndexes.forEach(target => {
     const cardStat = concert.current.getCardStatus(target)
-    cardStat.effects.push({
-      id: uuidv4(),
-      efficacyType: efficacy.type,
-      grade: effInfo.grade,
-      maxGrade: effInfo.maxGrade,
-      value: effInfo.value,
-      remain: efficacy.duration,
-      isInstant: efficacy.isInstant,
-      include: isBeforeBeat,
-      sourceIndex: sourceIndex,
-      sourceSkillIndex: sourceSkillIndex,
-    })
-    const expRecovery = calcStaminaRecovery(effInfo.value, cardStat, concert.live.quest.staminaRecoveryWeightPermil)
-    const maxStamina = concert.liveDeck.getCard(target).deckStamina
-    cardStat.stamina = expRecovery + cardStat.stamina > maxStamina ? maxStamina : expRecovery + cardStat.stamina
+    if (cardStat) {
+      cardStat.effects.push({
+        id: uuidv4(),
+        efficacyType: efficacy.type,
+        grade: effInfo.grade,
+        maxGrade: effInfo.maxGrade,
+        value: effInfo.value,
+        remain: efficacy.duration,
+        isInstant: efficacy.isInstant,
+        include: isBeforeBeat,
+        sourceIndex: sourceIndex,
+        sourceSkillIndex: sourceSkillIndex,
+      })
+      const expRecovery = calcStaminaRecovery(effInfo.value, cardStat, concert.live.quest.staminaRecoveryWeightPermil)
+      const maxStamina = concert.liveDeck.getCard(target).deckStamina
+      cardStat.stamina = expRecovery + cardStat.stamina > maxStamina ? maxStamina : expRecovery + cardStat.stamina
+    }
   })
   return effInfo
 }

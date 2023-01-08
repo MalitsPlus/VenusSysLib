@@ -17,14 +17,14 @@ import { getValidGrade } from "./skill_utils"
 export function getCardStatusByIndex(
   this: Chart,
   index: number,
-): CardStatus {
-  return this.cardStatuses.find(x => x.cardIndex === index)!  // FIXME: potential exception
+): CardStatus | undefined {
+  return this.cardStatuses.find(x => x.cardIndex === index)
 }
 export function getUserStatusByIndex(
   this: Chart,
   index: number,
-): UserStatus {
-  return this.userStatuses.find(x => x.userIndex === index)! // FIXME: potential exception
+): UserStatus | undefined {
+  return this.userStatuses.find(x => x.userIndex === index)
 }
 export function getStageStatusByIndexes(
   this: Chart,
@@ -126,13 +126,14 @@ export function getEffectValue(
   const value = EfficacyValue[_type][grade] ?? 0 // FIXME: protential error
   return value
 }
+
 /**
  * Apply all attribute-related effects, calculate sum of their permils, then return that sum.  
  * Note exceeding grades will be excluded.
  */
 export function getBuffedPermil(
   this: CardStatus,
-  _type: "dance" | "vocal" | "visual"
+  _type: "dance" | "vocal" | "visual",
 ): number {
   const { upType, boostType, downType, upDict, boostDict, downDict } = (() => {
     if (_type === "dance") {
@@ -186,30 +187,28 @@ export function getBuffedPermil(
  */
 export function refreshParam(
   this: CardStatus,
-  card: LiveCard,
   type: "dance" | "vocal" | "visual"
 ) {
   const permil = this.getBuffedPermil(type) + 1000
   switch (type) {
     case "dance":
-      this.dance = calcBuffedParam(card.deckDance, permil, 0, true)
+      this.dance = calcBuffedParam(this.deckDance, permil, 0, true)
       break
     case "vocal":
-      this.vocal = calcBuffedParam(card.deckVocal, permil, 0, true)
+      this.vocal = calcBuffedParam(this.deckVocal, permil, 0, true)
       break
     case "visual":
-      this.visual = calcBuffedParam(card.deckVisual, permil, 0, true)
+      this.visual = calcBuffedParam(this.deckVisual, permil, 0, true)
       break
   }
 }
 
 export function refreshAllParam(
   this: CardStatus,
-  card: LiveCard,
 ) {
-  this.refreshParam(card, "dance")
-  this.refreshParam(card, "vocal")
-  this.refreshParam(card, "visual")
+  this.refreshParam("dance")
+  this.refreshParam("vocal")
+  this.refreshParam("visual")
 }
 
 export function getLaneTypeByIndex(

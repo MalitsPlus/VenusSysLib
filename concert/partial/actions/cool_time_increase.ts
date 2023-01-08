@@ -20,19 +20,21 @@ export const coolTimeIncrease: Action = ({
   if (increaseValue) {
     targetIndexes.forEach(target => {
       const cardStat = concert.current.getCardStatus(target)
-      doIncrease(cardStat, increaseValue)
-      cardStat.effects.push({
-        id: uuidv4(),
-        efficacyType: efficacy.type,
-        grade: effInfo.grade,
-        maxGrade: effInfo.maxGrade,
-        value: effInfo.value,
-        remain: efficacy.duration,
-        isInstant: efficacy.isInstant,
-        include: isBeforeBeat,
-        sourceIndex: sourceIndex,
-        sourceSkillIndex: sourceSkillIndex,
-      })
+      if (cardStat) {
+        doIncrease(cardStat, increaseValue)
+        cardStat.effects.push({
+          id: uuidv4(),
+          efficacyType: efficacy.type,
+          grade: effInfo.grade,
+          maxGrade: effInfo.maxGrade,
+          value: effInfo.value,
+          remain: efficacy.duration,
+          isInstant: efficacy.isInstant,
+          include: isBeforeBeat,
+          sourceIndex: sourceIndex,
+          sourceSkillIndex: sourceSkillIndex,
+        })
+      }
     })
   }
   return effInfo

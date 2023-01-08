@@ -18,27 +18,29 @@ export const strengthEffectAssignmentAll: Action = ({
   targetIndexes.forEach(target => {
     const sourceCardStat = concert.current.getCardStatus(sourceIndex)
     const cardStat = concert.current.getCardStatus(target)
-    sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
-      if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
-        cardStat.effects.push(eff)
-        return false
-      }
-      return true
-    })
-    cardStat.refreshAllParam(concert.liveDeck.getCard(sourceIndex))
-    cardStat.refreshAllParam(concert.liveDeck.getCard(target))
-    cardStat.effects.push({
-      id: uuidv4(),
-      efficacyType: efficacy.type,
-      grade: effInfo.grade,
-      maxGrade: effInfo.maxGrade,
-      value: effInfo.value,
-      remain: efficacy.duration,
-      isInstant: efficacy.isInstant,
-      include: isBeforeBeat,
-      sourceIndex: sourceIndex,
-      sourceSkillIndex: sourceSkillIndex,
-    })
+    if (sourceCardStat && cardStat) {
+      sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
+        if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
+          cardStat.effects.push(eff)
+          return false
+        }
+        return true
+      })
+      cardStat.refreshAllParam()
+      cardStat.refreshAllParam()
+      cardStat.effects.push({
+        id: uuidv4(),
+        efficacyType: efficacy.type,
+        grade: effInfo.grade,
+        maxGrade: effInfo.maxGrade,
+        value: effInfo.value,
+        remain: efficacy.duration,
+        isInstant: efficacy.isInstant,
+        include: isBeforeBeat,
+        sourceIndex: sourceIndex,
+        sourceSkillIndex: sourceSkillIndex,
+      })
+    }
   })
   return effInfo
 }

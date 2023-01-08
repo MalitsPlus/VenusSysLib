@@ -28,27 +28,31 @@ export const StrengthEffectMigrationBeforeSpecialSkill: Action = ({
       sourceSkillIndex: sourceSkillIndex,
       effs: [] as Effect[],
     }
-    cardStat.effects = cardStat.effects.filter(eff => {
-      if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
-        migEff.effs.push(eff)
-        return false
-      }
-      return true
-    })
-    concert.migratedEffs.push(migEff)
-    cardStat.refreshAllParam(concert.liveDeck.getCard(target))
-    cardStat.effects.push({
-      id: uuidv4(),
-      efficacyType: efficacy.type,
-      grade: effInfo.grade,
-      maxGrade: effInfo.maxGrade,
-      value: effInfo.value,
-      remain: efficacy.duration,
-      isInstant: efficacy.isInstant,
-      include: isBeforeBeat,
-      sourceIndex: sourceIndex,
-      sourceSkillIndex: sourceSkillIndex,
-    })
+    if (cardStat) {
+      cardStat.effects = cardStat.effects.filter(eff => {
+        if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
+          if (eff.remain > 0) {
+            migEff.effs.push(eff)
+            return false
+          }
+        }
+        return true
+      })
+      concert.migratedEffs.push(migEff)
+      cardStat.refreshAllParam()
+      cardStat.effects.push({
+        id: uuidv4(),
+        efficacyType: efficacy.type,
+        grade: effInfo.grade,
+        maxGrade: effInfo.maxGrade,
+        value: effInfo.value,
+        remain: efficacy.duration,
+        isInstant: efficacy.isInstant,
+        include: isBeforeBeat,
+        sourceIndex: sourceIndex,
+        sourceSkillIndex: sourceSkillIndex,
+      })
+    }
   })
   return effInfo
 }

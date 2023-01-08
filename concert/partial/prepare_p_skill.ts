@@ -35,6 +35,9 @@ export function* preparePSkill(
   // characters p-skills
   for (const it of this.pSkills) {
     const cardStat = this.current.getCardStatus(it.cardIndex)
+    if (!cardStat) {
+      continue
+    }
     const skillStat = cardStat.getSkillStatus(it.skillIndex)
     if (!skillStat.hasTimes()) {
       continue // 无剩余次数

@@ -22,24 +22,28 @@ export const strengthEffectValueIncrease: Action = ({
   if (strengthValue) {
     targetIndexes.forEach(target => {
       const cardStat = concert.current.getCardStatus(target)
-      for (const eff of getLongestEffects(cardStat)) {  // returned eff must be inside the `StrengthList`
-        eff.grade += strengthValue
-        eff.value += EfficacyValue[eff.efficacyType][eff.grade] ?? 0
+      if (cardStat) {
+        for (const eff of getLongestEffects(cardStat)) {  // returned eff must be inside the `StrengthList`
+          if (eff.remain > 0) {
+            eff.grade += strengthValue
+            eff.value += EfficacyValue[eff.efficacyType][eff.grade] ?? 0
+          }
+        }
+        // refresh attributes
+        cardStat.refreshAllParam()
+        cardStat.effects.push({
+          id: uuidv4(),
+          efficacyType: efficacy.type,
+          grade: effInfo.grade,
+          maxGrade: effInfo.maxGrade,
+          value: effInfo.value,
+          remain: efficacy.duration,
+          isInstant: efficacy.isInstant,
+          include: isBeforeBeat,
+          sourceIndex: sourceIndex,
+          sourceSkillIndex: sourceSkillIndex,
+        })
       }
-      // refresh attributes
-      cardStat.refreshAllParam(concert.liveDeck.getCard(target))
-      cardStat.effects.push({
-        id: uuidv4(),
-        efficacyType: efficacy.type,
-        grade: effInfo.grade,
-        maxGrade: effInfo.maxGrade,
-        value: effInfo.value,
-        remain: efficacy.duration,
-        isInstant: efficacy.isInstant,
-        include: isBeforeBeat,
-        sourceIndex: sourceIndex,
-        sourceSkillIndex: sourceSkillIndex,
-      })
     })
   }
   return effInfo

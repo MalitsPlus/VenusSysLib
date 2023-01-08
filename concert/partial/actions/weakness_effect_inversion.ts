@@ -18,7 +18,7 @@ export const weaknessEffectInversion: Action = ({
   }
   targetIndexes.forEach(target => {
     const cardStat = concert.current.getCardStatus(target)
-    cardStat.effects.forEach(eff => {
+    cardStat?.effects.forEach(eff => {
       if (eff.efficacyType === SkillEfficacyType.DanceDown) {
         eff.efficacyType = SkillEfficacyType.DanceUp
         eff.value = -eff.value
@@ -42,8 +42,8 @@ export const weaknessEffectInversion: Action = ({
         eff.ajusted = true
       }
     })
-    cardStat.refreshAllParam(concert.liveDeck.getCard(target))
-    cardStat.effects.push({
+    cardStat?.refreshAllParam()
+    cardStat?.effects.push({
       id: uuidv4(),
       efficacyType: efficacy.type,
       grade: effInfo.grade,

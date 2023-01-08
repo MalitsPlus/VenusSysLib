@@ -20,13 +20,15 @@ export const strengthEffectCountIncrease: Action = ({
   if (strengthCount) {
     targetIndexes.forEach(target => {
       const cardStat = concert.current.getCardStatus(target)
-      cardStat.effects.forEach(eff => {
+      cardStat?.effects.forEach(eff => {
         if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
-          eff.remain += strengthCount
-          eff.ajusted = true
+          if (eff.remain > 0) {
+            eff.remain += strengthCount
+            eff.ajusted = true
+          }
         }
       })
-      cardStat.effects.push({
+      cardStat?.effects.push({
         id: uuidv4(),
         efficacyType: efficacy.type,
         grade: effInfo.grade,
