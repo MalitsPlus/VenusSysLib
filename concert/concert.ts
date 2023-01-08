@@ -82,12 +82,16 @@ export class Concert {
     // also, at this point, all effects shall be in effect,
     // change `include` to `true`.
     this.current.cardStatuses.forEach(cardStat => {
-      cardStat.effects = cardStat.effects.filter(
+      const removeList: string[] = []
+      cardStat.effects.forEach(
         eff => {
           eff.include = true
-          return eff.remain !== 0
+          if (eff.remain === 0) {
+            removeList.push(eff.id)
+          }
         }
       )
+      removeList.forEach(effId => cardStat.removeEffect(effId))
     })
   }
 

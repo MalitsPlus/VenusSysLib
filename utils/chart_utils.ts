@@ -1,4 +1,4 @@
-import { StackableSkillEfficacyList } from "../concert/consts/efficacy_list"
+import { ParamChangeEfficacyList, StackableSkillEfficacyList } from "../concert/consts/efficacy_list"
 import { DanceBoostGrade, DanceDownGrade, DanceUpGrade, EfficacyMaxGrade, EfficacyValue, VisualBoostGrade, VisualDownGrade, VisualUpGrade, VocalBoostGrade, VocalDownGrade, VocalUpGrade } from "../concert/consts/eff_grades"
 import { GameSetting } from "../db/repository/setting_repository"
 import { LiveCard, LiveDeck, UserCard } from "../types/card_types"
@@ -216,6 +216,21 @@ export function refreshAllParam(
   this.refreshParam("dance")
   this.refreshParam("vocal")
   this.refreshParam("visual")
+}
+
+export function removeEffect(
+  this: CardStatus,
+  effId: string
+) {
+  const targetIndex = this.effects.findIndex(eff => eff.id === effId)
+  if (targetIndex !== -1) {
+    const targetEff = this.effects.splice(targetIndex, 1)[0]
+    if (ParamChangeEfficacyList.includes(targetEff.efficacyType)) {
+      this.refreshAllParam()
+    } else if (false) {
+      // other removing effects need to be deal with
+    }
+  }
 }
 
 export function getLaneTypeByIndex(

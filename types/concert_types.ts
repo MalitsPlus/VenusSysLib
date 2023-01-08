@@ -83,6 +83,7 @@ export type CardStatus = {
    */
   refreshParam: (this: CardStatus, type: "dance" | "vocal" | "visual") => void,
   refreshAllParam: (this: CardStatus) => void,
+  removeEffect: (this: CardStatus, effId: string) => void,
 }
 
 export type ConcertSkill = WapSkillLevel & {

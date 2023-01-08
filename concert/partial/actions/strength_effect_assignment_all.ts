@@ -26,7 +26,7 @@ export const strengthEffectAssignmentAll: Action = ({
         }
         return true
       })
-      cardStat.refreshAllParam()
+      sourceCardStat.refreshAllParam()
       cardStat.refreshAllParam()
       cardStat.effects.push({
         id: uuidv4(),

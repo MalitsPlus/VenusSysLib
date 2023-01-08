@@ -12,6 +12,7 @@ import {
   getUserStatusByIndex,
   refreshAllParam,
   refreshParam,
+  removeEffect,
   skillHasTimes
 } from "../../utils/chart_utils"
 import { Concert } from "../concert"
@@ -82,6 +83,7 @@ export function initCardStatus(this: Concert): CardStatus[] {
     getBuffedPermil: getBuffedPermil,
     refreshParam: refreshParam,
     refreshAllParam: refreshAllParam,
+    removeEffect: removeEffect,
   }))
 }
 

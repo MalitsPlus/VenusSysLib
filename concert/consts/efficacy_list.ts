@@ -59,16 +59,18 @@ export const StackableSkillEfficacyList = [
   SkillEfficacyType.StaminaContinuousConsumption,
 ]
 
-export const PrivilegedEfficacyList = [
+export const ParamChangeEfficacyList = [
+  ...ParamBoost,
   SkillEfficacyType.VocalUp,
-  SkillEfficacyType.VocalBoost,
   SkillEfficacyType.VocalDown,
   SkillEfficacyType.DanceUp,
-  SkillEfficacyType.DanceBoost,
   SkillEfficacyType.DanceDown,
   SkillEfficacyType.VisualUp,
-  SkillEfficacyType.VisualBoost,
   SkillEfficacyType.VisualDown,
+]
+
+export const PrivilegedEfficacyList = [
+  ...ParamChangeEfficacyList,
   SkillEfficacyType.SkillSuccessRateUp,
   SkillEfficacyType.SkillImpossible,
 ]
