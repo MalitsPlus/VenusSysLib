@@ -7,18 +7,18 @@ export default function checkActSkillCoolTime(
   if (this.actables.length === 0) {
     return
   }
-  this.actables = this.actables.filter(({ index, skills }) => {
-    const cardStat = this.current.getCardStatus(index)
+  this.actables = this.actables.filter(actable => {
+    const cardStat = this.current.getCardStatus(actable.index)
     if (cardStat) {
-      skills = skills.filter(skillIndex => {
+      actable.skills = actable.skills.filter(skillIndex => {
         return cardStat.getSkillStatus(skillIndex).coolTime === 0
       })
     }
-    if (index <= 5 && skills.length === 0) {
+    if (actable.index <= 5 && actable.skills.length === 0) {
       this.current.failureFlag = SkillFailureType.InCoolTime
     }
     // if has no skills available, remove this actable
-    if (skills.length === 0) {
+    if (actable.skills.length === 0) {
       return false
     }
     return true
