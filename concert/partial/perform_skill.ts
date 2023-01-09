@@ -97,7 +97,7 @@ export function performStageSkill(
     skillStat.skillIndex,
     this.live.quest.liveBonuses![skillIndex].skill,
     skillStat,
-    cardIndex !== 101,
+    cardIndex % 2 === 0,
     isBeforeBeat,
   )
   if (actSkill) {

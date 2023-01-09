@@ -203,7 +203,7 @@ function _getTargetIndexes(
 
         case SkillTargetType.OpponentCenter: {
           isOpponentTarget = true
-          if (deckPosition >= 6) return [1]
+          if (isOpponentSide) return [1]
           else return [6]
         }
 
@@ -219,7 +219,7 @@ function _getTargetIndexes(
         case SkillTargetType.OpponentAll: {
           isOpponentTarget = true
           targetNum = 5
-          if (deckPosition <= 5) {
+          if (!isOpponentSide) {
             return [6, 7, 8, 9, 10]
           } else {
             return [1, 2, 3, 4, 5]
@@ -236,8 +236,12 @@ function _getTargetIndexes(
           return []
       }
     })();
-
-    return ((isOpponentTarget && deckPosition >= 6) || (!isOpponentTarget && deckPosition <= 5)
+    
+    // T T <= 5
+    // T F >= 6
+    // F T >= 6
+    // F F <= 5
+    return ((isOpponentTarget && isOpponentSide) || (!isOpponentTarget && !isOpponentSide)
       // ally side
       ? targetList.filter(it => it <= 5)
       // opponent side
