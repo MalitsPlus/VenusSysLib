@@ -17,7 +17,9 @@ export default function migration(this: Concert) {
           eff.id = uuidv4()
         })
         // push migrated effects to current effects
-        this.current.getCardStatus(migreff.index)?.effects.push(...migreff.effs)
+        const cardStatus = this.current.getCardStatus(migreff.index)
+        cardStatus?.effects.push(...migreff.effs)
+        cardStatus?.refreshAllParam()
         applied.push(index)
       }
     }
