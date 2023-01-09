@@ -113,8 +113,10 @@ export class Concert {
     // validate and perform P skills (p1)
     for (const idxes of this.preparePSkill(true)) {
       if (idxes.cardIndex > 100) {
+        // performs stage skills
         this.performStageSkill(idxes.cardIndex, idxes.skillIndex, true)
       } else {
+        // performs chara skills
         this.performPSkill(idxes.cardIndex, idxes.skillIndex, true)
       }
     }
