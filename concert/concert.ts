@@ -25,12 +25,14 @@ export class Concert {
   constructor(live: Live) {
     this.live = live
     this.charts = live.charts
+    this.snapshot = live.snapshot
     this.liveDeck = live.liveDeck
   }
 
   // properties
   live: Live
   charts: Chart[]
+  snapshot: Chart[]
   liveDeck: LiveDeck
   protected previous!: Chart;
   current!: Chart;
@@ -62,7 +64,8 @@ export class Concert {
 
   private prepare(musicPtn: WapMusicChartPattern) {
     if (musicPtn.sequence != 1) {
-      this.previous = this.charts[this.charts.length - 1]
+      // this.previous = this.charts[this.charts.length - 1]
+      this.previous = this.current
     }
     this.actables = []
     this.pSkillPerformed = []
@@ -117,7 +120,7 @@ export class Concert {
     }
 
     // TODO: save a snapshot at this point
-    // ...
+    this.snapshot.push(_.cloneDeep(this.current))
 
     // perform A SP skill
     let flag = ComboType.AddBoth

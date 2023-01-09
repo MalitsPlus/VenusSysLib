@@ -9,7 +9,8 @@ import { WapQuest } from "./wap/quest_waps"
 import { WapSkillLevel } from "./wap/skill_waps"
 
 export type Live = {
-  charts:  Chart[],
+  charts: Chart[],
+  snapshot: Chart[],
   quest: WapQuest,
   liveDeck: LiveDeck,
   isBattle: boolean,

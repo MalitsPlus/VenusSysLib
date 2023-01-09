@@ -13,5 +13,6 @@ export function getLive(
     quest: quest,
     liveDeck: deck,
     charts: [],
+    snapshot: [],
   }
 }
