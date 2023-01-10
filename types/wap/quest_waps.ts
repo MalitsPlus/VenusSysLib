@@ -1,8 +1,9 @@
 import { AttributeType } from "../proto/proto_enum"
-import { MusicChartPattern, Quest } from "../proto/proto_master"
+import { MusicChartPattern } from "../proto/proto_master"
+import { QuestBase } from "../quest_types"
 import { WapLiveAbility } from "./skill_waps"
 
-export type WapQuest = Quest & {
+export type WapQuest = QuestBase & {
   musicName: string
   musicChartPatterns: WapMusicChartPattern[]
   liveBonuses?: WapLiveAbility[]

@@ -166,7 +166,7 @@ export function _performSkill(
   this.order += 1
   // critical or not 
   const isCritical = getCritical(
-    cardStat?.technique ?? 0, this.live.quest.difficultyLevel
+    cardStat?.technique ?? 0, this.live.quest.difficultyLevel ?? 0
   )
   // calculate stamina consumption
   if (card && cardStat) {

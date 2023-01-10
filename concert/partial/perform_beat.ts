@@ -11,7 +11,7 @@ export function performBeat(
       cardIndex: cardStat.cardIndex,
       order: this.order,
       score: 0,
-      isCritical: getCritical(cardStat.technique, this.live.quest.difficultyLevel),
+      isCritical: getCritical(cardStat.technique, this.live.quest.difficultyLevel ?? 0),
     })
   })
 }

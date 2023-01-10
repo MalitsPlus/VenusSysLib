@@ -1,0 +1,26 @@
+[
+  {
+    "activeSkillWeightPermil": 1500,
+    "beatDanceWeightPermil": 400,
+    "beatVisualWeightPermil": 200,
+    "beatVocalWeightPermil": 400,
+    "id": "pvp-quest-056",
+    "liveBonusGroupId": "live-bonus-group-001",
+    "liveSkipType": 1,
+    "maxCapacity": 14500,
+    "mentalThreshold": 50,
+    "musicChartPatternId": "chart-liz-009-001",
+    "musicId": "music-liz-009",
+    "position1AttributeType": 2,
+    "position2AttributeType": 2,
+    "position3AttributeType": 2,
+    "position4AttributeType": 1,
+    "position5AttributeType": 1,
+    "questAudienceAdvantageId": "quest_audience_advantage_1",
+    "questPressureId": "quest_pressure-2",
+    "skillStaminaWeightPermil": 2500,
+    "specialSkillWeightPermil": 2000,
+    "stageId": "stage-live-dome-02-00",
+    "staminaRecoveryWeightPermil": 1000
+  }
+]

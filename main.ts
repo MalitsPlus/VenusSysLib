@@ -1,5 +1,4 @@
 import * as fs from 'fs'
-import { getRawQuests } from './db/dao/quest_dao';
 import simulate from "./index";
 import { getDefaultUserCard } from './satomi/card';
 import { TransDeck } from "./types/trans_types"

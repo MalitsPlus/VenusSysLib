@@ -1,5 +1,6 @@
 import { LiveAbility, LiveBonus, LiveBonusGroup, Music, MusicChartPattern, Quest } from "../../types/proto/proto_master"
 import { logIdNotFound } from "../../utils/console_utils"
+import { QuestBase } from "../../types/quest_types"
 
 import protoQuest from "../../database/Quest.json"
 import protoMusic from "../../database/Music.json"
@@ -8,27 +9,50 @@ import protoLiveBonusGroup from "../../database/LiveBonusGroup.json"
 import protoLiveBonus from "../../database/LiveBonus.json"
 import protoliveAbility from "../../database/LiveAbility.json"
 
-const rawQuest: Quest[] = protoQuest
+import pvpQuest from "../../database/PvpQuest.json"
+import gvgQuest from "../../database/GvgQuest.json"
+import LeagueQuest from "../../database/LeagueQuest.json"
+
+
+const rawQuest: QuestBase[] = protoQuest
 const rawMusic: Music[] = protoMusic
 const rawMusicChartPattern: MusicChartPattern[] = protoMusicChartPattern
 const rawLiveBonusGroup: LiveBonusGroup[] = protoLiveBonusGroup
 const rawLiveBonus: LiveBonus[] = protoLiveBonus
 const rawLiveAbility: LiveAbility[] = protoliveAbility
+const rawPvpQuest: QuestBase[] = pvpQuest
+const rawGvgQuest: QuestBase[] = gvgQuest
+const rawLeagueQuest: QuestBase[] = LeagueQuest
 
-const getAllQuests = () => {
-  return rawQuest
+const allRawQuest: QuestBase[] = [
+  ...rawQuest,
+  ...rawPvpQuest,
+  ...rawGvgQuest,
+  ...rawLeagueQuest,
+]
+
+const getRawInsideDbQuests = (
+  reg: string
+): QuestBase[] => {
+  return rawQuest.filter(it => it.areaId ? it.areaId.match(reg) : false)
 }
 
-const getRawQuests = (
-  reg: string
-): Quest[] => {
-  return rawQuest.filter(it => !!it.areaId.match(reg))
+const getRawPvpQuests = (): QuestBase[] => {
+  return rawPvpQuest
+}
+
+const getRawGvgQuests = (): QuestBase[] => {
+  return rawGvgQuest
+}
+
+const getRawLeagueQuests = (): QuestBase[] => {
+  return rawLeagueQuest
 }
 
 const getRawQuest = (
   id: string
-): Quest | undefined => {
-  return rawQuest.find(it => it.id === id)
+): QuestBase | undefined => {
+  return allRawQuest.find(it => it.id === id)
     ?? logIdNotFound("Quest", id)
 }
 
@@ -73,6 +97,8 @@ export {
   getRawLiveBonusGroup,
   getRawLiveBonus,
   getRawLiveAbility,
-  getRawQuests,
-  getAllQuests,
+  getRawInsideDbQuests,
+  getRawPvpQuests,
+  getRawGvgQuests,
+  getRawLeagueQuests,
 }
