@@ -182,10 +182,75 @@
     ]
   },
   {
+    "id": "tg-more_than_character_count-liz-1",
+    "type": 4,
+    "characterIds": [
+      "char-rio",
+      "char-aoi",
+      "char-ai",
+      "char-kkr"
+    ]
+  },
+  {
     "id": "tg-more_than_character_count-mei-1",
     "type": 4,
     "characterIds": [
       "char-mei"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-1",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-mei",
+      "char-ngs",
+      "char-ski",
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-2",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-mei",
+      "char-ngs",
+      "char-ski",
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-3",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-mei",
+      "char-ngs",
+      "char-ski",
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-4",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-mei",
+      "char-ngs",
+      "char-ski",
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-5",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-mei",
+      "char-ngs",
+      "char-ski",
+      "char-suz"
     ]
   },
   {

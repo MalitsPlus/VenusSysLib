@@ -6,9 +6,9 @@
     ]
   },
   {
-    "groupId": "live-bonus-group-067",
+    "groupId": "live-bonus-group-031",
     "liveBonusIds": [
-      "live-lba-passive_skill-067"
+      "live-lba-passive_skill-031"
     ]
   },
   {
@@ -30,9 +30,9 @@
     ]
   },
   {
-    "groupId": "live-bonus-group-006",
+    "groupId": "live-bonus-group-042",
     "liveBonusIds": [
-      "live-lba-passive_skill-006"
+      "live-lba-passive_skill-042"
     ]
   },
   {
@@ -180,9 +180,9 @@
     ]
   },
   {
-    "groupId": "live-bonus-group-031",
+    "groupId": "live-bonus-group-001",
     "liveBonusIds": [
-      "live-lba-passive_skill-031"
+      "live-lba-passive_skill-001"
     ]
   },
   {
@@ -228,9 +228,22 @@
     ]
   },
   {
-    "groupId": "live-bonus-group-044",
+    "groupId": "live-bonus-group-039",
     "liveBonusIds": [
-      "live-lba-passive_skill-044"
+      "live-lba-passive_skill-002",
+      "live-lba-passive_skill-039"
+    ]
+  },
+  {
+    "groupId": "live-bonus-group-082",
+    "liveBonusIds": [
+      "live-bonus-group-082"
+    ]
+  },
+  {
+    "groupId": "live-bonus-group-056",
+    "liveBonusIds": [
+      "live-lba-passive_skill-056"
     ]
   },
   {
@@ -240,22 +253,9 @@
     ]
   },
   {
-    "groupId": "live-bonus-group-039",
+    "groupId": "live-bonus-group-006",
     "liveBonusIds": [
-      "live-lba-passive_skill-002",
-      "live-lba-passive_skill-039"
-    ]
-  },
-  {
-    "groupId": "live-bonus-group-001",
-    "liveBonusIds": [
-      "live-lba-passive_skill-001"
-    ]
-  },
-  {
-    "groupId": "live-bonus-group-042",
-    "liveBonusIds": [
-      "live-lba-passive_skill-042"
+      "live-lba-passive_skill-006"
     ]
   },
   {
@@ -265,9 +265,9 @@
     ]
   },
   {
-    "groupId": "live-bonus-group-040",
+    "groupId": "live-bonus-group-044",
     "liveBonusIds": [
-      "live-lba-passive_skill-040"
+      "live-lba-passive_skill-044"
     ]
   },
   {
@@ -337,15 +337,15 @@
     ]
   },
   {
-    "groupId": "live-bonus-group-056",
+    "groupId": "live-bonus-group-040",
     "liveBonusIds": [
-      "live-lba-passive_skill-056"
+      "live-lba-passive_skill-040"
     ]
   },
   {
-    "groupId": "live-bonus-group-079",
+    "groupId": "live-bonus-group-081",
     "liveBonusIds": [
-      "live-lba-passive_skill-079"
+      "live-bonus-group-081"
     ]
   },
   {
@@ -410,9 +410,9 @@
     ]
   },
   {
-    "groupId": "live-bonus-group-078",
+    "groupId": "live-bonus-group-067",
     "liveBonusIds": [
-      "live-lba-passive_skill-078"
+      "live-lba-passive_skill-067"
     ]
   },
   {
@@ -467,6 +467,24 @@
     "groupId": "live-bonus-group-077",
     "liveBonusIds": [
       "live-lba-passive_skill-077"
+    ]
+  },
+  {
+    "groupId": "live-bonus-group-078",
+    "liveBonusIds": [
+      "live-lba-passive_skill-078"
+    ]
+  },
+  {
+    "groupId": "live-bonus-group-079",
+    "liveBonusIds": [
+      "live-lba-passive_skill-079"
+    ]
+  },
+  {
+    "groupId": "live-bonus-group-080",
+    "liveBonusIds": [
+      "live-lba-passive_skill-080"
     ]
   }
 ]

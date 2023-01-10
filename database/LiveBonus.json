@@ -1,5 +1,17 @@
 [
   {
+    "id": "live-bonus-group-081",
+    "name": "ライブボーナス",
+    "liveAbilityId": "live-bonus-group-081",
+    "liveAbilityLevel": 5
+  },
+  {
+    "id": "live-bonus-group-082",
+    "name": "ライブボーナス",
+    "liveAbilityId": "live-bonus-group-082",
+    "liveAbilityLevel": 5
+  },
+  {
     "id": "live-lba-passive_skill-001",
     "name": "live-lba-passive_skill-001",
     "liveAbilityId": "live-lba-passive_skill-001",
@@ -465,6 +477,12 @@
     "id": "live-lba-passive_skill-079",
     "name": "ライブボーナス",
     "liveAbilityId": "live-lba-passive_skill-079",
+    "liveAbilityLevel": 5
+  },
+  {
+    "id": "live-lba-passive_skill-080",
+    "name": "ライブボーナス",
+    "liveAbilityId": "live-lba-passive_skill-080",
     "liveAbilityLevel": 5
   }
 ]

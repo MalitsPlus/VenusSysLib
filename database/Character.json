@@ -25,6 +25,7 @@
       "cos-ai-miku-00",
       "cos-ai-mizg-00",
       "cos-ai-mizg-01",
+      "cos-ai-newy-00",
       "cos-ai-schl-00",
       "cos-ai-sdam-00",
       "cos-ai-sdpl-00",
@@ -171,12 +172,14 @@
     "costumeIds": [
       "cos-aoi-casl-00",
       "cos-aoi-casl-01",
+      "cos-aoi-fest-00",
       "cos-aoi-idol-00",
       "cos-aoi-idol-02",
       "cos-aoi-kait-00",
       "cos-aoi-miku-00",
       "cos-aoi-mizg-00",
       "cos-aoi-mizg-01",
+      "cos-aoi-newy-00",
       "cos-aoi-schl-00",
       "cos-aoi-sdam-00",
       "cos-aoi-sdpl-00",
@@ -799,6 +802,7 @@
       "cos-kkr-miku-00",
       "cos-kkr-mizg-00",
       "cos-kkr-mizg-01",
+      "cos-kkr-newy-00",
       "cos-kkr-schl-00",
       "cos-kkr-sdam-00",
       "cos-kkr-sdpl-00",
@@ -1237,7 +1241,8 @@
       "cos-ktn-sdam-00",
       "cos-ktn-sdpl-00",
       "cos-ktn-trng-00",
-      "cos-ktn-wedd-00"
+      "cos-ktn-wedd-00",
+      "cos-ktn-xmas-00"
     ],
     "altCharacters": [
       {
@@ -1390,7 +1395,8 @@
       "cos-mei-schl-00",
       "cos-mei-sdam-00",
       "cos-mei-sdpl-00",
-      "cos-mei-trng-00"
+      "cos-mei-trng-00",
+      "cos-mei-xmas-00"
     ],
     "altCharacters": [
       {
@@ -1977,7 +1983,8 @@
       "cos-ngs-schl-00",
       "cos-ngs-sdam-00",
       "cos-ngs-sdpl-00",
-      "cos-ngs-trng-00"
+      "cos-ngs-trng-00",
+      "cos-ngs-xmas-00"
     ],
     "altCharacters": [
       {
@@ -2118,6 +2125,7 @@
     "costumeIds": [
       "cos-rei-casl-00",
       "cos-rei-casl-01",
+      "cos-rei-fest-00",
       "cos-rei-idol-00",
       "cos-rei-idol-01",
       "cos-rei-idol-02",
@@ -2283,6 +2291,7 @@
       "cos-rio-miku-00",
       "cos-rio-mizg-00",
       "cos-rio-mizg-01",
+      "cos-rio-newy-00",
       "cos-rio-schl-00",
       "cos-rio-sdam-00",
       "cos-rio-sdpl-00",
@@ -2594,7 +2603,8 @@
       "cos-ski-sdam-00",
       "cos-ski-sdpl-00",
       "cos-ski-trng-00",
-      "cos-ski-waso-00"
+      "cos-ski-waso-00",
+      "cos-ski-xmas-00"
     ],
     "altCharacters": [
       {
@@ -3177,7 +3187,8 @@
       "cos-suz-sdam-00",
       "cos-suz-sdpl-00",
       "cos-suz-seik-00",
-      "cos-suz-trng-00"
+      "cos-suz-trng-00",
+      "cos-suz-xmas-00"
     ],
     "altCharacters": [
       {

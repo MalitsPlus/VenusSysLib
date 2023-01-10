@@ -20,6 +20,11 @@
     "isOpponent": false
   },
   {
+    "id": "target-character_type-2-1",
+    "type": 14,
+    "isOpponent": false
+  },
+  {
     "id": "target-character_type-2-2",
     "type": 14,
     "isOpponent": false
@@ -65,6 +70,11 @@
     "isOpponent": false
   },
   {
+    "id": "target-opponent_all",
+    "type": 24,
+    "isOpponent": true
+  },
+  {
     "id": "target-opponent_center",
     "type": 22,
     "isOpponent": true
@@ -86,6 +96,11 @@
   },
   {
     "id": "target-position_attribute_vocal-2",
+    "type": 19,
+    "isOpponent": false
+  },
+  {
+    "id": "target-position_attribute_vocal-3",
     "type": 19,
     "isOpponent": false
   },
