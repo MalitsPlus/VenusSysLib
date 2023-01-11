@@ -142,7 +142,9 @@ function _getTargetIndexes(
         }
 
         case SkillTargetType.Neighbor: {
-          return IndexNeighbor[deckPosition]
+          const tgt = IndexNeighbor[deckPosition]
+          targetNum = tgt.length
+          return tgt
         }
 
         case SkillTargetType.Vocal: {
