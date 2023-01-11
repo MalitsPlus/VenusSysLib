@@ -340,12 +340,6 @@ function _getTriggeredIndexes(
         return undefined
       }
 
-      case SkillTriggerType.AllStatus: {
-        // hasn't been implemented in game
-        console.error("'SkillTriggerType.AllStatus' hasn't been implemented.")
-        return undefined
-      }
-
       case SkillTriggerType.ComboLessEqual: {
         let combo = tra.getTriggerLastNum(trigger.id)
         let userStat = current.userStatuses[

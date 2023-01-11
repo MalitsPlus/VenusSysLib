@@ -100,6 +100,7 @@ export type UserCard = {
   obtainedTime: string
   supported: boolean
   lastEnhanceTime: string
+  rankTotalExp: number
   level: number
   rarity: number
   vocal: string
@@ -130,6 +131,7 @@ export type UserCard = {
   baseLiveAbilityId: string
   baseActivityAbilityId: string
   basePhotoEquipableCount: number
+  rank: number
 }
 
 export type UserCharacter = {

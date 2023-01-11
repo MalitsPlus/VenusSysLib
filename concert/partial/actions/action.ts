@@ -36,12 +36,28 @@ import { weaknessEffectRecovery } from "./weakness_effect_recovery"
  */
 export function typeOf(type: SkillEfficacyType): Action {
   switch (type) {
+    case SkillEfficacyType.StaminaConsumptionReduction: // 11
+      return defaultProc
+    case SkillEfficacyType.ComboContinuation: // 12
+      return defaultProc
     case SkillEfficacyType.DanceUp: // 13
       return danceUp
     case SkillEfficacyType.VocalUp: // 14
       return vocalUp
     case SkillEfficacyType.VisualUp:  // 15
       return visualUp
+    case SkillEfficacyType.ScoreUp:  // 16
+      return defaultProc
+    case SkillEfficacyType.BeatScoreUp:  // 17
+      return defaultProc
+    case SkillEfficacyType.ActiveSkillScoreUp:  // 18
+      return defaultProc
+    case SkillEfficacyType.CriticalRateUp:  // 19
+      return defaultProc
+    case SkillEfficacyType.CriticalBonusPermilUp:  // 20
+      return defaultProc
+    case SkillEfficacyType.AudienceAmountIncrease:  // 21
+      return defaultProc
     case SkillEfficacyType.StaminaRecovery: // 22
       return defaultProc
     case SkillEfficacyType.FixStaminaRecovery:  // 23
@@ -54,14 +70,32 @@ export function typeOf(type: SkillEfficacyType): Action {
       return strengthEffectValueIncrease
     case SkillEfficacyType.CoolTimeReduction: // 27
       return coolTimeReduction
+    case SkillEfficacyType.AudienceAmountReduction: // 28
+      return defaultProc
+    case SkillEfficacyType.SkillImpossible: // 29
+      return defaultProc
     case SkillEfficacyType.DanceDown: // 30
       return danceDown
     case SkillEfficacyType.VocalDown: // 31
       return vocalDown
     case SkillEfficacyType.VisualDown:  // 32
       return visualDown
+    case SkillEfficacyType.StaminaConsumptionIncrease: // 33
+      return defaultProc
+    case SkillEfficacyType.SpecialSkillScoreUp: // 34
+      return defaultProc
     case SkillEfficacyType.TargetStaminaRecovery: // 35
       return targetStaminaRecovery
+    case SkillEfficacyType.SkillSuccessRateUp: // 37
+      return defaultProc
+    case SkillEfficacyType.TensionUp: // 38
+      return defaultProc
+    case SkillEfficacyType.WeaknessEffectPrevention: // 40
+      return defaultProc
+    case SkillEfficacyType.ComboScoreUp: // 41
+      return defaultProc
+    case SkillEfficacyType.PassiveSkillScoreUp: // 42
+      return defaultProc
     case SkillEfficacyType.WeaknessEffectInversion: // 44
       return weaknessEffectInversion
     case SkillEfficacyType.StrengthEffectMigrationBeforeActiveSkill:  // 45
@@ -84,6 +118,12 @@ export function typeOf(type: SkillEfficacyType): Action {
       return danceBoost
     case SkillEfficacyType.VisualBoost: // 58
       return visualBoost
+    case SkillEfficacyType.SpecialScoreMultiplierAdd: // 59
+      return defaultProc
+    case SkillEfficacyType.ActiveScoreMultiplierAdd: // 60
+      return defaultProc
+    case SkillEfficacyType.PassiveScoreMultiplierAdd: // 61
+      return defaultProc
     case SkillEfficacyType.StrengthEffectErasingAll:  // 65
       return strengthEffectErasingAll
     case SkillEfficacyType.StrengthEffectAssignmentAll: // 66

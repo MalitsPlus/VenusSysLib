@@ -1647,6 +1647,7 @@ export type Setting = {
   raceSecondsPerActivityLessonStep: number
   tourRankingDisplayNum: number
   buddyRentalDailyLimit: number
+  leagueRankingDisplayRankLimit: number
 }
 
 export type SkillDetail = {
@@ -1819,6 +1820,13 @@ export type CardParameter = {
   level: number
   value: string
   staminaValue: string
+}
+
+export type CardRank = {
+  rank: number
+  levelLimitUpAmount: number
+  requiredExp: number
+  isDataExist: boolean
 }
 
 export type CardRarity = {

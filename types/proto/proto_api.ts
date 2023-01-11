@@ -15,6 +15,7 @@ import type {
   GvgMatchResultType,
   MarathonType,
   LadderPanelType,
+  LeagueDeckType,
   AttributeType,
   MoodType,
   SkillPossessionType,
@@ -50,7 +51,10 @@ import type {
   GvgChallengeConsumptionType,
   GraphicType,
   HomePositionType,
+  LeagueStatusType,
   FunctionMaintenanceType,
+  LeagueSeasonResultType,
+  LeagueSeasonCardResultType,
   MarathonRaidProgressType,
   RuleType,
   ProviderType,
@@ -328,6 +332,14 @@ export type BuddyCardInfo = {
   cardId: string
   rarity: number
   level: number
+}
+
+export type DeckPositionCharacter = {
+  userDeckPosition: UserDeckPosition
+  characterId: string
+  displayCharacterId: string
+  displayCostumeId: string
+  displayHairId: string
 }
 
 export type DivisionInfo = {
@@ -755,6 +767,7 @@ export type HomeEnterResponse = {
   hasCanReceiveInviteHostRewards: boolean
   existsUnclearedExercise: boolean
   extraStoryPartInfos: ExtraStoryPartInfo[]
+  leagueInfo: HomeLeagueInfo
   pvpRewardResultInfo: PvpRewardResultInfo
   gvgRewardResultInfo: GvgRewardResultInfo
   tourRewardResultInfos: TourRewardResultInfo[]
@@ -763,6 +776,7 @@ export type HomeEnterResponse = {
   raceRewardResultInfos: RaceRewardResultInfo[]
   raceDailyRewardResultInfos: RaceDailyRewardResultInfo[]
   buddyUsedRewardResultInfo: BuddyUsedRewardResultInfo
+  leagueRewardResultInfo: LeagueRewardResultInfo
   commonResponse: CommonResponse
 }
 
@@ -893,6 +907,71 @@ export type LastCardInfo = {
   cardId: string
   level: number
   rarity: number
+}
+
+export type LeagueCardInfo = {
+  cardId: string
+  level: number
+  rarity: number
+}
+
+export type LeagueCardRanking = {
+  userId: string
+  name: string
+  cardInfo: LeagueCardInfo
+  value: string
+  rank: number
+  emblemId: string
+}
+
+export type LeagueDailyResultInfo = {
+  date: string
+  point: string
+  rank: number
+  winCount: number
+  loseCount: number
+  headline: string
+  mvpCardId: string
+}
+
+export type LeagueNewsInfo = {
+  date: string
+  deckACards: LiveCardInfo[]
+  deckAWinCount: number
+  deckALoseCount: number
+  deckBCards: LiveCardInfo[]
+  deckBWinCount: number
+  deckBLoseCount: number
+  beforeRank: number
+  beforePoint: string
+  headline: string
+  interview: string
+  body: string
+  thumbnailAssetId: string
+  thumbnailShootMillisecond: number
+  thumbnailEffectShootMilliseconds: number[]
+  mvpDeckType: LeagueDeckType
+  mvpCardId: string
+  mvpSeasonCardResultInfo: LeagueSeasonCardResultInfo
+  mvpMusicId: string
+  mvpStageId: string
+  displayPositionCharacters: DeckPositionCharacter[]
+}
+
+export type LeaguePointRanking = {
+  userId: string
+  name: string
+  point: string
+  rank: number
+  deckACards: LiveCardInfo[]
+  deckBCards: LiveCardInfo[]
+  emblemId: string
+}
+
+export type LeagueSeasonRewardInfo = {
+  upgradeRewardId: string
+  stayRewardId: string
+  downgradeRewardId: string
 }
 
 export type LessonInfo = {
@@ -2430,6 +2509,15 @@ export type CardReleaseSupportResponse = {
   commonResponse: CommonResponse
 }
 
+export type CardRankUpRequest = {
+  cardId: string
+  rank: number
+}
+
+export type CardRankUpResponse = {
+  commonResponse: CommonResponse
+}
+
 export type LoginBonusPackageItem = {
   shopItem: ShopItem
   loginBonuses: ShopLoginBonus[]
@@ -3492,6 +3580,16 @@ export type HomePvpInfo = {
   latestPvpSeason: PvpSeasonInfo
 }
 
+export type HomeLeagueInfo = {
+  nextBattleStartTime: string
+  battleEndTime: string
+  nextSeasonStartTime: string
+  statusType: LeagueStatusType
+  isNewsUnread: boolean
+  isNewSeasonNotJoined: boolean
+  isRemainingImperfectDeck: boolean
+}
+
 export type PvpRewardResultInfo = {
   name: string
   point: string
@@ -3619,6 +3717,18 @@ export type PurchasedConditionRewardShopInfo = {
   conditionRewardPackageItem: ConditionRewardPackageItem
 }
 
+export type LeagueRewardResultInfo = {
+  leagueSeasonName: string
+  leagueGradeName: string
+  seasonResultType: LeagueSeasonResultType
+  rank: number
+  point: string
+  winCount: number
+  loseCount: number
+  rewards: Reward[]
+  highestLeagueGradeName: string
+}
+
 export type InviteTopResponse = {
   inviteCode: string
   guestInfos: InviteGuestInfo[]
@@ -3676,6 +3786,196 @@ export type LadderPanelReachResponse = {
   progressInfo: LadderProgressInfo
   reachablePanelCount: number
   commonResponse: CommonResponse
+}
+
+export type LeagueTopResponse = {
+  seasonInfo: LeagueSeasonInfo
+  newsInfo: LeagueNewsInfo
+  seasonResultInfo: LeagueSeasonResultInfo
+  dailyResultInfos: LeagueDailyResultInfo[]
+  seasonCardResultInfos: LeagueSeasonCardResultInfo[]
+  deckInfos: LeagueDeckInfo[]
+  deckHistoryInfos: LeagueDeckHistoryInfo[]
+  rankExistInfo: LeagueRankExistInfo
+  commonResponse: CommonResponse
+}
+
+export type LeagueSeasonInfo = {
+  id: string
+  name: string
+  endTime: string
+  deckABattleQuestInfo: LiveBattleQuestInfo
+  deckBBattleQuestInfo: LiveBattleQuestInfo
+  nextSeasonDeckABattleQuestInfo: LiveBattleQuestInfo
+  nextSeasonDeckBBattleQuestInfo: LiveBattleQuestInfo
+  rewardInfo: LeagueSeasonRewardInfo
+  nextBattleStartTime: string
+  skillActivationRateValidJoinCount: number
+  nextId: string
+  preId: string
+}
+
+export type LeagueSeasonResultInfo = {
+  leagueGradeName: string
+  point: string
+  rank: number
+  winCount: number
+  loseCount: number
+  seasonResultType: LeagueSeasonResultType
+  upgradeRankThreshold: string
+  upgradeLeagueGradeName: string
+  downgradeRankThreshold: string
+  downgradeLeagueGradeName: string
+  highestLeagueGradeName: string
+  lowestLeagueGradeName: string
+  memberAmount: number
+}
+
+export type LeagueSeasonCardResultInfo = {
+  cardInfo: LeagueCardInfo
+  highestScore: string
+  skillActivationRatePermil: number
+  mvpCount: number
+  highestScoreCardRank: number
+  skillActivationRateCardRank: number
+  mvpCountCardRank: number
+  highestScoreLeagueRank: number
+  skillActivationRateLeagueRank: number
+  mvpCountLeagueRank: number
+  joinCount: number
+}
+
+export type LeagueGetDailyDetailRequest = {
+  seasonId: string
+  date: string
+}
+
+export type LeagueGetDailyDetailResponse = {
+  deckACards: LiveCardInfo[]
+  deckBCards: LiveCardInfo[]
+  battleResultInfos: LeagueBattleResultInfo[]
+  winCount: number
+  loseCount: number
+  point: string
+  rank: number
+  commonResponse: CommonResponse
+}
+
+export type LeagueBattleResultInfo = {
+  opponentUserId: string
+  opponentUserName: string
+  opponentDeckACards: LiveCardInfo[]
+  deckASelfScore: string
+  deckAOpponentScore: string
+  opponentDeckBCards: LiveCardInfo[]
+  deckBSelfScore: string
+  deckBOpponentScore: string
+}
+
+export type LeagueOpponentInfo = {
+  userId: string
+  name: string
+  deckACards: LiveCardInfo[]
+  deckBCards: LiveCardInfo[]
+}
+
+export type LeagueGetLiveResultRequest = {
+  seasonId: string
+  date: string
+  userId: string
+  deckType: LeagueDeckType
+}
+
+export type LeagueGetLiveResultResponse = {
+  result: LiveResult
+  commonResponse: CommonResponse
+}
+
+export type LeagueSaveDeckRequest = {
+  seasonId: string
+  deckType: LeagueDeckType
+  deckPositions: UserDeckPosition[]
+  deckEditType: DeckEditType
+}
+
+export type LeagueSaveDeckResponse = {
+  deckPositions: UserDeckPosition[]
+  commonResponse: CommonResponse
+}
+
+export type LeagueDeckInfo = {
+  seasonId: string
+  deckType: LeagueDeckType
+  deckPositions: UserDeckPosition[]
+  winCount: number
+  loseCount: number
+  consecutiveWinCount: number
+}
+
+export type LeagueDeckHistoryInfo = {
+  date: string
+  deckACards: LiveCardInfo[]
+  deckAWinCount: number
+  deckALoseCount: number
+  deckBCards: LiveCardInfo[]
+  deckBWinCount: number
+  deckBLoseCount: number
+}
+
+export type LeagueGetLastSeasonResultResponse = {
+  seasonName: string
+  seasonResultInfo: LeagueSeasonResultInfo
+  dailyResultInfos: LeagueDailyResultInfo[]
+  seasonCardResultInfos: LeagueSeasonCardResultInfo[]
+  skillActivationRateValidJoinCount: number
+  rankExistInfo: LeagueRankExistInfo
+  commonResponse: CommonResponse
+}
+
+export type LeagueListPointRankingRequest = {
+  seasonId: string
+}
+
+export type LeagueListPointRankingResponse = {
+  rankings: LeaguePointRanking[]
+  commonResponse: CommonResponse
+}
+
+export type LeagueListCardHighestScoreRankingRequest = {
+  seasonId: string
+}
+
+export type LeagueListCardHighestScoreRankingResponse = {
+  rankings: LeagueCardRanking[]
+  commonResponse: CommonResponse
+}
+
+export type LeagueListCardSkillRateRankingRequest = {
+  seasonId: string
+}
+
+export type LeagueListCardSkillRateRankingResponse = {
+  rankings: LeagueCardRanking[]
+  commonResponse: CommonResponse
+}
+
+export type LeagueListCardMvpRankingRequest = {
+  seasonId: string
+}
+
+export type LeagueListCardMvpRankingResponse = {
+  rankings: LeagueCardRanking[]
+  commonResponse: CommonResponse
+}
+
+export type LeagueRankExistInfo = {
+  isPointExist: boolean
+  cardRankExistInfos: LeagueCardRankExistInfo[]
+}
+
+export type LeagueCardRankExistInfo = {
+  resultType: LeagueSeasonCardResultType
+  isExist: boolean
 }
 
 export type LoginBonusListResponse = {

@@ -288,6 +288,9 @@ export enum ErrorCode {
   InviteHostGuestLimit = 3031,
   InviteEnterCodeNotAllowed = 3032,
   MarathonRaidFinished = 3033,
+  LeagueSeasonNotOpened = 3034,
+  LeagueInBattle = 3035,
+  LeagueInBattleExtension = 3036,
 }
 
 export enum EventMissionType {
@@ -347,6 +350,8 @@ export enum FunctionLockType {
   BuddyUseQuestContest = 26,
   Exercise = 27,
   BuddyUseMarathon = 28,
+  CardRankUp = 29,
+  League = 30,
 }
 
 export enum FunctionMaintenanceType {
@@ -598,6 +603,10 @@ export enum HelpDisplayTargetType {
   MarathonRaidLiveQuestSelect = 158,
   MarathonRaidLiveDeckSelect = 159,
   MarathonRaidLiveBattleDeckSelect = 160,
+  LeagueTop = 161,
+  LeagueLiveNews = 162,
+  LeagueLiveDeckSelect = 163,
+  LeagueLastSeasonRecord = 164,
 }
 
 export enum HelpType {
@@ -652,6 +661,7 @@ export enum ItemType {
   PhotoShootingLevelChange = 13,
   AccessoryLimitBreak = 14,
   PhotoInk = 15,
+  CardRank = 16,
   ActivityRefreshShorten = 1001,
   ActivityPromotionShorten = 1002,
   ActivityFanEventSuperMode = 1003,
@@ -688,6 +698,34 @@ export enum LadderPanelType {
   Unknown = 0,
   Reward = 1,
   Message = 2,
+}
+
+export enum LeagueDeckType {
+  Unknown = 0,
+  A = 1,
+  B = 2,
+}
+
+export enum LeagueSeasonCardResultType {
+  Unknown = 0,
+  HighestScore = 1,
+  SkillActivationRate = 2,
+  MvpCount = 3,
+}
+
+export enum LeagueSeasonResultType {
+  Unknown = 0,
+  Upgrade = 1,
+  Stay = 2,
+  Downgrade = 3,
+}
+
+export enum LeagueStatusType {
+  Unknown = 0,
+  Prepare = 1,
+  Battle = 2,
+  BattleExtension = 3,
+  NotOpened = 4,
 }
 
 export enum LinkType {
@@ -1381,6 +1419,7 @@ export enum RewardSortResourceType {
   ItemActivityFanEventRewardUp = 62,
   ItemActivityLessonPromote = 63,
   ItemActivityPromotionSpecialShorten = 65,
+  ItemCardRank = 66,
 }
 
 export enum RewardSortTargetType {
@@ -1834,4 +1873,6 @@ export enum TutorialType {
   PhotoRetouch = 29,
   Collaboration = 30,
   MarathonRaid = 31,
+  League = 32,
+  CardRank = 33,
 }
