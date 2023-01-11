@@ -245,19 +245,20 @@ export function _performSkill(
       targetIndexes: targetIndexes,
       value: value,
     })
+  } // wapSkillDetails scope ends here
 
-    // set SkillStatus
-    skillStat.coolTime = skill.coolTime
-    if (skillStat.remainCount > 0) {
-      skillStat.remainCount--
-    }
-    // if is p-skill set performed
-    if (skill.categoryType === SkillCategoryType.Passive) {
-      this.pSkillPerformed.push({
-        cardIndex: cardIndex,
-        skillIndex: skillIndex,
-      })
-    }
+  // set SkillStatus
+  skillStat.coolTime = skill.coolTime
+  if (skillStat.remainCount > 0) {
+    skillStat.remainCount--
   }
+  // if is p-skill set performed
+  if (skill.categoryType === SkillCategoryType.Passive) {
+    this.pSkillPerformed.push({
+      cardIndex: cardIndex,
+      skillIndex: skillIndex,
+    })
+  }
+
   return actSkill
 }

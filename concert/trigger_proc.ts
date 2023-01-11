@@ -46,8 +46,8 @@ export function getTriggeredIndexes(
   )
   // clear indexes those are not belong to corresponding side
   return isOpponentSide
-    ? result?.filter(it => it === 0 || (6 <= it && it <= 10))
-    : result?.filter(it => it === 0 || (1 <= it && it <= 5))
+    ? result?.filter(it => it === 0 || it > 100 || (6 <= it && it <= 10))
+    : result?.filter(it => it === 0 || it > 100 || (1 <= it && it <= 5))
 }
 
 // ⚠️ be careful that returned list may contains opponent side indexes
@@ -198,7 +198,7 @@ function _getTriggeredIndexes(
             let cardStat = current.cardStatuses.find(it => it.cardIndex === card.index)
             if (cardStat) {
               if (cardStat.stamina / card.liveCard.deckStamina <= threshold! / 100) {
-                triggeredList.push(deckPosition)
+                triggeredList.push(cardStat.cardIndex)
               }
             }
           })
