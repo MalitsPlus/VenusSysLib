@@ -55,7 +55,7 @@ export function isEffects(
   efficacyTypes: SkillEfficacyType[]
 ): boolean {
   return efficacyTypes.some(effType => {
-    isEffect(eff, effType)
+    return isEffect(eff, effType)
   })
 }
 
