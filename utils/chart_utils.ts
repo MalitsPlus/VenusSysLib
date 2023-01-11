@@ -273,7 +273,7 @@ export function getLaneTypeByIndex(
 export function skillHasTimes(
   this: SkillStatus,
 ): boolean {
-  if (!this.initCount || this.remainCount) {
+  if (this.initCount === 0 || this.remainCount > 0) {
     return true
   }
   return false

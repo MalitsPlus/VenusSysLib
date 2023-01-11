@@ -1,6 +1,6 @@
 import { LiveCard } from "../../types/card_types";
 import { Actable, ActSkill, CardStatus, SkillStatus } from "../../types/concert_types";
-import { SkillEfficacyType } from "../../types/proto/proto_enum";
+import { SkillCategoryType, SkillEfficacyType } from "../../types/proto/proto_enum";
 import { WapSkillLevel } from "../../types/wap/skill_waps";
 import * as calc from "../../utils/calc_utils";
 import { getCritical } from "../../utils/chart_utils";
@@ -248,7 +248,16 @@ export function _performSkill(
 
     // set SkillStatus
     skillStat.coolTime = skill.coolTime
-    skillStat.remainCount && skillStat.remainCount--
+    if (skillStat.remainCount > 0) {
+      skillStat.remainCount--
+    }
+    // if is p-skill set performed
+    if (skill.categoryType === SkillCategoryType.Passive) {
+      this.pSkillPerformed.push({
+        cardIndex: cardIndex,
+        skillIndex: skillIndex,
+      })
+    }
   }
   return actSkill
 }
