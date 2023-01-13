@@ -74,7 +74,7 @@ export function getMergedEffectByType(
   return {
     efficacyType: efficacyType,
     grade: grade,
-    value: efg.EfficacyValue[efficacyType][grade],
+    value: efg.EfficacyValue[efficacyType]?.[grade] ?? 0,
     isInstant: false,
   }
 }

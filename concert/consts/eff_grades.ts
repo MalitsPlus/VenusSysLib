@@ -212,7 +212,7 @@ export const StaminaContinuousConsumptionGrade: {
 }
 
 export const EfficacyValue: {
-  [k in SkillEfficacyType]?: any
+  [k in SkillEfficacyType]?: { [k: number]: number }
 } = {
   [SkillEfficacyType.StaminaConsumptionReduction]: StaminaConsumptionReductionGrade,
   [SkillEfficacyType.DanceUp]: DanceUpGrade,

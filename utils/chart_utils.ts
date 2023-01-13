@@ -84,12 +84,16 @@ export function getEffectSumGradeByType(
   _type: SkillEfficacyType,
   exceptUnincluded?: boolean,
   needZeroRemain?: boolean
-): number {
+): [number, number[]] {
   const effs = this.getEffects(_type, exceptUnincluded, needZeroRemain)
   if (!effs.length) {
-    return 0
+    return [0, []]
   }
-  return effs.map(x => x.grade).reduce((c, p) => c + p)
+  const sumGrades = effs.map(x => x.grade).reduce<[number, number[]]>((accumulator, current) =>
+    [accumulator[0] + current, [...accumulator[1], current]]
+    , [0, []]
+  )
+  return sumGrades
 }
 /**
  * Get sum of specified type effect grade.  
@@ -103,13 +107,13 @@ export function getEffectSumGradeOrMaxGradeByType(
   _type: SkillEfficacyType,
   exceptUnincluded?: boolean,
   needZeroRemain?: boolean
-): number {
+): [number, number[]] {
   const sumGrade = this.getEffectSumGrade(_type, exceptUnincluded, needZeroRemain)
   if (!StackableSkillEfficacyList.includes(_type)) {
     return sumGrade
   }
   const maxGrade = EfficacyMaxGrade[_type] ?? 0
-  return sumGrade > maxGrade ? maxGrade : sumGrade
+  return sumGrade[0] > maxGrade ? [maxGrade, sumGrade[1]] : sumGrade
 }
 /**
  * Get and calculate effect value of specified type.  
@@ -127,7 +131,7 @@ export function getEffectValue(
     return 0
   }
   const grade = this.getEffectSumOrMaxGrade(_type, exceptUnincluded, needZeroRemain)
-  const value = EfficacyValue[_type][grade] ?? 0 // FIXME: protential error
+  const value = EfficacyValue[_type]?.[grade[0]] ?? 0 // FIXME: protential error
   return value
 }
 
@@ -172,11 +176,11 @@ export function getBuffedPermil(
       }
     }
   })()
-  let upGrade = this.getEffectSumGrade(upType, exceptUnincluded, needZeroRemain)
+  let upGrade = this.getEffectSumGrade(upType, exceptUnincluded, needZeroRemain)[0]
   const upMaxGrade = EfficacyMaxGrade[upType] ?? 99
-  let boostGrade = this.getEffectSumGrade(boostType, exceptUnincluded, needZeroRemain)
+  let boostGrade = this.getEffectSumGrade(boostType, exceptUnincluded, needZeroRemain)[0]
   const boostMaxGrade = EfficacyMaxGrade[boostType] ?? 99
-  let downGrade = this.getEffectSumGrade(downType, exceptUnincluded, needZeroRemain)
+  let downGrade = this.getEffectSumGrade(downType, exceptUnincluded, needZeroRemain)[0]
   const downMaxGrade = EfficacyMaxGrade[downType] ?? 99
 
   upGrade = upGrade > upMaxGrade ? upMaxGrade : upGrade

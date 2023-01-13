@@ -96,8 +96,13 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.MoreThanCharacterCount: {
-        console.error("'SkillTriggerType.MoreThanCharacterCount' hasn't been implemented.")
-        return undefined
+        const charaIds = trigger.characterIds
+        live.liveDeck.liveCards.forEach(card => {
+          if (charaIds.includes(card.liveCard.characterId)) {
+            triggeredList.push(card.index)
+          }
+        })
+        break
       }
 
       case SkillTriggerType.BeforeActiveSkillBySomeone: {

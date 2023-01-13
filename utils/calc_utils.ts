@@ -44,6 +44,13 @@ export function calcBuffedParam(
   return Math.floor(base * mul / divisor) + add
 }
 
+/**
+ * Calculate stamina consumption.
+ * @param expectedSt Original stamina.
+ * @param cardStat Card Status.
+ * @param questWeightPermil Live adjustment.
+ * @returns Calculated value.
+ */
 export function calcStaminaConsumption(
   expectedSt: number,
   cardStat: CardStatus,
@@ -53,7 +60,7 @@ export function calcStaminaConsumption(
   if (cardStat.effects) {
     cardStat.effects.forEach(eff => {
       if (isEffects(eff, StaminaConsumptionAdjustment)) {
-        permil += EfficacyValue[eff.efficacyType][eff.grade]
+        permil += EfficacyValue[eff.efficacyType]?.[eff.grade] ?? 0
       }
       if (isEffects(eff, ParamBoost)) {
         permil += eff.grade * 10
@@ -63,6 +70,13 @@ export function calcStaminaConsumption(
   return Math.floor(expectedSt * permil / 1000 * questWeightPermil / 1000)
 }
 
+/**
+ * Calculate stamina recovery.
+ * @param expectedSt Original stamina.
+ * @param cardStat Card Status.
+ * @param questWeightPermil Live adjustment.
+ * @returns Calculated value.
+ */
 export function calcStaminaRecovery(
   expectedSt: number,
   cardStat: CardStatus,
@@ -76,7 +90,7 @@ export function calcStaminaRecovery(
 }
 
 /**
- * Calculate stamina consumption.
+ * Calculate stamina consumption. **Skill** means it has a chance to be a percentage consumption.
  * @param skillLevel A `WapSkillLevel` to be performed.
  * @param card A `LiveCard` which performs this skill.
  * @param cardStatus A `CardStatus` belongs to which performs this skill.

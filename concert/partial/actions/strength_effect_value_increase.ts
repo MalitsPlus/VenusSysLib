@@ -26,7 +26,7 @@ export const strengthEffectValueIncrease: Action = ({
         for (const eff of getLongestEffects(cardStat)) {  // returned eff must be inside the `StrengthList`
           if (eff.remain > 0) {
             eff.grade += strengthValue
-            eff.value += EfficacyValue[eff.efficacyType][eff.grade] ?? 0
+            eff.value += EfficacyValue[eff.efficacyType]?.[eff.grade] ?? 0
             eff.strengthenValue = strengthValue
             eff.strengthenInclude = isBeforeBeat
           }

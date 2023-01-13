@@ -124,6 +124,10 @@ export function typeOf(type: SkillEfficacyType): Action {
       return defaultProc
     case SkillEfficacyType.PassiveScoreMultiplierAdd: // 61
       return defaultProc
+    case SkillEfficacyType.StaminaContinuousRecovery: // 62
+      return defaultProc
+    case SkillEfficacyType.StaminaContinuousConsumption: // 63
+      return defaultProc
     case SkillEfficacyType.StrengthEffectErasingAll:  // 65
       return strengthEffectErasingAll
     case SkillEfficacyType.StrengthEffectAssignmentAll: // 66

@@ -58,7 +58,7 @@ export type CardStatus = {
    * Get sum of specified type effect grades.  
    * If this CardStatus doesn't possess the effect, 0 will be returned.
    */
-  getEffectSumGrade: (this: CardStatus, type: SkillEfficacyType, exceptUnincluded?: boolean, needZeroRemain?: boolean) => number,
+  getEffectSumGrade: (this: CardStatus, type: SkillEfficacyType, exceptUnincluded?: boolean, needZeroRemain?: boolean) => [number, number[]],
   /**
    * Get sum of specified type effect grade.  
    * If the grade exceeds maxGrade, maxGrade will be returned.  
@@ -66,7 +66,7 @@ export type CardStatus = {
    * maxGrade exceeding check will not be performed and sumGrade 
    * will be returned instead.
    */
-  getEffectSumOrMaxGrade: (this: CardStatus, type: SkillEfficacyType, exceptUnincluded?: boolean, needZeroRemain?: boolean) => number,
+  getEffectSumOrMaxGrade: (this: CardStatus, type: SkillEfficacyType, exceptUnincluded?: boolean, needZeroRemain?: boolean) => [number, number[]],
   /**
    * Get and calculate effect value of specified type.  
    * If the grade exceeds maxGrade, maxGrade will be used to calculate.  

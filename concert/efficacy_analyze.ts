@@ -90,6 +90,17 @@ export function getStrengthEffectErasingType(
   return undefined
 }
 
+export function getStrengthEffectAssignmentType(
+  efficacyId: string
+): string | undefined {
+  const matched = efficacyId.match(/(?<=strength_effect_assignment-)\w+/)
+  if (matched) {
+    return matched[0]
+  }
+  logError(`Cannot find strings right after 'strength_effect_assignment-'.`)
+  return undefined
+}
+
 function findNumber(
   efficacyId: string,
   ptn: RegExp,
