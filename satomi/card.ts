@@ -1,5 +1,6 @@
 import { getCard, getCardParameter, getCardParameters, getCardRarity } from "../db/repository/card_repository";
 import { LiveCard, UserCard } from "../types/card_types";
+import { AttributeType } from "../types/proto/proto_enum";
 import { Card } from "../types/proto/proto_master";
 import { TransCard } from "../types/trans_types";
 import { calcParam } from "../utils/calc_utils";
@@ -80,7 +81,17 @@ export const getUserCard = (
 }
 
 export const getDefaultUserCard = (id: string): UserCard => {
-  return getUserCard(getDefaultTransCard(id))
+  const defaultCard = getUserCard(getDefaultTransCard(id))
+  defaultCard.dance = Math.floor(defaultCard.dance * 1.92 + 13502)
+  defaultCard.vocal = Math.floor(defaultCard.vocal * 1.92 + 13502)
+  defaultCard.visual = Math.floor(defaultCard.visual * 1.92 + 13502)
+  switch (defaultCard.attributeType) {
+    case AttributeType.Dance: defaultCard.dance = Math.floor(defaultCard.dance * 3.44 + 40502); break;
+    case AttributeType.Vocal: defaultCard.vocal = Math.floor(defaultCard.vocal * 3.44 + 40502); break;
+    case AttributeType.Visual: defaultCard.visual = Math.floor(defaultCard.visual * 3.44 + 40502); break;
+  }
+  defaultCard.stamina += 3000
+  return defaultCard
 }
 
 const getDefaultTransCard = (id: string): TransCard => {
