@@ -19,6 +19,15 @@ export function performASPSkill(
   this: Concert,
   actables: Actable[],
 ): ComboType {
+
+  this.live.customNotes?.forEach(customNote => {
+    if (customNote.sequence === this.current.sequence) {
+      if (customNote.privilege === "opponent" && !this.live.isBattle) {
+        return ComboType.AddOpponent
+      }
+    }
+  })
+
   if (actables.length) {
     if (actables[0].skills.length) {
       const { index, skills } = actables[0]
@@ -55,7 +64,7 @@ export function performASPSkill(
   return ComboType.Break
 }
 
-export function performPSkill( 
+export function performPSkill(
   this: Concert,
   cardIndex: number,
   skillIndex: number,

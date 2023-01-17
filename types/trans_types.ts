@@ -22,3 +22,9 @@ export type TransCard = {
   mental: number
   technique: number
 }
+
+export type CustomNote = {
+  ingamePos: number,
+  sequence: number,
+  privilege: "normal" | "opponent",
+}

@@ -5,7 +5,7 @@ import { Concert } from "../concert";
 export default function determineActSkillPrivilege(
   this: Concert
 ) {
-  if (this.actables.length <= 1) {
+  if (this.actables.length < 1) {
     return
   }
   const laneType = this.live.quest.getLaneType(this.current.actPosition)
@@ -23,6 +23,16 @@ export default function determineActSkillPrivilege(
 
   // sort privileges (higher first)
   privileges.sort((a, b) => b.power - a.power)
+
+  this.live.customNotes?.forEach(customNote => {
+    if (customNote.sequence === this.current.sequence
+      && customNote.privilege === "opponent"
+    ) {
+      this.actables = this.actables.filter(x => x.index > 5)
+      this.current.failureFlag = SkillFailureType.OpponentActivation
+      return
+    }
+  })
 
   // if opponent wins, set failure flag
   if (privileges[0].index > 5) {

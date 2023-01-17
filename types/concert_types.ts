@@ -7,6 +7,7 @@ import { LiveCard, LiveDeck } from "./card_types"
 import { WapLiveBeat } from "./wap/misc_waps"
 import { WapQuest } from "./wap/quest_waps"
 import { WapSkillLevel } from "./wap/skill_waps"
+import { CustomNote } from "./trans_types"
 
 export type Live = {
   charts: Chart[],
@@ -14,6 +15,7 @@ export type Live = {
   quest: WapQuest,
   liveDeck: LiveDeck,
   isBattle: boolean,
+  customNotes?: CustomNote[],
   // exSkills?: WapSkillLevel[],
 }
 
