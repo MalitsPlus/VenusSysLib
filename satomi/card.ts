@@ -82,13 +82,22 @@ export const getUserCard = (
 
 export const getDefaultUserCard = (id: string): UserCard => {
   const defaultCard = getUserCard(getDefaultTransCard(id))
-  defaultCard.dance = Math.floor(defaultCard.dance * 1.92 + 13502)
-  defaultCard.vocal = Math.floor(defaultCard.vocal * 1.92 + 13502)
-  defaultCard.visual = Math.floor(defaultCard.visual * 1.92 + 13502)
   switch (defaultCard.attributeType) {
-    case AttributeType.Dance: defaultCard.dance = Math.floor(defaultCard.dance * 3.44 + 40502); break;
-    case AttributeType.Vocal: defaultCard.vocal = Math.floor(defaultCard.vocal * 3.44 + 40502); break;
-    case AttributeType.Visual: defaultCard.visual = Math.floor(defaultCard.visual * 3.44 + 40502); break;
+    case AttributeType.Dance:
+      defaultCard.dance = Math.floor(defaultCard.dance * 3.44 + 40502)
+      defaultCard.vocal = Math.floor(defaultCard.vocal * 1.92 + 13502)
+      defaultCard.visual = Math.floor(defaultCard.visual * 1.92 + 13502)
+      break
+    case AttributeType.Vocal:
+      defaultCard.vocal = Math.floor(defaultCard.vocal * 3.44 + 40502)
+      defaultCard.dance = Math.floor(defaultCard.dance * 1.92 + 13502)
+      defaultCard.visual = Math.floor(defaultCard.visual * 1.92 + 13502)
+      break
+    case AttributeType.Visual:
+      defaultCard.visual = Math.floor(defaultCard.visual * 3.44 + 40502)
+      defaultCard.dance = Math.floor(defaultCard.dance * 1.92 + 13502)
+      defaultCard.vocal = Math.floor(defaultCard.vocal * 1.92 + 13502)
+      break
   }
   defaultCard.stamina += 3000
   return defaultCard
