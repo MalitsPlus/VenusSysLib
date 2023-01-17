@@ -20,13 +20,13 @@ export function performASPSkill(
   actables: Actable[],
 ): ComboType {
 
-  this.live.customNotes?.forEach(customNote => {
+  for (const customNote of this.live.customNotes ?? []) {
     if (customNote.sequence === this.current.sequence) {
       if (customNote.privilege === "opponent" && !this.live.isBattle) {
         return ComboType.AddOpponent
       }
     }
-  })
+  }
 
   if (actables.length) {
     if (actables[0].skills.length) {
