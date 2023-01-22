@@ -57,7 +57,7 @@ export function* preparePSkill(
     const skill = this.liveDeck.getCard(it.cardIndex).getSkill(it.skillIndex)
     if (isBefore) {
       if (!TriggerBeforeList.includes(skill.trigger?.type ?? SkillTriggerType.Unknown)
-        && skillStat.used) {
+        && (!!skill.trigger || skillStat.used)) {
         continue // 不在当前发动时间点（beat前）
       }
     }

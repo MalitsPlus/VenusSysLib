@@ -106,6 +106,7 @@ export type SkillStatus = {
   coolTime: number,
   remainCount: number,
   initCount: number,
+  // whether this skill has been used in the whole period of this live
   used: boolean,
 
   hasTimes: () => boolean,
