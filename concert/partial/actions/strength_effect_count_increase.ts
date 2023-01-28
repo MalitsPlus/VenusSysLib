@@ -25,7 +25,7 @@ export const strengthEffectCountIncrease: Action = ({
           if (eff.remain > 0) {
             eff.remain += strengthCount
             eff.ajusted = true
-            eff.lengthenValue = strengthCount
+            eff.lengthenValue = eff.lengthenValue ? eff.lengthenValue + strengthCount : strengthCount
           }
         }
       })

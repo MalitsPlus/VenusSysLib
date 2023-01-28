@@ -27,7 +27,7 @@ export const strengthEffectValueIncrease: Action = ({
           if (eff.remain > 0) {
             eff.grade += strengthValue
             eff.value += EfficacyValue[eff.efficacyType]?.[eff.grade] ?? 0
-            eff.strengthenValue = strengthValue
+            eff.strengthenValue = eff.strengthenValue ? eff.strengthenValue + strengthValue : strengthValue
             eff.strengthenInclude = isBeforeBeat
           }
         }
