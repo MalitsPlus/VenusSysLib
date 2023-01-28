@@ -16,7 +16,7 @@ export const getWapQuest = (
     ...original,
     musicName: music?.name ?? "Unknown",
     musicChartPatterns: getWapMusicChartPatterns(original.musicChartPatternId)!,  // FIXME: potential error
-    liveBonuses: getWapLiveAbility(original.liveBonusGroupId),
+    liveBonuses: getWapLiveAbility(original.liveBonusGroupId ?? ""),
     getLaneType: getLaneTypeByIndex,
   }
 }

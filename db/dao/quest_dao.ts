@@ -8,13 +8,16 @@ import protoMusicChartPattern from "../../database/MusicChartPattern.json"
 import protoLiveBonusGroup from "../../database/LiveBonusGroup.json"
 import protoLiveBonus from "../../database/LiveBonus.json"
 import protoliveAbility from "../../database/LiveAbility.json"
+import protoMarathonQuest from "../../database/MarathonQuest.json";
 
 import pvpQuest from "../../database/PvpQuest.json"
 import gvgQuest from "../../database/GvgQuest.json"
 import LeagueQuest from "../../database/LeagueQuest.json"
+import RaidQuest from "../../database/RaidQuest.json"
 
 
 const rawQuest: QuestBase[] = protoQuest
+const rawMarathonQuest: QuestBase[] = protoMarathonQuest
 const rawMusic: Music[] = protoMusic
 const rawMusicChartPattern: MusicChartPattern[] = protoMusicChartPattern
 const rawLiveBonusGroup: LiveBonusGroup[] = protoLiveBonusGroup
@@ -23,18 +26,25 @@ const rawLiveAbility: LiveAbility[] = protoliveAbility
 const rawPvpQuest: QuestBase[] = pvpQuest
 const rawGvgQuest: QuestBase[] = gvgQuest
 const rawLeagueQuest: QuestBase[] = LeagueQuest
+const rawRaidQuest: QuestBase[] = RaidQuest
 
 const allRawQuest: QuestBase[] = [
   ...rawQuest,
+  ...rawMarathonQuest,
   ...rawPvpQuest,
   ...rawGvgQuest,
   ...rawLeagueQuest,
+  ...rawRaidQuest,
 ]
 
 const getRawInsideDbQuests = (
   reg: string
 ): QuestBase[] => {
   return rawQuest.filter(it => it.areaId ? it.areaId.match(reg) : false)
+}
+
+const getRawMarathonQuests = (): QuestBase[] => {
+  return rawMarathonQuest
 }
 
 const getRawPvpQuests = (): QuestBase[] => {
@@ -47,6 +57,10 @@ const getRawGvgQuests = (): QuestBase[] => {
 
 const getRawLeagueQuests = (): QuestBase[] => {
   return rawLeagueQuest
+}
+
+const getRawRaidQuests = (): QuestBase[] => {
+  return rawRaidQuest
 }
 
 const getRawQuest = (
@@ -101,4 +115,6 @@ export {
   getRawPvpQuests,
   getRawGvgQuests,
   getRawLeagueQuests,
+  getRawRaidQuests,
+  getRawMarathonQuests,
 }

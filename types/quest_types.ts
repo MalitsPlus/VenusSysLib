@@ -1,5 +1,4 @@
-import { AttributeType, LiveSkipType } from "./proto/proto_enum";
-import { Quest } from "./proto/proto_master";
+import { AttributeType } from "./proto/proto_enum";
 
 export type QuestBase = {
   id: string
@@ -19,12 +18,12 @@ export type QuestBase = {
   beatVocalWeightPermil: number
   beatVisualWeightPermil: number
   maxCapacity: number
-  mentalThreshold: number
+  
   questPressureId: string
   questAudienceAdvantageId: string
-  liveBonusGroupId: string
-  liveSkipType: LiveSkipType
-
+  
+  mentalThreshold?: number
+  liveBonusGroupId?: string
   areaId?: string
   difficultyLevel?: number
   name?: string
