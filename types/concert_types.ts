@@ -22,6 +22,7 @@ export type Live = {
 export type Chart = {
   chartType: MusicChartType,
   sequence: number,
+  // actual active position
   actPosition: number,
   cardStatuses: CardStatus[],
   userStatuses: UserStatus[],
@@ -30,6 +31,7 @@ export type Chart = {
   actSkill?: ActSkill,
   actPSkills: ActSkill[],
   failureFlag?: SkillFailureType,
+  originalActPosition: number,
 
   getCardStatus: (this: Chart, index: number) => CardStatus | undefined,
   getUserStatus: (this: Chart, index: number) => UserStatus | undefined,

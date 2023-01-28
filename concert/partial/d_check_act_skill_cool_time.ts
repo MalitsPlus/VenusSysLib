@@ -1,4 +1,4 @@
-import { SkillFailureType } from "../../types/proto/proto_enum";
+import { SkillEfficacyType, SkillFailureType } from "../../types/proto/proto_enum";
 import { Concert } from "../concert";
 
 export default function checkActSkillCoolTime(
@@ -10,6 +10,9 @@ export default function checkActSkillCoolTime(
   this.actables = this.actables.filter(actable => {
     const cardStat = this.current.getCardStatus(actable.index)
     if (cardStat) {
+      if (cardStat.getEffects(SkillEfficacyType.ActiveSkillChanceAssignment).length > 0) {
+        return true
+      }
       actable.skills = actable.skills.filter(skillIndex => {
         return cardStat.getSkillStatus(skillIndex).coolTime === 0
       })

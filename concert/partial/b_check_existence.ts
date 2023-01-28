@@ -2,13 +2,14 @@ import { MusicChartType, SkillCategoryType, SkillFailureType } from "../../types
 import { Concert } from "../concert";
 
 export default function checkActSkillExistence(
-  this: Concert
+  this: Concert,
+  opponentSide?: boolean,
 ) {
   const _checkActSkillExistence = (
     isOpponent: boolean
   ) => {
     const position = isOpponent
-      ? this.current.actPosition + 5 // potential error
+      ? this.current.actPosition + 5 // FIXME: potential error
       : this.current.actPosition
     const card = this.liveDeck.getCard(position)
     const nodeType = (() => {
@@ -34,6 +35,11 @@ export default function checkActSkillExistence(
         this.current.failureFlag = SkillFailureType.CategoryMismatch
       }
     }
+  }
+
+  if (opponentSide !== undefined) {
+    _checkActSkillExistence(opponentSide)
+    return
   }
 
   _checkActSkillExistence(false)

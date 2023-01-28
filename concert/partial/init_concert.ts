@@ -24,6 +24,7 @@ export default function init(this: Concert) {
     chartType: MusicChartType.Unknown,
     sequence: 0,
     actPosition: 0,
+    originalActPosition: 0,
     actPSkills: [],
     cardStatuses: this.initCardStatus(),
     userStatuses: this.initUserStatus(),

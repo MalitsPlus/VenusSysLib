@@ -1,6 +1,6 @@
 {
   "name": "hoshimi-venus",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "author": "vibbit (https://github.com/MalitsPlus)",
   "description": "Venus System Library (tentative)",
   "keywords": [],
@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx ts-node test/test.ts"
   },
   "dependencies": {
     "lodash": "^4.17.21",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.2",
-    "@types/uuid": "^9.0.0"
+    "@types/uuid": "^9.0.0",
+    "ts-node": "^10.9.1"
   }
 }

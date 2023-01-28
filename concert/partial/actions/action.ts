@@ -3,6 +3,7 @@ import { SkillEfficacyType } from "../../../types/proto/proto_enum"
 import { WapSkillEfficacy } from "../../../types/wap/skill_waps"
 import { Concert } from "../../concert"
 import { EfficacyValue } from "../../consts/eff_grades"
+import { activeSkillChanceAssignment } from "./active_skill_chance_assignment"
 import { coolTimeIncrease } from "./cool_time_increase"
 import { coolTimeReduction } from "./cool_time_reduction"
 import { danceBoost } from "./dance_boost"
@@ -127,6 +128,8 @@ export function typeOf(type: SkillEfficacyType): Action {
     case SkillEfficacyType.StaminaContinuousRecovery: // 62
       return defaultProc
     case SkillEfficacyType.StaminaContinuousConsumption: // 63
+      return defaultProc
+    case SkillEfficacyType.ActiveSkillChanceAssignment: // 64
       return defaultProc
     case SkillEfficacyType.StrengthEffectErasingAll:  // 65
       return strengthEffectErasingAll

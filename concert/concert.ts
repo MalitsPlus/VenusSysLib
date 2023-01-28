@@ -19,6 +19,7 @@ import { rotateRemains } from "./partial/rotate_remains";
 import { performBeat } from "./partial/perform_beat";
 import { ComboType, handleCombo } from "./partial/handle_combo";
 import { applyContinuousEffects } from "./partial/apply_continuous_effects";
+import assignment_a_skill from "./partial/assignment_a_skill";
 
 export class Concert {
 
@@ -73,6 +74,7 @@ export class Concert {
       chartType: musicPtn.type,
       sequence: musicPtn.sequence,
       actPosition: musicPtn.position,
+      originalActPosition: musicPtn.position,
       actPSkills: [],
       cardStatuses: _.cloneDeep(this.previous.cardStatuses),
       userStatuses: _.cloneDeep(this.previous.userStatuses),
@@ -109,6 +111,9 @@ export class Concert {
       this.checkActSkillPossibility()
       this.determineActSkillPrivilege()
     }
+
+    // assign A-skill chance
+    this.assignment_a_skill()
 
     // validate and perform P skills (p1)
     for (const idxes of this.preparePSkill(true)) {
@@ -161,6 +166,7 @@ export class Concert {
   initSkillStatus = _init.initSkillStatus
   initStageSkillStatus = _init.initStageSkillStatus
 
+  assignment_a_skill = assignment_a_skill
   migration = migration
   checkActSkillExistence = checkActSkillExistence
   checkActSkillStamina = checkActSkillStamina

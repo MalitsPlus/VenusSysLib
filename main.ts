@@ -11,7 +11,7 @@ const allyDeck: TransDeck = {
     { index: 2, card: getDefaultUserCard("card-mei-05-fest-00") },
     { index: 3, card: getDefaultUserCard("card-chs-05-flow-00") },
     { index: 4, card: getDefaultUserCard("card-szk-05-prem-00") },
-    { index: 5, card: getDefaultUserCard("card-mna-05-fest-00") },
+    { index: 5, card: getDefaultUserCard("card-mna-05-vlnt-00") },
   ],
 }
 const customNodes: CustomNote[] = [{
