@@ -61,7 +61,8 @@ function* getLongestEffects(cardStat: CardStatus) {
     const effs = cardStat.getEffects(eff)
     if (effs.length === 1) {
       yield effs[0]
+    } else {
+      yield effs.sort((a, b) => b.remain - a.remain)[0]
     }
-    yield effs.sort((a, b) => b.remain - a.remain)[0]
   }
 }
