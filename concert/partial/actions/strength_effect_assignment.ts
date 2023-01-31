@@ -22,7 +22,7 @@ export const strengthEffectAssignment: Action = ({
     if (targetEffect !== undefined) {
       targetIndexes.forEach(target => {
         const sourceCardStat = concert.current.getCardStatus(sourceIndex)
-        const cardStat = concert.current.getCardStatus(target)
+        const cardStat = concert.current.getCardStatus(target) 
         if (sourceCardStat && cardStat) {
           sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
             if (eff.efficacyType === targetEffect) {

@@ -23,6 +23,7 @@ export const Lane2Indexes = {
 export const Str2EfficacyType: {
   [key: string]: SkillEfficacyType
 } = {
+  active_skill_score_up: SkillEfficacyType.ActiveSkillScoreUp,
   audience_amount_increase: SkillEfficacyType.AudienceAmountIncrease,
   audience_amount_reduction: SkillEfficacyType.AudienceAmountReduction,
   beat_score_up: SkillEfficacyType.BeatScoreUp,
