@@ -21,6 +21,7 @@ export const strengthEffectAssignmentAll: Action = ({
     if (sourceCardStat && cardStat) {
       sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
         if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
+          eff.ajusted = true
           cardStat.effects.push(eff)
           return false
         }

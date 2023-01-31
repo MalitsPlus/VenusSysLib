@@ -26,6 +26,7 @@ export const strengthEffectAssignment: Action = ({
         if (sourceCardStat && cardStat) {
           sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
             if (eff.efficacyType === targetEffect) {
+              eff.ajusted = true
               cardStat.effects.push(eff)
               return false
             }
