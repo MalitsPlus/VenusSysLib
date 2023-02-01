@@ -56,12 +56,13 @@ jobs:
           python-version: "3.10"
       - name: Commit PR to sakura-love
         run: |
-          echo "new version: ${{needs.publish-npm.outputs.version}}"
+          version=${{needs.publish-npm.outputs.version}}
+          echo "new version: ${version}"
 
           cd HoshimiStage
-          git switch -c "actions_temp"
+          git switch -c "venus_${version}"
 
-          python upgrade_venus.py ${{needs.publish-npm.outputs.version}}
+          python upgrade_venus.py ${version}
 
           git config user.name "hoshimi-venus"
           git config user.email "anonymous@e.mail"
@@ -71,4 +72,4 @@ jobs:
           git push origin actions_temp
 
           echo ${{ secrets.PAT_TOKEN }} | gh auth login --with-token
-          gh pr create --base "main" --head "actions_temp" --title "upgrade venus to ${{needs.publish-npm.outputs.version}}" --body "This pr was triggered by github-actions."
+          gh pr create --base "main" --head "venus_${version}" --title "upgrade venus to ${version}" --body "This pr was triggered by github-actions."
