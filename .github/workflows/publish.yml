@@ -9,8 +9,8 @@ on:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
-    # outputs:
-    #   version: ${{ steps.getversion.outputs.version }}
+    outputs:
+      version: ${{ steps.getversion.outputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -37,7 +37,7 @@ jobs:
       - name: Publish
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   
   pr-to-hsm-stage:
     runs-on: ubuntu-latest
@@ -56,7 +56,7 @@ jobs:
           python-version: "3.10"
       - name: Commit PR to sakura-love
         run: |
-          version=${{ needs.publish-npm.steps.getversion.outputs.version }}
+          version=${{ needs.publish-npm.outputs.version }}
           echo "new version: ${version}"
 
           cd HoshimiStage
