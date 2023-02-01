@@ -69,7 +69,7 @@ jobs:
           
           git add .
           git commit -m 'build: upgrade venus'
-          git push origin actions_temp
+          git push origin "venus_${version}"
 
           echo ${{ secrets.PAT_TOKEN }} | gh auth login --with-token
           gh pr create --base "main" --head "venus_${version}" --title "upgrade venus to ${version}" --body "This pr was triggered by github-actions."
