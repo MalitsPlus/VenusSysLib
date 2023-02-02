@@ -32,7 +32,7 @@ jobs:
 
       - name: Get version
         id: getversion
-        run: echo version=`npx ts-node ci/get_version.ts` >> $GITHUB_OUTPUT
+        run: echo version=`cat package.json | jq -r ".version"` >> $GITHUB_OUTPUT
 
       - name: Publish
         run: npm publish
@@ -72,4 +72,4 @@ jobs:
           git push origin "venus_${version}"
 
           echo ${{ secrets.PAT_TOKEN }} | gh auth login --with-token
-          gh pr create --base "main" --head "venus_${version}" --title "upgrade venus to ${version}" --body "This pull-request was automatically triggered by [VenusSysLib](https://github.com/MalitsPlus/VenusSysLib)."
+          gh pr create --base "main" --head "venus_${version}" -l "venus" --title "upgrade venus to ${version}" --body "This pull-request was automatically triggered by [VenusSysLib](https://github.com/MalitsPlus/VenusSysLib)."
