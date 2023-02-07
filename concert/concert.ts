@@ -120,24 +120,16 @@ export class Concert {
           this.checkActSkillCoolTime()
         }
       }
-
-      // this.checkActSkillExistence()
-      // this.checkActSkillStamina()
-      // if (this.current.chartType === MusicChartType.ActiveSkill) {
-      //   this.checkActSkillCoolTime()
-      // }
-      // this.checkActSkillPossibility()
-
       this.checkActSkillPossibility()
       this.determineActSkillPrivilege()
 
       if (this.actables.length > 0) {
         this.current.actPosition = Index2Lane[this.actables[0].index]
+        if (this.current.actPosition <= 5) {
+          this.current.failureFlag = undefined
+        }
       }
     }
-
-    // assign A-skill chance
-    // this.assignment_a_skill()
 
     // validate and perform P skills (p1)
     for (const idxes of this.preparePSkill(true)) {
