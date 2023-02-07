@@ -22,7 +22,7 @@ export const strengthEffectAssignmentAll: Action = ({
       if (cardStat.cardIndex !== sourceCardStat.cardIndex) {
         sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
           if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
-            eff.ajusted = true
+            eff.migrated = true
             cardStat.effects.push(eff)
             return false
           }

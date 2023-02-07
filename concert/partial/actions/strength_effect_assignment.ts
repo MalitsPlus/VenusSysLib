@@ -27,7 +27,7 @@ export const strengthEffectAssignment: Action = ({
           if (cardStat.cardIndex !== sourceCardStat.cardIndex) {
             sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
               if (eff.efficacyType === targetEffect) {
-                eff.ajusted = true
+                eff.migrated = true
                 cardStat.effects.push(eff)
                 return false
               }
