@@ -1,8 +1,16 @@
-import { SkillEfficacyType } from "../../types/proto/proto_enum"
+import { MusicChartType, SkillCategoryType, SkillEfficacyType } from "../../types/proto/proto_enum"
 import { WeaknessDurationList } from "./efficacy_list"
 
 export const Indexes: number[] = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+]
+
+export const AllyIndexes: number[] = [
+  1, 2, 3, 4, 5,
+]
+
+export const OpponentIndexes: number[] = [
+  6, 7, 8, 9, 10,
 ]
 
 export const Index2Lane: {
@@ -12,7 +20,9 @@ export const Index2Lane: {
   6: 1, 7: 2, 8: 3, 9: 4, 10: 5,
 }
 
-export const Lane2Indexes = {
+export const Lane2Indexes: {
+  [k: number]: number[]
+} = {
   1: [1, 6],
   2: [2, 7],
   3: [3, 8],
@@ -72,6 +82,15 @@ export const SameLaneOpponent: {
   6: 1, 7: 2, 8: 3, 9: 4, 10: 5,
 }
 
+export const Chart2SkillType: {
+  [key in MusicChartType]: SkillCategoryType
+} = {
+  [MusicChartType.ActiveSkill]: SkillCategoryType.Active,
+  [MusicChartType.SpecialSkill]: SkillCategoryType.Special,
+  [MusicChartType.Beat]: SkillCategoryType.Unknown,
+  [MusicChartType.Unknown]: SkillCategoryType.Unknown,
+}
+
 // export const WeaknessEffectInversionDict: {
 //   [key in SkillEfficacyType]?: SkillEfficacyType
 // } = {
@@ -79,5 +98,4 @@ export const SameLaneOpponent: {
 //   [SkillEfficacyType.VocalDown]: SkillEfficacyType.VocalUp,
 //   [SkillEfficacyType.VisualDown]: SkillEfficacyType.VisualUp,
 //   [SkillEfficacyType.StaminaConsumptionIncrease]: SkillEfficacyType.StaminaConsumptionReduction,
-//   ？
 // }

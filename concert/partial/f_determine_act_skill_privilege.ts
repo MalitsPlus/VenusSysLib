@@ -8,7 +8,8 @@ export default function determineActSkillPrivilege(
   if (this.actables.length < 1) {
     return
   }
-  const laneType = this.live.quest.getLaneType(this.current.actPosition)
+  // use originalActPosition to determine attribute type
+  const laneType = this.live.quest.getLaneType(this.current.originalActPosition)
   const privileges: {
     index: number
     power: number

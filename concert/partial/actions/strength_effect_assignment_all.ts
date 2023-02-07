@@ -19,16 +19,18 @@ export const strengthEffectAssignmentAll: Action = ({
     const sourceCardStat = concert.current.getCardStatus(sourceIndex)
     const cardStat = concert.current.getCardStatus(target)
     if (sourceCardStat && cardStat) {
-      sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
-        if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
-          eff.ajusted = true
-          cardStat.effects.push(eff)
-          return false
-        }
-        return true
-      })
-      sourceCardStat.refreshAllParam()
-      cardStat.refreshAllParam()
+      if (cardStat.cardIndex !== sourceCardStat.cardIndex) {
+        sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
+          if (GameSetting.skillEfficacyTypeStrengthList.includes(eff.efficacyType)) {
+            eff.ajusted = true
+            cardStat.effects.push(eff)
+            return false
+          }
+          return true
+        })
+        sourceCardStat.refreshAllParam()
+        cardStat.refreshAllParam()
+      }
       cardStat.effects.push({
         id: uuidv4(),
         efficacyType: efficacy.type,

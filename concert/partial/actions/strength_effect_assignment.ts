@@ -22,18 +22,20 @@ export const strengthEffectAssignment: Action = ({
     if (targetEffect !== undefined) {
       targetIndexes.forEach(target => {
         const sourceCardStat = concert.current.getCardStatus(sourceIndex)
-        const cardStat = concert.current.getCardStatus(target) 
+        const cardStat = concert.current.getCardStatus(target)
         if (sourceCardStat && cardStat) {
-          sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
-            if (eff.efficacyType === targetEffect) {
-              eff.ajusted = true
-              cardStat.effects.push(eff)
-              return false
-            }
-            return true
-          })
-          sourceCardStat.refreshAllParam()
-          cardStat.refreshAllParam()
+          if (cardStat.cardIndex !== sourceCardStat.cardIndex) {
+            sourceCardStat.effects = sourceCardStat.effects.filter(eff => {
+              if (eff.efficacyType === targetEffect) {
+                eff.ajusted = true
+                cardStat.effects.push(eff)
+                return false
+              }
+              return true
+            })
+            sourceCardStat.refreshAllParam()
+            cardStat.refreshAllParam()
+          }
           cardStat.effects.push({
             id: uuidv4(),
             efficacyType: efficacy.type,

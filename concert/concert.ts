@@ -19,7 +19,8 @@ import { rotateRemains } from "./partial/rotate_remains";
 import { performBeat } from "./partial/perform_beat";
 import { ComboType, handleCombo } from "./partial/handle_combo";
 import { applyContinuousEffects } from "./partial/apply_continuous_effects";
-import assignment_a_skill from "./partial/assignment_a_skill";
+import { Chart2SkillType, Index2Lane } from "./consts/chart_consts";
+import getActableIndexes from "./partial/get_actable_indexes";
 
 export class Concert {
 
@@ -103,17 +104,40 @@ export class Concert {
   private rotate() {
     this.migration()
     if (this.current.chartType != MusicChartType.Beat) {
-      this.checkActSkillExistence()
-      this.checkActSkillStamina()
-      if (this.current.chartType === MusicChartType.ActiveSkill) {
-        this.checkActSkillCoolTime()
+      const nodeType = Chart2SkillType[this.current.chartType]
+      for (const actIdx of this.getActableIndexes(this.live.isBattle)) {
+        // keep each side has only 1 actable
+        if (actIdx <= 5 && this.actables.some(act => act.index <= 5)) {
+          continue
+        }
+        if (actIdx >= 6 && this.actables.some(act => act.index >= 6)) {
+          continue
+        }
+        // from here on, current.actPosition will not be used
+        this.checkActSkillExistence(actIdx, nodeType)
+        this.checkActSkillStamina()
+        if (this.current.chartType === MusicChartType.ActiveSkill) {
+          this.checkActSkillCoolTime()
+        }
       }
+
+      // this.checkActSkillExistence()
+      // this.checkActSkillStamina()
+      // if (this.current.chartType === MusicChartType.ActiveSkill) {
+      //   this.checkActSkillCoolTime()
+      // }
+      // this.checkActSkillPossibility()
+
       this.checkActSkillPossibility()
       this.determineActSkillPrivilege()
+
+      if (this.actables.length > 0) {
+        this.current.actPosition = Index2Lane[this.actables[0].index]
+      }
     }
 
     // assign A-skill chance
-    this.assignment_a_skill()
+    // this.assignment_a_skill()
 
     // validate and perform P skills (p1)
     for (const idxes of this.preparePSkill(true)) {
@@ -166,8 +190,8 @@ export class Concert {
   initSkillStatus = _init.initSkillStatus
   initStageSkillStatus = _init.initStageSkillStatus
 
-  assignment_a_skill = assignment_a_skill
   migration = migration
+  getActableIndexes = getActableIndexes
   checkActSkillExistence = checkActSkillExistence
   checkActSkillStamina = checkActSkillStamina
   checkActSkillCoolTime = checkActSkillCoolTime
