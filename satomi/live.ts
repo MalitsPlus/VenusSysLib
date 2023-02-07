@@ -17,5 +17,6 @@ export function getLive(
     charts: [],
     snapshot: [],
     customNotes: customNotes,
+    powers: []
   }
 }

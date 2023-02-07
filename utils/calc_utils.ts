@@ -1,5 +1,6 @@
 import {
   ParamBoost,
+  SpScorePermilEfficacyList,
   StaminaConsumptionAdjustment
 } from "../concert/consts/efficacy_list"
 import {
@@ -170,6 +171,108 @@ export function calcCriticalRate(
   }
   // TODO: implement critical rate calculation
   return 0.5
+}
+
+export function getDbComboBonus(
+  combo: number
+): number {
+  if (combo <= 10) {
+    return 50
+  } else if (combo <= 20) {
+    return 100
+  } else if (combo <= 30) {
+    return 150
+  } else if (combo <= 40) {
+    return 200
+  } else if (combo <= 50) {
+    return 250
+  } else if (combo <= 70) {
+    return 300
+  } else {
+    return 500
+  }
+}
+
+export function getSpScorePermil(
+  cardStat: CardStatus
+): number {
+  let permil = 0
+  SpScorePermilEfficacyList.forEach(eff => {
+    permil += cardStat.getEffectValue(eff, true, false)
+  })
+  return permil
+}
+
+// approximate value
+export function getAudiencePermil(
+  cardStat: CardStatus
+): number {
+  const audIncrGrade = cardStat.getEffectSumOrMaxGrade(SkillEfficacyType.AudienceAmountIncrease)[0]
+  const audDecsGrade = cardStat.getEffectSumOrMaxGrade(SkillEfficacyType.AudienceAmountReduction)[0]
+  return (audIncrGrade - audDecsGrade) * 10
+}
+
+export function getComboPermil(
+  cardStat: CardStatus,
+  combo: number
+): number {
+  const permil = cardStat.getEffectValue(SkillEfficacyType.ComboScoreUp, true, false)
+  const comboBonus = getDbComboBonus(combo)
+  return comboBonus * (1000 + permil) / 1000
+}
+
+export function getCriticalPermil(
+  cardStat: CardStatus,
+): number {
+  const permil = cardStat.getEffectValue(SkillEfficacyType.CriticalBonusPermilUp, true, false)
+  return permil
+}
+
+export function calcSpSkillPower(
+  cardStat: CardStatus,
+  attributeType: AttributeType,
+  combo: number,
+): number[] {
+  // base definition
+  const paramBase = 330000
+  const photoPermil = 300
+  const yellPermil = 100
+  const audiencePermil = 250
+  const crtDeckPermil = 500 + 1000
+
+  const permil = cardStat.getBuffedPermil(
+    attributeType === AttributeType.Dance ? "dance"
+      : attributeType === AttributeType.Vocal ? "vocal"
+        : "visual",
+    false,
+  ) + 1000
+  const param = Math.floor(paramBase * permil / 1000)
+  const spPermil = 1000 + photoPermil + yellPermil + getSpScorePermil(cardStat)
+  const audPermil = 1000 + audiencePermil + getAudiencePermil(cardStat)
+  const comboPermil = 1000 + getComboPermil(cardStat, combo)
+  const crtRate = cardStat.getEffectValue(SkillEfficacyType.CriticalRateUp, true, false) / 1000
+  const crtPermil = 1000 + crtDeckPermil + getCriticalPermil(cardStat)
+  const crtWeightedPermil = 1000 + (crtDeckPermil + getCriticalPermil(cardStat)) * crtRate
+  const power = Math.floor(param * spPermil * audPermil * comboPermil * crtPermil / 1000)
+  const weightedPower = Math.floor(param * spPermil * audPermil * comboPermil * crtWeightedPermil / 1000)
+  return [power, weightedPower]
+}
+
+export function calcPrivilegePower(
+  cardStat: CardStatus,
+  attributeType: AttributeType,
+): number {
+  const paramBase = 330000
+  const permil = cardStat.getBuffedPermil(
+    attributeType === AttributeType.Dance ? "dance"
+      : attributeType === AttributeType.Vocal ? "vocal"
+        : "visual",
+    false,
+  ) + 1000
+  const param = Math.floor(paramBase * permil / 1000)
+  const privilegeRate = cardStat.getEffectValue(SkillEfficacyType.SkillSuccessRateUp, true, false)
+  const power = Math.floor(param * (1000 + privilegeRate) / 1000)
+  return power
 }
 
 // export function calcStaminaRecovery(

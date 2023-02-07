@@ -1,8 +1,9 @@
 import { LiveCard } from "../../types/card_types";
 import { Actable, ActSkill, CardStatus, SkillStatus } from "../../types/concert_types";
-import { SkillCategoryType, SkillEfficacyType } from "../../types/proto/proto_enum";
+import { MusicChartType, SkillCategoryType, SkillEfficacyType } from "../../types/proto/proto_enum";
 import { WapSkillLevel } from "../../types/wap/skill_waps";
 import * as calc from "../../utils/calc_utils";
+import { calcPrivilegePower, calcSpSkillPower } from "../../utils/calc_utils";
 import { getCritical } from "../../utils/chart_utils";
 import { Concert } from "../concert";
 import { getTargetIndexes } from "../target_proc";
@@ -35,6 +36,19 @@ export function performASPSkill(
       const skill = card.getSkill(skills[0])
       const cardStat = this.current.getCardStatus(index)!
       const skillStat = cardStat.getSkillStatus(skills[0])
+      const laneType = this.live.quest.getLaneType(this.current.originalActPosition)
+
+      if (this.current.chartType === MusicChartType.SpecialSkill) {
+        const powers = calcSpSkillPower(cardStat, laneType, this.current.userStatuses[0].combo)
+        this.live.powers.push({
+          type: this.current.chartType,
+          sequence: this.current.sequence,
+          position: this.current.originalActPosition,
+          power: powers[0],
+          weightedPower: powers[1],
+          privilege: calcPrivilegePower(cardStat, laneType),
+        })
+      }
 
       const actSkill = this._performSkill(
         index,

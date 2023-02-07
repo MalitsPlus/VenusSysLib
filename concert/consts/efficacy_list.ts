@@ -74,3 +74,16 @@ export const PrivilegedEfficacyList = [
   SkillEfficacyType.SkillSuccessRateUp,
   SkillEfficacyType.SkillImpossible,
 ]
+
+export const SpScorePermilEfficacyList = [
+  SkillEfficacyType.ScoreUp,
+  SkillEfficacyType.SpecialSkillScoreUp,
+  SkillEfficacyType.TensionUp,
+]
+
+export const AScorePermilEfficacyList = [
+  SkillEfficacyType.ScoreUp,
+  SkillEfficacyType.ActiveSkillScoreUp,
+  SkillEfficacyType.TensionUp,
+]
+

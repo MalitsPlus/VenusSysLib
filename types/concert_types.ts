@@ -15,6 +15,14 @@ export type Live = {
   quest: WapQuest,
   liveDeck: LiveDeck,
   isBattle: boolean,
+  powers: {
+    type: MusicChartType,
+    sequence: number,
+    position: number,
+    power: number,
+    privilege: number,
+    weightedPower?: number,
+  }[],
   customNotes?: CustomNote[],
   // exSkills?: WapSkillLevel[],
 }
@@ -69,6 +77,8 @@ export type CardStatus = {
    * 🚨CAUTION: If given `type` is not belong to `StrengthList`,
    * maxGrade exceeding check will not be performed and sumGrade 
    * will be returned instead.
+   * 
+   * Returns: 0. sum grade. 1. every single grade list
    */
   getEffectSumOrMaxGrade: (this: CardStatus, type: SkillEfficacyType, exceptUnincluded?: boolean, needZeroRemain?: boolean) => [number, number[]],
   /**
