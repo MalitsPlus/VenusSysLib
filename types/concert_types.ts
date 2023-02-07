@@ -172,6 +172,9 @@ export type ActSkill = {
   isCritical: boolean,
   isComboBreak: boolean,
   score?: number,
+  power?: number,
+  weightedPower?: number,
+  privilege?: number,
 }
 
 export type Actable = {

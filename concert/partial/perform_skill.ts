@@ -38,15 +38,18 @@ export function performASPSkill(
       const skillStat = cardStat.getSkillStatus(skills[0])
       const laneType = this.live.quest.getLaneType(this.current.originalActPosition)
 
+      let powers: number[] = []
+      let privilege: number | undefined = undefined
       if (this.current.chartType === MusicChartType.SpecialSkill) {
-        const powers = calcSpSkillPower(cardStat, laneType, this.current.userStatuses[0].combo)
+        powers = calcSpSkillPower(cardStat, laneType, this.current.userStatuses[0].combo)
+        privilege = calcPrivilegePower(cardStat, laneType)
         this.live.powers.push({
           type: this.current.chartType,
           sequence: this.current.sequence,
           position: this.current.originalActPosition,
           power: powers[0],
           weightedPower: powers[1],
-          privilege: calcPrivilegePower(cardStat, laneType),
+          privilege: privilege,
         })
       }
 
@@ -61,6 +64,9 @@ export function performASPSkill(
         cardStat,
       )
       if (actSkill) {
+        actSkill.power = powers.length ? powers[0]: undefined
+        actSkill.weightedPower = powers.length ? powers[1] : undefined
+        actSkill.privilege = privilege
         this.current.actSkill = actSkill
         skillStat.used = true
         return index > 5 ? ComboType.AddOpponent : ComboType.AddAlly
