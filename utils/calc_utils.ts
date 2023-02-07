@@ -250,11 +250,11 @@ export function calcSpSkillPower(
   const spPermil = 1000 + photoPermil + yellPermil + getSpScorePermil(cardStat)
   const audPermil = 1000 + audiencePermil + getAudiencePermil(cardStat)
   const comboPermil = 1000 + getComboPermil(cardStat, combo)
-  const crtRate = cardStat.getEffectValue(SkillEfficacyType.CriticalRateUp, true, false) / 1000
+  const crtRate = (200 + cardStat.getEffectValue(SkillEfficacyType.CriticalRateUp, true, false)) / 1000
   const crtPermil = 1000 + crtDeckPermil + getCriticalPermil(cardStat)
-  const crtWeightedPermil = 1000 + (crtDeckPermil + getCriticalPermil(cardStat)) * crtRate
-  const power = Math.floor(param * spPermil * audPermil * comboPermil * crtPermil / 1000)
-  const weightedPower = Math.floor(param * spPermil * audPermil * comboPermil * crtWeightedPermil / 1000)
+  const crtWeightedPermil = 1000 + (crtDeckPermil + getCriticalPermil(cardStat)) * (crtRate > 1 ? 1 : crtRate)
+  const power = Math.floor(param * spPermil / 1000 * audPermil / 1000 * comboPermil / 1000 * crtPermil / 1000)
+  const weightedPower = Math.floor(param * spPermil / 1000 * audPermil / 1000 * comboPermil / 1000 * crtWeightedPermil / 1000)
   return [power, weightedPower]
 }
 
@@ -271,8 +271,8 @@ export function calcPrivilegePower(
   ) + 1000
   const param = Math.floor(paramBase * permil / 1000)
   const privilegeRate = cardStat.getEffectValue(SkillEfficacyType.SkillSuccessRateUp, true, false)
-  const power = Math.floor(param * (1000 + privilegeRate) / 1000)
-  return power
+  const privilege = Math.floor(param * (1000 + privilegeRate) / 1000)
+  return privilege
 }
 
 // export function calcStaminaRecovery(
