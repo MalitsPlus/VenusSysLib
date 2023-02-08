@@ -239,6 +239,7 @@ export function calcSpSkillPower(
   const yellPermil = 100
   const audiencePermil = 250
   const crtDeckPermil = 500 + 1000
+  const crtRateBase = 350
 
   const permil = cardStat.getBuffedPermil(
     attributeType === AttributeType.Dance ? "dance"
@@ -250,7 +251,7 @@ export function calcSpSkillPower(
   const spPermil = 1000 + photoPermil + yellPermil + getSpScorePermil(cardStat)
   const audPermil = 1000 + audiencePermil + getAudiencePermil(cardStat)
   const comboPermil = 1000 + getComboPermil(cardStat, combo)
-  const crtRate = (200 + cardStat.getEffectValue(SkillEfficacyType.CriticalRateUp, true, false)) / 1000
+  const crtRate = (crtRateBase + cardStat.getEffectValue(SkillEfficacyType.CriticalRateUp, true, false)) / 1000
   const crtPermil = 1000 + crtDeckPermil + getCriticalPermil(cardStat)
   const crtWeightedPermil = 1000 + (crtDeckPermil + getCriticalPermil(cardStat)) * (crtRate > 1 ? 1 : crtRate)
   const power = Math.floor(param * spPermil / 1000 * audPermil / 1000 * comboPermil / 1000 * crtPermil / 1000)
