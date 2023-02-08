@@ -24,6 +24,7 @@ export type Live = {
     weightedPower?: number,
   }[],
   customNotes?: CustomNote[],
+  id?: string,
   // exSkills?: WapSkillLevel[],
 }
 
