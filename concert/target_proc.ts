@@ -116,7 +116,7 @@ function _getTargetIndexes(
         }
 
         case SkillTargetType.Status: {
-          let [effectType, amount] = getTargetStatusType(target.id) ?? [SkillEfficacyType.Unknown, 0]
+          const [effectType, amount] = getTargetStatusType(target.id) ?? [SkillEfficacyType.Unknown, 0]
           if (effectType !== SkillEfficacyType.Unknown && !amount) {
             targetNum = amount
             return current.cardStatuses.filter(status => {
@@ -130,11 +130,16 @@ function _getTargetIndexes(
 
         case SkillTargetType.Trigger: {
           targetNum = getTargetLastNum(target.id) ?? 1
-          return skillTriggerIdx
+          // at this point, triggeredIndexes and detailTriggeredIndexes contains at least 1 value
+          if (detailTriggerIdx.length === 1 && detailTriggerIdx[0] === 0) {
+            return skillTriggerIdx
+          } else {
+            return detailTriggerIdx
+          }
         }
 
         case SkillTargetType.CardType: {
-          let cardType: CardType = getTargetSecondLastNum(target.id) ?? 0
+          const cardType: CardType = getTargetSecondLastNum(target.id) ?? 0
           targetNum = getTargetLastNum(target.id) ?? 1
           return live.liveDeck.liveCards
             .filter(it => it.liveCard.type === cardType)
@@ -171,7 +176,7 @@ function _getTargetIndexes(
         case SkillTargetType.PositionAttributeVocal:
         case SkillTargetType.PositionAttributeDance:
         case SkillTargetType.PositionAttributeVisual: {
-          let _type = (() => {
+          const _type = (() => {
             switch (target.type) {
               case SkillTargetType.PositionAttributeVocal:
                 return AttributeType.Vocal
@@ -184,7 +189,7 @@ function _getTargetIndexes(
             }
           })()
           targetNum = getTargetLastNum(target.id) ?? 1
-          let _targetList: number[] = []
+          const _targetList: number[] = []
           if (live.quest.position1AttributeType === _type) {
             _targetList.push(1, 6)
           }
@@ -211,7 +216,7 @@ function _getTargetIndexes(
 
         case SkillTargetType.OpponentCardType: {
           isOpponentTarget = true
-          let cardType: CardType = getTargetSecondLastNum(target.id) ?? 0
+          const cardType: CardType = getTargetSecondLastNum(target.id) ?? 0
           targetNum = getTargetLastNum(target.id) ?? 1
           return live.liveDeck.liveCards
             .filter(it => it.liveCard.type === cardType)

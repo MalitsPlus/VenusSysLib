@@ -9,7 +9,7 @@ const allyDeck: TransDeck = {
   userCards: [
     { index: 1, card: getDefaultUserCard("card-rio-05-fest-00") },
     { index: 2, card: getDefaultUserCard("card-szk-04-casl-00") },
-    { index: 3, card: getDefaultUserCard("card-rui-05-date-00") },
+    { index: 3, card: getDefaultUserCard("card-ski-05-xmas-00") },
     { index: 4, card: getDefaultUserCard("card-skr-02-casl-00") },
     { index: 5, card: getDefaultUserCard("card-szk-05-prem-00") },
   ],

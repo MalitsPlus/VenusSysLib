@@ -4,7 +4,7 @@ import { Str2EfficacyGroup, Str2EfficacyType } from "./consts/chart_consts"
 export function getTriggerLastNum(
   triggerId: string
 ): number | undefined {
-  let matched = triggerId.match(/\d+$/)
+  const matched = triggerId.match(/\d+$/)
   if (matched) {
     return +matched[0]
   }
@@ -14,7 +14,7 @@ export function getTriggerLastNum(
 function getTriggerLastStr(
   triggerId: string
 ): string | undefined {
-  let matched = triggerId.match(/\w+$/)
+  const matched = triggerId.match(/\w+$/)
   if (matched) {
     return matched[0]
   }
@@ -24,9 +24,9 @@ function getTriggerLastStr(
 export function getTriggerStatusType(
   triggerId: string
 ): SkillEfficacyType {
-  let flag = getTriggerLastStr(triggerId)
+  const flag = getTriggerLastStr(triggerId)
   if (flag) {
-    let type = Str2EfficacyType[flag]
+    const  type = Str2EfficacyType[flag]
     return type
   }
   return SkillEfficacyType.Unknown
@@ -35,9 +35,9 @@ export function getTriggerStatusType(
 export function getTriggerStatusGroup(
   triggerId: string
 ): SkillEfficacyType[] | undefined {
-  let flag = getTriggerLastStr(triggerId)
+  const flag = getTriggerLastStr(triggerId)
   if (flag) {
-    let group = Str2EfficacyGroup[flag]
+    const group = Str2EfficacyGroup[flag]
     return group
   }
 }

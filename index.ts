@@ -11,12 +11,12 @@ export default function simulate(
   transOpntDeck?: TransDeck,
   customNodes?: CustomNote[],
 ): Live | string {
-  let quest = getQuest(questId)
+  const quest = getQuest(questId)
   if (!quest) {
     return "Cannot find the specified quest."
   }
-  let liveDeck = getLiveDeck(transDeck, transOpntDeck)
-  let live = getLive(quest, liveDeck, liveDeck.isBattle, customNodes)
+  const liveDeck = getLiveDeck(transDeck, transOpntDeck)
+  const live = getLive(quest, liveDeck, liveDeck.isBattle, customNodes)
   new Concert(live).go()
   return live
 }

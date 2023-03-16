@@ -4,11 +4,11 @@ import { Str2EfficacyType } from "./consts/chart_consts"
 export function getTargetStatusType(
   targetId: string
 ): [SkillEfficacyType, number] | undefined {
-  let matched = targetId.match(/target-status-(\w+)-(\d)/)
+  const matched = targetId.match(/target-status-(\w+)-(\d)/)
   if (matched) {
-    let targetStatusStr = matched[1]
-    let effectType = Str2EfficacyType[targetStatusStr]
-    let amount = +matched[2]
+    const targetStatusStr = matched[1]
+    const effectType = Str2EfficacyType[targetStatusStr]
+    const amount = +matched[2]
     return [effectType, amount]
   }
   return undefined
@@ -17,7 +17,7 @@ export function getTargetStatusType(
 export function getTargetLastNum(
   targetId: string
 ): number | undefined {
-  let matched = targetId.match(/\d+$/)
+  const matched = targetId.match(/\d+$/)
   if (matched) {
     return +matched[0]
   }
@@ -27,7 +27,7 @@ export function getTargetLastNum(
 export function getTargetSecondLastNum(
   targetId: string
 ): number | undefined {
-  let matched = targetId.match(/\d+(?=-\d+$)/)
+  const matched = targetId.match(/\d+(?=-\d+$)/)
   if (matched) {
     return +matched[0]
   }

@@ -32,7 +32,7 @@ export function getTriggeredIndexes(
   cardStatus?: CardStatus,
   deckCard?: LiveCard
 ): number[] | undefined {
-  let result = _getTriggeredIndexes(
+  const result = _getTriggeredIndexes(
     trigger,
     skillType,
     skillStatus,
@@ -85,8 +85,8 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.Combo: {
-        let combo = tra.getTriggerLastNum(trigger.id)
-        let userStat = current.userStatuses[
+        const combo = tra.getTriggerLastNum(trigger.id)
+        const userStat = current.userStatuses[
           isOpponentSide ? 1 : 0
         ]
         if (combo && userStat.combo >= combo) {
@@ -127,7 +127,7 @@ function _getTriggeredIndexes(
       case SkillTriggerType.Critical: {
         if (skillType === SkillCategoryType.Passive) {
           // case: passive skills
-          let beat = current.beats?.find(it => it.cardIndex === deckPosition)
+          const beat = current.beats?.find(it => it.cardIndex === deckPosition)
           if (beat?.isCritical) {
             triggeredList.push(beat.cardIndex)
           }
@@ -161,7 +161,7 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.Status: {
-        let efficacyType = tra.getTriggerStatusType(trigger.id)
+        const efficacyType = tra.getTriggerStatusType(trigger.id)
         if (cardStatus?.effects?.some(eff => isEffect(eff, efficacyType))) {
           triggeredList.push(deckPosition)
         }
@@ -169,7 +169,7 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.SomeoneStatus: {
-        let efficacyType = tra.getTriggerStatusType(trigger.id)
+        const efficacyType = tra.getTriggerStatusType(trigger.id)
         current.cardStatuses.forEach(cardStat => {
           if (cardStat.effects?.some(eff => isEffect(eff, efficacyType))) {
             triggeredList.push(cardStat.cardIndex)
@@ -179,9 +179,9 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.StaminaLower: {
-        let threshold = tra.getTriggerLastNum(trigger.id)
+        const threshold = tra.getTriggerLastNum(trigger.id)
         if (threshold && cardStatus && deckCard) {
-          let rate = cardStatus.stamina / deckCard.deckStamina
+          const rate = cardStatus.stamina / deckCard.deckStamina
           if (rate <= threshold / 100) {
             triggeredList.push(deckPosition)
           }
@@ -190,9 +190,9 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.StaminaHigher: {
-        let threshold = tra.getTriggerLastNum(trigger.id)
+        const threshold = tra.getTriggerLastNum(trigger.id)
         if (threshold && cardStatus && deckCard) {
-          let rate = cardStatus.stamina / deckCard.deckStamina
+          const rate = cardStatus.stamina / deckCard.deckStamina
           if (rate >= threshold / 100) {
             triggeredList.push(deckPosition)
           }
@@ -201,10 +201,10 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.SomeoneStaminaLower: {
-        let threshold = tra.getTriggerLastNum(trigger.id)
+        const threshold = tra.getTriggerLastNum(trigger.id)
         if (threshold) {
           live.liveDeck.liveCards.forEach(card => {
-            let cardStat = current.cardStatuses.find(it => it.cardIndex === card.index)
+            const cardStat = current.cardStatuses.find(it => it.cardIndex === card.index)
             if (cardStat) {
               if (cardStat.stamina / card.liveCard.deckStamina <= threshold! / 100) {
                 triggeredList.push(cardStat.cardIndex)
@@ -253,11 +253,11 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.SomeoneStatusGroup: {
-        let group = tra.getTriggerStatusGroup(trigger.id)
+        const group = tra.getTriggerStatusGroup(trigger.id)
         if (group) {
           current.cardStatuses.forEach(cardStat => {
             if (cardStat.effects?.some(eff =>
-              group!.includes(eff.efficacyType)
+              group.includes(eff.efficacyType)
             )) {
               triggeredList.push(cardStat.cardIndex)
             }
@@ -267,7 +267,7 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.PositionAttributeVocal: {
-        let laneType = live.quest.getLaneType(deckPosition)
+        const laneType = live.quest.getLaneType(deckPosition)
         if (laneType === AttributeType.Vocal) {
           triggeredList.push(deckPosition)
         }
@@ -275,7 +275,7 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.PositionAttributeDance: {
-        let laneType = live.quest.getLaneType(deckPosition)
+        const laneType = live.quest.getLaneType(deckPosition)
         if (laneType === AttributeType.Dance) {
           triggeredList.push(deckPosition)
         }
@@ -283,7 +283,7 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.PositionAttributeVisual: {
-        let laneType = live.quest.getLaneType(deckPosition)
+        const laneType = live.quest.getLaneType(deckPosition)
         if (laneType === AttributeType.Visual) {
           triggeredList.push(deckPosition)
         }
@@ -350,8 +350,8 @@ function _getTriggeredIndexes(
       }
 
       case SkillTriggerType.ComboLessEqual: {
-        let combo = tra.getTriggerLastNum(trigger.id)
-        let userStat = current.userStatuses[
+        const combo = tra.getTriggerLastNum(trigger.id)
+        const userStat = current.userStatuses[
           isOpponentSide ? 1 : 0
         ]
         if (combo && userStat.combo <= combo) {
