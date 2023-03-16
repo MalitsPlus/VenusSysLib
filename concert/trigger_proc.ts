@@ -102,6 +102,10 @@ function _getTriggeredIndexes(
             triggeredList.push(card.index)
           }
         })
+        const threshold = tra.getTriggerLastNum(trigger.id)
+        if (threshold && triggeredList.length < threshold) {
+          triggeredList = []
+        }
         break
       }
 
