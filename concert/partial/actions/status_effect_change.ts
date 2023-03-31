@@ -25,7 +25,6 @@ export const statusEffectChange: Action = ({
     if (cardStat) {
       cardStat.effects.forEach(eff => {
         if (eff.efficacyType === originalType) {
-          eff.remain = 0
           cardStat.effects.push({
             id: uuidv4(),
             efficacyType: targetType,
@@ -39,6 +38,7 @@ export const statusEffectChange: Action = ({
             sourceSkillIndex: eff.sourceSkillIndex,
             ajusted: true
           })
+          eff.remain = 0
         }
       })
       cardStat.refreshAllParam()
