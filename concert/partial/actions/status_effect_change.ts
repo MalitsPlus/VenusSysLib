@@ -25,10 +25,20 @@ export const statusEffectChange: Action = ({
     if (cardStat) {
       cardStat.effects.forEach(eff => {
         if (eff.efficacyType === originalType) {
-          eff.ajusted = true
-          eff.id = uuidv4()
-          eff.efficacyType = targetType
-          eff.maxGrade = EfficacyMaxGrade[targetType] ?? 0
+          eff.remain = 0
+          cardStat.effects.push({
+            id: uuidv4(),
+            efficacyType: targetType,
+            grade: eff.grade,
+            maxGrade: EfficacyMaxGrade[targetType] ?? 0,
+            value: 0,
+            remain: eff.remain,
+            isInstant: false,
+            include: isBeforeBeat,
+            sourceIndex: eff.sourceIndex,
+            sourceSkillIndex: eff.sourceSkillIndex,
+            ajusted: true
+          })
         }
       })
       cardStat.refreshAllParam()
