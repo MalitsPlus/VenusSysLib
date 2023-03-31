@@ -1,6 +1,8 @@
 import { GameSetting } from "../db/repository/setting_repository"
 import { SkillEfficacy } from "../types/proto/proto_master"
 import { WeaknessOtherDurationList, WeaknessOtherInstantList } from "./consts/efficacy_list"
+import { Str2EfficacyType } from "./consts/chart_consts"
+import { SkillEfficacyType } from "../types/proto/proto_enum"
 
 export function getEfficacyDuration(
   efficacy: SkillEfficacy
@@ -98,6 +100,20 @@ export function getStrengthEffectAssignmentType(
     return matched[0]
   }
   logError(`Cannot find strings right after 'strength_effect_assignment-'.`)
+  return undefined
+}
+
+export function getEffectChanges(
+  efficacyId: string
+): [SkillEfficacyType, SkillEfficacyType] | undefined {
+  const matched = efficacyId.match(/(\w+)-(\w+)$/)
+  if (matched) {
+    const originalEff = matched[1]
+    const original = Str2EfficacyType[originalEff]
+    const targtEff = matched[2]
+    const target = Str2EfficacyType[targtEff]
+    return [original, target]
+  }
   return undefined
 }
 

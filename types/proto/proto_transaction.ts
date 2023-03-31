@@ -1,6 +1,7 @@
 // Generated from ProtoTransaction.proto
 
 import type {
+  CardDisplayType,
   HomePositionType,
   MessageStatusType,
   MissionStatusType,
@@ -101,6 +102,7 @@ export type UserCard = {
   supported: boolean
   lastEnhanceTime: string
   rankTotalExp: number
+  displayType: CardDisplayType
   level: number
   rarity: number
   vocal: string
@@ -193,6 +195,8 @@ export type UserHierarchy = {
 export type UserHomePosition = {
   homePositionType: HomePositionType
   characterId: string
+  isCharacterRandom: boolean
+  isCostumeRandom: boolean
 }
 
 export type UserHomeTalk = {
@@ -281,6 +285,7 @@ export type UserProfile = {
   decorationId: string
   informationType: ProfileInformationType
   colorType: ProfileColorType
+  favoriteCardDisplayType: CardDisplayType
 }
 
 export type UserQuest = {
@@ -348,6 +353,11 @@ export type RewardResult = {
   isGift: boolean
   duplicateRewardResults: RewardResult[]
   additionalGifts: Reward[]
+}
+
+export type UserActivityFanEventProgress = {
+  bestScoreRankType: ResultRankType
+  bestScoreRankPlus: string
 }
 
 export type UserBalance = {

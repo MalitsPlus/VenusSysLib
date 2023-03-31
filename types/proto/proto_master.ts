@@ -1703,6 +1703,7 @@ export type Story = {
   rewardId: string
   advPlayTypes: StoryAdvPlayType[]
   advAssetIds: string[]
+  additionalDisplayCharacterIds: string[]
 }
 
 export type StoryEpisode = {
@@ -2106,6 +2107,11 @@ export type Stage = {
   order: number
   timeDifference: string
   isHideWithPhotoShooting: boolean
+}
+
+export type StatusEffectName = {
+  statusEffectType: StatusEffectType
+  name: string
 }
 
 export type StoreProduct = {

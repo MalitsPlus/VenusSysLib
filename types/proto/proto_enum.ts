@@ -25,7 +25,11 @@ export enum ActivityAbilityType {
   PromotionGoldUp = 2002,
   PromotionAccessoryMultiStepRewardUp = 2003,
   PromotionGachaTicketMultiStepRewardUp = 2004,
+  PromotionPhotoInkMultiStepRewardUp = 2005,
   RefreshStaminaUp = 3001,
+  LessonManagerExpUp = 4001,
+  LessonGoldUp = 4002,
+  LessonCardEnhanceItemUp = 4003,
 }
 
 export enum ActivityCampaignEffectType {
@@ -133,12 +137,19 @@ export enum BacksideType {
   Unknown = 0,
   Normal = 1,
   Mini = 2,
+  Simple = 3,
 }
 
 export enum BoxGachaItemType {
   Unknown = 0,
   Reward = 1,
   MarathonLiveBonusGroup = 2,
+}
+
+export enum CardDisplayType {
+  Unknown = 0,
+  BeforeLimitBreak = 1,
+  AfterLimitBreak = 2,
 }
 
 export enum CardImageType {
@@ -272,7 +283,6 @@ export enum ErrorCode {
   PurchaseRecoverFailed = 3015,
   DivisionMoveOutOfTerm = 3016,
   GvgMatchMismatched = 3017,
-  TwitterAccessTokenInvalid = 3018,
   LiveResultNotFound = 3019,
   PvpSeasonNotOpened = 3020,
   GvgSeasonNotOpened = 3021,
@@ -280,17 +290,15 @@ export enum ErrorCode {
   ActivityStaminaAlreadyMax = 3023,
   EventConditionInvalid = 3024,
   RecoveryPurchaseTransactionNotFound = 3025,
-  ReleaseDateIsFuture = 3026,
-  TwitterDailyStatusUpdateLimit = 3027,
   AlreadyMaximumStamina = 3028,
   NotInCoolTime = 3029,
   InviteWrongCode = 3030,
   InviteHostGuestLimit = 3031,
   InviteEnterCodeNotAllowed = 3032,
-  MarathonRaidFinished = 3033,
   LeagueSeasonNotOpened = 3034,
   LeagueInBattle = 3035,
   LeagueInBattleExtension = 3036,
+  SpecialPhotoShootingConditionInvalid = 3037,
 }
 
 export enum EventMissionType {
@@ -352,6 +360,7 @@ export enum FunctionLockType {
   BuddyUseMarathon = 28,
   CardRankUp = 29,
   League = 30,
+  LiveResultDetail = 31,
 }
 
 export enum FunctionMaintenanceType {
@@ -607,6 +616,11 @@ export enum HelpDisplayTargetType {
   LeagueLiveNews = 162,
   LeagueLiveDeckSelect = 163,
   LeagueLastSeasonRecord = 164,
+  SpecialStory = 165,
+  ExtraStory = 166,
+  SpecialPhotographyTop = 167,
+  SpecialLivePhotography = 168,
+  SpecialActivityPhotography = 169,
 }
 
 export enum HelpType {
@@ -614,6 +628,7 @@ export enum HelpType {
   Help = 1,
   Faq = 2,
   Tips = 3,
+  AccountRecovery = 4,
 }
 
 export enum HierarchyRewardType {
@@ -644,6 +659,11 @@ export enum HomePositionType {
   Idol = 4,
 }
 
+export enum InquiryTemplateType {
+  Unknown = 0,
+  AccountRecovery = 1,
+}
+
 export enum ItemType {
   Unknown = 0,
   CardEnhance = 1,
@@ -662,6 +682,7 @@ export enum ItemType {
   AccessoryLimitBreak = 14,
   PhotoInk = 15,
   CardRank = 16,
+  SpecialPhotoShooting = 17,
   ActivityRefreshShorten = 1001,
   ActivityPromotionShorten = 1002,
   ActivityFanEventSuperMode = 1003,
@@ -1596,6 +1617,15 @@ export enum SkillEfficacyType {
   ActiveSkillChanceAssignment = 64,
   StrengthEffectErasingAll = 65,
   StrengthEffectAssignmentAll = 66,
+  ScoreGetByLessComboCount = 67,
+  ScoreGetByCharacterCount = 68,
+  ScoreGetByLessTotalScore = 69,
+  ScoreGetByScoreRatio = 70,
+  StrengthEffectGradeLimit = 71,
+  StatusEffectChange = 72,
+  PassiveSkillCoolTimeReset = 73,
+  PassiveSkillImpossible = 74,
+  CoverWeaknessEffect = 75,
 }
 
 export enum SkillFailureType {
@@ -1685,6 +1715,10 @@ export enum SkillTriggerType {
   MoreThanPositionCardTypeCount = 35,
   BeforeActiveSkill = 36,
   BeforeSpecialSkill = 37,
+  SkillFailureSelf = 38,
+  StatusEffectGradeHigher = 39,
+  StatusEffectGradeLower = 40,
+  SomeoneStatusEffectGradeHigher = 41,
 }
 
 export enum SpecialSkillCameraOrientationType {
@@ -1748,6 +1782,7 @@ export enum StatusEffectType {
   PassiveScoreMultiplierAdd = 23,
   StaminaContinuousRecovery = 24,
   ActiveSkillChanceAssignment = 25,
+  CoverWeaknessEffect = 26,
   DanceDown = 1001,
   VocalDown = 1002,
   VisualDown = 1003,
@@ -1755,6 +1790,8 @@ export enum StatusEffectType {
   StaminaConsumptionIncrease = 1005,
   AudienceAmountReduction = 1006,
   StaminaContinuousConsumption = 1007,
+  StrengthEffectGradeLimit = 1008,
+  PassiveSkillImpossible = 1009,
 }
 
 export enum StoryAdvPlayType {

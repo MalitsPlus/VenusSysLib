@@ -11,6 +11,7 @@ import { danceUp } from "./dance_up"
 import { fixStaminaRecovery } from "./fix_stamina_recovery"
 import { liveAbilityCoolTimeReduction } from "./live_ability_cool_time_reduction"
 import { staminaConsumption } from "./stamina_consumption"
+import { statusEffectChange } from "./status_effect_change"
 import { strengthEffectAssignment } from "./strength_effect_assignment"
 import { strengthEffectAssignmentAll } from "./strength_effect_assignment_all"
 import { strengthEffectCountIncrease } from "./strength_effect_count_increase"
@@ -134,6 +135,8 @@ export function typeOf(type: SkillEfficacyType): Action {
       return strengthEffectErasingAll
     case SkillEfficacyType.StrengthEffectAssignmentAll: // 66
       return strengthEffectAssignmentAll
+    case SkillEfficacyType.StatusEffectChange:  // 72
+      return statusEffectChange
     default:
       return defaultProc
   }

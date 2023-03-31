@@ -52,6 +52,9 @@ export const Str2EfficacyType: {
   visual_up: SkillEfficacyType.VisualUp,
   vocal_down: SkillEfficacyType.VocalDown,
   vocal_up: SkillEfficacyType.VocalUp,
+  vocal_boost: SkillEfficacyType.VocalBoost,
+  dance_boost: SkillEfficacyType.DanceBoost,
+  visual_boost: SkillEfficacyType.VisualBoost,
 }
 
 export const Str2EfficacyGroup: {

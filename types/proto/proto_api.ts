@@ -10,6 +10,7 @@ import type {
   ResourceType,
   ResetTimingType,
   ActivityFanEventType,
+  CardDisplayType,
   GachaContinuousResultType,
   GachaType,
   GvgMatchResultType,
@@ -26,6 +27,7 @@ import type {
   ProfileInformationType,
   ProfileColorType,
   ShopConditionRewardStatusType,
+  PhotoShootingActionType,
   ActivityFanEventHappeningType,
   ItemType,
   BacksideType,
@@ -57,10 +59,11 @@ import type {
   LeagueSeasonCardResultType,
   MarathonRaidProgressType,
   RuleType,
+  InquiryTemplateType,
+  HelpType,
   ProviderType,
   ErrorCode,
   PhotoImageRequestType,
-  PhotoShootingActionType,
   PhotoContestBaseEvaluationType,
   PhotoContestBaseGuideRankType,
   ParameterType,
@@ -115,6 +118,7 @@ import type {
   UserBuddy,
   UserInvite,
   UserHair,
+  UserActivityFanEventProgress,
   ConsumptionResult,
   UserGift,
   UserGiftHistory,
@@ -535,6 +539,7 @@ export type FanEventRankingInfo = {
 export type FavoriteCardInfo = {
   cardId: string
   rarity: number
+  displayType: CardDisplayType
 }
 
 export type GachaButtonInfo = {
@@ -768,6 +773,9 @@ export type HomeEnterResponse = {
   existsUnclearedExercise: boolean
   extraStoryPartInfos: ExtraStoryPartInfo[]
   leagueInfo: HomeLeagueInfo
+  specialHomePositionInfo: SpecialHomePositionInfo
+  specialHomeActionInfos: SpecialHomeActionInfo[]
+  specialPhotoShootingInfo: SpecialPhotoShootingInfo
   pvpRewardResultInfo: PvpRewardResultInfo
   gvgRewardResultInfo: GvgRewardResultInfo
   tourRewardResultInfos: TourRewardResultInfo[]
@@ -818,6 +826,7 @@ export type HomeMarathonInfo = {
   isRaidHostEnable: boolean
   reachableLadderPanelCount: number
   type: MarathonType
+  ladderId: string
 }
 
 export type HomePhotoContestInfo = {
@@ -1179,6 +1188,21 @@ export type MarathonRaidHostUser = {
   userId: string
 }
 
+export type MarathonRaidJoinResponse = {
+  marathonId: string
+  difficultyNumber: number
+  difficultyLevel: number
+  result: LiveResult
+  joinRewards: RewardResult[]
+  raidEndTime: string
+  raidResult: MarathonRaidResult
+  beforeScore: string
+  rankPatterns: QuestRankPattern[]
+  finished: boolean
+  liveBonusId: string
+  commonResponse: CommonResponse
+}
+
 export type MarathonRaidQuest = {
   id: string
   stageId: string
@@ -1235,6 +1259,22 @@ export type MarathonRaidRankedUser = {
   score: string
   emblemId: string
   userId: string
+  cardInfos: LiveCardInfo[]
+}
+
+export type MarathonRaidStartResponse = {
+  marathonId: string
+  difficultyNumber: number
+  difficultyLevel: number
+  result: LiveResult
+  reward: QuestReward
+  hostRewards: RewardResult[]
+  raidEndTime: string
+  raidResult: MarathonRaidResult
+  beforeScore: string
+  rankPatterns: QuestRankPattern[]
+  liveBonusId: string
+  commonResponse: CommonResponse
 }
 
 export type MarketItem = {
@@ -1352,6 +1392,14 @@ export type PhotoContestSubmitShootingResponse = {
   baseGuideInfos: PhotoContestSectionBaseGuideInfo[]
   advanceGuideInfos: PhotoContestSectionAdvanceGuideInfo[]
   fixedCreatePhotoRarity: string
+  commonResponse: CommonResponse
+}
+
+export type PhotoListSpecialShootingResponse = {
+  activities: SpecialPhotoActivityInfo[]
+  musics: SpecialPhotoQuestMusicInfo[]
+  name: string
+  itemIds: string[]
   commonResponse: CommonResponse
 }
 
@@ -1771,6 +1819,68 @@ export type ShopLoginBonus = {
   isReceived: boolean
 }
 
+export type SpecialHomeActionInfo = {
+  characterId: string
+  specialHomeActionDetails: SpecialHomeActionDetail[]
+}
+
+export type SpecialHomeMotionInfo = {
+  characterId: string
+  idleMotionAssetId: string
+  idleAdditionMotionAssetId: string
+}
+
+export type SpecialHomePositionInfo = {
+  homeCostumeIds: string[]
+  trainingCostumeIds: string[]
+  activityCostumeIds: string[]
+  idolCostumeIds: string[]
+  specialHomePositionId: string
+  specialHomeMotionInfos: SpecialHomeMotionInfo[]
+}
+
+export type SpecialPhotoActivityInfo = {
+  isUnlocked: boolean
+  order: number
+  name: string
+  thumbAssetId: string
+  photoStageId: string
+  photoShootingMotionSetId: string
+  isDeleteCharacter: boolean
+  costumeTypeIds: string[]
+  forceCostumeTypeId: string
+  characterIds: string[]
+  unlockConditionId: string
+  actionType: PhotoShootingActionType
+  viewConditionId: string
+}
+
+export type SpecialPhotoQuestMusicInfo = {
+  musicId: string
+  isUnlocked: boolean
+  order: number
+  costumeTypeIds: string[]
+  characterIds: string[]
+  photoStages: SpecialPhotoQuestStage[]
+  unlockConditionId: string
+  viewConditionId: string
+}
+
+export type SpecialPhotoQuestStage = {
+  stageId: string
+  isUnlocked: boolean
+  maxCapacity: number
+  unlockConditionId: string
+  order: number
+  viewConditionId: string
+}
+
+export type SpecialPhotoShootingInfo = {
+  specialPhotoShootingId: string
+  isUnlocked: boolean
+  unlockConditionId: string
+}
+
 export type TimelineInfo = {
   messageGroupId: string
   timelineId: string
@@ -1872,6 +1982,7 @@ export type AccessoryEnhanceResponse = {
 export type AccessoryLimitBreakRequest = {
   accessoryId: string
   isInUse: boolean
+  isInUseLeague: boolean
 }
 
 export type AccessoryLimitBreakResponse = {
@@ -2518,6 +2629,15 @@ export type CardRankUpResponse = {
   commonResponse: CommonResponse
 }
 
+export type CardUpdateDisplayTypeRequest = {
+  cardId: string
+  displayType: CardDisplayType
+}
+
+export type CardUpdateDisplayTypeResponse = {
+  commonResponse: CommonResponse
+}
+
 export type LoginBonusPackageItem = {
   shopItem: ShopItem
   loginBonuses: ShopLoginBonus[]
@@ -2536,6 +2656,8 @@ export type LiveResult = {
   charts: LiveChart[]
   totalAudienceAmount: number
   cleared: boolean
+  isDisplayDetailAvailable: boolean
+  preChart: LiveChart
 }
 
 export type LiveUserDeck = {
@@ -2560,6 +2682,7 @@ export type LiveBeat = {
   cardIndex: number
   score: string
   isCritical: boolean
+  cardAppliedStatus: LiveCardAppliedStatus
 }
 
 export type LiveSkill = {
@@ -2573,6 +2696,7 @@ export type LiveSkill = {
   details: LiveSkillDetail[]
   failures: LiveSkillFailure[]
   isComboBreak: boolean
+  cardAppliedStatuses: LiveCardAppliedStatus[]
   descriptions: LiveLogDescription[]
 }
 
@@ -2617,6 +2741,24 @@ export type LiveCardStatusEffect = {
   remainEffectedChartCount: number
   maxGrade: number
   value2: string
+  statusReasons: LiveStatusEffectReason[]
+}
+
+export type LiveCardAppliedStatus = {
+  cardIndex: number
+  statusEffects: LiveCardAppliedStatusEffect[]
+}
+
+export type LiveCardAppliedStatusEffect = {
+  statusType: StatusEffectType
+  grade: number
+  maxGrade: number
+  statusReasons: LiveStatusEffectReason[]
+}
+
+export type LiveStatusEffectReason = {
+  cardIndex: number
+  skillIndex: number
 }
 
 export type LiveSkillStatus = {
@@ -2854,6 +2996,7 @@ export type UpdatedData = {
   buddy: UserBuddy
   invite: UserInvite
   hairs: UserHair[]
+  activityFanEventProgress: UserActivityFanEventProgress
 }
 
 export type DeletedData = {
@@ -3437,7 +3580,6 @@ export type GvgStartRequest = {
   gvgSeasonId: string
   opponentId: string
   deckNumber: number
-  useStone: boolean
   isSkip: boolean
   matchNumber: number
   challengeConsumptionType: GvgChallengeConsumptionType
@@ -3527,6 +3669,14 @@ export type NotiShopItem = {
   shopItemIds: string[]
 }
 
+export type SpecialHomeActionDetail = {
+  motionAssetId: string
+  additionMotionAssetId: string
+  voiceAssetId: string
+  text: string
+  weight: number
+}
+
 export type HomeLoginRequest = {
   settingInfo: SettingInfo
 }
@@ -3569,6 +3719,8 @@ export type HomeSetCharacterPositionRequest = {
 export type HomeCharacterPosition = {
   type: HomePositionType
   characterId: string
+  isCharacterRandom: boolean
+  isCostumeRandom: boolean
 }
 
 export type HomeSetCharacterPositionResponse = {
@@ -3588,6 +3740,13 @@ export type HomeLeagueInfo = {
   isNewsUnread: boolean
   isNewSeasonNotJoined: boolean
   isRemainingImperfectDeck: boolean
+  deckInfos: HomeLeagueDeckInfo[]
+}
+
+export type HomeLeagueDeckInfo = {
+  seasonId: string
+  deckType: LeagueDeckType
+  deckPositions: UserDeckPosition[]
 }
 
 export type PvpRewardResultInfo = {
@@ -3687,6 +3846,8 @@ export type BannerInfo = {
   questBanners: Banner[]
   inviteBanners: Banner[]
   exerciseBanners: Banner[]
+  specialPhotoShootingQuestBanners: Banner[]
+  specialPhotoShootingActivityBanners: Banner[]
 }
 
 export type FanEventInfo = {
@@ -4165,6 +4326,7 @@ export type MarathonRaidListRankingRequest = {
 export type MarathonRaidListRankingResponse = {
   rankedUsers: MarathonRaidRankedUser[]
   selfScore: string
+  hostUserName: string
   commonResponse: CommonResponse
 }
 
@@ -4175,39 +4337,12 @@ export type MarathonRaidStartRequest = {
   isSkip: boolean
 }
 
-export type MarathonRaidStartResponse = {
-  marathonId: string
-  difficultyNumber: number
-  difficultyLevel: number
-  result: LiveResult
-  reward: QuestReward
-  hostRewards: RewardResult[]
-  raidEndTime: string
-  raidResult: MarathonRaidResult
-  beforeScore: string
-  rankPatterns: QuestRankPattern[]
-  commonResponse: CommonResponse
-}
-
 export type MarathonRaidJoinRequest = {
   marathonId: string
   raidId: string
   deckNumber: number
   isSkip: boolean
   difficultyNumber: number
-}
-
-export type MarathonRaidJoinResponse = {
-  marathonId: string
-  difficultyNumber: number
-  difficultyLevel: number
-  result: LiveResult
-  joinRewards: RewardResult[]
-  raidEndTime: string
-  raidResult: MarathonRaidResult
-  beforeScore: string
-  rankPatterns: QuestRankPattern[]
-  commonResponse: CommonResponse
 }
 
 export type MarathonRaidFinishRequest = {
@@ -4314,6 +4449,7 @@ export type MarathonRaidResult = {
   joinedUserCount: number
   mvpRewards: RewardResult[]
   rankedUsers: MarathonRaidRankedUser[]
+  clearRewards: RewardResult[]
 }
 
 export type MarathonRaidSimpleRankedUser = {
@@ -4379,6 +4515,22 @@ export type MasterRuleRequest = {
 
 export type MasterRuleResponse = {
   text: string
+}
+
+export type MasterGetInquiryTemplateRequest = {
+  templateType: InquiryTemplateType
+}
+
+export type MasterGetInquiryTemplateResponse = {
+  text: string
+}
+
+export type MasterGetHelpCategoryRequest = {
+  helpType: HelpType
+}
+
+export type MasterGetHelpCategoryResponse = {
+  helpCategories: HelpCategory[]
 }
 
 export type MessageListGroupResponse = {
@@ -4698,25 +4850,6 @@ export type PhotoCheckShootingResponse = {
   commonResponse: CommonResponse
 }
 
-export type PhotoCreateShootingRequest = {
-  itemId: string
-  actionType: PhotoShootingActionType
-  photoActivityId: string
-  photoMusicId: string
-  photoStageId: string
-  mainCharacterId: string
-  characterIds: string[]
-  costumeIds: string[]
-  manualCount: number
-  hairIds: string[]
-}
-
-export type PhotoCreateShootingResponse = {
-  photo: UserPhoto
-  isGift: boolean
-  commonResponse: CommonResponse
-}
-
 export type PhotoCreateShootingsRequest = {
   actionType: PhotoShootingActionType
   photoActivityId: string
@@ -4758,6 +4891,43 @@ export type PhotoSaleRecipeRequest = {
 
 export type PhotoSaleRecipeResponse = {
   rewardResults: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type PhotoListSpecialShootingRequest = {
+  specialPhotoShootingId: string
+}
+
+export type PhotoCheckSpecialShootingRequest = {
+  actionType: PhotoShootingActionType
+  specialPhotoShootingId: string
+  musicId: string
+  stageId: string
+  characterIds: string[]
+  costumeIds: string[]
+  hairIds: string[]
+}
+
+export type PhotoCheckSpecialShootingResponse = {
+  commonResponse: CommonResponse
+}
+
+export type PhotoCreateSpecialShootingsRequest = {
+  actionType: PhotoShootingActionType
+  specialPhotoShootingId: string
+  musicId: string
+  stageId: string
+  characterIds: string[]
+  costumeIds: string[]
+  hairIds: string[]
+  createShootingParams: PhotoCreateShootingParam[]
+  manualCount: number
+}
+
+export type PhotoCreateSpecialShootingsResponse = {
+  photos: UserPhoto[]
+  isGift: boolean
+  snsText: string
   commonResponse: CommonResponse
 }
 
@@ -4890,6 +5060,7 @@ export type ProfileUpdateBackgroundRequest = {
   backgroundType: ProfileBackgroundType
   favoriteCardId: string
   favoritePhotoId: string
+  favoriteCardDisplayType: CardDisplayType
 }
 
 export type ProfileUpdateBackgroundResponse = {
@@ -5984,6 +6155,7 @@ export type UserGetResponse = {
   buddy: UserBuddy
   invite: UserInvite
   hairs: UserHair[]
+  activityFanEventProgress: UserActivityFanEventProgress
   userPublic: UserPublic
 }
 
