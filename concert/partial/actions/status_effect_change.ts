@@ -26,6 +26,7 @@ export const statusEffectChange: Action = ({
       cardStat.effects.forEach(eff => {
         if (eff.efficacyType === originalType) {
           eff.ajusted = true
+          eff.id = uuidv4()
           eff.efficacyType = targetType
           eff.maxGrade = EfficacyMaxGrade[targetType] ?? 0
         }
