@@ -6,6 +6,7 @@ import * as calc from "../../utils/calc_utils";
 import { calcPrivilegePower, calcSpSkillPower } from "../../utils/calc_utils";
 import { getCritical } from "../../utils/chart_utils";
 import { Concert } from "../concert";
+import { WeaknessAllList } from "../consts/efficacy_list";
 import { getTargetIndexes } from "../target_proc";
 import { getTriggeredIndexes } from "../trigger_proc";
 import { ComboType } from "./handle_combo";
@@ -143,7 +144,7 @@ export function _performSkill(
   skillIndex: number,
   skill: WapSkillLevel,
   skillStat: SkillStatus,
-  isOpponentSide: boolean,
+  performerIsOpponentSide: boolean,
   isBeforeBeat: boolean,
   card?: LiveCard,
   cardStat?: CardStatus,
@@ -176,7 +177,7 @@ export function _performSkill(
     this.live,
     this.current,
     cardIndex,
-    isOpponentSide,
+    performerIsOpponentSide,
     this.actables,
     cardStat,
     card
@@ -228,7 +229,7 @@ export function _performSkill(
       this.live,
       this.current,
       cardIndex,
-      isOpponentSide,
+      performerIsOpponentSide,
       this.actables,
       cardStat,
       card
@@ -244,16 +245,27 @@ export function _performSkill(
     }
 
     // get target indexes
-    const targetIndexes = getTargetIndexes(
+    let targetIndexes = getTargetIndexes(
       detail.efficacy.skillTarget,
       skillStat,
       this.live,
       this.current,
       cardIndex,
-      isOpponentSide,
+      performerIsOpponentSide,
       triggeredIndexes,
       detailTriggeredIndexes
     )
+
+    // in case of taunt skills exist
+    if (WeaknessAllList.includes(detail.efficacy.type)) {
+      if (!performerIsOpponentSide && targetIndexes?.every(it => it <= 5)) {
+        this.current.cardStatuses.forEach(stat => {
+          if (stat.getEffects(SkillEfficacyType.CoverWeaknessEffect).length > 0) {
+            targetIndexes = [stat.cardIndex]
+          }
+        })
+      }
+    }
 
     // implement to CardStatus
     const { value, grade, maxGrade } = this.implementEfficacy(

@@ -81,6 +81,12 @@ export function getCoolTimeIncreaseValue(
   return findNumber(efficacyId, /(?<=cool_time_increase-)\d+/)
 }
 
+export function getLiveAbilityReduceValue(
+  efficacyId: string
+): number | undefined {
+  return findNumber(efficacyId, /(?<=live_ability_cool_time_reduction-)\d+/)
+}
+
 export function getStrengthEffectErasingType(
   efficacyId: string
 ): string | undefined {

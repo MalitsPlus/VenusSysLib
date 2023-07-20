@@ -1,3 +1,4 @@
+import { getLiveAbilityReduceValue } from "../../efficacy_analyze";
 import { Action } from "./action";
 
 export const liveAbilityCoolTimeReduction: Action = ({
@@ -8,11 +9,26 @@ export const liveAbilityCoolTimeReduction: Action = ({
   sourceSkillIndex,
   isBeforeBeat,
 }) => {
+  const reduceValue = getLiveAbilityReduceValue(efficacy.id)
   const effInfo = {
-    value: 0,
+    value: reduceValue ?? 0,
     grade: efficacy.grade,
     maxGrade: efficacy.maxGrade,
   }
-  console.warn("Unimplemented Action 'LiveAbilityCoolTimeReduction'.")
+  if (reduceValue) {
+    let userIndex = 1
+    if (sourceIndex >= 6) {
+      userIndex = 2
+    }
+    for (const stageSkill of concert.current.stageSkillStatuses ?? []) {
+      if (stageSkill.userIndex !== userIndex) {
+        continue
+      }
+      if (!stageSkill.hasTimes()) {
+        continue
+      }
+      stageSkill.coolTime = stageSkill.coolTime > reduceValue ? stageSkill.coolTime - reduceValue : 0
+    }
+  }
   return effInfo
 }

@@ -29,6 +29,7 @@ import { vocalDown } from "./vocal_down"
 import { vocalUp } from "./vocal_up"
 import { weaknessEffectInversion } from "./weakness_effect_inversion"
 import { weaknessEffectRecovery } from "./weakness_effect_recovery"
+import { passiveSkillCoolTimeReset } from "./passiveSkillCoolTimeReset"
 
 /**
  * Determine efficacy type and return a corresponding impl function.
@@ -137,6 +138,12 @@ export function typeOf(type: SkillEfficacyType): Action {
       return strengthEffectAssignmentAll
     case SkillEfficacyType.StatusEffectChange:  // 72
       return statusEffectChange
+    case SkillEfficacyType.PassiveSkillCoolTimeReset:  // 73
+      return passiveSkillCoolTimeReset
+    case SkillEfficacyType.PassiveSkillImpossible:  // 74
+      return defaultProc
+    case SkillEfficacyType.CoverWeaknessEffect:  // 75
+      return defaultProc
     default:
       return defaultProc
   }
