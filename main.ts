@@ -2,6 +2,7 @@ import * as fs from 'fs'
 import simulate from "./index";
 import { getDefaultUserCard } from './satomi/card';
 import { CustomNote, TransDeck } from "./types/trans_types"
+import { getAllWapCards } from './db/repository/card_repository';
 
 const questId = "gvg-quest-021"
 const allyDeck: TransDeck = {
@@ -22,4 +23,7 @@ const customNodes: CustomNote[] = [{
 const result = simulate(questId, allyDeck, undefined, undefined)
 const jsonStr = JSON.stringify(result, undefined, 2)
 fs.writeFileSync("test/result.json", jsonStr, "utf8")
+
+const x = getAllWapCards()
+
 const a = 1

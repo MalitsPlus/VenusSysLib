@@ -1,8 +1,9 @@
 import { CardParameter, CardRarity } from "../../types/proto/proto_master";
 import { WapCard } from "../../types/wap/card_waps";
-import { getRawCardParameters, getRawCardRarity } from "../dao/card_dao";
+import { getAllRawCard, getRawCardParameters, getRawCardRarity } from "../dao/card_dao";
 import { getWapCard } from "../wrapper/card_wrapper";
 
+// lazy init a single card
 export const getCard = (
   id: string
 ): WapCard | undefined => {
@@ -13,6 +14,19 @@ export const getCard = (
     }
     return card
   })()
+}
+
+// init all Card.
+// This operation can take considerable time.
+let initFlag = false
+export const getAllWapCards = (): WapCard[] => {
+  if (!initFlag) {
+    getAllRawCard().forEach(rawCard => {
+      getCard(rawCard.id)
+    })
+    initFlag = true
+  }
+  return Object.values(wapCardRepo)
 }
 
 export const getCardParameter = (
