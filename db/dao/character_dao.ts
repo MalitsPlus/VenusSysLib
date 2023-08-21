@@ -1,8 +1,10 @@
 import protoChara from "../../database/Character.json"
-import { Character } from "../../types/proto/proto_master"
+import protoCharaGroup from "../../database/CharacterGroup.json"
+import { Character, CharacterGroup } from "../../types/proto/proto_master"
 import { logIdNotFound } from "../../utils/console_utils"
 
 const rawChara: Character[] = protoChara
+const rawCharaGroup: CharacterGroup[] = protoCharaGroup
 
 const getCharacter = (
   id: string
@@ -11,6 +13,12 @@ const getCharacter = (
     ?? logIdNotFound("Character", id)
 }
 
+
+const getRawCharaGroups = (): CharacterGroup[] => {
+  return rawCharaGroup
+}
+
 export {
   getCharacter,
+  getRawCharaGroups,
 }
