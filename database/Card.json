@@ -36,6 +36,7 @@
     "rewardCostumeId": "",
     "displayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -77,6 +78,7 @@
     "rewardCostumeId": "",
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -118,6 +120,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -159,8 +162,70 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-ai-05-fest-00",
+    "assetId": "ai-05-fest-00",
+    "name": "火花散らす熱いキモチ",
+    "description": "これからも憧れさせてみせます、それが勇気になるから\nこの、四人のLizNoirで！",
+    "type": 1,
+    "characterId": "char-ai",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 435,
+    "danceRatioPermil": 320,
+    "visualRatioPermil": 275,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-ai-05-fest-00-1",
+    "skillId2": "sk-ai-05-fest-00-2",
+    "skillId3": "sk-ai-05-fest-00-3",
+    "liveAbilityId": "lba-active_skill_score_multiply",
+    "order": 315,
+    "releaseDate": "1695783600000",
+    "rewardCostumeId": "cos-ai-fest-02",
+    "imageType1": 3,
+    "displayPositionX1": -0.233,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": 0.872,
+    "highlightDisplayPositionY1": 0.24,
+    "highlightDisplayScale1": 0.9,
+    "imageType2": 3,
+    "displayPositionX2": -0.233,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": 0.872,
+    "highlightDisplayPositionY2": 0.24,
+    "highlightDisplayScale2": 0.9,
+    "obtainMessage": "今度は私が、勇気をあげます！",
+    "stories": [
+      {
+        "storyId": "st-card-ai-05-fest-00-01"
+      },
+      {
+        "storyId": "st-card-ai-05-fest-00-02"
+      },
+      {
+        "storyId": "st-card-ai-05-fest-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-ai-05-fest-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-ai-05-fest-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -225,7 +290,8 @@
         "homeTalkId": "home-talk-card-ai-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-ai-05-kait-00",
@@ -289,7 +355,8 @@
         "homeTalkId": "home-talk-card-ai-05-kait-00-talk-01"
       }
     ],
-    "liveAbilityId": ""
+    "liveAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-ai-05-mizg-01",
@@ -349,6 +416,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -409,6 +477,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -469,6 +538,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -529,6 +599,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -568,6 +639,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -609,6 +681,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -650,8 +723,70 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-aoi-05-circ-00",
+    "assetId": "aoi-05-circ-00",
+    "name": "ダーティーアクセル",
+    "description": "このセット、いいね。映画のラストシーンを\n撮影してた時のことを思い出すな",
+    "type": 2,
+    "characterId": "char-aoi",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 319,
+    "danceRatioPermil": 277,
+    "visualRatioPermil": 404,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-aoi-05-circ-00-1",
+    "skillId2": "sk-aoi-05-circ-00-2",
+    "skillId3": "sk-aoi-05-circ-00-3",
+    "liveAbilityId": "lba-visual_multiply",
+    "order": 312,
+    "releaseDate": "1695092400000",
+    "rewardCostumeId": "cos-aoi-circ-00",
+    "imageType1": 3,
+    "displayPositionX1": 0.089,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": -0.133,
+    "highlightDisplayPositionY1": 0.228,
+    "highlightDisplayScale1": 0.7,
+    "imageType2": 3,
+    "displayPositionX2": 0.089,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -0.133,
+    "highlightDisplayPositionY2": 0.228,
+    "highlightDisplayScale2": 0.7,
+    "obtainMessage": "このセット、\n映画のラストシーンを思い出すよ",
+    "stories": [
+      {
+        "storyId": "st-card-aoi-05-circ-00-01"
+      },
+      {
+        "storyId": "st-card-aoi-05-circ-00-02"
+      },
+      {
+        "storyId": "st-card-aoi-05-circ-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-aoi-05-circ-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-aoi-05-circ-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -712,6 +847,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -776,7 +912,8 @@
     ],
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
-    "displayPositionY2": 0.0
+    "displayPositionY2": 0.0,
+    "rewardHairId": ""
   },
   {
     "id": "card-aoi-05-kait-00",
@@ -840,7 +977,8 @@
         "homeTalkId": "home-talk-card-aoi-05-kait-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-aoi-05-mizg-01",
@@ -900,6 +1038,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -960,6 +1099,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -1020,6 +1160,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -1059,6 +1200,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -1100,6 +1242,7 @@
     "highlightDisplayPositionX1": 0.0,
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -1141,6 +1284,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -1203,6 +1347,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -1263,6 +1408,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -1327,7 +1473,8 @@
         "homeTalkId": "home-talk-card-chs-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-chs-05-pajm-00",
@@ -1387,6 +1534,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -1447,6 +1595,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -1511,7 +1660,8 @@
         "homeTalkId": "home-talk-card-chs-05-seik-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-chs-05-yukt-00",
@@ -1571,6 +1721,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -1610,6 +1761,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -1651,6 +1803,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -1692,6 +1845,7 @@
     "highlightDisplayPositionX1": 0.0,
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -1733,6 +1887,7 @@
     "highlightDisplayPositionX1": 0.0,
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -1795,6 +1950,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -1855,6 +2011,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -1919,7 +2076,8 @@
         "homeTalkId": "home-talk-card-hrk-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-hrk-05-idol-03",
@@ -1979,6 +2137,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2043,7 +2202,8 @@
         "homeTalkId": "home-talk-card-hrk-05-mizg-01-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-hrk-05-onep-00",
@@ -2103,6 +2263,68 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
+    "homeTalks": []
+  },
+  {
+    "id": "card-hrk-05-pair-00",
+    "assetId": "hrk-05-pair-00",
+    "name": "膨らむ頬と未来への期待",
+    "description": "私は気付かない間に、大きく成長していた\r\nそれを自覚して、時にはふさわしい態度も必要なんだわ\r\nそれが分からないでわがままを言ってたら\r\nそれこそ、暴れん坊の怪獣になっちゃうもの",
+    "type": 2,
+    "characterId": "char-hrk",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 404,
+    "danceRatioPermil": 316,
+    "visualRatioPermil": 280,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-hrk-05-pair-00-1",
+    "skillId2": "sk-hrk-05-pair-00-2",
+    "skillId3": "sk-hrk-05-pair-00-3",
+    "activityAbilityId": "aab-promotion_manager_exp_up",
+    "order": 308,
+    "releaseDate": "1693278000000",
+    "rewardCostumeId": "cos-hrk-pair-00",
+    "imageType1": 3,
+    "displayPositionX1": 0.16,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": -0.256,
+    "highlightDisplayPositionY1": 1.123,
+    "highlightDisplayScale1": 0.6,
+    "imageType2": 3,
+    "displayPositionX2": 0.16,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -0.256,
+    "highlightDisplayPositionY2": 1.123,
+    "highlightDisplayScale2": 0.6,
+    "obtainMessage": "むちむち怪獣ハルドン、\r\nっていうことなのかしら……",
+    "stories": [
+      {
+        "storyId": "st-card-hrk-05-pair-00-01"
+      },
+      {
+        "storyId": "st-card-hrk-05-pair-00-02"
+      },
+      {
+        "storyId": "st-card-hrk-05-pair-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-hrk-05-pair-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-hrk-05-pair-00",
+        "messageId": ""
+      }
+    ],
+    "liveAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2163,6 +2385,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2223,6 +2446,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2262,6 +2486,7 @@
     "rewardCostumeId": "",
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -2324,6 +2549,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2384,6 +2610,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2444,6 +2671,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2483,6 +2711,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -2524,6 +2753,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -2565,8 +2795,70 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-kkr-05-fest-00",
+    "assetId": "kkr-05-fest-00",
+    "name": "戯言に隠すホントの願い",
+    "description": "今は私達がLizNoirです\n憧れを胸に抱いて、でも過去は振り返らないで\n前に進みます",
+    "type": 3,
+    "characterId": "char-kkr",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 311,
+    "danceRatioPermil": 272,
+    "visualRatioPermil": 417,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-kkr-05-fest-00-1",
+    "skillId2": "sk-kkr-05-fest-00-2",
+    "skillId3": "sk-kkr-05-fest-00-3",
+    "activityAbilityId": "aab-lesson_gold_up",
+    "order": 314,
+    "releaseDate": "1695783600000",
+    "rewardCostumeId": "cos-kkr-fest-02",
+    "imageType1": 3,
+    "displayPositionX1": -0.058,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": 0.835,
+    "highlightDisplayPositionY1": 0.263,
+    "highlightDisplayScale1": 0.7,
+    "imageType2": 3,
+    "displayPositionX2": -0.058,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": 0.835,
+    "highlightDisplayPositionY2": 0.263,
+    "highlightDisplayScale2": 0.7,
+    "obtainMessage": "二人の友情は、\nアイドル界一になりましたから",
+    "stories": [
+      {
+        "storyId": "st-card-kkr-05-fest-00-01"
+      },
+      {
+        "storyId": "st-card-kkr-05-fest-00-02"
+      },
+      {
+        "storyId": "st-card-kkr-05-fest-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-kkr-05-fest-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-kkr-05-fest-00",
+        "messageId": ""
+      }
+    ],
+    "liveAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2631,7 +2923,8 @@
         "homeTalkId": "home-talk-card-kkr-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-kkr-05-kion-00",
@@ -2691,6 +2984,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2751,6 +3045,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2811,6 +3106,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2875,7 +3171,8 @@
         "homeTalkId": "home-talk-card-kkr-05-seik-00-talk-01"
       }
     ],
-    "liveAbilityId": ""
+    "liveAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-kkr-05-vlnt-00",
@@ -2935,6 +3232,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -2995,6 +3293,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -3055,6 +3354,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -3115,6 +3415,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -3175,6 +3476,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -3214,6 +3516,7 @@
     "highlightDisplayPositionX1": 0.0,
     "highlightDisplayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -3255,6 +3558,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -3296,6 +3600,7 @@
     "rewardCostumeId": "",
     "displayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -3337,6 +3642,7 @@
     "highlightDisplayPositionX1": 0.0,
     "highlightDisplayPositionX2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -3378,6 +3684,7 @@
     "displayPositionY2": 0.0,
     "highlightDisplayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -3419,8 +3726,70 @@
     "obtainMessage": "お姉ちゃんが繫げてくれた運命の下で\n私達またこうして歌ってるよ",
     "liveAbilityId": "",
     "rewardCostumeId": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-ktn-05-circ-00",
+    "assetId": "ktn-05-circ-00",
+    "name": "カットバックタンデム",
+    "description": "撮影にはライブと違う緊張感や達成感があるし\r\n私自身、役作りの過程で出来る表現が増えた気がします",
+    "type": 3,
+    "characterId": "char-ktn",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 414,
+    "danceRatioPermil": 328,
+    "visualRatioPermil": 288,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-ktn-05-circ-00-1",
+    "skillId2": "sk-ktn-05-circ-00-2",
+    "skillId3": "sk-ktn-05-circ-00-3",
+    "liveAbilityId": "lba-active_skill_score_multiply",
+    "order": 310,
+    "releaseDate": "1694401200000",
+    "rewardCostumeId": "cos-ktn-circ-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.004,
+    "displayPositionY1": 0.167,
+    "displayScale1": 1.5,
+    "highlightDisplayPositionX1": -0.059,
+    "highlightDisplayPositionY1": 0.3,
+    "highlightDisplayScale1": 0.7,
+    "imageType2": 3,
+    "displayPositionX2": -0.004,
+    "displayPositionY2": 0.167,
+    "displayScale2": 1.5,
+    "highlightDisplayPositionX2": -0.059,
+    "highlightDisplayPositionY2": 0.3,
+    "highlightDisplayScale2": 0.7,
+    "obtainMessage": "映画の原作を読んでから、\n凄くワクワクしてるんです！",
+    "stories": [
+      {
+        "storyId": "st-card-ktn-05-circ-00-01"
+      },
+      {
+        "storyId": "st-card-ktn-05-circ-00-02"
+      },
+      {
+        "storyId": "st-card-ktn-05-circ-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-ktn-05-circ-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-ktn-05-circ-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -3481,6 +3850,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -3541,6 +3911,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -3605,7 +3976,8 @@
         "homeTalkId": "home-talk-card-ktn-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-ktn-05-kiok-00",
@@ -3665,6 +4037,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -3729,7 +4102,8 @@
         "homeTalkId": "home-talk-card-ktn-05-mizg-01-talk-01"
       }
     ],
-    "liveAbilityId": ""
+    "liveAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-ktn-05-prem-00",
@@ -3768,6 +4142,7 @@
     "rewardCostumeId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -3830,6 +4205,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -3869,6 +4245,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -3910,6 +4287,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -3951,6 +4329,7 @@
     "highlightDisplayPositionX2": 0.0,
     "highlightDisplayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -4003,6 +4382,7 @@
     ],
     "activityAbilityId": "",
     "rewardCostumeId": "",
+    "rewardHairId": "",
     "messages": [],
     "homeTalks": []
   },
@@ -4064,6 +4444,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4128,7 +4509,8 @@
         "homeTalkId": "home-talk-card-mei-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-mei-05-mizg-01",
@@ -4192,7 +4574,8 @@
         "homeTalkId": "home-talk-card-mei-05-mizg-01-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-mei-05-mizg-02",
@@ -4252,6 +4635,68 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
+    "homeTalks": []
+  },
+  {
+    "id": "card-mei-05-pair-00",
+    "assetId": "mei-05-pair-00",
+    "name": "ニャンたすてぃっくガール",
+    "description": "芽衣ね、すずにゃんとユニットを組めて\r\nほんとに良かった",
+    "type": 1,
+    "characterId": "char-mei",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 277,
+    "danceRatioPermil": 433,
+    "visualRatioPermil": 320,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-mei-05-pair-00-1",
+    "skillId2": "sk-mei-05-pair-00-2",
+    "skillId3": "sk-mei-05-pair-00-3",
+    "liveAbilityId": "lba-mental_add",
+    "order": 316,
+    "releaseDate": "1696302000000",
+    "rewardCostumeId": "cos-mei-pair-00",
+    "imageType1": 3,
+    "displayPositionX1": 0.18,
+    "displayPositionY1": 0.059,
+    "displayScale1": 1.5,
+    "highlightDisplayPositionX1": -0.278,
+    "highlightDisplayPositionY1": 0.171,
+    "highlightDisplayScale1": 1.1,
+    "imageType2": 3,
+    "displayPositionX2": 0.18,
+    "displayPositionY2": 0.059,
+    "displayScale2": 1.5,
+    "highlightDisplayPositionX2": -0.278,
+    "highlightDisplayPositionY2": 0.171,
+    "highlightDisplayScale2": 1.1,
+    "obtainMessage": "すずにゃん、\n怒んないでよ～、\nごろにゃーん",
+    "stories": [
+      {
+        "storyId": "st-card-mei-05-pair-00-01"
+      },
+      {
+        "storyId": "st-card-mei-05-pair-00-02"
+      },
+      {
+        "storyId": "st-card-mei-05-pair-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-mei-05-pair-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-mei-05-pair-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4312,6 +4757,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4372,6 +4818,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4432,6 +4879,49 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
+    "homeTalks": []
+  },
+  {
+    "id": "card-mhk-02-eve-01",
+    "assetId": "mhk-02-eve-01",
+    "name": "孤高の理解者",
+    "description": "この間遙子と飲んだ時に相談されたのよ\r\n何か言わないと解放されそうにないから仕方なく",
+    "type": 3,
+    "characterId": "char-mhk",
+    "initialRarity": 2,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 290,
+    "danceRatioPermil": 411,
+    "visualRatioPermil": 329,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-mhk-02-eve-01-1",
+    "skillId2": "sk-mhk-02-eve-01-2",
+    "skillId3": "sk-mhk-02-eve-01-3",
+    "order": 309,
+    "releaseDate": "1693278000000",
+    "imageType1": 1,
+    "displayPositionX1": -0.006,
+    "displayPositionY1": 0.246,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": -0.007,
+    "highlightDisplayPositionY1": 0.309,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 2,
+    "displayPositionX2": 0.233,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -1.193,
+    "highlightDisplayPositionY2": 0.231,
+    "highlightDisplayScale2": 0.6,
+    "liveAbilityId": "",
+    "activityAbilityId": "",
+    "rewardCostumeId": "",
+    "displayPositionY2": 0.0,
+    "obtainMessage": "",
+    "rewardHairId": "",
+    "stories": [],
+    "messages": [],
     "homeTalks": []
   },
   {
@@ -4492,6 +4982,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4552,6 +5043,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4612,6 +5104,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4672,6 +5165,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4722,6 +5216,49 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
+    "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-mna-02-eve-01",
+    "assetId": "mna-02-eve-01",
+    "name": "remember shiny days",
+    "description": "こう見えて私、昔はまあまあ売れっ子の\r\nアイドルだったんだよねー",
+    "type": 3,
+    "characterId": "char-mna",
+    "initialRarity": 2,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 412,
+    "danceRatioPermil": 329,
+    "visualRatioPermil": 289,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-mna-02-eve-01-1",
+    "skillId2": "sk-mna-02-eve-01-2",
+    "skillId3": "sk-mna-02-eve-01-3",
+    "order": 318,
+    "releaseDate": "1696302000000",
+    "imageType1": 1,
+    "displayPositionX1": -0.008,
+    "displayPositionY1": 0.246,
+    "displayScale1": 1.1,
+    "highlightDisplayPositionX1": -0.019,
+    "highlightDisplayPositionY1": 0.298,
+    "highlightDisplayScale1": 1.0,
+    "imageType2": 2,
+    "displayPositionX2": -0.079,
+    "displayPositionY2": 0.188,
+    "displayScale2": 1.6,
+    "highlightDisplayPositionX2": 0.433,
+    "highlightDisplayPositionY2": 1.093,
+    "highlightDisplayScale2": 0.8,
+    "liveAbilityId": "",
+    "activityAbilityId": "",
+    "rewardCostumeId": "",
+    "obtainMessage": "",
+    "rewardHairId": "",
+    "stories": [],
     "messages": [],
     "homeTalks": []
   },
@@ -4779,6 +5316,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4835,6 +5373,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -4899,7 +5438,8 @@
         "homeTalkId": "home-talk-card-mna-05-idol-00-talk-01"
       }
     ],
-    "liveAbilityId": ""
+    "liveAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-mna-05-prem-00",
@@ -4938,6 +5478,7 @@
     "obtainMessage": "きみのこと、頼りにしてるよ",
     "liveAbilityId": "",
     "rewardCostumeId": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -4979,6 +5520,7 @@
     "rewardCostumeId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -5037,6 +5579,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -5076,6 +5619,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -5117,6 +5661,7 @@
     "highlightDisplayPositionX1": 0.0,
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -5158,6 +5703,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -5220,6 +5766,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -5270,6 +5817,7 @@
     ],
     "activityAbilityId": "",
     "rewardCostumeId": "",
+    "rewardHairId": "",
     "messages": [],
     "homeTalks": []
   },
@@ -5331,6 +5879,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -5395,7 +5944,8 @@
         "homeTalkId": "home-talk-card-ngs-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-ngs-05-mizg-01",
@@ -5459,7 +6009,8 @@
         "homeTalkId": "home-talk-card-ngs-05-mizg-01-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-ngs-05-mizg-02",
@@ -5519,6 +6070,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -5579,6 +6131,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -5639,6 +6192,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -5678,6 +6232,7 @@
     "displayPositionX1": 0.0,
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -5719,6 +6274,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -5760,6 +6316,7 @@
     "highlightDisplayPositionX1": 0.0,
     "highlightDisplayPositionX2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -5822,6 +6379,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -5882,6 +6440,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -5946,7 +6505,8 @@
         "homeTalkId": "home-talk-card-rei-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-rei-05-mizg-02",
@@ -6006,6 +6566,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -6066,6 +6627,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -6126,6 +6688,68 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
+    "homeTalks": []
+  },
+  {
+    "id": "card-rei-05-pair-00",
+    "assetId": "rei-05-pair-00",
+    "name": "ステップアップ・バンビーナ",
+    "description": "寮で時間がある時は\r\n遙子さんからいろんなことを教わってるんです\r\nこれからも沢山のことを教えあって、一歩一歩\r\nみんなと一緒に歩んで行けたらって思ってます",
+    "type": 1,
+    "characterId": "char-rei",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 279,
+    "danceRatioPermil": 434,
+    "visualRatioPermil": 317,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-rei-05-pair-00-1",
+    "skillId2": "sk-rei-05-pair-00-2",
+    "skillId3": "sk-rei-05-pair-00-3",
+    "liveAbilityId": "lba-stamina_add",
+    "order": 307,
+    "releaseDate": "1693278000000",
+    "rewardCostumeId": "cos-rei-pair-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.175,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": -0.133,
+    "highlightDisplayPositionY1": 0.228,
+    "highlightDisplayScale1": 0.7,
+    "imageType2": 3,
+    "displayPositionX2": -0.175,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -0.133,
+    "highlightDisplayPositionY2": 0.228,
+    "highlightDisplayScale2": 0.7,
+    "obtainMessage": "歩幅は一人で決めるものじゃない。\n一緒に決めるものだったんですね",
+    "stories": [
+      {
+        "storyId": "st-card-rei-05-pair-00-01"
+      },
+      {
+        "storyId": "st-card-rei-05-pair-00-02"
+      },
+      {
+        "storyId": "st-card-rei-05-pair-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-rei-05-pair-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-rei-05-pair-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -6190,7 +6814,8 @@
         "homeTalkId": "home-talk-card-rei-05-rock-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-rio-01-casl-00",
@@ -6229,6 +6854,7 @@
     "highlightDisplayPositionX1": 0.0,
     "highlightDisplayPositionX2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -6270,6 +6896,7 @@
     "rewardCostumeId": "",
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -6311,6 +6938,7 @@
     "rewardCostumeId": "",
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -6352,6 +6980,7 @@
     "rewardCostumeId": "",
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -6393,6 +7022,7 @@
     "highlightDisplayPositionX1": 0.0,
     "highlightDisplayPositionX2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -6434,7 +7064,60 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
+    "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-rio-05-birt-00",
+    "assetId": "rio-05-birt-00",
+    "name": "真心パンケーキバースデー",
+    "description": "まさか、ここまで大きなサプライズを\n仕掛けてくるなんて\n今までで一番、忘れられない誕生日よ",
+    "type": 3,
+    "characterId": "char-rio",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 326,
+    "danceRatioPermil": 290,
+    "visualRatioPermil": 414,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-rio-05-birt-00-1",
+    "skillId2": "sk-rio-05-birt-00-2",
+    "skillId3": "sk-rio-05-birt-00-3",
+    "liveAbilityId": "lba-beat_score_multiply",
+    "order": 306,
+    "releaseDate": "1693148400000",
+    "imageType1": 3,
+    "displayPositionX1": -0.004,
+    "displayPositionY1": 0.083,
+    "displayScale1": 1.2,
+    "highlightDisplayPositionX1": -0.117,
+    "highlightDisplayPositionY1": 0.181,
+    "highlightDisplayScale1": 0.8,
+    "imageType2": 3,
+    "displayPositionX2": -0.004,
+    "displayPositionY2": 0.083,
+    "displayScale2": 1.2,
+    "highlightDisplayPositionX2": -0.117,
+    "highlightDisplayPositionY2": 0.181,
+    "highlightDisplayScale2": 0.8,
+    "obtainMessage": "こんなパンケーキ、食べたことないわ！",
+    "stories": [
+      {
+        "storyId": "st-card-rio-05-birt-00-01"
+      },
+      {
+        "storyId": "st-card-rio-05-birt-00-02"
+      },
+      {
+        "storyId": "st-card-rio-05-birt-00-03"
+      }
+    ],
+    "activityAbilityId": "",
+    "rewardCostumeId": "",
+    "rewardHairId": "",
     "messages": [],
     "homeTalks": []
   },
@@ -6496,6 +7179,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -6560,7 +7244,8 @@
     ],
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
-    "displayPositionY2": 0.0
+    "displayPositionY2": 0.0,
+    "rewardHairId": ""
   },
   {
     "id": "card-rio-05-idol-00",
@@ -6624,7 +7309,8 @@
         "homeTalkId": "home-talk-card-rio-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-rio-05-kait-00",
@@ -6684,6 +7370,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -6744,6 +7431,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -6804,6 +7492,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -6864,6 +7553,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -6903,6 +7593,7 @@
     "highlightDisplayPositionX1": 0.0,
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -6944,6 +7635,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -6985,6 +7677,7 @@
     "rewardCostumeId": "",
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -7026,6 +7719,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -7067,6 +7761,7 @@
     "highlightDisplayPositionX1": 0.0,
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -7129,6 +7824,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -7193,7 +7889,8 @@
         "homeTalkId": "home-talk-card-rui-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-rui-05-miku-00",
@@ -7253,6 +7950,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -7317,7 +8015,50 @@
         "homeTalkId": "home-talk-card-rui-05-mizg-01-talk-01"
       }
     ],
-    "liveAbilityId": ""
+    "liveAbilityId": "",
+    "rewardHairId": ""
+  },
+  {
+    "id": "card-rui-05-prem-00",
+    "assetId": "rui-05-prem-00",
+    "name": "水玉を弾く白い翼",
+    "description": "きゃっ！？　もぉ、台本にあるからってかけすぎよ？\nなら私も、それっ！",
+    "type": 2,
+    "characterId": "char-rui",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 277,
+    "danceRatioPermil": 405,
+    "visualRatioPermil": 318,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-rui-05-prem-00-1",
+    "skillId2": "sk-rui-05-prem-00-2",
+    "skillId3": "sk-rui-05-prem-00-3",
+    "liveAbilityId": "lba-dance_multiply",
+    "order": 305,
+    "releaseDate": "1692846000000",
+    "imageType1": 3,
+    "displayPositionX1": -0.187,
+    "displayPositionY1": 0.115,
+    "displayScale1": 1.3,
+    "highlightDisplayPositionX1": 0.136,
+    "highlightDisplayPositionY1": 0.282,
+    "highlightDisplayScale1": 1.1,
+    "imageType2": 3,
+    "displayPositionX2": -0.187,
+    "displayPositionY2": 0.115,
+    "displayScale2": 1.3,
+    "highlightDisplayPositionX2": 0.136,
+    "highlightDisplayPositionY2": 0.282,
+    "highlightDisplayScale2": 1.1,
+    "obtainMessage": "もぉ、台本にあるからってかけすぎよ？",
+    "activityAbilityId": "",
+    "rewardCostumeId": "",
+    "rewardHairId": "",
+    "stories": [],
+    "messages": [],
+    "homeTalks": []
   },
   {
     "id": "card-rui-05-vlnt-00",
@@ -7373,6 +8114,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -7433,6 +8175,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -7472,6 +8215,7 @@
     "rewardCostumeId": "",
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -7513,6 +8257,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -7554,7 +8299,60 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
+    "messages": [],
+    "homeTalks": []
+  },
+  {
+    "id": "card-ski-05-birt-00",
+    "assetId": "ski-05-birt-00",
+    "name": "想い繋がるバースデー",
+    "description": "これからは隣で、一緒に走りましょう\n姉として、ライバルとして、一人のアイドルとして\nこれからもよろしくね。千紗",
+    "type": 1,
+    "characterId": "char-ski",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 317,
+    "danceRatioPermil": 280,
+    "visualRatioPermil": 433,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-ski-05-birt-00-1",
+    "skillId2": "sk-ski-05-birt-00-2",
+    "skillId3": "sk-ski-05-birt-00-3",
+    "liveAbilityId": "lba-technique_add",
+    "order": 313,
+    "releaseDate": "1695654000000",
+    "imageType1": 3,
+    "displayPositionX1": -0.128,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": 0.818,
+    "highlightDisplayPositionY1": 0.291,
+    "highlightDisplayScale1": 0.7,
+    "imageType2": 3,
+    "displayPositionX2": -0.128,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": 0.818,
+    "highlightDisplayPositionY2": 0.291,
+    "highlightDisplayScale2": 0.7,
+    "obtainMessage": "千紗、素敵なプレゼントをありがとう",
+    "stories": [
+      {
+        "storyId": "st-card-ski-05-birt-00-01"
+      },
+      {
+        "storyId": "st-card-ski-05-birt-00-02"
+      },
+      {
+        "storyId": "st-card-ski-05-birt-00-03"
+      }
+    ],
+    "activityAbilityId": "",
+    "rewardCostumeId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "messages": [],
     "homeTalks": []
   },
@@ -7616,6 +8414,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -7680,7 +8479,8 @@
         "homeTalkId": "home-talk-card-ski-05-idol-00-talk-01"
       }
     ],
-    "liveAbilityId": ""
+    "liveAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-ski-05-kifj-00",
@@ -7744,7 +8544,8 @@
         "homeTalkId": "home-talk-card-ski-05-kifj-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-ski-05-mizg-02",
@@ -7804,6 +8605,7 @@
     "liveAbilityId": "",
     "highlightDisplayPositionX1": 0.0,
     "highlightDisplayPositionX2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -7864,6 +8666,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -7924,6 +8727,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -7984,6 +8788,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -8023,6 +8828,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -8064,6 +8870,7 @@
     "rewardCostumeId": "",
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -8105,6 +8912,7 @@
     "rewardCostumeId": "",
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -8146,6 +8954,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -8187,6 +8996,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -8249,6 +9059,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -8313,7 +9124,8 @@
         "homeTalkId": "home-talk-card-skr-05-fest-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-skr-05-fest-01",
@@ -8373,6 +9185,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -8437,7 +9250,8 @@
         "homeTalkId": "home-talk-card-skr-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-skr-05-idol-03",
@@ -8497,6 +9311,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -8557,6 +9372,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -8617,6 +9433,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -8656,6 +9473,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -8697,6 +9515,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -8738,6 +9557,7 @@
     "highlightDisplayPositionX1": 0.0,
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -8800,6 +9620,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -8860,6 +9681,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -8924,7 +9746,8 @@
         "homeTalkId": "home-talk-card-smr-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-smr-05-mizg-01",
@@ -8988,7 +9811,8 @@
         "homeTalkId": "home-talk-card-smr-05-mizg-01-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-smr-05-mizg-02",
@@ -9048,6 +9872,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -9108,6 +9933,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -9168,6 +9994,7 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -9207,6 +10034,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -9248,6 +10076,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -9289,6 +10118,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -9351,6 +10181,59 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
+    "homeTalks": []
+  },
+  {
+    "id": "card-suz-05-birt-00",
+    "assetId": "suz-05-birt-00",
+    "name": "すずにゃん様のバースデー",
+    "description": "みなさんからの祝福、今日は沢山受け取りました\nこの勢いで、私……成宮すずは――\nアイドルの天下を取りますわ！",
+    "type": 3,
+    "characterId": "char-suz",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 288,
+    "danceRatioPermil": 413,
+    "visualRatioPermil": 329,
+    "staminaRatioPermil": 900,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-suz-05-birt-00-1",
+    "skillId2": "sk-suz-05-birt-00-2",
+    "skillId3": "sk-suz-05-birt-00-3",
+    "activityAbilityId": "aab-fan_event_manager_exp_up",
+    "order": 311,
+    "releaseDate": "1694530800000",
+    "imageType1": 3,
+    "displayPositionX1": 0.089,
+    "displayScale1": 1.0,
+    "highlightDisplayPositionX1": -0.133,
+    "highlightDisplayPositionY1": 0.228,
+    "highlightDisplayScale1": 0.7,
+    "imageType2": 3,
+    "displayPositionX2": 0.089,
+    "displayScale2": 1.0,
+    "highlightDisplayPositionX2": -0.133,
+    "highlightDisplayPositionY2": 0.228,
+    "highlightDisplayScale2": 0.7,
+    "obtainMessage": "成宮すずの誕生祭、スタートですわ～！",
+    "stories": [
+      {
+        "storyId": "st-card-suz-05-birt-00-01"
+      },
+      {
+        "storyId": "st-card-suz-05-birt-00-02"
+      },
+      {
+        "storyId": "st-card-suz-05-birt-00-03"
+      }
+    ],
+    "liveAbilityId": "",
+    "rewardCostumeId": "",
+    "displayPositionY1": 0.0,
+    "displayPositionY2": 0.0,
+    "rewardHairId": "",
+    "messages": [],
     "homeTalks": []
   },
   {
@@ -9415,7 +10298,8 @@
         "homeTalkId": "home-talk-card-suz-05-idol-00-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-suz-05-kion-00",
@@ -9475,6 +10359,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -9539,7 +10424,8 @@
         "homeTalkId": "home-talk-card-suz-05-mizg-01-talk-01"
       }
     ],
-    "liveAbilityId": ""
+    "liveAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-suz-05-onep-00",
@@ -9599,6 +10485,68 @@
       }
     ],
     "liveAbilityId": "",
+    "rewardHairId": "",
+    "homeTalks": []
+  },
+  {
+    "id": "card-suz-05-pair-00",
+    "assetId": "suz-05-pair-00",
+    "name": "ごきげんワンぱくガール",
+    "description": "芽衣？　どうして私の頭をナデナデしてるんですの！？\n「可愛いな～」って、私は犬ではありませんわ～！",
+    "type": 2,
+    "characterId": "char-suz",
+    "initialRarity": 5,
+    "cardParameterId": "card-param-01",
+    "vocalRatioPermil": 404,
+    "danceRatioPermil": 317,
+    "visualRatioPermil": 279,
+    "staminaRatioPermil": 1000,
+    "cardLevelReleaseId": "card_level_release_1",
+    "skillId1": "sk-suz-05-pair-00-1",
+    "skillId2": "sk-suz-05-pair-00-2",
+    "skillId3": "sk-suz-05-pair-00-3",
+    "liveAbilityId": "lba-vocal_multiply",
+    "order": 317,
+    "releaseDate": "1696302000000",
+    "rewardCostumeId": "cos-suz-pair-00",
+    "imageType1": 3,
+    "displayPositionX1": -0.239,
+    "displayPositionY1": 0.188,
+    "displayScale1": 1.6,
+    "highlightDisplayPositionX1": 0.404,
+    "highlightDisplayPositionY1": 0.252,
+    "highlightDisplayScale1": 1.1,
+    "imageType2": 3,
+    "displayPositionX2": -0.239,
+    "displayPositionY2": 0.188,
+    "displayScale2": 1.6,
+    "highlightDisplayPositionX2": 0.404,
+    "highlightDisplayPositionY2": 0.252,
+    "highlightDisplayScale2": 1.1,
+    "obtainMessage": "本当に、芽衣は世話が焼けますわね",
+    "stories": [
+      {
+        "storyId": "st-card-suz-05-pair-00-01"
+      },
+      {
+        "storyId": "st-card-suz-05-pair-00-02"
+      },
+      {
+        "storyId": "st-card-suz-05-pair-00-03"
+      }
+    ],
+    "messages": [
+      {
+        "messageId": "message-card-suz-05-pair-00",
+        "telephoneId": ""
+      },
+      {
+        "telephoneId": "tel-card-suz-05-pair-00",
+        "messageId": ""
+      }
+    ],
+    "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -9659,6 +10607,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -9719,6 +10668,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -9758,6 +10708,7 @@
     "rewardCostumeId": "",
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -9799,6 +10750,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -9840,6 +10792,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -9881,6 +10834,7 @@
     "highlightDisplayPositionX1": 0.0,
     "displayPositionY2": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -9943,6 +10897,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -10007,7 +10962,8 @@
     ],
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
-    "displayPositionY2": 0.0
+    "displayPositionY2": 0.0,
+    "rewardHairId": ""
   },
   {
     "id": "card-szk-05-pajm-00",
@@ -10067,6 +11023,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -10106,6 +11063,7 @@
     "obtainMessage": "今日の私たちは……一味違う……！\na.k.a.サニポップ……参上……？",
     "liveAbilityId": "",
     "rewardCostumeId": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -10168,6 +11126,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -10228,6 +11187,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -10288,6 +11248,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -10327,6 +11288,7 @@
     "activityAbilityId": "",
     "rewardCostumeId": "",
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -10368,6 +11330,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -10409,6 +11372,7 @@
     "displayPositionX1": 0.0,
     "highlightDisplayPositionX1": 0.0,
     "obtainMessage": "",
+    "rewardHairId": "",
     "stories": [],
     "messages": [],
     "homeTalks": []
@@ -10471,6 +11435,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -10535,7 +11500,8 @@
         "homeTalkId": "home-talk-card-yu-05-idol-00-talk-01"
       }
     ],
-    "liveAbilityId": ""
+    "liveAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-yu-05-mizg-01",
@@ -10599,7 +11565,8 @@
         "homeTalkId": "home-talk-card-yu-05-mizg-01-talk-01"
       }
     ],
-    "activityAbilityId": ""
+    "activityAbilityId": "",
+    "rewardHairId": ""
   },
   {
     "id": "card-yu-05-mizg-02",
@@ -10659,6 +11626,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -10719,6 +11687,7 @@
       }
     ],
     "activityAbilityId": "",
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -10779,6 +11748,7 @@
     "liveAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   },
   {
@@ -10839,6 +11809,7 @@
     "activityAbilityId": "",
     "displayPositionY1": 0.0,
     "displayPositionY2": 0.0,
+    "rewardHairId": "",
     "homeTalks": []
   }
 ]
