@@ -77,10 +77,18 @@ const getRawMusic = (
     ?? logIdNotFound("Music", id)
 }
 
+const getAllRawMusic = (): Music[] => {
+  return rawMusic
+}
+
 const getRawMusicChartPattern = (
   id: string
 ): MusicChartPattern[] => {
   return rawMusicChartPattern.filter(it => it.id === id)
+}
+
+const getAllRawMusicChartPattern = (): MusicChartPattern[] => {
+  return rawMusicChartPattern
 }
 
 const getRawLiveBonusGroup = (
@@ -107,7 +115,9 @@ const getRawLiveAbility = (
 export {
   getRawQuest,
   getRawMusic,
+  getAllRawMusic,
   getRawMusicChartPattern,
+  getAllRawMusicChartPattern,
   getRawLiveBonusGroup,
   getRawLiveBonus,
   getRawLiveAbility,

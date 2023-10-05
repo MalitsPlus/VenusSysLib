@@ -21,11 +21,11 @@ export const getWapQuest = (
   }
 }
 
-const getWapMusicChartPatterns = (
+export const getWapMusicChartPatterns = (
   id: string
 ): WapMusicChartPattern[] | undefined => {
   const original = getRawMusicChartPattern(id)
-  if (!original) return undefined
+  if (original.length === 0) return undefined
   return original
     .filter(ptn => ptn.type !== MusicChartType.Unknown)
     .sort((a, b) => a.number - b.number)

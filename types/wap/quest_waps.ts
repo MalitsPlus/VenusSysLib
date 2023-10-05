@@ -15,3 +15,16 @@ export type WapQuest = QuestBase & {
 export type WapMusicChartPattern = MusicChartPattern & {
   sequence: number
 }
+
+export type Custmap = Pick<WapQuest,
+  "musicId" |
+  "musicName" |
+  "musicChartPatternId" |
+  "musicChartPatterns" |
+  "position1AttributeType" |
+  "position2AttributeType" |
+  "position3AttributeType" |
+  "position4AttributeType" |
+  "position5AttributeType" |
+  "getLaneType"
+>
