@@ -62,7 +62,7 @@ export const getMusicPatternIds = (
   if (rst) {
     const md = rst[1]
     for (const idx of ["001", "002"]) {
-      const id = `${md}-${idx}`
+      const id = `chart-${md}-${idx}`
       const patterns = getRawMusicChartPattern(id)
       if (patterns.length > 0) {
         ids.push(id)
