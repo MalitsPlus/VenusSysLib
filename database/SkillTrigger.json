@@ -1,1 +1,816 @@
-[{"id":"tg-beat","type":1,"characterIds":[]},{"id":"tg-before_active_skill_by_someone","type":5,"characterIds":[]},{"id":"tg-before_critical","type":7,"characterIds":[]},{"id":"tg-before_critical_by_someone","type":8,"characterIds":[]},{"id":"tg-before_special_skill","type":37,"characterIds":[]},{"id":"tg-before_special_skill_by_someone","type":6,"characterIds":[]},{"id":"tg-center","type":16,"characterIds":[]},{"id":"tg-combo-100","type":3,"characterIds":[]},{"id":"tg-combo-50","type":3,"characterIds":[]},{"id":"tg-combo-80","type":3,"characterIds":[]},{"id":"tg-combo-90","type":3,"characterIds":[]},{"id":"tg-combo_less_equal-100","type":33,"characterIds":[]},{"id":"tg-combo_less_equal-50","type":33,"characterIds":[]},{"id":"tg-combo_less_equal-80","type":33,"characterIds":[]},{"id":"tg-critical","type":9,"characterIds":[]},{"id":"tg-fan_engage_higher-10","type":15,"characterIds":[]},{"id":"tg-fan_engage_higher-15","type":15,"characterIds":[]},{"id":"tg-fan_engage_higher-20","type":15,"characterIds":[]},{"id":"tg-fan_engage_higher-25","type":15,"characterIds":[]},{"id":"tg-fan_engage_higher-30","type":15,"characterIds":[]},{"id":"tg-live_start","type":2,"characterIds":[]},{"id":"tg-mood_type-black_club","type":17,"characterIds":[]},{"id":"tg-mood_type-black_diamond","type":17,"characterIds":[]},{"id":"tg-mood_type-black_heart","type":17,"characterIds":[]},{"id":"tg-mood_type-black_spade","type":17,"characterIds":[]},{"id":"tg-mood_type-white_club","type":17,"characterIds":[]},{"id":"tg-mood_type-white_diamond","type":17,"characterIds":[]},{"id":"tg-mood_type-white_heart","type":17,"characterIds":[]},{"id":"tg-mood_type-white_spade","type":17,"characterIds":[]},{"id":"tg-more_than_character_count-ai-1","type":4,"characterIds":["char-ai"]},{"id":"tg-more_than_character_count-aoi-1","type":4,"characterIds":["char-aoi"]},{"id":"tg-more_than_character_count-chs-1","type":4,"characterIds":["char-chs"]},{"id":"tg-more_than_character_count-hrk-1","type":4,"characterIds":["char-hrk"]},{"id":"tg-more_than_character_count-kkr-1","type":4,"characterIds":["char-kkr"]},{"id":"tg-more_than_character_count-ktn-1","type":4,"characterIds":["char-ktn"]},{"id":"tg-more_than_character_count-leader-1","type":4,"characterIds":["char-ktn","char-skr","char-rui","char-rio","char-kor"]},{"id":"tg-more_than_character_count-leader-2","type":4,"characterIds":["char-ktn","char-skr","char-rui","char-rio","char-kor"]},{"id":"tg-more_than_character_count-leader-3","type":4,"characterIds":["char-ktn","char-skr","char-rui","char-rio","char-kor"]},{"id":"tg-more_than_character_count-leader-4","type":4,"characterIds":["char-ktn","char-skr","char-rui","char-rio","char-kor"]},{"id":"tg-more_than_character_count-leader-5","type":4,"characterIds":["char-ktn","char-skr","char-rui","char-rio","char-kor"]},{"id":"tg-more_than_character_count-liz-1","type":4,"characterIds":["char-rio","char-aoi","char-ai","char-kkr"]},{"id":"tg-more_than_character_count-mei-1","type":4,"characterIds":["char-mei"]},{"id":"tg-more_than_character_count-moon-1","type":4,"characterIds":["char-ktn","char-ngs","char-mei","char-suz","char-ski"]},{"id":"tg-more_than_character_count-moon-2","type":4,"characterIds":["char-ktn","char-ngs","char-mei","char-suz","char-ski"]},{"id":"tg-more_than_character_count-moon-3","type":4,"characterIds":["char-ktn","char-ngs","char-mei","char-suz","char-ski"]},{"id":"tg-more_than_character_count-moon-4","type":4,"characterIds":["char-ktn","char-ngs","char-mei","char-suz","char-ski"]},{"id":"tg-more_than_character_count-moon-5","type":4,"characterIds":["char-ktn","char-ngs","char-mei","char-suz","char-ski"]},{"id":"tg-more_than_character_count-ngs-1","type":4,"characterIds":["char-ngs"]},{"id":"tg-more_than_character_count-pajm-1","type":4,"characterIds":["char-smr","char-szk","char-chs","char-kkr","char-suz"]},{"id":"tg-more_than_character_count-pajm-2","type":4,"characterIds":["char-smr","char-szk","char-chs","char-kkr","char-suz"]},{"id":"tg-more_than_character_count-pajm-3","type":4,"characterIds":["char-smr","char-szk","char-chs","char-kkr","char-suz"]},{"id":"tg-more_than_character_count-pajm-4","type":4,"characterIds":["char-smr","char-szk","char-chs","char-kkr","char-suz"]},{"id":"tg-more_than_character_count-pajm-5","type":4,"characterIds":["char-smr","char-szk","char-chs","char-kkr","char-suz"]},{"id":"tg-more_than_character_count-rei-1","type":4,"characterIds":["char-rei"]},{"id":"tg-more_than_character_count-rio-1","type":4,"characterIds":["char-rio"]},{"id":"tg-more_than_character_count-rui-1","type":4,"characterIds":["char-rui"]},{"id":"tg-more_than_character_count-ski-1","type":4,"characterIds":["char-ski"]},{"id":"tg-more_than_character_count-skr-1","type":4,"characterIds":["char-skr"]},{"id":"tg-more_than_character_count-smr-1","type":4,"characterIds":["char-smr"]},{"id":"tg-more_than_character_count-sun-1","type":4,"characterIds":["char-skr","char-szk","char-chs","char-rei","char-hrk"]},{"id":"tg-more_than_character_count-sun-2","type":4,"characterIds":["char-skr","char-szk","char-chs","char-rei","char-hrk"]},{"id":"tg-more_than_character_count-sun-3","type":4,"characterIds":["char-skr","char-szk","char-chs","char-rei","char-hrk"]},{"id":"tg-more_than_character_count-sun-4","type":4,"characterIds":["char-skr","char-szk","char-chs","char-rei","char-hrk"]},{"id":"tg-more_than_character_count-sun-5","type":4,"characterIds":["char-skr","char-szk","char-chs","char-rei","char-hrk"]},{"id":"tg-more_than_character_count-suz-1","type":4,"characterIds":["char-suz"]},{"id":"tg-more_than_character_count-szk-1","type":4,"characterIds":["char-szk"]},{"id":"tg-more_than_character_count-tri-1","type":4,"characterIds":["char-rui","char-yu","char-smr"]},{"id":"tg-more_than_character_count-tri-2","type":4,"characterIds":["char-rui","char-yu","char-smr"]},{"id":"tg-more_than_character_count-tri-3","type":4,"characterIds":["char-rui","char-yu","char-smr"]},{"id":"tg-more_than_character_count-tri-4","type":4,"characterIds":["char-rui","char-yu","char-smr"]},{"id":"tg-more_than_character_count-tri-5","type":4,"characterIds":["char-rui","char-yu","char-smr"]},{"id":"tg-more_than_character_count-yu-1","type":4,"characterIds":["char-yu"]},{"id":"tg-music-music-clb-004","type":18,"characterIds":[]},{"id":"tg-position_attribute_dance","type":22,"characterIds":[]},{"id":"tg-position_attribute_visual","type":23,"characterIds":[]},{"id":"tg-position_attribute_vocal","type":21,"characterIds":[]},{"id":"tg-someone_recovered","type":26,"characterIds":[]},{"id":"tg-someone_stamina_lower-30","type":14,"characterIds":[]},{"id":"tg-someone_stamina_lower-50","type":14,"characterIds":[]},{"id":"tg-someone_stamina_lower-70","type":14,"characterIds":[]},{"id":"tg-someone_status-audience_amount_increase","type":11,"characterIds":[]},{"id":"tg-someone_status-audience_amount_reduction","type":11,"characterIds":[]},{"id":"tg-someone_status-beat_score_up","type":11,"characterIds":[]},{"id":"tg-someone_status-combo_continuation","type":11,"characterIds":[]},{"id":"tg-someone_status-critical_bonus_permil_up","type":11,"characterIds":[]},{"id":"tg-someone_status-critical_rate_up","type":11,"characterIds":[]},{"id":"tg-someone_status-dance_down","type":11,"characterIds":[]},{"id":"tg-someone_status-dance_up","type":11,"characterIds":[]},{"id":"tg-someone_status-score_up","type":11,"characterIds":[]},{"id":"tg-someone_status-skill_impossible","type":11,"characterIds":[]},{"id":"tg-someone_status-skill_score_up","type":11,"characterIds":[]},{"id":"tg-someone_status-skill_success_rate_up","type":11,"characterIds":[]},{"id":"tg-someone_status-stamina_consumption_increase","type":11,"characterIds":[]},{"id":"tg-someone_status-stamina_consumption_reduction","type":11,"characterIds":[]},{"id":"tg-someone_status-tension_up","type":11,"characterIds":[]},{"id":"tg-someone_status-visual_boost","type":11,"characterIds":[]},{"id":"tg-someone_status-visual_down","type":11,"characterIds":[]},{"id":"tg-someone_status-visual_up","type":11,"characterIds":[]},{"id":"tg-someone_status-vocal_boost","type":11,"characterIds":[]},{"id":"tg-someone_status-vocal_down","type":11,"characterIds":[]},{"id":"tg-someone_status-vocal_up","type":11,"characterIds":[]},{"id":"tg-someone_status_group-weekness","type":20,"characterIds":[]},{"id":"tg-stamina_higher-100","type":13,"characterIds":[]},{"id":"tg-stamina_higher-60","type":13,"characterIds":[]},{"id":"tg-stamina_higher-80","type":13,"characterIds":[]},{"id":"tg-stamina_lower-30","type":12,"characterIds":[]},{"id":"tg-stamina_lower-50","type":12,"characterIds":[]},{"id":"tg-stamina_lower-70","type":12,"characterIds":[]},{"id":"tg-status-audience_amount_increase","type":10,"characterIds":[]},{"id":"tg-status-audience_amount_reduction","type":10,"characterIds":[]},{"id":"tg-status-beat_score_up","type":10,"characterIds":[]},{"id":"tg-status-combo_continuation","type":10,"characterIds":[]},{"id":"tg-status-critical_bonus_permil_up","type":10,"characterIds":[]},{"id":"tg-status-critical_rate_up","type":10,"characterIds":[]},{"id":"tg-status-dance_down","type":10,"characterIds":[]},{"id":"tg-status-dance_up","type":10,"characterIds":[]},{"id":"tg-status-score_up","type":10,"characterIds":[]},{"id":"tg-status-skill_impossible","type":10,"characterIds":[]},{"id":"tg-status-skill_score_up","type":10,"characterIds":[]},{"id":"tg-status-stamina_consumption_increase","type":10,"characterIds":[]},{"id":"tg-status-stamina_consumption_reduction","type":10,"characterIds":[]},{"id":"tg-status-tension_up","type":10,"characterIds":[]},{"id":"tg-status-visual_down","type":10,"characterIds":[]},{"id":"tg-status-visual_up","type":10,"characterIds":[]},{"id":"tg-status-vocal_down","type":10,"characterIds":[]},{"id":"tg-status-vocal_up","type":10,"characterIds":[]},{"id":"tg-status_group-weekness","type":19,"characterIds":[]}]
+[
+  {
+    "id": "tg-beat",
+    "type": 1,
+    "characterIds": []
+  },
+  {
+    "id": "tg-before_active_skill_by_someone",
+    "type": 5,
+    "characterIds": []
+  },
+  {
+    "id": "tg-before_critical",
+    "type": 7,
+    "characterIds": []
+  },
+  {
+    "id": "tg-before_critical_by_someone",
+    "type": 8,
+    "characterIds": []
+  },
+  {
+    "id": "tg-before_special_skill",
+    "type": 37,
+    "characterIds": []
+  },
+  {
+    "id": "tg-before_special_skill_by_someone",
+    "type": 6,
+    "characterIds": []
+  },
+  {
+    "id": "tg-center",
+    "type": 16,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo-100",
+    "type": 3,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo-50",
+    "type": 3,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo-80",
+    "type": 3,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo-90",
+    "type": 3,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo_less_equal-100",
+    "type": 33,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo_less_equal-50",
+    "type": 33,
+    "characterIds": []
+  },
+  {
+    "id": "tg-combo_less_equal-80",
+    "type": 33,
+    "characterIds": []
+  },
+  {
+    "id": "tg-critical",
+    "type": 9,
+    "characterIds": []
+  },
+  {
+    "id": "tg-fan_engage_higher-10",
+    "type": 15,
+    "characterIds": []
+  },
+  {
+    "id": "tg-fan_engage_higher-15",
+    "type": 15,
+    "characterIds": []
+  },
+  {
+    "id": "tg-fan_engage_higher-20",
+    "type": 15,
+    "characterIds": []
+  },
+  {
+    "id": "tg-fan_engage_higher-25",
+    "type": 15,
+    "characterIds": []
+  },
+  {
+    "id": "tg-fan_engage_higher-30",
+    "type": 15,
+    "characterIds": []
+  },
+  {
+    "id": "tg-live_start",
+    "type": 2,
+    "characterIds": []
+  },
+  {
+    "id": "tg-mood_type-black_club",
+    "type": 17,
+    "characterIds": []
+  },
+  {
+    "id": "tg-mood_type-black_diamond",
+    "type": 17,
+    "characterIds": []
+  },
+  {
+    "id": "tg-mood_type-black_heart",
+    "type": 17,
+    "characterIds": []
+  },
+  {
+    "id": "tg-mood_type-black_spade",
+    "type": 17,
+    "characterIds": []
+  },
+  {
+    "id": "tg-mood_type-white_club",
+    "type": 17,
+    "characterIds": []
+  },
+  {
+    "id": "tg-mood_type-white_diamond",
+    "type": 17,
+    "characterIds": []
+  },
+  {
+    "id": "tg-mood_type-white_heart",
+    "type": 17,
+    "characterIds": []
+  },
+  {
+    "id": "tg-mood_type-white_spade",
+    "type": 17,
+    "characterIds": []
+  },
+  {
+    "id": "tg-more_than_character_count-ai-1",
+    "type": 4,
+    "characterIds": [
+      "char-ai"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-aoi-1",
+    "type": 4,
+    "characterIds": [
+      "char-aoi"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-chs-1",
+    "type": 4,
+    "characterIds": [
+      "char-chs"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-hrk-1",
+    "type": 4,
+    "characterIds": [
+      "char-hrk"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-kkr-1",
+    "type": 4,
+    "characterIds": [
+      "char-kkr"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-ktn-1",
+    "type": 4,
+    "characterIds": [
+      "char-ktn"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-leader-1",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-skr",
+      "char-rui",
+      "char-rio",
+      "char-kor"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-leader-2",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-skr",
+      "char-rui",
+      "char-rio",
+      "char-kor"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-leader-3",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-skr",
+      "char-rui",
+      "char-rio",
+      "char-kor"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-leader-4",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-skr",
+      "char-rui",
+      "char-rio",
+      "char-kor"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-leader-5",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-skr",
+      "char-rui",
+      "char-rio",
+      "char-kor"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-liz-1",
+    "type": 4,
+    "characterIds": [
+      "char-rio",
+      "char-aoi",
+      "char-ai",
+      "char-kkr"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-mei-1",
+    "type": 4,
+    "characterIds": [
+      "char-mei"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-1",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-ngs",
+      "char-mei",
+      "char-suz",
+      "char-ski"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-2",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-ngs",
+      "char-mei",
+      "char-suz",
+      "char-ski"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-3",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-ngs",
+      "char-mei",
+      "char-suz",
+      "char-ski"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-4",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-ngs",
+      "char-mei",
+      "char-suz",
+      "char-ski"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-moon-5",
+    "type": 4,
+    "characterIds": [
+      "char-ktn",
+      "char-ngs",
+      "char-mei",
+      "char-suz",
+      "char-ski"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-ngs-1",
+    "type": 4,
+    "characterIds": [
+      "char-ngs"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-pajm-1",
+    "type": 4,
+    "characterIds": [
+      "char-smr",
+      "char-szk",
+      "char-chs",
+      "char-kkr",
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-pajm-2",
+    "type": 4,
+    "characterIds": [
+      "char-smr",
+      "char-szk",
+      "char-chs",
+      "char-kkr",
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-pajm-3",
+    "type": 4,
+    "characterIds": [
+      "char-smr",
+      "char-szk",
+      "char-chs",
+      "char-kkr",
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-pajm-4",
+    "type": 4,
+    "characterIds": [
+      "char-smr",
+      "char-szk",
+      "char-chs",
+      "char-kkr",
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-pajm-5",
+    "type": 4,
+    "characterIds": [
+      "char-smr",
+      "char-szk",
+      "char-chs",
+      "char-kkr",
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-rei-1",
+    "type": 4,
+    "characterIds": [
+      "char-rei"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-rio-1",
+    "type": 4,
+    "characterIds": [
+      "char-rio"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-rui-1",
+    "type": 4,
+    "characterIds": [
+      "char-rui"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-ski-1",
+    "type": 4,
+    "characterIds": [
+      "char-ski"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-skr-1",
+    "type": 4,
+    "characterIds": [
+      "char-skr"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-smr-1",
+    "type": 4,
+    "characterIds": [
+      "char-smr"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-sun-1",
+    "type": 4,
+    "characterIds": [
+      "char-skr",
+      "char-szk",
+      "char-chs",
+      "char-rei",
+      "char-hrk"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-sun-2",
+    "type": 4,
+    "characterIds": [
+      "char-skr",
+      "char-szk",
+      "char-chs",
+      "char-rei",
+      "char-hrk"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-sun-3",
+    "type": 4,
+    "characterIds": [
+      "char-skr",
+      "char-szk",
+      "char-chs",
+      "char-rei",
+      "char-hrk"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-sun-4",
+    "type": 4,
+    "characterIds": [
+      "char-skr",
+      "char-szk",
+      "char-chs",
+      "char-rei",
+      "char-hrk"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-sun-5",
+    "type": 4,
+    "characterIds": [
+      "char-skr",
+      "char-szk",
+      "char-chs",
+      "char-rei",
+      "char-hrk"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-suz-1",
+    "type": 4,
+    "characterIds": [
+      "char-suz"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-szk-1",
+    "type": 4,
+    "characterIds": [
+      "char-szk"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-tri-1",
+    "type": 4,
+    "characterIds": [
+      "char-rui",
+      "char-yu",
+      "char-smr"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-tri-2",
+    "type": 4,
+    "characterIds": [
+      "char-rui",
+      "char-yu",
+      "char-smr"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-tri-3",
+    "type": 4,
+    "characterIds": [
+      "char-rui",
+      "char-yu",
+      "char-smr"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-tri-4",
+    "type": 4,
+    "characterIds": [
+      "char-rui",
+      "char-yu",
+      "char-smr"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-tri-5",
+    "type": 4,
+    "characterIds": [
+      "char-rui",
+      "char-yu",
+      "char-smr"
+    ]
+  },
+  {
+    "id": "tg-more_than_character_count-yu-1",
+    "type": 4,
+    "characterIds": [
+      "char-yu"
+    ]
+  },
+  {
+    "id": "tg-music-music-clb-004",
+    "type": 18,
+    "characterIds": []
+  },
+  {
+    "id": "tg-position_attribute_dance",
+    "type": 22,
+    "characterIds": []
+  },
+  {
+    "id": "tg-position_attribute_visual",
+    "type": 23,
+    "characterIds": []
+  },
+  {
+    "id": "tg-position_attribute_vocal",
+    "type": 21,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_recovered",
+    "type": 26,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_stamina_lower-30",
+    "type": 14,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_stamina_lower-50",
+    "type": 14,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_stamina_lower-70",
+    "type": 14,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-audience_amount_increase",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-audience_amount_reduction",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-beat_score_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-combo_continuation",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-critical_bonus_permil_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-critical_rate_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-dance_down",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-dance_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-score_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-skill_impossible",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-skill_score_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-skill_success_rate_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-stamina_consumption_increase",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-stamina_consumption_reduction",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-tension_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-visual_boost",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-visual_down",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-visual_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-vocal_boost",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-vocal_down",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status-vocal_up",
+    "type": 11,
+    "characterIds": []
+  },
+  {
+    "id": "tg-someone_status_group-weekness",
+    "type": 20,
+    "characterIds": []
+  },
+  {
+    "id": "tg-stamina_higher-100",
+    "type": 13,
+    "characterIds": []
+  },
+  {
+    "id": "tg-stamina_higher-60",
+    "type": 13,
+    "characterIds": []
+  },
+  {
+    "id": "tg-stamina_higher-80",
+    "type": 13,
+    "characterIds": []
+  },
+  {
+    "id": "tg-stamina_lower-30",
+    "type": 12,
+    "characterIds": []
+  },
+  {
+    "id": "tg-stamina_lower-50",
+    "type": 12,
+    "characterIds": []
+  },
+  {
+    "id": "tg-stamina_lower-70",
+    "type": 12,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-audience_amount_increase",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-audience_amount_reduction",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-beat_score_up",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-combo_continuation",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-critical_bonus_permil_up",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-critical_rate_up",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-dance_down",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-dance_up",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-score_up",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-skill_impossible",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-skill_score_up",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-stamina_consumption_increase",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-stamina_consumption_reduction",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-tension_up",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-visual_down",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-visual_up",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-vocal_down",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status-vocal_up",
+    "type": 10,
+    "characterIds": []
+  },
+  {
+    "id": "tg-status_group-weekness",
+    "type": 19,
+    "characterIds": []
+  }
+]
