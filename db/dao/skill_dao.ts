@@ -3,16 +3,30 @@ import {
   SkillTrigger
 } from "../../types/proto/proto_master"
 
-import protoSkill from "../../database/Skill.json"
-import protoSkillEfficacy from "../../database/SkillEfficacy.json"
-import protoSkillTarget from "../../database/SkillTarget.json"
-import protoSkillTrigger from "../../database/SkillTrigger.json"
 import { logIdNotFound } from "../../utils/console_utils"
+import { getRaw, isAllInitialzed } from "./utils"
 
-const rawSkill: Skill[] = protoSkill
-const rawSkillTarget: SkillTarget[] = protoSkillTarget
-const rawSkillTrigger: SkillTrigger[] = protoSkillTrigger
-const rawSkillEfficacy: SkillEfficacy[] = protoSkillEfficacy
+let rawSkill: Skill[]
+let rawSkillTarget: SkillTarget[]
+let rawSkillTrigger: SkillTrigger[]
+let rawSkillEfficacy: SkillEfficacy[]
+
+
+async function initSkill() {
+  if (isAllInitialzed(rawSkill, rawSkillTarget, rawSkillTrigger, rawSkillEfficacy)) {
+    return
+  }
+  const results = await Promise.all([
+    getRaw<Skill[]>("Skill"),
+    getRaw<SkillTarget[]>("SkillTarget"),
+    getRaw<SkillTrigger[]>("SkillTrigger"),
+    getRaw<SkillEfficacy[]>("SkillEfficacy"),
+  ])
+  rawSkill = results[0]
+  rawSkillTarget = results[1]
+  rawSkillTrigger = results[2]
+  rawSkillEfficacy = results[3]
+}
 
 const getRawSkill = (
   id: string
@@ -46,11 +60,12 @@ const getRawSkillEfficacy = (
 ): SkillEfficacy | undefined => {
   return rawSkillEfficacy.find(it => it.id === id)
     ?? logIdNotFound("SkillEfficacy", id)
-}   
+}
 
 export {
   getRawSkill,
   getRawSkillTarget,
   getRawSkillEfficacy,
   getRawSkillTrigger,
+  initSkill,
 }

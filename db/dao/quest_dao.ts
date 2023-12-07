@@ -2,40 +2,74 @@ import { LiveAbility, LiveBonus, LiveBonusGroup, Music, MusicChartPattern } from
 import { QuestBase } from "../../types/quest_types"
 import { logIdNotFound } from "../../utils/console_utils"
 
-import protoliveAbility from "../../database/LiveAbility.json"
-import protoLiveBonus from "../../database/LiveBonus.json"
-import protoLiveBonusGroup from "../../database/LiveBonusGroup.json"
-import protoMarathonQuest from "../../database/MarathonQuest.json"
-import protoMusic from "../../database/Music.json"
-import protoMusicChartPattern from "../../database/MusicChartPattern.json"
-import protoQuest from "../../database/Quest.json"
-
-import gvgQuest from "../../database/GvgQuest.json"
-import LeagueQuest from "../../database/LeagueQuest.json"
-import pvpQuest from "../../database/PvpQuest.json"
-import RaidQuest from "../../database/RaidQuest.json"
+import { getRaw, isAllInitialzed } from "./utils"
 
 
-const rawQuest: QuestBase[] = protoQuest
-const rawMarathonQuest: QuestBase[] = protoMarathonQuest
-const rawMusic: Music[] = protoMusic
-const rawMusicChartPattern: MusicChartPattern[] = protoMusicChartPattern
-const rawLiveBonusGroup: LiveBonusGroup[] = protoLiveBonusGroup
-const rawLiveBonus: LiveBonus[] = protoLiveBonus
-const rawLiveAbility: LiveAbility[] = protoliveAbility
-const rawPvpQuest: QuestBase[] = pvpQuest
-const rawGvgQuest: QuestBase[] = gvgQuest
-const rawLeagueQuest: QuestBase[] = LeagueQuest
-const rawRaidQuest: QuestBase[] = RaidQuest
+let rawQuest: QuestBase[]
+let rawMarathonQuest: QuestBase[]
+let rawMusic: Music[]
+let rawMusicChartPattern: MusicChartPattern[]
+let rawLiveBonusGroup: LiveBonusGroup[]
+let rawLiveBonus: LiveBonus[]
+let rawLiveAbility: LiveAbility[]
+let rawPvpQuest: QuestBase[]
+let rawGvgQuest: QuestBase[]
+let rawLeagueQuest: QuestBase[]
+let rawRaidQuest: QuestBase[]
 
-const allRawQuest: QuestBase[] = [
-  ...rawQuest,
-  ...rawMarathonQuest,
-  ...rawPvpQuest,
-  ...rawGvgQuest,
-  ...rawLeagueQuest,
-  ...rawRaidQuest,
-]
+let allRawQuest: QuestBase[]
+
+
+async function initQuest() {
+  if (isAllInitialzed(
+    rawQuest,
+    rawMarathonQuest,
+    rawMusic,
+    rawMusicChartPattern,
+    rawLiveBonusGroup,
+    rawLiveBonus,
+    rawLiveAbility,
+    rawPvpQuest,
+    rawGvgQuest,
+    rawLeagueQuest,
+    rawRaidQuest
+  )) {
+    return
+  }
+  const results = await Promise.all([
+    getRaw<QuestBase[]>("Quest"),
+    getRaw<QuestBase[]>("MarathonQuest"),
+    getRaw<Music[]>("Music"),
+    getRaw<MusicChartPattern[]>("MusicChartPattern"),
+    getRaw<LiveBonusGroup[]>("LiveBonusGroup"),
+    getRaw<LiveBonus[]>("LiveBonus"),
+    getRaw<LiveAbility[]>("LiveAbility"),
+    getRaw<QuestBase[]>("PvpQuest"),
+    getRaw<QuestBase[]>("GvgQuest"),
+    getRaw<QuestBase[]>("LeagueQuest"),
+    getRaw<QuestBase[]>("RaidQuest"),
+  ])
+  rawQuest = results[0]
+  rawMarathonQuest = results[1]
+  rawMusic = results[2]
+  rawMusicChartPattern = results[3]
+  rawLiveBonusGroup = results[4]
+  rawLiveBonus = results[5]
+  rawLiveAbility = results[6]
+  rawPvpQuest = results[7]
+  rawGvgQuest = results[8]
+  rawLeagueQuest = results[9]
+  rawRaidQuest = results[10]
+  allRawQuest = [
+    ...rawQuest,
+    ...rawMarathonQuest,
+    ...rawPvpQuest,
+    ...rawGvgQuest,
+    ...rawLeagueQuest,
+    ...rawRaidQuest,
+  ]
+}
+
 
 const getRawInsideDbQuests = (
   reg: string
@@ -113,6 +147,20 @@ const getRawLiveAbility = (
 }
 
 export {
-  getAllRawMusic, getAllRawMusicChartPattern, getRawGvgQuests, getRawInsideDbQuests, getRawLeagueQuests, getRawLiveAbility, getRawLiveBonus, getRawLiveBonusGroup, getRawMarathonQuests, getRawMusic, getRawMusicChartPattern, getRawPvpQuests, getRawQuest, getRawRaidQuests
+  getAllRawMusic,
+  getAllRawMusicChartPattern,
+  getRawGvgQuests,
+  getRawInsideDbQuests,
+  getRawLeagueQuests,
+  getRawLiveAbility,
+  getRawLiveBonus,
+  getRawLiveBonusGroup,
+  getRawMarathonQuests,
+  getRawMusic,
+  getRawMusicChartPattern,
+  getRawPvpQuests,
+  getRawQuest,
+  getRawRaidQuests,
+  initQuest,
 }
 

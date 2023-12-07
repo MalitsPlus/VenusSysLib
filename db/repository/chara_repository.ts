@@ -2,6 +2,9 @@ import { Character, CharacterGroup } from "../../types/proto/proto_master";
 import { getCharacter, getRawCharaGroups } from "../dao/character_dao";
 
 const getAllGroups = (): CharacterGroup[] => {
+  if (charaGroups === undefined) {
+    charaGroups = getRawCharaGroups()
+  }
   return charaGroups
 }
 
@@ -19,7 +22,7 @@ const getAllCharas = (): Character[] => {
   return charas
 }
 
-const charaGroups: CharacterGroup[] = getRawCharaGroups()
+let charaGroups: CharacterGroup[]
 const charas: Character[] = []
 
 export {

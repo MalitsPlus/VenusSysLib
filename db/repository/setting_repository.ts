@@ -5,4 +5,8 @@ const getSetting = (): Setting => {
   return getRawSetting()
 }
 
-export const GameSetting = getSetting()
+export function updateGameSetting(newSetting: Setting) {
+  GameSetting = newSetting
+}
+
+export let GameSetting = getSetting()
