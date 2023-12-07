@@ -31,3 +31,4 @@ yarn-error.log*
 
 /test/*.json
 .env
+database_bak
