@@ -22,8 +22,8 @@ export default function simulate(
 }
 
 export { initApi as init } from "./db/dao/api";
-export { initCard } from "./db/dao/card_dao"
-export { initSkill } from "./db/dao/skill_dao"
-export { initCharacter } from "./db/dao/character_dao"
-export { initSetting } from "./db/dao/setting_dao"
-export { initQuest } from "./db/dao/quest_dao"
+export { initCard, setInitCard } from "./db/dao/card_dao"
+export { initSkill, setInitSkill } from "./db/dao/skill_dao"
+export { initCharacter, setInitCharacter } from "./db/dao/character_dao"
+export { initSetting, setInitSetting } from "./db/dao/setting_dao"
+export { initQuest, setInitQuest } from "./db/dao/quest_dao"
