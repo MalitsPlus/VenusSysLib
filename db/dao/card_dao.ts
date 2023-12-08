@@ -1,5 +1,6 @@
 import { Card, CardParameter, CardRarity } from "../../types/proto/proto_master"
 import { logIdNotFound } from "../../utils/console_utils"
+import { Unpromise } from "./typeUtils";
 import { getRaw, isAllInitialzed } from "./utils";
 
 let rawCard: Card[]
@@ -16,9 +17,17 @@ async function initCard() {
     getRaw<CardParameter[]>("CardParameter"),
     getRaw<CardRarity[]>("CardRarity"),
   ])
-  rawCard = results[0]
-  rawCardParameter = results[1]
-  rawCardRarity = results[2]
+  setInitCard(results)
+  return results
+}
+
+function setInitCard(data: Unpromise<ReturnType<typeof initCard>>) {
+  if (data === undefined) {
+    throw new Error("Initialize Card failed")
+  }
+  rawCard = data[0]
+  rawCardParameter = data[1]
+  rawCardRarity = data[2]
 }
 
 const getAllRawCard = () => {
@@ -50,4 +59,5 @@ export {
   getRawCardRarity,
   getAllRawCard,
   initCard,
+  setInitCard,
 }

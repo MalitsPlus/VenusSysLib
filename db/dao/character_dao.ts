@@ -1,5 +1,6 @@
 import { Character, CharacterGroup } from "../../types/proto/proto_master"
 import { logIdNotFound } from "../../utils/console_utils"
+import { Unpromise } from "./typeUtils"
 import { getRaw, isAllInitialzed } from "./utils"
 
 let rawChara: Character[]
@@ -13,8 +14,16 @@ async function initCharacter() {
     getRaw<Character[]>("Character"),
     getRaw<CharacterGroup[]>("CharacterGroup"),
   ])
-  rawChara = results[0]
-  rawCharaGroup = results[1]
+  setInitCharacter(results)
+  return results
+}
+
+function setInitCharacter(data: Unpromise<ReturnType<typeof initCharacter>>) {
+  if (data === undefined) {
+    throw new Error("Initialize Card failed")
+  }
+  rawChara = data[0]
+  rawCharaGroup = data[1]
 }
 
 const getCharacter = (
@@ -33,4 +42,5 @@ export {
   getCharacter,
   getRawCharaGroups,
   initCharacter,
+  setInitCharacter,
 }

@@ -1,6 +1,7 @@
 import { LiveAbility, LiveBonus, LiveBonusGroup, Music, MusicChartPattern } from "../../types/proto/proto_master"
 import { QuestBase } from "../../types/quest_types"
 import { logIdNotFound } from "../../utils/console_utils"
+import { Unpromise } from "./typeUtils"
 
 import { getRaw, isAllInitialzed } from "./utils"
 
@@ -49,17 +50,25 @@ async function initQuest() {
     getRaw<QuestBase[]>("LeagueQuest"),
     getRaw<QuestBase[]>("RaidQuest"),
   ])
-  rawQuest = results[0]
-  rawMarathonQuest = results[1]
-  rawMusic = results[2]
-  rawMusicChartPattern = results[3]
-  rawLiveBonusGroup = results[4]
-  rawLiveBonus = results[5]
-  rawLiveAbility = results[6]
-  rawPvpQuest = results[7]
-  rawGvgQuest = results[8]
-  rawLeagueQuest = results[9]
-  rawRaidQuest = results[10]
+  setInitQuest(results)
+  return results
+}
+
+function setInitQuest(data: Unpromise<ReturnType<typeof initQuest>>) {
+  if (data === undefined) {
+    throw new Error("Initialize Card failed")
+  }
+  rawQuest = data[0]
+  rawMarathonQuest = data[1]
+  rawMusic = data[2]
+  rawMusicChartPattern = data[3]
+  rawLiveBonusGroup = data[4]
+  rawLiveBonus = data[5]
+  rawLiveAbility = data[6] 
+  rawPvpQuest = data[7]
+  rawGvgQuest = data[8]
+  rawLeagueQuest = data[9]
+  rawRaidQuest = data[10]
   allRawQuest = [
     ...rawQuest,
     ...rawMarathonQuest,
@@ -162,5 +171,6 @@ export {
   getRawQuest,
   getRawRaidQuests,
   initQuest,
+  setInitQuest,
 }
 

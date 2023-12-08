@@ -4,6 +4,7 @@ import {
 } from "../../types/proto/proto_master"
 
 import { logIdNotFound } from "../../utils/console_utils"
+import { Unpromise } from "./typeUtils"
 import { getRaw, isAllInitialzed } from "./utils"
 
 let rawSkill: Skill[]
@@ -22,10 +23,18 @@ async function initSkill() {
     getRaw<SkillTrigger[]>("SkillTrigger"),
     getRaw<SkillEfficacy[]>("SkillEfficacy"),
   ])
-  rawSkill = results[0]
-  rawSkillTarget = results[1]
-  rawSkillTrigger = results[2]
-  rawSkillEfficacy = results[3]
+  setInitSkill(results)
+  return results
+}
+
+function setInitSkill(data: Unpromise<ReturnType<typeof initSkill>>) {
+  if (data === undefined) {
+    throw new Error("Initialize Skill failed")
+  }
+  rawSkill = data[0]
+  rawSkillTarget = data[1]
+  rawSkillTrigger = data[2]
+  rawSkillEfficacy = data[3]
 }
 
 const getRawSkill = (
@@ -68,4 +77,5 @@ export {
   getRawSkillEfficacy,
   getRawSkillTrigger,
   initSkill,
+  setInitSkill,
 }
