@@ -14,9 +14,9 @@ let rawSkillEfficacy: SkillEfficacy[]
 
 
 async function initSkill() {
-  if (isAllInitialzed(rawSkill, rawSkillTarget, rawSkillTrigger, rawSkillEfficacy)) {
-    return
-  }
+  // if (isAllInitialzed(rawSkill, rawSkillTarget, rawSkillTrigger, rawSkillEfficacy)) {
+  //   return
+  // }
   const results = await Promise.all([
     getRaw<Skill[]>("Skill"),
     getRaw<SkillTarget[]>("SkillTarget"),

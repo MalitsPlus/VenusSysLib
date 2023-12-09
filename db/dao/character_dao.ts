@@ -7,9 +7,9 @@ let rawChara: Character[]
 let rawCharaGroup: CharacterGroup[]
 
 async function initCharacter() {
-  if (isAllInitialzed(rawChara, rawCharaGroup)) {
-    return
-  }
+  // if (isAllInitialzed(rawChara, rawCharaGroup)) {
+  //   return
+  // }
   const results = await Promise.all([
     getRaw<Character[]>("Character"),
     getRaw<CharacterGroup[]>("CharacterGroup"),

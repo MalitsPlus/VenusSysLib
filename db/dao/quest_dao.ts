@@ -22,21 +22,21 @@ let allRawQuest: QuestBase[]
 
 
 async function initQuest() {
-  if (isAllInitialzed(
-    rawQuest,
-    rawMarathonQuest,
-    rawMusic,
-    rawMusicChartPattern,
-    rawLiveBonusGroup,
-    rawLiveBonus,
-    rawLiveAbility,
-    rawPvpQuest,
-    rawGvgQuest,
-    rawLeagueQuest,
-    rawRaidQuest
-  )) {
-    return
-  }
+  // if (isAllInitialzed(
+  //   rawQuest,
+  //   rawMarathonQuest,
+  //   rawMusic,
+  //   rawMusicChartPattern,
+  //   rawLiveBonusGroup,
+  //   rawLiveBonus,
+  //   rawLiveAbility,
+  //   rawPvpQuest,
+  //   rawGvgQuest,
+  //   rawLeagueQuest,
+  //   rawRaidQuest
+  // )) {
+  //   return
+  // }
   const results = await Promise.all([
     getRaw<QuestBase[]>("Quest"),
     getRaw<QuestBase[]>("MarathonQuest"),

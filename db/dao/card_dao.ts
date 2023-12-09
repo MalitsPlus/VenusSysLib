@@ -8,10 +8,10 @@ let rawCardParameter: CardParameter[]
 let rawCardRarity: CardRarity[]
 
 async function initCard() {
-  if (isAllInitialzed(rawCard, rawCardParameter, rawCardRarity)) {
-    console.debug("card already inited")
-    return
-  }
+  // if (isAllInitialzed(rawCard, rawCardParameter, rawCardRarity)) {
+  //   console.debug("card already inited")
+  //   return
+  // }
   const results = await Promise.all([
     getRaw<Card[]>("Card"),
     getRaw<CardParameter[]>("CardParameter"),

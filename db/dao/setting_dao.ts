@@ -7,9 +7,9 @@ import { Unpromise } from "./typeUtils"
 let rawSetting: Setting[]
 
 async function initSetting() {
-  if (isAllInitialzed(rawSetting)) {
-    return
-  }
+  // if (isAllInitialzed(rawSetting)) {
+  //   return
+  // }
   const results = await Promise.all([
     getRaw<Setting[]>("Setting"),
   ])
